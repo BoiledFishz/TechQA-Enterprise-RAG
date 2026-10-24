@@ -8,7 +8,7 @@ from pathlib import Path
 import pytest
 from rag.retrieval.contracts import SearchResult
 
-from agents.chap12.fused_prior import FusedPriorReranker
+from agents.chap12.fused_prior import FusedPriorReranker, MaxPriorReranker
 from agents.chap12.metered import CountingReranker
 
 
@@ -46,6 +46,9 @@ def test_retriever_settings(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> 
                                                  use_dense=False, rerank_prior="fused",
                                                  candidate_k=50)
     assert type(tuned.pipeline.reranker) is FusedPriorReranker
+    maxed = sample_retriever.SampleRetrieverTool(tmp_path / "x.sqlite", rerank="nomic",
+                                                 use_dense=False, rerank_prior="max")
+    assert type(maxed.pipeline.reranker) is MaxPriorReranker
     assert tuned.pipeline.config.candidate_k == 50
     monkeypatch.setenv("CHAP12_RERANK_PRIOR", "bm25")
     monkeypatch.setenv("CHAP12_CANDIDATE_K", "30")
@@ -54,3 +57,11 @@ def test_retriever_settings(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> 
                                                   candidate_k=50)
     assert type(forced.pipeline.reranker) is CountingReranker
     assert forced.pipeline.config.candidate_k == 30
+
+
+def test_max_prior_keeps_a_good_bm25_rank_and_rescues_dense_only_hits() -> None:
+    items = [cand(1, 20), cand(2, None), cand(3, 1)]  # fused order 1, 2, 3
+    comps: dict[str, dict[str, float]] = {}
+    asyncio.run(MaxPriorReranker(False).rerank("q", items, limit=3, components=comps))
+    ranks = [comps[f"c{i}"]["bm25_document_rank"] for i in (1, 2, 3)]
+    assert ranks == [1.0, 2.0, 1.0]  # min(fused position, BM25 rank); dense-only -> fused

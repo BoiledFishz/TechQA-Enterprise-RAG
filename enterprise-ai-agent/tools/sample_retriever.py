@@ -123,10 +123,10 @@ class SampleRetrieverTool(TechQARetrieverTool):
         else:
             # Round 10: prior from the fused rank (CHAP12_RERANK_PRIOR=fused or tuned value).
             prior = os.getenv("CHAP12_RERANK_PRIOR") or rerank_prior or "bm25"
-            if choice == "nomic" and prior == "fused":
-                from agents.chap12.fused_prior import FusedPriorReranker
+            if choice == "nomic" and prior in {"fused", "max"}:
+                from agents.chap12.fused_prior import FusedPriorReranker, MaxPriorReranker
 
-                reranker = FusedPriorReranker(True)
+                reranker = (FusedPriorReranker if prior == "fused" else MaxPriorReranker)(True)
             else:
                 reranker = CountingReranker(choice == "nomic")
             reranker.embedder = BudgetedEmbedder(reranker.embedder)

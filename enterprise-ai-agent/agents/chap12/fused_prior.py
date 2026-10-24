@@ -20,12 +20,28 @@ from agents.chap12.metered import CountingReranker
 
 
 class FusedPriorReranker(CountingReranker):
+    # "fused" (round 10): rank = fused position. "max" (round 11): the better of the BM25 rank
+    # and the fused position, i.e. the larger of the two priors (the prior falls with rank).
+    mode = "fused"
+
     async def rerank(self, query: str, candidates: list[SearchResult], *, limit: int = 20,
                      components: dict[str, dict[str, float]] | None = None
                      ) -> list[SearchResult]:
         # Candidates arrive in fused (RRF) order from the pipeline; rank = position.
-        ranked: list[Any] = [replace(c, metadata={**c.metadata, "bm25_document_rank": i})
-                             for i, c in enumerate(candidates, 1)]
+        ranked: list[Any] = [replace(c, metadata={**c.metadata, "bm25_document_rank": (
+            i if self.mode == "fused"
+            else min(i, int(c.metadata.get("bm25_document_rank", 1000))))})
+            for i, c in enumerate(candidates, 1)]
         result: list[SearchResult] = await super().rerank(query, ranked, limit=limit,
                                                           components=components)
         return result
+
+
+class MaxPriorReranker(FusedPriorReranker):
+    """Round 11 (2026-10-24): prior = max(BM25-rank prior, fused-rank prior).
+
+    Offline on the tune split (results/chap12/prior_study.json, candidate_k 30) it was at least
+    as good as the Project 1 prior at every cut (R@1 0.473 -> 0.482, R@3 0.589 -> 0.607,
+    R@8 0.661 -> 0.696), unlike the pure fused prior (R@1 0.393)."""
+
+    mode = "max"
