@@ -384,3 +384,7 @@
 - 运行（调参集 150 题，当前采用配置：nomic、top_k 8、Critic 开、7B 选证据 + 14B 判断，trace 开）：`tune_real_r10_fused30`、`tune_real_r10_fused50`；基线 `tune_real_r9_judged14`（Ollama 0.40.9），版本变化时先重跑为 `tune_real_r10_base` 并核对。
 - 规则（`evaluation/chap12_round10.py`）：每个变体相对基线须满足原本正确的可回答题丢失 ≤ 3、配对净胜 ≥ 5、失败率不升、两边都作答的 token F1 下降 ≤ 0.05 才算合格；合格者取净胜较大者（并列取候选 30）。延迟只报告。采用后才运行评测集 `ollama_run10`，与 `ollama_run9` 配对比较。
 - 运行器：`.chap12_run/run_round10.cmd`（不提交）。
+
+### 第十轮运行记录（Windows，用户双击 `.chap12_run/run_round10.cmd`，2026-10-24 09:15–12:55 PT）
+- Ollama 0.40.9（未变，不重跑基线）。`tune_real_r10_fused30`（150 条，3 条超时）正确 63；`tune_real_r10_fused50`（150 条，失败 0）正确 68。`chap12_round10` → 两者都不合格，不采用；提交 `b9ee589` 并推送。评测集未运行。结果写入 comparison.md 第十轮。
+
