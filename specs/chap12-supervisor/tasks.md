@@ -409,3 +409,7 @@
 - 运行：`tune_real_r11_max30`（调参集 150 题，当前采用配置，trace 开）；基线 `tune_real_r9_judged14`（Ollama 0.40.9），版本变化时先重跑为 `tune_real_r11_base`。
 - 规则（`evaluation/chap12_round11.py`）：丢失 ≤ 3、净胜 ≥ 5、失败率不升、两边都作答的 token F1 下降 ≤ 0.05 才采用。采用后才运行评测集 `ollama_run11`，与 `ollama_run9` 配对比较。
 - 运行器：`.chap12_run/run_round11.cmd`（不提交）。
+
+### 第十一轮运行记录（Windows，用户双击 `.chap12_run/run_round11.cmd`，2026-10-24 15:49–17:30 PT）
+- Ollama 0.40.9（未变）。`tune_real_r11_max30`（150 条，失败 0）正确 69；`chap12_round11` → 不采用（净 +3 < 5，丢失 3）；提交 `c426b54` 并推送。评测集未运行。结果写入 comparison.md 第十一轮。
+
