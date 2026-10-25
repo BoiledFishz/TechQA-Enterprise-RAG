@@ -115,3 +115,21 @@ def test_factory_uses_judge_model_env(tmp_path: Path, monkeypatch: pytest.Monkey
     agent = factory.build_rag_agent(Settings(profile="ollama"), tmp_path / "x.sqlite")
     assert agent.selector.judge_name == "qwen2.5:14b"  # type: ignore[attr-defined]
     assert agent.selector.judge_model is not agent.selector.model  # type: ignore[attr-defined]
+
+
+def test_factory_selection_model_env(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setenv("CHAP12_SELECTOR", "judged")
+    monkeypatch.setenv("CHAP12_JUDGE_MODEL", "qwen2.5:14b")
+    monkeypatch.setenv("CHAP12_SELECTOR_MODEL", "qwen2.5:14b")
+    monkeypatch.setattr(factory, "TUNED", tmp_path / "absent.json")
+
+    class Spy:
+        def __init__(self, *a: object, **k: object) -> None: ...
+
+    monkeypatch.setattr("tools.sample_retriever.SampleRetrieverTool", Spy)
+    agent = factory.build_rag_agent(Settings(profile="ollama", model="qwen2.5:7b"),
+                                    tmp_path / "x.sqlite")
+    selector = agent.selector
+    assert selector.select_name == "qwen2.5:14b"  # type: ignore[attr-defined]
+    assert selector.model is selector.judge_model  # type: ignore[attr-defined]
+    assert agent.rewriter.model is not selector.model  # rewrite keeps the 7B agent model

@@ -97,8 +97,16 @@ def build_rag_agent(settings: Settings, path: Path, override: Any | None = None,
                 tuned_config().get("judge_model") or settings.model)
             judge = model if judge_name == settings.model else BudgetedModel(
                 TokenMeteredOllamaModel(settings.ollama_url, judge_name, settings.llm_timeout))
-            selector = JudgedSelector(model, judge_model=judge, judge_name=judge_name,
+            # Round 12: the selection call (Project 1 prompt + its conflict review) may also use
+            # another model; the query rewrite keeps the agent model.
+            select_name = os.getenv("CHAP12_SELECTOR_MODEL") or str(
+                tuned_config().get("selector_model") or settings.model)
+            chooser = model if select_name == settings.model else (
+                judge if select_name == judge_name else BudgetedModel(TokenMeteredOllamaModel(
+                    settings.ollama_url, select_name, settings.llm_timeout)))
+            selector = JudgedSelector(chooser, judge_model=judge, judge_name=judge_name,
                                       controlled=controlled)
+            selector.select_name = select_name  # type: ignore[attr-defined]
         else:
             selector = LLMSelector(model, controlled=controlled)
         # Reranker chosen on the tune split (round 3); CHAP12_RERANKER always wins.

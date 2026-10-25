@@ -413,3 +413,12 @@
 ### 第十一轮运行记录（Windows，用户双击 `.chap12_run/run_round11.cmd`，2026-10-24 15:49–17:30 PT）
 - Ollama 0.40.9（未变）。`tune_real_r11_max30`（150 条，失败 0）正确 69；`chap12_round11` → 不采用（净 +3 < 5，丢失 3）；提交 `c426b54` 并推送。评测集未运行。结果写入 comparison.md 第十一轮。
 
+
+## 2026-10-24 第十二轮：选证据也用 14B（两个变体，用户要求“继续改进”，22:36 PT）
+
+### 事先登记（在任何运行之前提交）
+- 动机（第十一轮 trace，诊断）：答案文档已在模型证据中却失分的题里，7B 选证据拒答 7 道（答案文档常在证据第 1 位）、14B 判断否决 7 道、引用了别的文档 5 道；不可回答题被作答 19 道（判断全部放行）。ChatGPT 10 组对比与第九轮都显示强模型在生成/判断层更准。
+- 实现：`factory` 增加 `CHAP12_SELECTOR_MODEL`（或 `adopted.selector_model`），只让选证据调用（Project 1 选证据 prompt 与其冲突复核）使用另一个模型；查询改写仍用 7B；判断仍用 14B。新增 1 个测试，`pytest tests/chap12 -q` → `201 passed`；ruff 通过。
+- 运行（调参集 150 题，trace 开）：`tune_real_r12_s14`（14B 选证据，BM25 名次分）、`tune_real_r12_s14max`（14B 选证据 + 第十一轮的 max 名次分）；基线 `tune_real_r9_judged14`（Ollama 0.40.9），版本变化时先重跑为 `tune_real_r12_base`。
+- 规则（`evaluation/chap12_round12.py`）：与前几轮相同（丢失 ≤ 3、净胜 ≥ 5、失败率不升、token F1 下降 ≤ 0.05）；两者都合格时取净胜较大者，并列取 s14。延迟只报告。采用后才运行评测集 `ollama_run12`，与 `ollama_run9` 配对比较。
+- 运行器：`.chap12_run/run_round12.cmd`（不提交）。
