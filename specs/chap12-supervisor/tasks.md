@@ -422,3 +422,4 @@
 - 运行（调参集 150 题，trace 开）：`tune_real_r12_s14`（14B 选证据，BM25 名次分）、`tune_real_r12_s14max`（14B 选证据 + 第十一轮的 max 名次分）；基线 `tune_real_r9_judged14`（Ollama 0.40.9），版本变化时先重跑为 `tune_real_r12_base`。
 - 规则（`evaluation/chap12_round12.py`）：与前几轮相同（丢失 ≤ 3、净胜 ≥ 5、失败率不升、token F1 下降 ≤ 0.05）；两者都合格时取净胜较大者，并列取 s14。延迟只报告。采用后才运行评测集 `ollama_run12`，与 `ollama_run9` 配对比较。
 - 运行器：`.chap12_run/run_round12.cmd`（不提交）。
+- 第一次运行（2026-10-25 08:29–10:24 PT）**作废**：启动时 Ollama 未运行（探测“无法连接到远程服务器”），运行器把空版本号当作“版本变化”，开始重跑基线；Ollama 随后可用，150 条中 2 条为 `dependency_unavailable`，最后写汇总时因运行元数据为空而报错退出。两个变体都没有运行。该基线目录不提交、不使用，已移到 `.chap12_run/aborted/tune_real_r12_base_ollama_down_20261025/`（不在 git 中）。运行器改为：Ollama 不可达时直接停止并提示启动 Ollama。规则与变体不变。
