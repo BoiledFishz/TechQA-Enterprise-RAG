@@ -1,0 +1,2320 @@
+[
+ {
+  "group": "miss",
+  "task_id": "M-tune-007",
+  "layer": "L2 rerank",
+  "tags": [
+   "dense_only",
+   "wrong_product",
+   "vocab_gap"
+  ],
+  "question": "Does ODM 8.5.1 support MQ 9.0? Does ODM 8.5.1 support MQ 9.0 where ODM Rule Execution Server is running on WAS 8.5.0.2 (embedded with ODM)? No MQ version is specified in ODM 8.5.1 System Requirements.",
+  "rewritten_query": "Does ODM 8.5.1 support MQ 9.0? Does ODM 8.5.1 support MQ 9.0 where ODM Rule Execution Server is running on WAS 8.5.0.2 (embedded with ODM)? No MQ version is specified in ODM 8.5.1 System Requirements.",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 1,
+   "sparse": null,
+   "fusion": 2,
+   "rerank": 17
+  },
+  "gold": {
+   "doc": "swg21312967",
+   "title": "IBM MQ 7.x, MQ 8.0 and MQ 9.0 compatibility with previous versions - including usage of CCDT files, JMS .bindings, SSL/TLS - United States",
+   "products": "IBM MQ, WebSphere MQ",
+   "opening": "compatibility; compatible TECHNOTE (FAQ) QUESTION Are WebSphere MQ (WMQ) V7.0, V7.1, V7.5 and V8.0 compatible with previous versions? Can an MQ 8.0 client use a CCDT created with a previous version? Can an MQ 7.0 client use a CCDT created with a newer version? Can a JMS .bindings file created in 7.1"
+  },
+  "top3": [
+   {
+    "doc": "swg21980095",
+    "title": "IBM Integration of CICS event support with ODM Decision Server Insights - United States",
+    "products": "CICS Transaction Server, SSFVJY",
+    "opening": "5655Y0400 R680 680 R800 800 HCI6800 R690 690 R900 900 HCI6900 R700 700 R000 000 HCI7000 5655Y0401 5655-Y04 5655Y04 KIXINFO NEWS ABSTRACT Events from CICS can be consumed by IBM Operational Decision Ma"
+   },
+   {
+    "doc": "swg21646410",
+    "title": "IBM Operational Decision Manager support statement for virtual environments - United States",
+    "products": "IBM Operational Decision Manager",
+    "opening": "NEWS ABSTRACT Customers can employ various applications to provide an emulated or virtual operating environment in order to meet their needs, such as to provide production server consolidation, centra"
+   },
+   {
+    "doc": "ibm10717805",
+    "title": "IBM Operational Decision Manager Interim Fixes for V8.0 releases - United States",
+    "products": "IBM Operational Decision Manager",
+    "opening": "PREVENTIVE SERVICE PLANNING ABSTRACT Use interim fixes to address issues found in the releases in Operational Decision Manager V8.0 series. CONTENT The following table lists the interim fixes by versi"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-015",
+  "layer": "L1 retrieval: fusion cut",
+  "tags": [
+   "sparse_only",
+   "same_product",
+   "vocab_gap"
+  ],
+  "question": "SPSS will not start on Mac I downloaded SPSS about 3 weeks ago. On the day when I downloaded it, it was working fine. Last week, I tried starting SPSS but it did not start. I tried reinstalling it, it still would not open. I've updated JAVA (thought this would be a problem), it slowly opened the program but then now that I have reinstalled it and entered in my code, I've used up my code and I have no authorization. But just now, I started SPSS and the same problem is happening. The IBM SPSS name",
+  "rewritten_query": "SPSS will not start on Mac I downloaded SPSS about 3 weeks ago. On the day when I downloaded it, it was working fine. Last week, I tried starting SPSS but it did not start. I tried reinstalling it, it still would not open. I've updated JAVA (thought this would be a problem), it slowly opened the pro",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": null,
+   "sparse": 18,
+   "fusion": null,
+   "rerank": null
+  },
+  "gold": {
+   "doc": "swg21651225",
+   "title": "IBM Performance issue on Mac OS X Launching and Closing SPSS Statistics 21 or 22. - United States",
+   "products": "SPSS Statistics",
+   "opening": "Mac OS X; Performance; open; close; exit; launch; 10.6.x 10.7.x 10.8.x 10.9.x TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) With SPSS Statistics 21 or 22 software installed on Mac OS X. The software was running normally, but for what ever reason, the program might fail or close improperly by using Fo"
+  },
+  "top3": [
+   {
+    "doc": "swg21688476",
+    "title": "IBM Will IBM SPSS Statistics 22 run on Apple OS Mac OS X, 10.10 Yosemite? - United States",
+    "products": "SPSS Statistics",
+    "opening": "TECHNOTE (FAQ) QUESTION I am plannig to update to the new Apple Mac OS X, 10.10 Yosemite and would like to know if IBM SPSS Statistics will run successfully on this OS. CAUSE OS Update ANSWER IBM SPSS"
+   },
+   {
+    "doc": "swg21480132",
+    "title": "IBM Assertion Failed! Expression: _env && \"Error: Java environment could not initialized in JVizConverter.\" - United States",
+    "products": "SPSS Statistics",
+    "opening": "TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) I successfully installed SPSS for Windows, but when I try to start SPSS I get the following error message: Assertion failed! Program: \\spsswin.exe File Z:\\"
+   },
+   {
+    "doc": "swg21999184",
+    "title": "IBM Silent installation of release IBM SPSS Statistics 24 on Macintosh OSX Sierra (10.12) - United States",
+    "products": "SPSS Statistics",
+    "opening": "TECHNOTE (FAQ) QUESTION How do I perform a silent installation of IBM SPSS Statistics for Macintosh OSX Sierra 10.12.x? There are two ways to install Statistics 24 on Macintosh operating systems (Supp"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-017",
+  "layer": "L2 rerank",
+  "tags": [
+   "same_product",
+   "vocab_gap"
+  ],
+  "question": "Is Java 8 supported for EJBDeploy on WebSphere Application Server 8.5.5.9 or later?",
+  "rewritten_query": "Is Java 8 supported for EJBDeploy on WebSphere Application Server 8.5.5.9 or later?",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 15,
+   "sparse": 11,
+   "fusion": 4,
+   "rerank": 11
+  },
+  "gold": {
+   "doc": "swg21994741",
+   "title": "IBM Learning more about EJBDeploy - United States",
+   "products": "WebSphere Application Server",
+   "opening": "EJB; EJBDeploy TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) Learning more about EJBDeploy is the first step in the troubleshooting process. This document provides you with educational information that can help you learn more about this topic. RESOLVING THE PROBLEM TAB NAVIGATION * Learning more [htt"
+  },
+  "top3": [
+   {
+    "doc": "swg24043474",
+    "title": "IBM PI73197:Enable Java 8 Support for EJBDeploy on WebSphere Application Server - United States",
+    "products": "WebSphere Application Server",
+    "opening": "PI73197; PI73197; PI73197 DOWNLOADABLE FILES ABSTRACT Enable Java 8 Support for EJBDeploy on WebSphere Application Server 8.5.5.9 or later. NOTE: After this fix is applied, EJBDeploy can no longer be "
+   },
+   {
+    "doc": "swg1PI73197",
+    "title": "IBM PI73197: Enable Java 8 Support for EJBDeploy on WebSphere Application Server - United States",
+    "products": "WebSphere Application Server",
+    "opening": "A FIX IS AVAILABLE PI73197:Enable Java 8 Support for EJBDeploy on WebSphere Application Server [http://www-01.ibm.com/support/docview.wss?uid=swg24043474] SUBSCRIBE You can track all active APARs for "
+   },
+   {
+    "doc": "swg21994742",
+    "title": "IBM TroubleShooting: WebSphere Application Server Toolkit EJBDeploy problems - United States",
+    "products": "WebSphere Application Server",
+    "opening": "EJB;EJBDeploy TROUBLESHOOTING PROBLEM Troubleshooting EJBDeploy problems in WebSphere Application Server. This should help address common issues with this component before calling IBM support and save"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-019",
+  "layer": "L1 retrieval: fusion cut",
+  "tags": [
+   "dense_only",
+   "wrong_product",
+   "vocab_gap"
+  ],
+  "question": "Report stuck in current queue We have one report that has been showing in the admin current activities status tab for 20+ days and we have had 2 full re-starts since then. Also it appears we have interactive jobs staying around as well for past days and days. How can we clean this up ?",
+  "rewritten_query": "Report stuck in current queue We have one report that has been showing in the admin current activities status tab for 20+ days and we have had 2 full re-starts since then. Also it appears we have interactive jobs staying around as well for past days and days. How can we clean this up ?",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 23,
+   "sparse": null,
+   "fusion": null,
+   "rerank": null
+  },
+  "gold": {
+   "doc": "swg21371279",
+   "title": "IBM Scheduled Cognos BI reports are stuck in Pending state - United States",
+   "products": "Cognos Business Intelligence",
+   "opening": "deployment TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) Schedules Cognos Business Intelligience reports are not running. Scheduled reports are stuck in \"Pending\" state forever. - Renewing credentials does not resolve the issue. After credentials are renewed, user still receives the same error indica"
+  },
+  "top3": [
+   {
+    "doc": "swg21975556",
+    "title": "IBM Community Metrics Reports Group By Geography Option Doesn't Show the Full Report - United States",
+    "products": "IBM Connections",
+    "opening": "cognos; community; metrics; geography TECHNOTE (TROUBLESHOOTING) PROBLEM When a user runs the People/Participation report and groups it by \"Geography\", the results don't not show all the data. There i"
+   },
+   {
+    "doc": "swg1IV93580",
+    "title": "IBM IV93580: TNPMW ACTIVE_JOB TABLE NOT BEING CLEANED - United States",
+    "products": "Tivoli Netcool Performance Manager for Wireless",
+    "opening": "SUBSCRIBE You can track all active APARs for this component. APAR STATUS * CLOSED AS FIXED IF NEXT. ERROR DESCRIPTION * Customer reported that ACTIVE_JOB table has 22232 rows, ideally these should hav"
+   },
+   {
+    "doc": "isg3T1016388",
+    "title": "IBM Jobs in job array still show up in bjobs even if they have completed for many days. - United States",
+    "products": "Platform LSF, Spectrum LSF",
+    "opening": "job array LSB_CLEAN_PDONE_TIMEOUT bjobs cleanup TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) Jobs in job array still show up in bjobs even if they have completed for many days. RESOLVING THE PROBLEM J"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-021",
+  "layer": "L1 retrieval: not retrieved",
+  "tags": [
+   "neither",
+   "wrong_product",
+   "vocab_gap"
+  ],
+  "question": "ClassCastException IlrStorePolicy$SerializedENamedElement incompatible with EStructuralFeature We keep getting the following error when navigating in Decision Center on Websphere Application Server. java.lang.ClassCastException: ilog.rules.teamserver.web.IlrStorePolicy$SerializedENamedElement incompatible with org.eclipse.emf.ecore.EStructuralFeature Does anyone know how we can avoid this error?",
+  "rewritten_query": "ClassCastException IlrStorePolicy$SerializedENamedElement incompatible with EStructuralFeature We keep getting the following error when navigating in Decision Center on Websphere Application Server. java.lang.ClassCastException: ilog.rules.teamserver.web.IlrStorePolicy$SerializedENamedElement incomp",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": null,
+   "sparse": null,
+   "fusion": null,
+   "rerank": null
+  },
+  "gold": {
+   "doc": "swg21268440",
+   "title": "IBM Getting java.io.NotSerializableException when SessionObjectSize counter is enabled - United States",
+   "products": "WebSphere Application Server",
+   "opening": "java.io.NotSerializableException SessionObjectSize counter PMI enabled disable serializable TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) When PMI (Performance Monitoring Infrastructure) is enabled with SessionObjectSize counter enabled, getting NotSerializableException. The SystemOut.log shows somet"
+  },
+  "top3": [
+   {
+    "doc": "swg1JR29789",
+    "title": "IBM JR29789: AVOID CLASS CAST EXCEPTION BY PROVIDING HEADER INFORMATION EARLIER IN THE START-UP PHASE - United States",
+    "products": "WebSphere Process Server",
+    "opening": "SUBSCRIBE You can track all active APARs for this component. APAR STATUS * CLOSED AS PROGRAM ERROR. ERROR DESCRIPTION * [6/19/08 10:23:53:160 GMT+02:00] 0000002e ExceptionUtil E CNTR0020E: EJB threw a"
+   },
+   {
+    "doc": "swg1RS01699",
+    "title": "IBM RS01699: COMPILE ERRORS ON RULES/DECISION TABLES IN DECISION CENTER (z/OS) - United States",
+    "products": "IBM Operational Decision Manager for z/OS",
+    "opening": "FIXES ARE AVAILABLE Operational Decision Manager V8.5.1.2 Fix Pack [http://www-01.ibm.com/support/docview.wss?uid=swg24039235] Operational Decison Manager z/OS 8.7.1.2 Fix Pack [http://www-01.ibm.com/"
+   },
+   {
+    "doc": "swg1JR33928",
+    "title": "IBM JR33928: CLASSCAST EXEPTION BY BOXML SERIALIZER - United States",
+    "products": "WebSphere Process Server",
+    "opening": "A FIX IS AVAILABLE WebSphere Enterprise Service Bus V6.2.0 Fix Pack 2 (6.2.0.2) [http://www-01.ibm.com/support/docview.wss?uid=swg24024407] SUBSCRIBE You can track all active APARs for this component."
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-022",
+  "layer": "L2 rerank",
+  "tags": [
+   "dense_only",
+   "wrong_product",
+   "vocab_gap"
+  ],
+  "question": "HATS Plugin Download Hi I have RDZ 9.0 and want to install the HATS plugin. I've downloaded from this link: http://www.ibm.com/developerworks/downloads/ws/whats/ HATS 9.0.0.0 but it won't install because RDZ itself is not enough and it sais I need one of the following: IBM Rational Application Developer for WebSphere Software IBM Rational Software Architect for WebSphere Software IBM Rational Developer for i for SOA Construction IBM Rational Business Developer IBM Integration Developer which I d",
+  "rewritten_query": "HATS Plugin Download Hi I have RDZ 9.0 and want to install the HATS plugin. I've downloaded from this link: http://www.ibm.com/developerworks/downloads/ws/whats/ HATS 9.0.0.0 but it won't install because RDZ itself is not enough and it sais I need one of the following: IBM Rational Application Devel",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 2,
+   "sparse": null,
+   "fusion": 6,
+   "rerank": null
+  },
+  "gold": {
+   "doc": "swg24035040",
+   "title": "IBM Rational Host Access Transformation Services 9.0 - United States",
+   "products": "Rational Host Access Transformation Services",
+   "opening": "service release; modpack; mod pack; upgrade; refresh; refresh pack DOWNLOADABLE FILES ABSTRACT IBM Rational Host Access Transformation Services 9.0 has been made generally available and contains fixes to version 9.0. DOWNLOAD DESCRIPTION Table of Contents Sections Description * What's new This secti"
+  },
+  "top3": [
+   {
+    "doc": "swg21444449",
+    "title": "IBM Installing Rational Team Concert v2.x into the workbench in version 8.0 - United States",
+    "products": "Rational Application Developer for WebSphere Software, SS4JCV, SS5JSH, SS8PJ7, SSJVRK",
+    "opening": "RN8.0; SRX; RTC; Rational Team Concert; integration TECHNOTE (FAQ) QUESTION How do I install Rational Team Concert v2.x into my workbench (sometimes referred to as \"shell-share\") of a version 8.0 prod"
+   },
+   {
+    "doc": "swg27049457",
+    "title": "IBM Fix list for Debug Tool Plug-ins - United States",
+    "products": "Debug Tool for z/OS, IBM Developer for z Systems, Rational Developer for System z, SSVSZX",
+    "opening": "PRODUCT DOCUMENTATION ABSTRACT This document contains a complete listing of Debug Tool Plug-in fixes with the most recent fix at the top. CONTENT TAB NAVIGATION * Version 14- selected tab, * Support R"
+   },
+   {
+    "doc": "swg21963975",
+    "title": "IBM Rational Business Developer V9 Passport Advantage e-assembly part numbers for Host Access Transformation Services/Webfacing V9.0 - United States",
+    "products": "Rational Host Access Transformation Services",
+    "opening": "TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) What eAssembly part numbers should be downloaded from Passport Advantage to install WebFacing as a component of Host Access Transformation Services V9, Rat"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-025",
+  "layer": "L2 rerank",
+  "tags": [
+   "dense_only",
+   "wrong_product",
+   "vocab_gap"
+  ],
+  "question": "How to set session time out period for a single user in DASH?",
+  "rewritten_query": "How to set session time out period for a single user in DASH?",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 3,
+   "sparse": null,
+   "fusion": 10,
+   "rerank": 20
+  },
+  "gold": {
+   "doc": "swg21163875",
+   "title": "IBM HTTP Session time-out settings and overwrite precedence rules - United States",
+   "products": "Runtimes for Java Technology, WebSphere Application Server",
+   "opening": "WebSphere http session management time-out wasrun precedence overwrite TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) It is possible to set the HTTP Session time-out in various places on the IBM® WebSphere® Application Server Administrative Console. It is also possible to set HTTP Session time-out for"
+  },
+  "top3": [
+   {
+    "doc": "swg21973714",
+    "title": "IBM DASH/JazzSM: Change Session time out - United States",
+    "products": "Tivoli Components ITM Agent Linux V6",
+    "opening": "DASHL2; DASHCONF; DASH session time out TECHNOTE (FAQ) QUESTION How can I change session time out in IBM Dashboard Application Service Hub (DASH) /JazzSM? ANSWER The session time out can be controlled"
+   },
+   {
+    "doc": "swg21883735",
+    "title": "IBM Setting DASH session timeout at the User or Group level. - United States",
+    "products": "Tivoli Components ITM Agent Linux V6",
+    "opening": "DASH; DASHL2; DASHL2CONF; Session Timeout; Configuration; Controls; User; Group ; level TECHNOTE (FAQ) QUESTION Is it possible to set DASH session timeout parameters on a group and user level? CAUSE F"
+   },
+   {
+    "doc": "swg21690658",
+    "title": "IBM Setting a big session time-out value in DASH causes session lock-out - United States",
+    "products": "Tivoli Components ITM Agent Linux V6",
+    "opening": "DASHL2; session; time-out; timeout; cannot login; locked out ; 2147483647; security.xml TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) Using a big value (2147483647) for the session timeout setting in D"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-026",
+  "layer": "L2 rerank",
+  "tags": [
+   "dense_only",
+   "wrong_product"
+  ],
+  "question": "Install path under \"Program Files\" My path for the OS agent is e:\\Program Files\\IBM. Is there any issues or underlying problems if I install under \"Program Files\"? Just want to make sure no issues with a \"space\" in the install path.",
+  "rewritten_query": "Install path under 'Program Files' My path for the OS agent is e:\\Program Files\\IBM. Is there any issues or underlying problems if I install under 'Program Files'? Just want to make sure no issues with a 'space' in the install path.",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 8,
+   "sparse": null,
+   "fusion": 15,
+   "rerank": 15
+  },
+  "gold": {
+   "doc": "swg21961222",
+   "title": "IBM Trouble installing ITM on Windows OS - United States",
+   "products": "IBM Tivoli Monitoring V6",
+   "opening": "TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) Getting the below error when you try to install ITM on Window OS \"D:\\Program Files\\IBM\\ITM\" includes blanks. Due to your system settings the installation path cannot include blanks, please specify location with no spaces. SYMPTOM When you try to install I"
+  },
+  "top3": [
+   {
+    "doc": "swg1IZ77662",
+    "title": "IBM IZ77662: TEMA OMNIBUS TEPS SUPPORT INSTALLATION FAILS - DERBY DATABASE - United States",
+    "products": "Tivoli Netcool/OMNIbus",
+    "opening": "SUBSCRIBE You can track all active APARs for this component. APAR STATUS * CLOSED AS REQUIREMENT. ERROR DESCRIPTION * Products: Tivoli Monitoring 6.2.2 FP1 and ITM Agent for Netcool OMNIbus 7.3 OS: Wi"
+   },
+   {
+    "doc": "swg1IV32710",
+    "title": "IBM IV32710: INSTALL FAILS WHEN INSTALLING SYSTEM MONITOR AGENT INTO A DIRECTORY WITH A SPECIAL CHARACTER OR SPACE. - United States",
+    "products": "IBM Tivoli Monitoring V6",
+    "opening": "A FIX IS AVAILABLE IBM Tivoli Monitoring 6.3.0 Fix Pack 3 (6.3.0-TIV-ITM-FP0003) [http://www-01.ibm.com/support/docview.wss?uid=swg24036775] SUBSCRIBE You can track all active APARs for this component"
+   },
+   {
+    "doc": "swg1IC55668",
+    "title": "IBM IC55668: UNATTENDED INSTALL FAILS IF LOCAL ADMINISTRATOR ACCOUNT IS IDENTIFIED TO RUN THE COMMON AGENT SERVICE - United States",
+    "products": "Tivoli Storage Productivity Center for Data",
+    "opening": "AIX SUBSCRIBE You can track all active APARs for this component. APAR STATUS * CLOSED AS PROGRAM ERROR. ERROR DESCRIPTION * PMR NO: 66848,999,000 APAR SEV: 3 COMPID: 5608TC300 REL: 3.3.x Symptom Code:"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-034",
+  "layer": "L2 rerank",
+  "tags": [
+   "dense_only",
+   "same_product",
+   "vocab_gap"
+  ],
+  "question": "Does Logout button get disabled in ICM for SSO with Tivoli Access Manager ?",
+  "rewritten_query": "Does the Logout button get disabled in ICM for SSO with Tivoli Access Manager?",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 13,
+   "sparse": null,
+   "fusion": 22,
+   "rerank": null
+  },
+  "gold": {
+   "doc": "swg27042940",
+   "title": "IBM Content Navigator known issue: In a SPNEGO/Kerberos Single sign-on environment, IBM Content Navigator the Log Out option is enabled - United States",
+   "products": "Case Manager, Content Navigator",
+   "opening": "PRODUCT DOCUMENTATION ABSTRACT In a SPNEGO/Kerberos single sign-on (SSO) environment, your IBM Content Navigator session shows the Log Out option as enabled when you select the drop-down menu on the user name. However, the option should be disabled. CONTENT IBM Content Navigator disables the Log Out"
+  },
+  "top3": [
+   {
+    "doc": "swg21599402",
+    "title": "IBM How to log out from Case Manager Client in SSO environments - United States",
+    "products": "Case Manager",
+    "opening": "icm; icm sso; icm sso logout; icm tam sso; icm siteminder sso; icm spnego sso; sso logout; case manager sso; case manager sso logout; siteminder TECHNOTE (FAQ) QUESTION When IBM Case Manager is config"
+   },
+   {
+    "doc": "swg1PJ42889",
+    "title": "IBM PJ42889: Incorrect Case Builder logon behavior in SSO using Kerberos SPNE GO on WebLogic application server High Availability environment - United States",
+    "products": "Case Manager",
+    "opening": "SUBSCRIBE TO THIS APAR By subscribing, you receive periodic emails alerting you to the status of the APAR, along with a link to the fix after it becomes available. You can track this item individually"
+   },
+   {
+    "doc": "swg21599382",
+    "title": "IBM In an SSO with Siteminder environment, the IBM Case Manager logo in the Case Manager Client login page does not display after logout - United States",
+    "products": "Case Manager",
+    "opening": "icm; icm sso; icm siteminder; siteminder sso; sso login page; siteminder login page; case client login page; case client icm logo; icm logo missing TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) When IB"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-038",
+  "layer": "L1 retrieval: not retrieved",
+  "tags": [
+   "neither",
+   "wrong_product",
+   "vocab_gap"
+  ],
+  "question": "Why do we observe the transaction rollback errors J2CA0024E and DSRA0080E with Oracle 12c and how can we fix it? We are using BPM Advanced v8.5.6 in connection with the Oracle JDBC Driver 12.1.0.1.0. We observe many database transaction rollback exceptions: J2CA0024E: Method rollback, within transaction branch ID <null> of resource pool jdbc/BPEDB, caught com.ibm.ws.exception.WsException: DSRA0080E: An exception was received by the Data Store Adapter. See original exception message: Could not ro",
+  "rewritten_query": "Why do we observe the transaction rollback errors J2CA0024E and DSRA0080E with Oracle 12c and how can we fix it? We are using BPM Advanced v8.5.6 in connection with the Oracle JDBC Driver 12.1.0.1.0. We observe many database transaction rollback exceptions: J2CA0024E: Method rollback, within transac",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": null,
+   "sparse": null,
+   "fusion": null,
+   "rerank": null
+  },
+  "gold": {
+   "doc": "swg21690673",
+   "title": "IBM Upgrading default JDBC drivers to Oracle 12c requires the definition of an additional JVM property in IBM Business Monitor - United States",
+   "products": "IBM Business Monitor",
+   "opening": "TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) In IBM Business Monitor V8.5.5, the Monitor server fails if the default JDBC driver included in the product is upgraded to an Oracle 12c JDBC driver. RESOLVING THE PROBLEM To use Oracle 12c with IBM Business Monitor V8.5.5, a new JVM property must be defi"
+  },
+  "top3": [
+   {
+    "doc": "swg1PK26490",
+    "title": "IBM PK26490: JDBC EXCEPTION UNDER LOAD NO TRANSACTION AVAIL - United States",
+    "products": "WebSphere Application Server",
+    "opening": "FIXES ARE AVAILABLE 6.1.0.1: WebSphere Application Server V6.1.0 Fix Pack 1 for HP-UX [http://www-01.ibm.com/support/docview.wss?uid=swg24012899] 6.1.0.1: WebSphere Application Server V6.1.0 Fix Pack "
+   },
+   {
+    "doc": "swg1PK51392",
+    "title": "IBM PK51392: MESSAGE J2CA0024E OCCURRED WHEN USING UOWMANAGER TO PERFORM SOME WORK UNDER A LOCAL TRANSACTION. - United States",
+    "products": "WebSphere Application Server",
+    "opening": "FIXES ARE AVAILABLE Java SDK 1.5 SR8 Cumulative Fix for WebSphere Application Server [http://www-01.ibm.com/support/docview.wss?uid=swg24020073] Java SDK 1.5 SR8 Cumulative Fix for WebSphere Applicati"
+   },
+   {
+    "doc": "swg21330555",
+    "title": "IBM J2CA0081E and DSRA0080E received during WebSphere Process Server (WPS) deployment manager startup - United States",
+    "products": "WebSphere Process Server",
+    "opening": "oracle database; J2CA0081E; DSRA0080E; jdbc driver; ojdbc14.jar; v612rnotes; v62rnotes TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) Exception and error messages are returned during WebSphere Process S"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-041",
+  "layer": "L1 retrieval: not retrieved",
+  "tags": [
+   "neither",
+   "same_product",
+   "vocab_gap"
+  ],
+  "question": "Port number error starting 9.0 Launcher I'm attempting to start up v9.0 for the first time with one .msl file on a Windows server and get the following error. I also have v8.4 on this server and it starts fine. I do not have v8.4 running when I attempt to start v9.0. Cannot recognize if the system RecordChangeSystem.msl; has started. Reason: Server is unable to get the status of the system on port number 6,002. I have the port range set to 7000/8000. I've never seen this error before. Any help? ",
+  "rewritten_query": "Port number error starting 9.0 Launcher I'm attempting to start up v9.0 for the first time with one .msl file on a Windows server and get the following error. I also have v8.4 on this server and it starts fine. I do not have v8.4 running when I attempt to start v9.0. Cannot recognize if the system R",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": null,
+   "sparse": null,
+   "fusion": null,
+   "rerank": null
+  },
+  "gold": {
+   "doc": "swg21986219",
+   "title": "IBM Launcher failure when 'On Success' is set to Delete and 'On Failure' is set to Commit - United States",
+   "products": "Transformation Extender",
+   "opening": "WTX ITX Launcher On Success Delete On Failure Commit TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) IBM Transformation Extender (ITX) Launcher failure when 'On Success' is set to Delete and 'On Failure' is set to Commit. SYMPTOM Launcher fails to load a watch when On Success = Delete and On Failure = "
+  },
+  "top3": [
+   {
+    "doc": "swg1PK90066",
+    "title": "IBM PK90066: LAUNCHER STARTUP FAILURE . UNABLE TO GET SYSTEM STATUS . SOCKET ERROR : ERROR 221 (MSTATSOC.C:2036) - United States",
+    "products": "Transformation Extender",
+    "opening": "SUBSCRIBE You can track all active APARs for this component. APAR STATUS * CLOSED AS PROGRAM ERROR. ERROR DESCRIPTION * Customer is running WTX8.2.0.4 with Interim Fix Pack 2 on an HP-UX PA-RISC serve"
+   },
+   {
+    "doc": "swg21976821",
+    "title": "IBM The Transformation Extender Management Console is not able to communicate with the Launcher using IPv6 communication - United States",
+    "products": "Transformation Extender",
+    "opening": "LINUX_GETADDRINFO socket 97 221 unable management console status TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) The Transformation Extender Management Console is not able to communicate with the Launche"
+   },
+   {
+    "doc": "swg1PK88357",
+    "title": "IBM PK88357: EVENT SERVER/LAUNCHER IS NOT USING AVAILABLE PORTS RESULTING IN PORT IN USE ERRORS. - United States",
+    "products": "Transformation Extender",
+    "opening": "SUBSCRIBE You can track all active APARs for this component. APAR STATUS * CLOSED AS PROGRAM ERROR. ERROR DESCRIPTION * If any of the ports specified in the Connection Port Range of Launcher Administr"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-045",
+  "layer": "L2 rerank",
+  "tags": [
+   "dense_only",
+   "same_product",
+   "vocab_gap"
+  ],
+  "question": "Optim license We bought Optim 11.3, Test data management and data masking module.... I wonder how to get a Optim license?",
+  "rewritten_query": "We bought Optim 11.3, Test data management and data masking module.... I wonder how to get an Optim license?",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 3,
+   "sparse": null,
+   "fusion": 9,
+   "rerank": null
+  },
+  "gold": {
+   "doc": "swg21973794",
+   "title": "IBM Optim, Optim Connect, ODM, and Optim zOS licensing - United States",
+   "products": "Optim",
+   "opening": "license key; password; fix pack; enable; license file; Open Data Manager; ODM; entitle TECHNOTE (FAQ) QUESTION Are license keys still required for Optim Distributed, Optim Connect, ODM, and Optim zOS products? ANSWER See the attached document for a full explanation of which license keys might be req"
+  },
+  "top3": [
+   {
+    "doc": "swg27041901",
+    "title": "IBM Detailed System Requirements for IBM InfoSphere Optim Test Data Management Solution for Oracle E-Business Suite with Data Masking Option v11.3 - United States",
+    "products": "Optim",
+    "opening": "PRODUCT DOCUMENTATION ABSTRACT This document summarizes the hardware, platforms, and software supported by the IBM® InfoSphere® Optim™ Test Data Management Solution for Oracle E-Business Suite with Da"
+   },
+   {
+    "doc": "swg27024806",
+    "title": "IBM Detailed System Requirements for v9.1 of IBM InfoSphere Optim Test Data Management Solution for Oracle E-Business Suite with Data Masking Option - United States",
+    "products": "Optim",
+    "opening": "PRODUCT DOCUMENTATION ABSTRACT This document summarizes the hardware, platforms, and software supported by v9.1 of the IBM® InfoSphere® Optim™ Test Data Management Solution for Oracle E-Business Suite"
+   },
+   {
+    "doc": "swg27041962",
+    "title": "IBM Detailed System Requirements for the IBM InfoSphere Optim Test Data Management Solution for PeopleSoft Enterprise with Data Masking Option v11.3 - United States",
+    "products": "Optim",
+    "opening": "DETAILED SYSTEM REQUIREMENTS ABSTRACT This document summarizes the hardware, platforms, and software supported by version 11.3 of the IBM® InfoSphere® Optim™ Test Data Management Solution for PeopleSo"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-049",
+  "layer": "L1 retrieval: not retrieved",
+  "tags": [
+   "neither",
+   "same_product",
+   "vocab_gap"
+  ],
+  "question": "How do I transfer my SPSS 24 license key to a new computer? I need to transfer my SPSS 24 license key to a new computer. I was able to download IBM® SPSS® Statistics Standard GradPack 24 for Windows (12-Mo Rental) onto the new computer, but every time I put in the activation code, I am met with this error message: Authorization failed.: You are not allowed to generate any more new licenses. End Of Transaction. No additional authorizations are permitted on this code. What should I do? This dW Ans",
+  "rewritten_query": "How do I transfer my SPSS 24 license key to a new computer? I need to transfer my SPSS 24 license key to a new computer. I was able to download IBM® SPSS® Statistics Standard GradPack 24 for Windows (12-Mo Rental) onto the new computer, but every time I put in the activation code, I am met with this",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": null,
+   "sparse": null,
+   "fusion": null,
+   "rerank": null
+  },
+  "gold": {
+   "doc": "swg21592093",
+   "title": "IBM SPSS Student Version and Graduate Pack Resources - United States",
+   "products": "SPSS Amos, SPSS Modeler, SPSS Statistics, SPSS Text Analytics for Surveys",
+   "opening": "SPSS Support Acquisition Statistics Stats Grad Pack Student TECHNOTE (FAQ) QUESTION Where do I get support for IBM SPSS Student Version or Graduate Pack software? ANSWER Step 1: For installation & licensing issues on Student version and Graduate pack, contact your vendor. * Hearne [http://www.hearne"
+  },
+  "top3": [
+   {
+    "doc": "swg21985888",
+    "title": "IBM How do I transfer my IBM SPSS product/software license from one machine to another? - United States",
+    "products": "SPSS Modeler, SPSS Statistics",
+    "opening": "TECHNOTE (FAQ) QUESTION How do I transfer my IBM SPSS product/software license from one machine to another? ANSWER It is not possible, nor required, to transfer a license from an existing product inst"
+   },
+   {
+    "doc": "swg21994470",
+    "title": "IBM Where can I get information about acquiring IBM SPSS software and licensing IBM SPSS products? - United States",
+    "products": "SPSS Modeler, SPSS SamplePower, SPSS Statistics, SPSS Text Analytics for Surveys, SS69XP, SS6A8C",
+    "opening": "TECHNOTE (FAQ) QUESTION I have questions or a problem with acquiring IBM SPSS software and licensing IBM SPSS products? Where can I go for more information? ANSWER Where and how do I download and star"
+   },
+   {
+    "doc": "swg21486099",
+    "title": "IBM Why am I receiving a message with 'Error Code 201' and ' License generation failed'? - United States",
+    "products": "SPSS Statistics",
+    "opening": "TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) When running the License Authorization Wizard, I receive the following warning/error message: Error from Generator: Description: License generation failed."
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-056",
+  "layer": "L1 retrieval: not retrieved",
+  "tags": [
+   "neither",
+   "wrong_product",
+   "near_duplicate",
+   "vocab_gap"
+  ],
+  "question": "Help with Security Bulletin: Vulnerability identified in IBM WebSphere Application Server shipped with WSRR (CVE-2017-1741) I need to understand details regarding Security Bulletin: Vulnerability identified in IBM WebSphere Application Server shipped with IBM WebSphere Service Registry and Repository (CVE-2017-1741). We are running WAS traditional V9.0.0.0. What is the recommended fix?",
+  "rewritten_query": "Help with Security Bulletin: Vulnerability identified in IBM WebSphere Application Server shipped with WSRR (CVE-2017-1741) I need to understand details regarding Security Bulletin: Vulnerability identified in IBM WebSphere Application Server shipped with IBM WebSphere Service Registry and Repositor",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": null,
+   "sparse": null,
+   "fusion": null,
+   "rerank": null
+  },
+  "gold": {
+   "doc": "swg22012345",
+   "title": "IBM Security Bulletin: Potential Privilege Escalation in WebSphere Application Server Admin Console (CVE-2017-1731) - United States",
+   "products": "WebSphere Application Server",
+   "opening": "SECURITY BULLETIN SUMMARY There is a potential privilege escalation in WebSphere Application Server Admin Console. VULNERABILITY DETAILS CVEID: CVE-2017-1731 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1731] DESCRIPTION: IBM WebSphere Application Server could provide weaker than expected"
+  },
+  "top3": [
+   {
+    "doc": "swg22014520",
+    "title": "IBM Security Bulletin: Vulnerability identified in IBM WebSphere Application Server shipped with IBM WebSphere Service Registry and Repository (CVE-2017-1741) - United States",
+    "products": "WebSphere Service Registry and Repository",
+    "opening": "SECURITY BULLETIN SUMMARY IBM WebSphere Application Server is shipped as a component of IBM WebSphere Service Registry and Repository. Information about a security vulnerability affecting IBM WebSpher"
+   },
+   {
+    "doc": "swg22004956",
+    "title": "IBM Security Bulletin: Vulnerability identified in IBM® Java SDK affects WebSphere Service Registry and Repository and WebSphere Service Registry and Repository Studio (CVE-2017-3511). - United States",
+    "products": "WebSphere Service Registry and Repository",
+    "opening": "SECURITY BULLETIN SUMMARY Vulnerability in IBM® SDK Java™ Technology Edition, Version 6 used by WebSphere Service Registry and Repository and WebSphere Service Registry and Repository Studio. This iss"
+   },
+   {
+    "doc": "swg21988198",
+    "title": "IBM Security Bulletin: Vulnerabilities in Apache Struts and Apache Commons FileUpload affects IBM WebSphere Service Registry and Repository (CVE-2016-1181, CVE-2016-1182, CVE-2016-3092) - United States",
+    "products": "WebSphere Service Registry and Repository",
+    "opening": "SECURITY BULLETIN SUMMARY Vulnerability in Apache Struts and Apache Commons FileUpload affects IBM WebSphere Service Registry and Repository (CVE-2016-1181, CVE-2016-1182, CVE-2016-3092) VULNERABILITY"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-058",
+  "layer": "L1 retrieval: fusion cut",
+  "tags": [
+   "dense_only",
+   "wrong_product",
+   "vocab_gap"
+  ],
+  "question": "How to configure the Data Power Agent to communicate on TLSv1.2 ? APM agent for data power is not able to communicate with data power server when SSL is enabled. Since we are connecting to TLS version 1, where data power server supports only TLS 1.2.",
+  "rewritten_query": "How to configure the Data Power Agent to communicate on TLSv1.2 ? APM agent for data power is not able to communicate with data power server when SSL is enabled. Since we are connecting to TLS version 1, where data power server supports only TLS 1.2.",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 26,
+   "sparse": null,
+   "fusion": null,
+   "rerank": null
+  },
+  "gold": {
+   "doc": "swg24041563",
+   "title": "IBM ITCAM Agent for WebSphere DataPower Applications: 7.1.0-TIV-ITM_WDP-FP0003 - United States",
+   "products": "Tivoli Composite Application Manager for Applications",
+   "opening": "DataPower; BN; KBN DOWNLOADABLE FILES ABSTRACT This fix resolves the enhancements listed in the \"Problems Fixed\" section below. DOWNLOAD DESCRIPTION Copyright International Business Machines Corporation 2016. All rights reserved. Component: IBM(R) Tivoli(R) Composite Application Manager Agent for We"
+  },
+  "top3": [
+   {
+    "doc": "swg1IJ01104",
+    "title": "IBM IJ01104: VI AGENT 07.20.04.01 NOT CONNECTING VCENTER USING ONLY TLS V1.2 - United States",
+    "products": "Tivoli Monitoring for Virtual Environments",
+    "opening": "SUBSCRIBE You can track all active APARs for this component. APAR STATUS * CLOSED AS DOCUMENTATION ERROR. ERROR DESCRIPTION * If the target vCenter is configured to accept only TLS v1.2, using the def"
+   },
+   {
+    "doc": "swg22017052",
+    "title": "IBM How Enable tls 1.2 dynamic agent REST API plugin - United States",
+    "products": "IBM Workload Scheduler",
+    "opening": "TECHNOTE (TROUBLESHOOTING) THIS DOCUMENT APPLIES ONLY TO THE FOLLOWING LANGUAGE VERSION(S): English PROBLEM(ABSTRACT) REST API plugin not able to connect to server configured with tls 1.2 enabled SYMP"
+   },
+   {
+    "doc": "swg22000057",
+    "title": "IBM WinCollect: How to Enable/Disable TLS Communication Options for QRadar - United States",
+    "products": "IBM Security QRadar SIEM",
+    "opening": "TLS; scan result; TLS vulnerabilities; TLSv1.0; TLS v1; TLS 1.0; TLS 1.1; how to enable TLS; how to disable TLS; WinCollect TLS; WinCollect TLS communication TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRAC"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-066",
+  "layer": "L2 rerank",
+  "tags": [
+   "wrong_product",
+   "vocab_gap"
+  ],
+  "question": "Will Datacap support Windows 10, if so, which version is fully supported? We want to if Datacap support windows 10, if so, which version supports it. Please provide us official statement for the compatibility.",
+  "rewritten_query": "Will Datacap support Windows 10, if so, which version is fully supported? We want to know if Datacap supports Windows 10, if so, which version supports it. Please provide us with the official statement for the compatibility.",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 4,
+   "sparse": 28,
+   "fusion": 15,
+   "rerank": null
+  },
+  "gold": {
+   "doc": "swg27047895",
+   "title": "IBM Datacap 9.0.1 FP1 - Readme doc - United States",
+   "products": "Datacap",
+   "opening": "PRODUCT README ABSTRACT IBM Datacap 9.0.1 FP1 - Readme doc CONTENT About IBM Datacap 9.0.1 Feature Pack 1 Review this document for installation instructions and other important information before you install IBM® Datacap 9.0.1 Feature Pack 1, which cumulatively contains all feature pack updates sinc"
+  },
+  "top3": [
+   {
+    "doc": "swg1HD87484",
+    "title": "IBM HD87484: STCAI / UPDATE  DOCUMENTATION REGARDING THE SUPPORT OF DLNAME   . - United States",
+    "products": "CATIA V5",
+    "opening": "AIX SUBSCRIBE You can track all active APARs for this component. APAR STATUS * CLOSED AS PERMANENT RESTRICTION. ERROR DESCRIPTION * VAR would like to use DLNAME for Large amouts of reference data whic"
+   },
+   {
+    "doc": "swg27020397",
+    "title": "IBM System Requirements: Hardware and Software Requirements for IBM Datacap Taskmaster Capture Version 8.0 - United States",
+    "products": "Datacap",
+    "opening": "PRODUCT DOCUMENTATION ABSTRACT This page describes the minimum system requirements to operate IBM Datacap Taskmaster Capture Version 8.0. Any configuration that exceeds these minimum requirements will"
+   },
+   {
+    "doc": "swg21584043",
+    "title": "IBM Clarity Server - Internet Explorer compatibility - United States",
+    "products": "Clarity 7",
+    "opening": "IE9; browser; compatible; IE10 TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) When using different IBM Clarity Server features in an Internet Explorer version that is not fully compatible with your IBM "
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-070",
+  "layer": "L2 rerank",
+  "tags": [
+   "dense_only",
+   "wrong_product",
+   "vocab_gap"
+  ],
+  "question": "Why can't I connect to HTTPS server using Installation Manager 1.7.2? When using IBM Installation Manager 1.7.2 to connect to a HTTPS server, I get the following message: The following repositories are not connected: https://www.ibm.com/software/repositorymanager/service/com.ibm. websphere.ND.v85/8.5.5.2. When I try to hit the URL, I get a 404 error.",
+  "rewritten_query": "Why can't I connect to HTTPS server using Installation Manager 1.7.2? When using IBM Installation Manager 1.7.2 to connect to a HTTPS server, I get the following message: The following repositories are not connected: https://www.ibm.com/software/repositorymanager/service/com.ibm. websphere.ND.v85/8.",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 2,
+   "sparse": null,
+   "fusion": 9,
+   "rerank": null
+  },
+  "gold": {
+   "doc": "swg21688071",
+   "title": "IBM Installation Manager 1.7.3.1 or older cannot connect to HTTPS servers that have SSL security protocol disabled - United States",
+   "products": "IBM Installation Manager",
+   "opening": "TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) When using IBM Installation Manager to connect to a HTTPS server, if the server has SSL disabled, versions of IBM Installation Manager older than 1.8 will not be able to connect to it RESOLVING THE PROBLEM IBM Installation Manager has added support for th"
+  },
+  "top3": [
+   {
+    "doc": "swg21979394",
+    "title": "IBM Upgrading IBM Process Federation Server Version 8.5.6.0 to Version 8.5.7.0 or Version 8.5.7.0 to Version 8.5.7 CF2016.09 fails in IBM Business Process Manager - United States",
+    "products": "IBM Business Process Manager Advanced, IBM Business Process Manager Standard",
+    "opening": "TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) When you try to upgrade IBM Process Federation Server Version 8.5.6.0 to IBM Process Federation Server Version 8.5.7.0 interactively, using IBM Installatio"
+   },
+   {
+    "doc": "swg21685035",
+    "title": "IBM NullPointerException error received when installing WebSphere Application Server Liberty profile - United States",
+    "products": "WebSphere Application Server",
+    "opening": "WASV855RNotes TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) If you are installing WebSphere Application Server Liberty profile with the -imcl command, you might encounter problems. If you are connectin"
+   },
+   {
+    "doc": "swg1PM21560",
+    "title": "IBM PM21560: WAS IMPORT OFFERING.SERVICE.REPOSITORIES PROPERTY NOT DEFINED; INSTALLATION MANAGER CANNOT CONNECT TO WEB SERVICE REPOSITORY - United States",
+    "products": "WebSphere Application Server V7 Feature Pack for Communications Enabled Applications General",
+    "opening": "SUBSCRIBE You can track all active APARs for this component. APAR STATUS * CLOSED AS PROGRAM ERROR. ERROR DESCRIPTION * WebSphere Application Server V7.0 uses the IBM Installation Manager to install a"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-076",
+  "layer": "L2 rerank",
+  "tags": [
+   "dense_only",
+   "same_product",
+   "vocab_gap"
+  ],
+  "question": "Does JazzSM 1.1.2.1 support HTTP access?",
+  "rewritten_query": "Does JazzSM 1.1.2.1 support HTTP access?",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 6,
+   "sparse": null,
+   "fusion": 14,
+   "rerank": 12
+  },
+  "gold": {
+   "doc": "swg21974566",
+   "title": "IBM Configuring access for HTTP and HTTPS in Jazz for Service Management - United States",
+   "products": "Tivoli Components ITM Agent Linux V6",
+   "opening": "jazzsm11relnotes; jazzsm1101relnotes; jazzsm1102; jazzsm1103relnotes; relnotes; jazzsm1110relnotes; jazzsm1120relnotes; jazzsm1121relnotes; HTTP; HTTPS TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) By default, the Jazz™ for Service Management application server requires HTTPS access. You can set up t"
+  },
+  "top3": [
+   {
+    "doc": "swg21971363",
+    "title": "IBM HTTP access does not work in DASH 3.1.0.3 (JazzSM 1.1.0.3) - United States",
+    "products": "Tivoli Components ITM Agent Linux V6",
+    "opening": "DASHL2; HTTP access; web.xml; transport; confidential; 3.1.0.3; dashboard application services hub; jazzsm TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) The configuration of HTTP access does not work i"
+   },
+   {
+    "doc": "swg21696081",
+    "title": "IBM Jazz TCR requires web access in a locked down environment - United States",
+    "products": "Tivoli Components ITM Agent Linux V6",
+    "opening": "Jazz; Port; Internet; web; access; WebSphere; update TECHNOTE (FAQ) QUESTION During the installation of 1.1.1.-TIV-JazzSM-multi available from this link http://www-01.ibm.com/support/docview.wss?uid=s"
+   },
+   {
+    "doc": "swg21963919",
+    "title": "IBM Accessing one DASH/JazzSM server from an other JazzSM server - United States",
+    "products": "Tivoli Components ITM Agent Linux V6",
+    "opening": "DASHL2; DASHL2CONF; integrating; jazzsm ; DASH ; SSO; single sign on TECHNOTE (FAQ) QUESTION How can I open a page from one DASH/JazzSM server on an other DASH server? CAUSE Suppose you have a Server "
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-085",
+  "layer": "L2 rerank",
+  "tags": [
+   "same_product",
+   "vocab_gap"
+  ],
+  "question": "Installation of Portal 7.0 CF fails with version mismatch Installation of Portal 7.0 CF fails with message, \"Profile version is not the same as portal binary version before updating portal binary.\"",
+  "rewritten_query": "Installation of Portal 7.0 CF fails with version mismatch Installation of Portal 7.0 CF fails with message, \"Profile version is not the same as portal binary version before updating portal binary.\"",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 14,
+   "sparse": 12,
+   "fusion": 8,
+   "rerank": 13
+  },
+  "gold": {
+   "doc": "swg27023910",
+   "title": "IBM WebSphere Portal 7.0.0.2  Combined Cumulative Fix Readme - stand-alone - United States",
+   "products": "WebSphere Portal",
+   "opening": "WPWCMCF WPWCMCF02 7002CCF PRODUCT README ABSTRACT IBM WebSphere Portal 7.0.0.2 Combined Cumulative Fix stand-alone installation instructions for all editions, including WebSphere Portal Express. CONTENT 7.0.0.2: Readme for IBM WebSphere Portal 7.0.0.2 Combined Cumulative fix - stand-alone Table of C"
+  },
+  "top3": [
+   {
+    "doc": "swg21677833",
+    "title": "IBM Installation of Portal CF fails with version mismatch - United States",
+    "products": "WebSphere Portal",
+    "opening": "upgrade; cf; version mismatch TECHNOTE (TROUBLESHOOTING) PROBLEM Installation of Portal CF fails with message, \"Profile version is not the same as portal binary version before updating portal binary.\""
+   },
+   {
+    "doc": "swg21701048",
+    "title": "IBM Receive the message, \"ERROR: Product maintenance level does not match profile\" when running the Portal Health Check utility before applying CF15 - United States",
+    "products": "WebSphere Portal",
+    "opening": "TECHNOTE (TROUBLESHOOTING) PROBLEM While preparing to install CF15 on your existing Portal 8.0.0.1 CF09 you run the Portal Health Check utility and receive the following message: >>> Test: Profile mai"
+   },
+   {
+    "doc": "swg21685680",
+    "title": "IBM Base version of Portal 8.5 install fails noting a cumulative fix conflict during silent install - United States",
+    "products": "WebSphere Portal",
+    "opening": "base install fails; CF conflict TECHNOTE (TROUBLESHOOTING) PROBLEM Attempts to install the Base version of Portal 8.5 using a response file fails as it notes that the cumulative fix fails as it requir"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-087",
+  "layer": "L2 rerank",
+  "tags": [
+   "dense_only",
+   "wrong_product",
+   "vocab_gap"
+  ],
+  "question": "completeness report causes StackOverflowError in Decision Center When running the completeness report in Decision Center we sometimes get a StackOverflowError such as: ... Caused by: java.lang.StackOverflowError at ilog.rules.validation.solver.IlcIntScalProd.extract(IlcIntScalProd.java:89) at ilog.rules.validation.solver.IlcIntExpr.getPIntExp(IlcIntExpr.java:156) ...",
+  "rewritten_query": "completeness report causes StackOverflowError in Decision Center When running the completeness report in Decision Center we sometimes get a StackOverflowError such as: ... Caused by: java.lang.StackOverflowError at ilog.rules.validation.solver.IlcIntScalProd.extract(IlcIntScalProd.java:89) at ilog.r",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 2,
+   "sparse": null,
+   "fusion": 7,
+   "rerank": 20
+  },
+  "gold": {
+   "doc": "swg21162896",
+   "title": "IBM Diagnosing a java.lang.StackOverflowError - United States",
+   "products": "Runtimes for Java Technology, WebSphere Application Server",
+   "opening": "StackOverflow; overflowing; recursion; recursively; jit; JustInTime; Hot; Spot; WebSphere; Just-In-Time TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) Stack Overflow exceptions can occur when a thread stack continues to grow in size until reaching the maximum limit. SYMPTOM A stack overflow can result"
+  },
+  "top3": [
+   {
+    "doc": "swg21499459",
+    "title": "IBM StackOverflowError when checking a project or building a ruleset - United States",
+    "products": "IBM Operational Decision Manager, SS6MUU",
+    "opening": "TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) Building or checking the consistency of large rule projects in Rule Team Server (RTS) or Decision Center can generate a StackOverflowError. SYMPTOM The fol"
+   },
+   {
+    "doc": "swg21678239",
+    "title": "IBM \"NoClassDefFoundError: ilog/rules/vocabulary/model/util/IlrResourceLoader\" error when running Decision Validation Services (DVS) tests - United States",
+    "products": "IBM Operational Decision Manager",
+    "opening": "TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) When running a Decision Validation Services (DVS) test, the test fails with the following error: java.lang.NoClassDefFoundError: ilog/rules/vocabulary/mode"
+   },
+   {
+    "doc": "swg1RS01990",
+    "title": "IBM RS01990: UNABLE TO VIEW OR EDIT RULE AFTER SAVING UNPARSEABLE DATE - United States",
+    "products": "IBM Operational Decision Manager for z/OS",
+    "opening": "FIXES ARE AVAILABLE Operational Decision Manager V8.7.1.1 Fix Pack [http://www-01.ibm.com/support/docview.wss?uid=swg24040633] Operational Decision Manager V8.6.0.3 Fix Pack [http://www-01.ibm.com/sup"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-088",
+  "layer": "L2 rerank",
+  "tags": [
+   "same_product",
+   "vocab_gap"
+  ],
+  "question": "Why is RPT script for secure application failing during RRT agent playback with URL Unavailable ? In the ITCAM for Transactions, Robotic Response Time agent (t6) - the Rational Performance Tester (RPT) scripts playback is failing for specific secure applications (ones that use https). The scripts which invoke the http URLs work fine. The TEP workspace Robotic Response Time -> Playback Status->Robotic Script Verification Point Failures shows following Event Types for the RPT Script when it fails:",
+  "rewritten_query": "Why is RPT script for secure application failing during RRT agent playback with URL Unavailable ? In the ITCAM for Transactions, Robotic Response Time agent (t6) - the Rational Performance Tester (RPT) scripts playback is failing for specific secure applications (ones that use https). The scripts wh",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 12,
+   "sparse": 24,
+   "fusion": 8,
+   "rerank": 19
+  },
+  "gold": {
+   "doc": "swg21960133",
+   "title": "IBM Does the RRT agent support TLS 1.1/1.2 and 256-bit ciphers? - United States",
+   "products": "Tivoli Composite Application Manager for Transactions",
+   "opening": "256-bit ciphers; Strong Encryption; TLS 1.1; TLS 1.2; SSL; Generic Failure; Cannot support; RPT; RRT; T6; 71RRT-RPTPLAN; 71RRT-RPTINS; 71RRT-RPTCONF; 71RRT-RPTPLAY; 71RRT-RPTWV; 71RRT-RPTTS TECHNOTE (FAQ) QUESTION What do you need to do to configure the Robotic Response Time (RRT) agent to support T"
+  },
+  "top3": [
+   {
+    "doc": "swg21498401",
+    "title": "IBM ITCAM4Tx : robotic RRT T6 integration with RPT and ARM - United States",
+    "products": "Tivoli Composite Application Manager for Transactions",
+    "opening": "71RRT-RPTPLAY TECHNOTE (FAQ) QUESTION Describe how the Robotic Response Time \"T6\" agent integrates with Rational Performance Tester (RPT) in order to playback RPT scripts, and produce response time an"
+   },
+   {
+    "doc": "swg21660008",
+    "title": "IBM ITCAM4Tx : Robotic RPT script playback fails on t6 agent while using proxy service - United States",
+    "products": "Tivoli Composite Application Manager for Transactions",
+    "opening": "71RRT-RPTPLAY; 71RRT-RPTWV; 71RRT-RPTTS; 71RRT-CONF; 71RRT-PLAY; 71RRT-TS TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) Robotic Response Time agent (t6) can't play back successfully a RPT test script, "
+   },
+   {
+    "doc": "swg21580748",
+    "title": "IBM ITCAMfT - RRT (T6) RPT Kerberos HTTP test script playback - high response time - United States",
+    "products": "Tivoli Composite Application Manager for Transactions",
+    "opening": "71RRT-RPTREC; 71RRT-RPTPLAY; 71RRT-RPTRPTG; 71RRT-RPTWV; 71RRT-RPTTS; 71RRT-RPTG; 71RRT-WV; 71RRT-TS; rpt; rational performance tester; kerberos TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) RPT V8.2 H"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-090",
+  "layer": "L1 retrieval: fusion cut",
+  "tags": [
+   "dense_only",
+   "same_product",
+   "vocab_gap"
+  ],
+  "question": "Can not create a portal wcm syndicator-subscriber pair. The \"Subscribe Now\" window pops up but is blank or corrupted. Why? Can not create a portal wcm syndicator-subscriber pair. The \"Subscribe Now\" window pops up but is blank or corrupted.",
+  "rewritten_query": "Can not create a portal wcm syndicator-subscriber pair. The 'Subscribe Now' window pops up but is blank or corrupted. Why?",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 25,
+   "sparse": null,
+   "fusion": null,
+   "rerank": null
+  },
+  "gold": {
+   "doc": "swg21445801",
+   "title": "IBM WCM page and authoring portlet may not display after migration - United States",
+   "products": "IBM Web Content Manager, WebSphere Portal",
+   "opening": "WPv7000eGA; migrating; migrate; migration; V7.0; v7; WCM; out-of-box page; out of the box; page; authoring portlet; may not reach; cannot reach; cannot access; no access; exceptions; IWKAP0009E; Servlet not enabled TECHNOTE (TROUBLESHOOTING) PROBLEM After migrating to IBM WebSphere Portal V7.0, you "
+  },
+  "top3": [
+   {
+    "doc": "swg1PI11138",
+    "title": "IBM PI11138: Add optional subscriberURL to allow specific URL in task RUN-WCM-ADMIN-TASK-SUBSCRIBE-NOW - United States",
+    "products": "IBM Web Content Manager",
+    "opening": "FIXES ARE AVAILABLE Fixes integrated in WebSphere Portal 8.0.0.1 Combined Cumulative Fixes [http://www-01.ibm.com/support/docview.wss?uid=swg24034497] Fixes integrated in WebSphere Portal 8.5.0.0 Comb"
+   },
+   {
+    "doc": "swg21648259",
+    "title": "IBM New syndication pair created on 8001 CF06 or CF07 fails to syndicate if the subscriber is a virtual portal with a different hostname. - United States",
+    "products": "IBM Web Content Manager",
+    "opening": "TECHNOTE (TROUBLESHOOTING) PROBLEM New syndication pair created on 8001 CF06 or CF07 fails to syndicate if the subscriber is a virtual portal with a different hostname. SYMPTOM Syndication does not wo"
+   },
+   {
+    "doc": "swg21587102",
+    "title": "IBM Unable to create syndicator-subscriber pair while setting up syndication, with IWKWC0016E error. - United States",
+    "products": "IBM Web Content Manager, SS6JVW",
+    "opening": "credential vault; setup syndication; IWKWC0016E TECHNOTE (TROUBLESHOOTING) PROBLEM Unable to create syndicator-subscriber pair, and getting following error:- \"IWKWC0016E: The remote service can not be"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-099",
+  "layer": "L2 rerank",
+  "tags": [
+   "sparse_only",
+   "wrong_product",
+   "vocab_gap"
+  ],
+  "question": "The configuration task database-transfer failed with DB2 SQL Error: SQLCODE=-1585, SQLSTATE=54048 While attempting to run the database-transfer task the following error is logged to the ConfigTrace.log: action-process-constraints: Fri Oct 10 13:20:34 CDT 2014 Target started: action-process-constraints [java] Executing java with empty input string [java] [10/10/14 13:20:35.877 CDT] Attempting to create a new Instance of com.ibm.db2.jcc.DB2Driver [java] [10/10/14 13:20:36.016 CDT] Instance of com.",
+  "rewritten_query": "The configuration task database-transfer failed with DB2 SQL Error: SQLCODE=-1585, SQLSTATE=54048 While attempting to run the database-transfer task the following error is logged to the ConfigTrace.log: action-process-constraints: Fri Oct 10 13:20:34 CDT 2014 Target started: action-process-constrain",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": null,
+   "sparse": 6,
+   "fusion": 11,
+   "rerank": 12
+  },
+  "gold": {
+   "doc": "swg21529563",
+   "title": "IBM DB2 SQL error from Sterling B2B Integrator: SQLCODE: -1585, SQLSTATE: 54048 - United States",
+   "products": "Sterling B2B Integrator",
+   "opening": "STERLINGPRI TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) This DB2 SQL error occurs with Sterling B2B Integrator: SQLCODE: -1585, SQLSTATE: 54048 SYMPTOM com.sterlingcommerce.woodstock.profile.ProfileFinderException: listAllByEntityName: Finder Exception occurred: SQLState: 54048 Message: DB2 SQL err"
+  },
+  "top3": [
+   {
+    "doc": "swg21686939",
+    "title": "IBM The configuration task database-transfer failed with DB2 SQL Error: SQLCODE=-1585, SQLSTATE=54048 - United States",
+    "products": "WebSphere Portal",
+    "opening": "database-transfer; DB2; SQLCODE=-1585; SQLSTATE=54048 TECHNOTE (TROUBLESHOOTING) PROBLEM While attempting to run the database-transfer task the customer gets the following error: action-process-constr"
+   },
+   {
+    "doc": "swg21962624",
+    "title": "IBM While running the ConfigWizard to transfer the Portal databases to DB2 the process fails and the following errors are in the ConfigTrace.log, SQLCODE=-286, SQLSTATE=42727 - United States",
+    "products": "WebSphere Portal",
+    "opening": "TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) While running the ConfigWizard to transfer the Portal databases to DB2 the process fails and the following errors are in the ConfigTrace.log, SQLCODE=-286,"
+   },
+   {
+    "doc": "swg21517964",
+    "title": "IBM Unable to Create AS2 Organization via AS2 Wizard with DB2 Database - UI Log Shows Profile Finder Exception - United States",
+    "products": "Sterling B2B Integrator",
+    "opening": "Database Performance; STERLINGFAQ TECHNOTE (FAQ) QUESTION Unable to Create AS2 Organization via AS2 Wizard with DB2 Database - UI Log Shows Profile Finder Exception ANSWER Able to create an Organizati"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-101",
+  "layer": "L1 retrieval: not retrieved",
+  "tags": [
+   "neither",
+   "wrong_product",
+   "vocab_gap"
+  ],
+  "question": "Portal v8.5 install fails with INSTCONFFAILED - No Portral logs are written",
+  "rewritten_query": "Portal v8.5 install fails with INSTCONFFAILED - No Portal logs are written",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": null,
+   "sparse": null,
+   "fusion": null,
+   "rerank": null
+  },
+  "gold": {
+   "doc": "swg1PI37248",
+   "title": "IBM PI37248: A PROPERTY FILE BASED CONFIGURATION (PFBC) FILE MIGHT FAIL TO AP PLY. - United States",
+   "products": "WebSphere Application Server",
+   "opening": "FIXES ARE AVAILABLE 8.5.5.6: WebSphere Application Server V8.5.5 Fix Pack 6 [http://www-01.ibm.com/support/docview.wss?uid=swg24040035] 8.0.0.11: WebSphere Application Server V8.0 Fix Pack 11 [http://www-01.ibm.com/support/docview.wss?uid=swg24040425] 8.5.5.7: WebSphere Application Server V8.5.5 Fix"
+  },
+  "top3": [
+   {
+    "doc": "swg21619511",
+    "title": "IBM TIP upgrade is failing with error  INSTCONFFAILED - United States",
+    "products": "Tivoli Components ITM Agent Linux V6",
+    "opening": "TIPL2INST; upgrade; install fails ; eWAS files already exist; INSTCONFFAILED TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) An attempt to upgrade the Tivoli Integrated Portal is failing with errors that"
+   },
+   {
+    "doc": "swg21594974",
+    "title": "IBM The profile creation process fails with a \"INSTCONFFAILED: The profile could not be created\" error for WebSphere Enterprise Service Bus (WESB) - United States",
+    "products": "WebSphere Enterprise Service Bus",
+    "opening": "INSTCONFFAILED profileRegistry.xml_LOCK FileLockerException TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) When you attempt to create a profile for WebSphere Enterprise Service, you might encounter a \" "
+   },
+   {
+    "doc": "swg21613065",
+    "title": "IBM Portal 8 silent install fails with CRIMA1076E on Windows if path uses standard \" \\ \" delimiter - United States",
+    "products": "WebSphere Portal",
+    "opening": "Portal 8 silent install fail Windows / \\ CRIMA1076E manageprofiles TECHNOTE (TROUBLESHOOTING) PROBLEM After manually editing a Portal 8 response file, the installation may fail on Windows if the path "
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-105",
+  "layer": "L2 rerank",
+  "tags": [
+   "same_product",
+   "vocab_gap"
+  ],
+  "question": "ICO's Roadmap of supporting next OpenStack versions Hello, ICO 2.5.0.2 is compatible with OpenStack kilo, is there a plan making it work with OpenStack Liberty/Mitika ? Would you share any information or link about the roadmap, please? Thanks in advance.",
+  "rewritten_query": "ICO's Roadmap of supporting next OpenStack versions Hello, ICO 2.5.0.2 is compatible with OpenStack kilo, is there a plan making it work with OpenStack Liberty/Mitaka ? Would you share any information or link about the roadmap, please? Thanks in advance.",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 9,
+   "sparse": 30,
+   "fusion": 4,
+   "rerank": 16
+  },
+  "gold": {
+   "doc": "swg2C1000132",
+   "title": "IBM Cloud Orchestrator (ICO) continues to be a strategic solution for IBM - United States",
+   "products": "IBM Cloud Orchestrator",
+   "opening": "FLASH (ALERT) ABSTRACT Cloud Orchestrator (ICO) continues to be a strategic solution for IBM CONTENT IBM Cloud Orchestrator continues to be a strategic solution for IBM in Hybrid Cloud management and will continue to be actively developed. Future IBM Cloud Orchestrator releases will enable managemen"
+  },
+  "top3": [
+   {
+    "doc": "swg1ZZ00704",
+    "title": "IBM ZZ00704: ICO WITH BRING YOUR OWN OPENSTACK (BYOOS) REQUIRES 'DEFAULT' DOMAIN TO BE CREATED IN OPENSTACK PRIOR TO ICO INSTALL. - United States",
+    "products": "IBM Cloud Orchestrator",
+    "opening": "SUBSCRIBE You can track all active APARs for this component. APAR STATUS * CLOSED AS DOCUMENTATION ERROR. ERROR DESCRIPTION * ICO with BYOOS installation fail pre-checker indicating the problem with t"
+   },
+   {
+    "doc": "swg1ZZ00648",
+    "title": "IBM ZZ00648: INSTALLING IBM CLOUD ORCHESTRATOR (ICO) WITH BRING YOUR OWN OPENSTACK, ICO EXPECTS SPECIFIC NAMING FOR OPENSTACK SERVICES - United States",
+    "products": "IBM Cloud Orchestrator",
+    "opening": "SUBSCRIBE TO THIS APAR By subscribing, you receive periodic emails alerting you to the status of the APAR, along with a link to the fix after it becomes available. You can track this item individually"
+   },
+   {
+    "doc": "swg1ZZ00465",
+    "title": "IBM ZZ00465: ICO 2.4 UNABLE TO OPEN ICO ADMIN UI, GETTING ERROR 'OPERATIONALERROR AT / NO EXCEPTION MESSAGE SUPPLIED' - United States",
+    "products": "IBM Cloud Orchestrator",
+    "opening": "SUBSCRIBE You can track all active APARs for this component. APAR STATUS * CLOSED AS DOCUMENTATION ERROR. ERROR DESCRIPTION * PROBLEM DEFINITION: Upon building ICO 2.4 environment, unable to open the "
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-106",
+  "layer": "L1 retrieval: not retrieved",
+  "tags": [
+   "neither",
+   "wrong_product",
+   "vocab_gap"
+  ],
+  "question": "Is Internet Explorer 11 supported by Lombardi 7.2.XX We are using Lombardi 7.2.0.5 version. We are planning to upgrade Internet Explorer to IE 11 version. Is IE 11 supported? Are there any known issues?",
+  "rewritten_query": "Is Internet Explorer 11 supported by Lombardi 7.2.XX We are using Lombardi 7.2.0.5 version. We are planning to upgrade Internet Explorer to IE 11 version. Is IE 11 supported? Are there any known issues?",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": null,
+   "sparse": null,
+   "fusion": null,
+   "rerank": null
+  },
+  "gold": {
+   "doc": "swg27023007",
+   "title": "IBM Business Process Manager Standard detailed system requirements - United States",
+   "products": "IBM Business Process Manager Standard",
+   "opening": "DSREntry; SystemRequirementsDocument; prereq; coreq; installation prerequisites; DSRdoc DETAILED SYSTEM REQUIREMENTS ABSTRACT This document provides access to the detailed system requirements information on the supported releases of IBM Business Process Manager Standard. CONTENT The detailed system "
+  },
+  "top3": [
+   {
+    "doc": "swg21675676",
+    "title": "IBM Does Business Process Framework (BPF) 4.1 support Microsoft Internet Explorer (IE) 11.0? - United States",
+    "products": "FileNet Business Process Framework",
+    "opening": "IE; Microsoft; version; support; plan TECHNOTE (FAQ) QUESTION The customer plans to upgrade Microsoft Internet Explorer to vesion 11 and wants to know if BPF 4.1 supports it. Does Business Process Fra"
+   },
+   {
+    "doc": "swg21688764",
+    "title": "IBM Known Limitation: IBM Case Manager 5.2.x and Microsoft Internet Explorer versions prior to 11.0.10 - United States",
+    "products": "Case Manager",
+    "opening": "icm 521; if002; 5210-if2 TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) The Case Manager v5.2.x minimum required (minor) version of Internet Explorer 11 is 11.0.10 (with IE-11 update KB2962872). SYMPTOM"
+   },
+   {
+    "doc": "swg21677519",
+    "title": "IBM WebGUI Support for IE 11 in Enterprise Mode - United States",
+    "products": "Tivoli Netcool/OMNIbus",
+    "opening": "ie; internet explorer; enterprise mode; webgui; tip TECHNOTE (FAQ) QUESTION Will the WebGUI work with the new operating mode in Internet Explorer 11 called Enterprise Mode? ANSWER Internet Explorer En"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-111",
+  "layer": "L2 rerank",
+  "tags": [
+   "dense_only",
+   "same_product",
+   "vocab_gap"
+  ],
+  "question": "1040ez 9.0 Application Hi I have downloaded sample Datacap 9 applications (1040ez, Express, Survey) using below link and copied in my local system C:\\Datacap and added reference in Datacap.xml file. IBM Datacap 9.0 and IBM Datacap 9.0.1 DDK sample applications But i'm unable to login Datacap Studio & Tmweb.net . (I tried to with re generating encryption keys but no luck). Can anyone let me know the reason, anything I missed in configuration ? My Datacap version in Local Machine IBM Datacap 9.0.0",
+  "rewritten_query": "1040ez 9.0 Application Hi I have downloaded sample Datacap 9 applications (1040ez, Express, Survey) using below link and copied in my local system C:\\Datacap and added reference in Datacap.xml file. IBM Datacap 9.0 and IBM Datacap 9.0.1 DDK sample applications But i'm unable to login Datacap Studio ",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 5,
+   "sparse": null,
+   "fusion": 11,
+   "rerank": 10
+  },
+  "gold": {
+   "doc": "swg21968549",
+   "title": "IBM Couldn't validate parameters error logging in with IBM Datacap - United States",
+   "products": "Datacap",
+   "opening": "login connect couldnt validate parameters TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) Users are unable to log in with any client to any application. The Taskmaster Server (tms) log shows: Connect couldn't validate parameters SYMPTOM This is most commonly seen on a new installed Taskmaster Server. U"
+  },
+  "top3": [
+   {
+    "doc": "swg21675631",
+    "title": "IBM TMWeb cannot connect to the Admin DB in IBM Datacap Taskmaster - United States",
+    "products": "Datacap",
+    "opening": "tmweb; logon; admin db TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) Attempts to log into the TMWeb server using IBM TMWeb client results in the following error: \"Unable to logon to Admin DB\" SYMPTOM N"
+   },
+   {
+    "doc": "swg21503678",
+    "title": "IBM Datacap Taskmaster Capture is allowing only one client connection at a time - United States",
+    "products": "Datacap",
+    "opening": "connect connection TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) Datacap Taskmaster client application is allowing only one connection at a time. CAUSE The UNC path of Taskmaster client application is "
+   },
+   {
+    "doc": "swg21503322",
+    "title": "IBM Unable to connect to admin database with IBM Datacap Taskmaster Capture - United States",
+    "products": "Datacap",
+    "opening": "database connection problem error unable connect admin data source datasource TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) When attempting to login using Taskmaster Web or another Datacap executable, "
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-113",
+  "layer": "L2 rerank",
+  "tags": [
+   "dense_only",
+   "wrong_product"
+  ],
+  "question": "Can I change the ITCAM J2EE Agent Monitoring Level via the TEPS in version 7.1.1? In the 7.1 version of the J2EE agent I could use the Agent Configuration to change the Monitoring Level for the agent- https://www.ibm.com/support/knowledgecenter/en/SS3JRN_7.2.0/com.ibm.itcamfapps_ad.doc_72/J2EE_agent_tema_install_guide/step10.html So how can I change the Monitoring Level in the 7.1.1 agent?",
+  "rewritten_query": "Can I change the ITCAM J2EE Agent Monitoring Level via the TEPS in version 7.1.1? In the 7.1 version of the J2EE agent I could use the Agent Configuration to change the Monitoring Level for the agent- https://www.ibm.com/support/knowledgecenter/en/SS3JRN_7.2.0/com.ibm.itcamfapps_ad.doc_72/J2EE_agent",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 1,
+   "sparse": null,
+   "fusion": 13,
+   "rerank": null
+  },
+  "gold": {
+   "doc": "swg21700308",
+   "title": "IBM Modifying the default Monitoring Level and Sampling Rate in the J2EE v7.1.1.0.0 agent. - United States",
+   "products": "Tivoli Composite Application Manager for J2EE",
+   "opening": "J2EE TEMA Monitoring Level Sampling Rate xml files CAMADALL CAMJ2INST DC WebLogic TECHNOTE (FAQ) THIS DOCUMENT APPLIES ONLY TO THE FOLLOWING LANGUAGE VERSION(S): US English QUESTION How do I modify the default Monitoring Level and Sampling Rate in the new J2EE v7.1.1.0.0 agent? ANSWER In the older r"
+  },
+  "top3": [
+   {
+    "doc": "swg21689678",
+    "title": "IBM The ITCAM Agent for J2EE 7.1.1 Installation and Customization Guide? - United States",
+    "products": "Tivoli Composite Application Manager for Application Diagnostics",
+    "opening": "CAMJ2INST CAMJ2ALL J2EE TEMA Install Customization Guide; 5724N9500 TECHNOTE (FAQ) QUESTION Where can I find the ITCAM Agent for J2EE 7.1.1 Installation and Customization Guide? ANSWER The ITCAM Agent"
+   },
+   {
+    "doc": "swg21689680",
+    "title": "IBM The ITCAM Agent for J2EE 7.1.1 User's Guide - United States",
+    "products": "Tivoli Composite Application Manager for Application Diagnostics",
+    "opening": "J2EE TEMA User Guide CAMJ2INST CAMJ2ALL; 5724N9500 TECHNOTE (FAQ) THIS DOCUMENT APPLIES ONLY TO THE FOLLOWING LANGUAGE VERSION(S): US English QUESTION Where can I find the ITCAM Agent for J2EE 7.1.1 U"
+   },
+   {
+    "doc": "swg27050335",
+    "title": "IBM PureApplication System Release Note: Application server does not start after uninstalling Monitoring Agent for WebSphere Application Server - United States",
+    "products": "PureApplication System",
+    "opening": "v2240rlsnotes RELEASE NOTES ABSTRACT In rare cases, a permissions issue could cause the ITCAM WebSphere Application Server agent uninstall to fail. CONTENT Problem: In cases where the ITCAM monitoring"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-116",
+  "layer": "L1 retrieval: not retrieved",
+  "tags": [
+   "neither",
+   "wrong_product",
+   "vocab_gap"
+  ],
+  "question": "fixlets do not appear in console bigfix Work with ILTM 9.2.7 / 9.5.4.38. In the bigfix console the fixlets do not appear, under the tree: Sites-> IBM License Reporting (ILTM) v9 -> Fixlets and Task. Attached image. Do you have any ideas? Greetings and thank you BigFix",
+  "rewritten_query": "fixlets do not appear in console bigfix Work with ILTM 9.2.7 / 9.5.4.38. In the bigfix console the fixlets do not appear, under the tree: Sites-> IBM License Reporting (ILTM) v9 -> Fixlets and Task. Attached image. Do you have any ideas? Greetings and thank you BigFix",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": null,
+   "sparse": null,
+   "fusion": null,
+   "rerank": null
+  },
+  "gold": {
+   "doc": "swg21974546",
+   "title": "IBM BigFix Server unable to gather site content from sync.bigfix.com (error: Unexpected HTTP response: 404) - United States",
+   "products": "IBM BigFix family",
+   "opening": "TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) Identifying a block between the BigFix Server and IBM BigFix's sync.bigfix.com content servers. SYMPTOM Error messages similar to the following in the BESRelay.log on the BigFix server: * * * http://sync.bigfix.com/cgi-bin/bfgather/bessupport?Time=1452540"
+  },
+  "top3": [
+   {
+    "doc": "swg21995037",
+    "title": "IBM Security Bulletin: Vulnerability in URL Redirection affects IBM License Metric Tool v9.x and IBM BigFix Inventory v9.x (CVE-2016-8961) - United States",
+    "products": "IBM BigFix Inventory, IBM License Metric Tool",
+    "opening": "SECURITY BULLETIN SUMMARY IBM License Metric Tool v9.x and IBM BigFix Inventory v9.x accepts a user-controlled input that specifies a link to an external site, and uses that link in a redirect. This s"
+   },
+   {
+    "doc": "swg21995029",
+    "title": "IBM Security Bulletin: Vulnerability due to Server log files exposure affects IBM License Metric Tool v9 and IBM BigFix Inventory v9 (CVE-2016-8963) - United States",
+    "products": "IBM BigFix Inventory, IBM License Metric Tool",
+    "opening": "SECURITY BULLETIN SUMMARY IBM License Metric Tool v9 and IBM BigFix Inventory v9 Server log files can potentially reveal sensitive information. VULNERABILITY DETAILS CVEID: CVE-2016-8963 [http://cve.m"
+   },
+   {
+    "doc": "swg21995031",
+    "title": "IBM Security Bulletin: Vulnerability in password strength policy affects IBM License Metric Tool v9.x and IBM BigFix Inventory v9.x (CVE-2016-8962) - United States",
+    "products": "IBM BigFix Inventory, IBM License Metric Tool",
+    "opening": "SECURITY BULLETIN SUMMARY IBM License Metric Tool v9.x and IBM BigFix Inventory v9.x does not require strong passwords by default, which makes it easier for attackers to compromise user accounts. VULN"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-119",
+  "layer": "L1 retrieval: not retrieved",
+  "tags": [
+   "neither",
+   "same_product",
+   "vocab_gap"
+  ],
+  "question": "Does ITCAM for MQ monitoring agent (kmq) use SYSTEM.MQXR.COMMAND.QUEUE causing Unknown Object Name [2085] event? Using the ITCAM MQ Monitoring agent, we have a situation that generates alerts when a 2085 event (object unknown) occurs. We have recently seen alerts for the queue SYSTEM.MQXR.COMMAND.QUEUE We found following technote: Unknown Object Name [2085], SYSTEM.MQXR.COMMAND.QUEUE http://www-01.ibm.com/support/docview.wss?uid=swg21681687 This technote does not mention Tivoli monitoring produc",
+  "rewritten_query": "Does ITCAM for MQ monitoring agent (kmq) use SYSTEM.MQXR.COMMAND.QUEUE causing Unknown Object Name [2085] event? Using the ITCAM MQ Monitoring agent, we have a situation that generates alerts when a 2085 event (object unknown) occurs. We have recently seen alerts for the queue SYSTEM.MQXR.COMMAND.QU",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": null,
+   "sparse": null,
+   "fusion": null,
+   "rerank": null
+  },
+  "gold": {
+   "doc": "swg21318303",
+   "title": "IBM Identify the application that has a WMQ queue opened - United States",
+   "products": "WebSphere MQ",
+   "opening": "Identify application program connected queue TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) Your WebSphere MQ queue manager will not stop if there are applications that still have a queue opened. Your goal is to allow a graceful stop of the queue manager, also called controlled (or quiesced) shutdown."
+  },
+  "top3": [
+   {
+    "doc": "swg21681687",
+    "title": "IBM Unknown Object Name [2085], SYSTEM.MQXR.COMMAND.QUEUE - United States",
+    "products": "WebSphere MQ",
+    "opening": "TECHNOTE (FAQ) QUESTION You see the following record added to the WebSphere MQ event messages queue 'SYSTEM.ADMIN.QMGR.EVENT'. [timestamp] Unknown Object Name [2085] Event Type: Queue Manager Queue Ma"
+   },
+   {
+    "doc": "swg1IV86027",
+    "title": "IBM IV86027: UNKNOWN OBJECT NAME EVENT IS GENERATED DUE TO KMQ.IRA.AGENT.QUEUE - United States",
+    "products": "IBM Monitoring",
+    "opening": "DIRECT LINKS TO FIXES 7.3.0.2-TIV-XEforMsg-LA0002 [http://www.ibm.com/support/fixcentral/quickorder?product=ibm%2FTivoli%2FTivoli+Composite+Application+Manager+for+Applications&fixids=7.3.0.2-TIV-XEfo"
+   },
+   {
+    "doc": "swg1IT14417",
+    "title": "IBM IT14417: Command dmpmqcfg -a times out with message: 'MQSC timed out waiting for a response from the command server.' - United States",
+    "products": "IBM MQ",
+    "opening": "SUBSCRIBE You can track all active APARs for this component. APAR STATUS * CLOSED AS PROGRAM ERROR. ERROR DESCRIPTION * Running dmpmqcfg -a locally against a queue manager fails with error: \"MQSC time"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-121",
+  "layer": "L2 rerank",
+  "tags": [
+   "same_product",
+   "vocab_gap"
+  ],
+  "question": "Why are we seeing MQRC_NOT_AUTHORIZED errors after upgrading Websphere from V7.0 to V8.5.5? https://www-01.ibm.com/support/docview.wss?uid=swg21662193",
+  "rewritten_query": "Why are we seeing MQRC_NOT_AUTHORIZED errors after upgrading Websphere from V7.0 to V8.5.5? https://www-01.ibm.com/support/docview.wss?uid=swg21662193",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 19,
+   "sparse": 7,
+   "fusion": 6,
+   "rerank": 12
+  },
+  "gold": {
+   "doc": "swg21662193",
+   "title": "IBM Changes in the default user identifier between WebSphere MQ V7.0.1 classes for JMS and WebSphere MQ V7.1 classes for JMS - United States",
+   "products": "WebSphere Application Server, WebSphere MQ",
+   "opening": "TECHNOTE (FAQ) QUESTION You have configured a WebSphere Application Server WebSphere MQ messaging provider connection factory without an Authentication Alias and do not programmatically supply user identifier information when creating a connection to a queue manager. You notice a change in the defau"
+  },
+  "top3": [
+   {
+    "doc": "swg21651526",
+    "title": "IBM MQJMS2013 (V6) JMSWMQ2013 (V7) 無効なセキュリティ認証 (RC 2035) - United States",
+    "products": "WebSphere MQ",
+    "opening": "TECHNOTE(トラブルシューティング) 問題(概要) WebSphere MQとMQ JMSアプリケーションを使用する場合のセキュリティ認証エラーに関して You are running WebSphere MQ and your MQ JMS application fails with security authentication errors. 症状 MQRC 2035 MQRC_NO"
+   },
+   {
+    "doc": "swg21138961",
+    "title": "IBM MQJMS2013 (V6) JMSWMQ2013 (V7 and later) invalid security authentication (RC 2035) - United States",
+    "products": "WebSphere Application Server, WebSphere MQ",
+    "opening": "mqminfo permissions sec auth TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) You are running WebSphere MQ and your MQ JMS application fails with security authentication errors. SYMPTOM MQRC 2035 MQRC_NOT"
+   },
+   {
+    "doc": "swg21420469",
+    "title": "IBM 2035 MQRC_NOT_AUTHORIZED Java or JMS applications fail after upgrading from MQ V5.3 to V6 or V7 - United States",
+    "products": "WebSphere MQ",
+    "opening": "2035; JMS; java; MQRC_NOT_AUTHORIZED; client application; upgrade TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) You upgrade from WebSphere MQ V5.3 to V6 or V7 on the box where your client application i"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-125",
+  "layer": "L1 retrieval: not retrieved",
+  "tags": [
+   "neither",
+   "wrong_product",
+   "vocab_gap"
+  ],
+  "question": "ITMv6 issue: Cognos reports run for an extended period, sometimes never finishes",
+  "rewritten_query": "ITMv6 issue: Cognos reports run for an extended period, sometimes never finishes",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": null,
+   "sparse": null,
+   "fusion": null,
+   "rerank": null
+  },
+  "gold": {
+   "doc": "swg21585678",
+   "title": "IBM Increasing Java Heap Memory in IBM Tivoli Common Reporting 2.1/2.1.1 - United States",
+   "products": "Tivoli Common Reporting",
+   "opening": "TCR - Tivoli Common Reporting TECHNOTE (FAQ) QUESTION How to increase Java heap memory size in IBM Tivoli Common Reporting (TCR) 2.1/2.1.1 versions? CAUSE Running a large scale report with Default java heap settings might result in OutOfMemory error ANSWER TCR 2.1/2.1.1 server provides a default set"
+  },
+  "top3": [
+   {
+    "doc": "swg1IT23603",
+    "title": "IBM IT23603: COGNOS NEVER FINISHES STARTING - United States",
+    "products": "IBM Control Center",
+    "opening": "SUBSCRIBE TO THIS APAR By subscribing, you receive periodic emails alerting you to the status of the APAR, along with a link to the fix after it becomes available. You can track this item individually"
+   },
+   {
+    "doc": "swg21673565",
+    "title": "IBM ** Troubleshooting ** Standard Reports appear to hang / freeze when sending the output to PDF - United States",
+    "products": "Cognos Business Intelligence, Cognos Controller",
+    "opening": "PDF report progress bar intermittently hangs TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) User runs a report (e.g. a BI report or a Controller 'standard report', also known as a 'system report'). By d"
+   },
+   {
+    "doc": "swg21902141",
+    "title": "IBM Scheduled reports stay in \"Executing\" - United States",
+    "products": "Cognos Business Intelligence",
+    "opening": "TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) Scheduled reports begin to run and will sometimes complete successfully, but other times will remain in \"Executing\" and never complete. ENVIRONMENT A VPN C"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-127",
+  "layer": "L2 rerank",
+  "tags": [
+   "wrong_product"
+  ],
+  "question": "CR is not inserted for textarea using IE We are using IBM Case Manager 5.2.1.4 and IBM Content Navigator 2.0.3.7. Using Properties View Designer of Case Builder, we tried to input CR (\"Enter\") on the text area, but CR is not inserted. This issue occurs only on IE, not on Firefox or Chrome.",
+  "rewritten_query": "CR is not inserted for textarea using IE We are using IBM Case Manager 5.2.1.4 and IBM Content Navigator 2.0.3.7. Using Properties View Designer of Case Builder, we tried to input CR ('Enter') on the text area, but CR is not inserted. This issue occurs only on IE, not on Firefox or Chrome.",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 23,
+   "sparse": 17,
+   "fusion": 30,
+   "rerank": 18
+  },
+  "gold": {
+   "doc": "swg27049061",
+   "title": "IBM Fix list for IBM Content Navigator Version 3.0.0 - United States",
+   "products": "Content Navigator",
+   "opening": "PRODUCT DOCUMENTATION ABSTRACT The following table contains the complete listing of fixes for Version 3.0.0. CONTENT APARs fixed in IBM Content Navigator Version 3.0.0 APAR Description IO24490 (IBM FileNet P8 users) When EDS is used to hide workflow properties in the in-basket filter, moving the inp"
+  },
+  "top3": [
+   {
+    "doc": "swg1PJ44413",
+    "title": "IBM PJ44413: PRESSING CARRIAGE RETURN DOES NOT START A NEW LINE FOR STRING PROPERTY WHEN CONFIGURED AS TEXTAREA AND WITHIN A PROPERTY LIST - United States",
+    "products": "Case Manager",
+    "opening": "DIRECT LINKS TO FIXES IBM Case Manager V5.2.1 Fix Pack 6 for Linux for System Z [http://www.ibm.com/support/fixcentral/quickorder?product=ibm%2FInformation+Management%2FCase+Manager&fixids=5.2.1.6-ICM"
+   },
+   {
+    "doc": "swg21994511",
+    "title": "IBM In IBM Case Manager [ICM], text area displays as a normal text box in Internal Explorer [IE]11. - United States",
+    "products": "Case Manager",
+    "opening": "ICM; IE 11 TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) In ICM Case Builder, define a text area for a String type property. Fill in the value in ICM Case Client with IE 11, text area displays as a nor"
+   },
+   {
+    "doc": "swg1PJ44031",
+    "title": "IBM PJ44031: WRAPPING OF TEXT IN A TEXTAREA INSIDE A PROPERTY TABLE CONTAINER DOES NOT WORK AS EXPECTED - United States",
+    "products": "Case Manager",
+    "opening": "SUBSCRIBE TO THIS APAR By subscribing, you receive periodic emails alerting you to the status of the APAR, along with a link to the fix after it becomes available. You can track this item individually"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-135",
+  "layer": "L1 retrieval: fusion cut",
+  "tags": [
+   "dense_only",
+   "same_product",
+   "vocab_gap"
+  ],
+  "question": "Load SPSS 25 on a new computer I purchased SPSS 25 with a 12 month license on Jan 27. I loaded it and used it on my MacBook Pro. I now have a new MacBookPro. I was able to download the program but get a message that says I don't have a license. I do have the activation code. Can you please help me use this product on my new computer? Thanks!",
+  "rewritten_query": "Load SPSS 25 on a new computer I purchased SPSS 25 with a 12 month license on Jan 27. I loaded it and used it on my MacBook Pro. I now have a new MacBookPro. I was able to download the program but get a message that says I don't have a license. I do have the activation code. Can you help me use this",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 27,
+   "sparse": null,
+   "fusion": null,
+   "rerank": null
+  },
+  "gold": {
+   "doc": "swg21966637",
+   "title": "IBM Getting a warning message 'You do not have the correct administrator privileges' when attempting to license a SPSS Statistics product on Mac OS. - United States",
+   "products": "SPSS Statistics",
+   "opening": "TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) You have successfully installed an IBM SPSS Statistics product on a Mac computer. When you start the License Authorization Wizard (LAW) to enter the authorization code for licensing. You receive the following message: \"Warning! You do not have the correct"
+  },
+  "top3": [
+   {
+    "doc": "swg21985888",
+    "title": "IBM How do I transfer my IBM SPSS product/software license from one machine to another? - United States",
+    "products": "SPSS Modeler, SPSS Statistics",
+    "opening": "TECHNOTE (FAQ) QUESTION How do I transfer my IBM SPSS product/software license from one machine to another? ANSWER It is not possible, nor required, to transfer a license from an existing product inst"
+   },
+   {
+    "doc": "swg21985805",
+    "title": "IBM Error #2072 'There was an unanticipated problem with the license for this product.' A license check is performed by the system when IBM SPSS Statistics or Modeler is started. - United States",
+    "products": "SPSS Statistics",
+    "opening": "TECHNOTE (FAQ) QUESTION Error #2072 'There was an unanticipated problem with the license for this product.' When running IBM SPSS Statistics or Modeler. CAUSE When starting IBM SPSS Statistics or Mode"
+   },
+   {
+    "doc": "swg1PI47268",
+    "title": "IBM PI47268: DOUBLE-CLICK ON .SAV. .SPV OR .SPS FILE --> IF STATISTICS IS OPEN GET ERROR THAT SPSSSTATISTICS CAN'T BE OPENED - United States",
+    "products": "SPSS Statistics",
+    "opening": "SUBSCRIBE TO THIS APAR By subscribing, you receive periodic emails alerting you to the status of the APAR, along with a link to the fix after it becomes available. You can track this item individually"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-138",
+  "layer": "L2 rerank",
+  "tags": [
+   "sparse_only",
+   "same_product",
+   "vocab_gap"
+  ],
+  "question": "TWS / DWC and WebSphere 8.5.5.4+ WebSphere for TWS & DWC were upgraded to 8.5.5.4 on most servers in a particular environment. However, any TWS servers that still had 8.5.5.2, could no longer be seen by the new DWC / WAS 8.5.5.4 servers. Those lower WAS version engines could not be added to the DWC. Errors seen are: AWSUI0833E The operation could not be completed. There has been a communication failure. The internal message is: AWSJCO005E WebSphere Application Server has given the following erro",
+  "rewritten_query": "TWS / DWC and WebSphere 8.5.5.4+ WebSphere for TWS & DWC were upgraded to 8.5.5.4 on most servers in a particular environment. However, any TWS servers that still had 8.5.5.2, could no longer be seen by the new DWC / WAS 8.5.5.4 servers. Those lower WAS version engines could not be added to the DWC.",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": null,
+   "sparse": 10,
+   "fusion": 17,
+   "rerank": 10
+  },
+  "gold": {
+   "doc": "swg21964202",
+   "title": "IBM How Connect TDWC 9.3 to TWS Engine lower level release - United States",
+   "products": "IBM Workload Scheduler",
+   "opening": "dwc 93; connect; SSL ; TLS TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) DWC 9.3 users cannot connect to TWS Engine lower level releases (8.5.1 until 9.2) SYMPTOM Unable to connect to TWS 8.5.1 ,8.6 or 9.1/9.2 from DWC 9.3. Check the WAS SystemOut.log for error : SSL0080E: javax.net.ssl.SSLHandshakeE"
+  },
+  "top3": [
+   {
+    "doc": "swg21460225",
+    "title": "IBM AWSJCO005E or SRVE0255E errors logging in to TDWC - United States",
+    "products": "IBM Workload Scheduler",
+    "opening": "unable; cannot; connect; webui; dwc; tip; isc; AWSUI0766E; AWSUI0833E TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) SRVE0255E error is received when attempting to navigate to the Tivoli Dynamic Workloa"
+   },
+   {
+    "doc": "swg21624718",
+    "title": "IBM TDWC Test connection Error when hostname contains underscore \"_\" - United States",
+    "products": "IBM Workload Scheduler",
+    "opening": "webui engine connect TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) Installation completes ok but when we define a new TWS engine, the connection fails AWSUI0766E. SYMPTOM When testing you receive error"
+   },
+   {
+    "doc": "swg21883616",
+    "title": "IBM AWSJCO005E and AWSZAP006E Event rule errors with SSL certificates - United States",
+    "products": "IBM Workload Scheduler",
+    "opening": "TDWC; DWC; authentication SSL TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) While creating an event rule to add a jobstream to a z/OS master from TDWC the following error is shown: \"AWSJCO005E WebSpher"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-139",
+  "layer": "L2 rerank",
+  "tags": [
+   "dense_only",
+   "same_product",
+   "vocab_gap"
+  ],
+  "question": "Latest deployed ruleset not executing in clustered environment We are using ODM 8.7.0.1 and are running into an issue in our clustered environment. After deploying an updated to the ruleapp, using \"Replace RuleApp Version\" versioning policy, the that the decision service is still executing the previous version of the business rules.",
+  "rewritten_query": "Latest deployed ruleset not executing in clustered environment We are using ODM 8.7.0.1 and are running into an issue in our clustered environment. After deploying an updated to the ruleapp, using 'Replace RuleApp Version' versioning policy, the decision service is still executing the previous versi",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 2,
+   "sparse": null,
+   "fusion": 9,
+   "rerank": 18
+  },
+  "gold": {
+   "doc": "swg21598779",
+   "title": "IBM An unexpected ruleset version is executed - United States",
+   "products": "IBM Operational Decision Manager, WebSphere ILOG JRules",
+   "opening": "TECHNOTE (FAQ) QUESTION Why is Rule Execution Server (RES) not executing the expected version of a ruleset ? What are the possible causes after a hot deployment for Rule Execution Server not to use the updated ruleset ? CAUSE Possible causes for unexpected versions to be executed are: - the RES clie"
+  },
+  "top3": [
+   {
+    "doc": "swg21663707",
+    "title": "IBM Decision Center utility Ant tasks - United States",
+    "products": "IBM Operational Decision Manager",
+    "opening": "TECHNOTE (FAQ) QUESTION Do you need to publish a RuleApp from a command line? Are you looking for information regarding branch security? Are you trying to automate Decision Center operations with Ant "
+   },
+   {
+    "doc": "swg21668133",
+    "title": "IBM Making sure that the cached ruleset that is created by the loadUptodateRuleset method is used - United States",
+    "products": "IBM Decision Server",
+    "opening": "TECHNOTE (FAQ) QUESTION Why does the rule invocation not reuse the ruleset cache? How to develop an application which warms up rulesets? I have a web application that uses the loadUptodateRuleset meth"
+   },
+   {
+    "doc": "swg21679666",
+    "title": "IBM How to deploy .dsar ruleset archive using the res-deploy Ant task in ODM - United States",
+    "products": "IBM Operational Decision Manager",
+    "opening": "TECHNOTE (FAQ) QUESTION When I use res-deploy Ant task to deploy a ruleset archive for the decision engine ruleset (.dsar file), I get the error: [res-deploy] [ERROR] ilog.rules.res.tools.http.IlrDepl"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-142",
+  "layer": "L1 retrieval: fusion cut",
+  "tags": [
+   "sparse_only",
+   "same_product",
+   "vocab_gap"
+  ],
+  "question": "XGS 5.3.0.6: Is there a way to replicate an inspection object under the same policy repository? Is there a way to replicate an inspection object under the same policy repository?",
+  "rewritten_query": "XGS 5.3.0.6: Is there a way to replicate an inspection object under the same policy repository?",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": null,
+   "sparse": 30,
+   "fusion": null,
+   "rerank": null
+  },
+  "gold": {
+   "doc": "swg21902778",
+   "title": "IBM Security Network Protection firmware 5.3.1 release notes - United States",
+   "products": "IBM Security Network Protection Documentation",
+   "opening": "release notes; readme; firmware; xgs FIX README ABSTRACT IBM Security Network Protection Firmware Version 5.3.1 is a firmware update for the XGS NGIPS network protection platform. This release provides the following updates to IBM Security Network Protection Firmware Version 5.3.1. CONTENT Serviceab"
+  },
+  "top3": [
+   {
+    "doc": "swg21902773",
+    "title": "IBM Policy migration limitations and facts to consider - United States",
+    "products": "IBM QRadar Network Security, IBM Security Network Intrusion Prevention System, IBM Security Network Protection Documentation",
+    "opening": "gx xgs migration TECHNOTE (FAQ) QUESTION What are the limitations and facts that need to be considered before running the policy migration utility for Network IPS (GX) to IBM QRadar Network Security(I"
+   },
+   {
+    "doc": "swg21972184",
+    "title": "IBM Using domain certificate objects for Outbound SSL Inspection Policy on IBM Qradar Network Security - United States",
+    "products": "IBM QRadar Network Security, IBM Security Network Protection Documentation",
+    "opening": "classifications; certification authority; CA; customize; general; inspection rules; Network Access Policy; XGS TECHNOTE (FAQ) QUESTION How can you use domain certificate categories and lists objects i"
+   },
+   {
+    "doc": "swg21667633",
+    "title": "IBM Policy differences between the Security Network IPS and Security Network Protection System - United States",
+    "products": "IBM Security Network Intrusion Prevention System, IBM Security Network Protection Documentation",
+    "opening": "policy; difference; firewall; user-defined; protection domains; wap; connection events; snort TECHNOTE (FAQ) QUESTION What are the policy differences between the Security Network IPS (GX) and the Secu"
+   }
+  ]
+ },
+ {
+  "group": "miss",
+  "task_id": "M-tune-150",
+  "layer": "L2 rerank",
+  "tags": [
+   "wrong_product",
+   "near_duplicate",
+   "vocab_gap"
+  ],
+  "question": "Does DataPower support SHA-2? Is DataPower able to support SHA-2 (SHA256)? 1",
+  "rewritten_query": "Does DataPower support SHA-2? Is DataPower able to support SHA-2 (SHA256)? 1",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 5,
+   "sparse": 20,
+   "fusion": 4,
+   "rerank": 19
+  },
+  "gold": {
+   "doc": "swg21406783",
+   "title": "IBM When a Certificate Authority (CA) signs a certificate using SHA2(SHA-256), IBM Websphere DataPower SOA Appliance can validate the signature of CA on certificate. - United States",
+   "products": "WebSphere DataPower Integration Appliance XI50",
+   "opening": "Datapower DP valcred SHA2 SHA-2 SHA-256 certificate trust CA TECHNOTE (FAQ) QUESTION When a Certificate Authority(CA) signs a certificate using SHA2(SHA-256), can IBM Websphere DataPower SOA Appliance validate the certificate and trust chain? ANSWER Yes, if a Certificate Authority(CA) signs a certif"
+  },
+  "top3": [
+   {
+    "doc": "swg1PJ41598",
+    "title": "IBM PJ41598: IMAGE SERVICES (IS) 4.2.0 NEEDS TO SUPPORT FIPS SHA-256 - United States",
+    "products": "FileNet P8 Platform",
+    "opening": "SUBSCRIBE You can track all active APARs for this component. APAR STATUS * CLOSED AS PROGRAM ERROR. ERROR DESCRIPTION * Image Services (IS) 4.2.0 Needs to support FIPS SHA-256 LOCAL FIX PROBLEM SUMMAR"
+   },
+   {
+    "doc": "swg21962011",
+    "title": "IBM SSL communication between Datapower and MQ Queue Manager requires same exact cipher - United States",
+    "products": "IBM DataPower Gateways",
+    "opening": "mq ssl mq-qm handshake failure cipher suite TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) SSL connections between Datapower and MQ Queue Manager may fail if the cipher on the MQ Queue Manager channel d"
+   },
+   {
+    "doc": "swg1PJ41664",
+    "title": "IBM PJ41664: IMAGE SERVICES (IS) 4.2.0 NEEDS TO SUPPORT FIPS SHA-256 - United States",
+    "products": "FileNet P8 Platform",
+    "opening": "SUBSCRIBE TO THIS APAR By subscribing, you receive periodic emails alerting you to the status of the APAR, along with a link to the fix after it becomes available. You can track this item individually"
+   }
+  ]
+ },
+ {
+  "group": "control",
+  "task_id": "M-tune-001",
+  "layer": "correct",
+  "tags": [],
+  "question": "I am running WebSphere App server on 64bit JVM with plenty of free system memory, how come I still get Native OutOfMemory errors (NOOM)?",
+  "rewritten_query": "I am running WebSphere App server on 64bit JVM with plenty of free system memory, how come I still get Native OutOfMemory errors (NOOM)?",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 13,
+   "sparse": 1,
+   "fusion": 3,
+   "rerank": 1
+  },
+  "gold": {
+   "doc": "swg21660890",
+   "title": "IBM Using -Xgc:preferredHeapBase with -Xcompressedrefs - United States",
+   "products": "WebSphere Application Server",
+   "opening": "TECHNOTE (FAQ) QUESTION \"Why does the JVM report a native out-of-memory (NOOM) when using compressed references? I am using a 64bit JVM and I clearly have plenty of memory left. How can I resolve this problem?\" CAUSE *In this note, please refer to Java Versioning: Java Version.Release.ServiceRelease"
+  },
+  "top3": [
+   {
+    "doc": "swg21660890",
+    "title": "IBM Using -Xgc:preferredHeapBase with -Xcompressedrefs - United States",
+    "products": "WebSphere Application Server",
+    "opening": "TECHNOTE (FAQ) QUESTION \"Why does the JVM report a native out-of-memory (NOOM) when using compressed references? I am using a 64bit JVM and I clearly have plenty of memory left. How can I resolve this"
+   },
+   {
+    "doc": "swg21425419",
+    "title": "IBM The resource manager component of Content Manager for Enterprise Edition V8.4 (CM) crashes with an OutOfMemory error. - United States",
+    "products": "Content Manager",
+    "opening": "javacore jvm out of memory jni -Xjni:arrayCacheMax=0 tsm TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) During high volume stores or migrates into Tivoli Storage Manager (TSM) the resource manager java "
+   },
+   {
+    "doc": "swg21504345",
+    "title": "IBM Using libumem to diagnose Native OutOfMemoryErrors or leaks on Solaris - United States",
+    "products": "WebSphere Application Server",
+    "opening": "WebSphere Solaris native outofmemory libumem TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) This technote details how to set up and use libumem to track native memory usage for IBM WebSphere Application"
+   }
+  ]
+ },
+ {
+  "group": "control",
+  "task_id": "M-tune-028",
+  "layer": "correct",
+  "tags": [],
+  "question": "What happens if I run arssyscr -I instance_name -r without having Report Distribution enabled or installed? What could cause problems if I run arssyscr -I instance_name -r without having Report Distribution enabled or installed in CMOD v9.0?",
+  "rewritten_query": "What happens if I run arssyscr -I instance_name -r without having Report Distribution enabled or installed? What could cause problems if I run arssyscr -I instance_name -r without having Report Distribution enabled or installed in CMOD v9.0?",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 1,
+   "sparse": 1,
+   "fusion": 1,
+   "rerank": 1
+  },
+  "gold": {
+   "doc": "swg21672402",
+   "title": "IBM What happens if I run arssyscr -I instance_name -r  without having Report Distribution enabled or installed? - United States",
+   "products": "Content Manager OnDemand for Multiplatforms",
+   "opening": "arssyscr; Report Distribution TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) Running arssyscr -I instance_name -r during upgrade without RDF installed or enabled can lead to errors during load. SYMPTOM You will see errors similar to (depending on database brand) DB Error: ORA-00942: table or view does"
+  },
+  "top3": [
+   {
+    "doc": "swg21672402",
+    "title": "IBM What happens if I run arssyscr -I instance_name -r  without having Report Distribution enabled or installed? - United States",
+    "products": "Content Manager OnDemand for Multiplatforms",
+    "opening": "arssyscr; Report Distribution TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) Running arssyscr -I instance_name -r during upgrade without RDF installed or enabled can lead to errors during load. SYMPTOM "
+   },
+   {
+    "doc": "swg21620754",
+    "title": "IBM Upgrade guide for Content Manager OnDemand server V9.0.0 - United States",
+    "products": "Content Manager OnDemand for Multiplatforms",
+    "opening": "TECHNOTE (FAQ) QUESTION This guide contains step by step instructions and information to migrate your IBM Content Manager OnDemand server to V9.0.0. Follow the instructions for the version of Content "
+   },
+   {
+    "doc": "swg1PM20892",
+    "title": "IBM PM20892: CMOD ISSUES  DSNT408I SQLCODE = -104, ERROR:  ILLEGAL SYMBOL    \"ª--\" - United States",
+    "products": "Content Manager OnDemand for z/OS",
+    "opening": "z/os A FIX IS AVAILABLE Obtain the fix for this APAR. SUBSCRIBE You can track all active APARs for this component. APAR STATUS * CLOSED AS PROGRAM ERROR. ERROR DESCRIPTION * DB Error: &#65425;DB2 FOR "
+   }
+  ]
+ },
+ {
+  "group": "control",
+  "task_id": "M-tune-029",
+  "layer": "correct",
+  "tags": [],
+  "question": "What are the supported Macintosh Operating System versions for IBM SPSS Statistics 19, 20, 21, 22 and 23? I would like to know what are the supported Macintosh Operating system versions for IBM SPSS Statistics versions 18, 19, 20, 21, 22 and 23?",
+  "rewritten_query": "What are the supported Macintosh Operating System versions for IBM SPSS Statistics 19, 20, 21, 22 and 23? I would like to know what are the supported Macintosh Operating system versions for IBM SPSS Statistics versions 18, 19, 20, 21, 22 and 23?",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 1,
+   "sparse": 2,
+   "fusion": 1,
+   "rerank": 1
+  },
+  "gold": {
+   "doc": "swg21507587",
+   "title": "IBM What are the supported Apple Macintosh Operating System Versions for IBM SPSS Statistics? - United States",
+   "products": "SPSS Statistics",
+   "opening": "SPSS mac macintosh Apple Macintosh statistics OS supported version compatibility matrix leopard Snow Leopard Lion Mountain Lion 10.8 Mavericks 10.9 22 Yosemite 10.10 (Yosemite) el capitan 10.11 spss 24 Sierra 10.12 High Sierra 10.13 TECHNOTE (FAQ) QUESTION I would like to know what are the supported"
+  },
+  "top3": [
+   {
+    "doc": "swg21507587",
+    "title": "IBM What are the supported Apple Macintosh Operating System Versions for IBM SPSS Statistics? - United States",
+    "products": "SPSS Statistics",
+    "opening": "SPSS mac macintosh Apple Macintosh statistics OS supported version compatibility matrix leopard Snow Leopard Lion Mountain Lion 10.8 Mavericks 10.9 22 Yosemite 10.10 (Yosemite) el capitan 10.11 spss 2"
+   },
+   {
+    "doc": "swg21903203",
+    "title": "IBM SPSS Statistics 18、 19、 20、 21、 22 和 23支持的Mac操作系统版本是什么 - United States",
+    "products": "SPSS Statistics",
+    "opening": "TECHNOTE (FAQ) 疑问 IBM SPSS Statistics 18、 19、 20、 21、 22 和 23支持的Mac操作系统版本是什么 答案 建议阅读 IBM 软件产品的兼容性报告 www-969.ibm.com/software/reports/compatibility/clarity/index.jsp [http://www-969.ibm.com/software/re"
+   },
+   {
+    "doc": "swg1PM81098",
+    "title": "IBM PM81098: INCONSISTENT DOCUMENTATION OF SUPPORTED MACINTOSH OPERATING SYSTEM 10.6 AND IBM SPSS STATISTICS 21 - United States",
+    "products": "SPSS Statistics",
+    "opening": "SUBSCRIBE You can track all active APARs for this component. APAR STATUS * CLOSED AS FIXED IF NEXT. ERROR DESCRIPTION * You would like to know if you can install IBM SPSS Statistics 21 on a Macintosh "
+   }
+  ]
+ },
+ {
+  "group": "control",
+  "task_id": "M-tune-030",
+  "layer": "correct",
+  "tags": [],
+  "question": "Security Bulletin: IBM MQ and IBM MQ Appliance MQOPEN call might succeed when it should have failed (CVE-2017-1341) I need to understand details regarding Security Bulletin: IBM MQ and IBM MQ Appliance MQOPEN call might succeed when it should have failed (CVE-2017-1341). Where can I find this information?",
+  "rewritten_query": "Security Bulletin: IBM MQ and IBM MQ Appliance MQOPEN call might succeed when it should have failed (CVE-2017-1341) I need to understand details regarding Security Bulletin: IBM MQ and IBM MQ Appliance MQOPEN call might succeed when it should have failed (CVE-2017-1341). Where can I find this inform",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 1,
+   "sparse": 1,
+   "fusion": 1,
+   "rerank": 1
+  },
+  "gold": {
+   "doc": "swg22005400",
+   "title": "IBM Security Bulletin: IBM MQ and IBM MQ Appliance MQOPEN call might succeed when it should have failed.  (CVE-2017-1341 ) - United States",
+   "products": "IBM MQ",
+   "opening": "SECURITY BULLETIN SUMMARY MQOPEN call might succeed when it should have failed, when using generic profile authority matching for remotely defined MQ object. VULNERABILITY DETAILS CVEID: CVE-2017-1341 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1341] DESCRIPTION: IBM WebSphere MQ could a"
+  },
+  "top3": [
+   {
+    "doc": "swg22005400",
+    "title": "IBM Security Bulletin: IBM MQ and IBM MQ Appliance MQOPEN call might succeed when it should have failed.  (CVE-2017-1341 ) - United States",
+    "products": "IBM MQ",
+    "opening": "SECURITY BULLETIN SUMMARY MQOPEN call might succeed when it should have failed, when using generic profile authority matching for remotely defined MQ object. VULNERABILITY DETAILS CVEID: CVE-2017-1341"
+   },
+   {
+    "doc": "swg22011395",
+    "title": "IBM Security Bulletin: IBM MQとIBM MQアプライアンス において、本来なら失敗するべきMQOPEN 呼び出しが成功する可能性があります。(CVE-2017-1341 ) - United States",
+    "products": "IBM MQ",
+    "opening": "SECURITY BULLETIN SUMMARY リモートで定義されたMQオブジェクトに一致する汎用プロファイル権限を使用しているときに、本来なら失敗するべきMQOPEN 呼び出しが成功する可能性があります。 最新情報はオリジナルの技術文書（英文）をご参照ください。 http://www.ibm.com/support/docview.wss?uid=swg22005400 [http://ww"
+   },
+   {
+    "doc": "swg21999672",
+    "title": "IBM Security Bulletin: IBM WebSphere MQ and IBM MQ Appliance proliferation of channel agents causes denial of service (CVE-2017-1145) - United States",
+    "products": "WebSphere MQ",
+    "opening": "SECURITY BULLETIN SUMMARY Threaded channel agents (amqrmppa) might not terminate when they are no longer required. This can lead to a denial of service through exhausting server resources. VULNERABILI"
+   }
+  ]
+ },
+ {
+  "group": "control",
+  "task_id": "M-tune-032",
+  "layer": "correct",
+  "tags": [],
+  "question": "What does the end-file-message mean while doing a launchpad.sh in the MS\" I am getting an end-file-message means while doing a launchpad.sh in the MS. How do I solve the problem?",
+  "rewritten_query": "What does the end-file-message mean while doing a launchpad.sh in the MS?",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 1,
+   "sparse": 1,
+   "fusion": 1,
+   "rerank": 1
+  },
+  "gold": {
+   "doc": "swg21985630",
+   "title": "IBM Using launchpad.sh or silent_MS_linux.bin results in end-of-file message. - United States",
+   "products": "Tivoli Composite Application Manager for Application Diagnostics",
+   "opening": "ITCAM compat-libstdc++ libstdc++ libraries silent_MS_linux.bin launchpad.sh errors TECHNOTE (TROUBLESHOOTING) THIS DOCUMENT APPLIES ONLY TO THE FOLLOWING LANGUAGE VERSION(S): US English PROBLEM(ABSTRACT) Using the DC or MS 'launchpad.sh' script results in the following error message: ./setup_MS_lin."
+  },
+  "top3": [
+   {
+    "doc": "swg21985630",
+    "title": "IBM Using launchpad.sh or silent_MS_linux.bin results in end-of-file message. - United States",
+    "products": "Tivoli Composite Application Manager for Application Diagnostics",
+    "opening": "ITCAM compat-libstdc++ libstdc++ libraries silent_MS_linux.bin launchpad.sh errors TECHNOTE (TROUBLESHOOTING) THIS DOCUMENT APPLIES ONLY TO THE FOLLOWING LANGUAGE VERSION(S): US English PROBLEM(ABSTRA"
+   },
+   {
+    "doc": "swg21671107",
+    "title": "IBM Installing the Linux library on a 64-bit in preparation for the MS. - United States",
+    "products": "Tivoli Composite Application Manager for Application Diagnostics",
+    "opening": "Linux library libpam.so.6 libpam.so.1 yum install tema CAMADALL CAMADINST MS install launchpad.sh TECHNOTE (FAQ) THIS DOCUMENT APPLIES ONLY TO THE FOLLOWING LANGUAGE VERSION(S): US English QUESTION In"
+   },
+   {
+    "doc": "swg21619205",
+    "title": "IBM File not found when installing RaPM - United States",
+    "products": "IBM Security Identity Manager",
+    "opening": "install error missing launchpad.sh manually manual installing TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) The installation of Tivoli Integrated Portal component fails when IBM Security Role and Polic"
+   }
+  ]
+ },
+ {
+  "group": "control",
+  "task_id": "M-tune-035",
+  "layer": "correct",
+  "tags": [],
+  "question": "Help with Security Bulletin: Apache Commons FileUpload Vulnerabilities in IBM WebSphere MQ File Transfer Edition component (CVE-2016-1000031) I need to understand details regarding Security Bulletin: Apache Commons FileUpload Vulnerabilities in IBM WebSphere MQ File Transfer Edition component (CVE-2016-1000031).",
+  "rewritten_query": "Help with Security Bulletin: Apache Commons FileUpload Vulnerabilities in IBM WebSphere MQ File Transfer Edition component (CVE-2016-1000031)",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 5,
+   "sparse": 1,
+   "fusion": 2,
+   "rerank": 1
+  },
+  "gold": {
+   "doc": "swg22011689",
+   "title": "IBM Security Bulletin: Apache Commons FileUpload Vulnerabilities in IBM WebSphere MQ File Transfer Edition component (CVE-2016-1000031) - United States",
+   "products": "WebSphere MQ",
+   "opening": "SECURITY BULLETIN SUMMARY The DiskFileItem class in Apache Commons Fileupload before version 1.3.3, used in IBM WebSphere MQ File Transfer Edition, specifically the Web Gateway component, could allow remote attackers to execute arbitrary code under the context of the current process, causing an unde"
+  },
+  "top3": [
+   {
+    "doc": "swg22011689",
+    "title": "IBM Security Bulletin: Apache Commons FileUpload Vulnerabilities in IBM WebSphere MQ File Transfer Edition component (CVE-2016-1000031) - United States",
+    "products": "WebSphere MQ",
+    "opening": "SECURITY BULLETIN SUMMARY The DiskFileItem class in Apache Commons Fileupload before version 1.3.3, used in IBM WebSphere MQ File Transfer Edition, specifically the Web Gateway component, could allow "
+   },
+   {
+    "doc": "swg22011788",
+    "title": "IBM Security Bulletin: Apache Commons FileUpload Vulnerabilities in IBM WebSphere MQ Managed File Transfer component (CVE-2016-1000031) - United States",
+    "products": "WebSphere MQ",
+    "opening": "SECURITY BULLETIN SUMMARY The DiskFileItem class in Apache Commons Fileupload before 1.3.3, as used in IBM WebSphere MQ Managed File Transfer, specifically the Web Gateway component, allows remote att"
+   },
+   {
+    "doc": "swg22012109",
+    "title": "IBM Security Bulletin: Apache Commons FileUpload Vulnerabilities in IBM WebSphere MQ File Transfer Edition(CVE-2016-3092) - United States",
+    "products": "WebSphere MQ",
+    "opening": "SECURITY BULLETIN SUMMARY The MultipartStream class in Apache Commons Fileupload before 1.3.2, as used in IBM WebSphere MQ File Transfer Edition, specifically the Web Gateway component, allows remote "
+   }
+  ]
+ },
+ {
+  "group": "control",
+  "task_id": "M-tune-037",
+  "layer": "correct",
+  "tags": [],
+  "question": "Help with Security Bulletin: Multiple vulnerabilities in IBM Java SDK affect IBM Image Construction and Composition Tool (CVE-2015-0410 and CVE-2014-6593) I need to understand details regarding \"Security Bulletin: Multiple vulnerabilities in IBM Java SDK affect IBM Image Construction and Composition Tool (CVE-2015-0410 and CVE-2014-6593).\" Where can I find information regarding CVE-2014-6593?",
+  "rewritten_query": "Help with Security Bulletin: Multiple vulnerabilities in IBM Java SDK affect IBM Image Construction and Composition Tool (CVE-2015-0410 and CVE-2014-6593) I need to understand details regarding 'Security Bulletin: Multiple vulnerabilities in IBM Java SDK affect IBM Image Construction and Composition",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 10,
+   "sparse": 1,
+   "fusion": 1,
+   "rerank": 1
+  },
+  "gold": {
+   "doc": "swg21962370",
+   "title": "IBM Security Bulletin: Multiple vulnerabilities in IBM Java SDK affect IBM Image Construction and Composition Tool (CVE-2015-0410 and CVE-2014-6593) - United States",
+   "products": "PureApplication System",
+   "opening": "SECURITY BULLETIN SUMMARY There are multiple vulnerabilities in IBM® SDK Java™ Technology Edition Version 6 and 7 that are used by IBM Image Construction and Composition Tool. These issues were disclosed as part of the IBM Java SDK updates in January 2015. VULNERABILITY DETAILS CVEID: CVE-2015-0410 "
+  },
+  "top3": [
+   {
+    "doc": "swg21962370",
+    "title": "IBM Security Bulletin: Multiple vulnerabilities in IBM Java SDK affect IBM Image Construction and Composition Tool (CVE-2015-0410 and CVE-2014-6593) - United States",
+    "products": "PureApplication System",
+    "opening": "SECURITY BULLETIN SUMMARY There are multiple vulnerabilities in IBM® SDK Java™ Technology Edition Version 6 and 7 that are used by IBM Image Construction and Composition Tool. These issues were disclo"
+   },
+   {
+    "doc": "swg21903249",
+    "title": "IBM Security Bulletin: Multiple vulnerabilities in IBM Java SDK affect IBM Image Construction and Composition Tool (CVE-2014-3566 and CVE-2014-6457) - United States",
+    "products": "PureApplication System",
+    "opening": "SECURITY BULLETIN SUMMARY There are multiple vulnerabilities in IBM® SDK Java™ Technology Edition, Version 6 that is used by IBM PureApplication System. This also includes a fix for the Padding Oracle"
+   },
+   {
+    "doc": "swg21962837",
+    "title": "IBM Security Bulletin: Multiple vulnerabilities in IBM Java SDK affect IBM Image Construction and Composition Tool (CVE-2015-2808, CVE-2015-1916, CVE-2015-0204, CVE-2015-0138) - United States",
+    "products": "PureApplication System",
+    "opening": "SECURITY BULLETIN SUMMARY There are multiple vulnerabilities in IBM SDK Java Technology Edition, Version 6 and 7, that is used by IBM Image Construction and Composition Tool. These issues were disclos"
+   }
+  ]
+ },
+ {
+  "group": "control",
+  "task_id": "M-tune-053",
+  "layer": "correct",
+  "tags": [],
+  "question": "How to control SDMS database size? ITCAM for SOA 7.1.1 was installed about 3 years ago. I already know that SDMS database size may increase with no limit. Has anyone found a way to keep under control this behavior?",
+  "rewritten_query": "How to control SDMS database size? ITCAM for SOA 7.1.1 was installed about 3 years ago. I already know that SDMS database size may increase with no limit. Has anyone found a way to keep under control this behavior?",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 1,
+   "sparse": 1,
+   "fusion": 1,
+   "rerank": 1
+  },
+  "gold": {
+   "doc": "swg21959281",
+   "title": "IBM ITCAM for SOA KD4SDMS database size grows - United States",
+   "products": "Tivoli Composite Application Manager for SOA",
+   "opening": "CAMSOAALL CAMSOADB CAMSOAPERF REQMETRICS RESPMETRICS kd4TrimDB2db TECHNOTE (FAQ) QUESTION As the KD4SDMS grows unbounded, is there a way to regularly prune it? ANSWER Regarding the older release ITCAM for SOA 7.1.1, there is no a mechanism to automatically regularly prune the KD4SDMS database. The f"
+  },
+  "top3": [
+   {
+    "doc": "swg21959281",
+    "title": "IBM ITCAM for SOA KD4SDMS database size grows - United States",
+    "products": "Tivoli Composite Application Manager for SOA",
+    "opening": "CAMSOAALL CAMSOADB CAMSOAPERF REQMETRICS RESPMETRICS kd4TrimDB2db TECHNOTE (FAQ) QUESTION As the KD4SDMS grows unbounded, is there a way to regularly prune it? ANSWER Regarding the older release ITCAM"
+   },
+   {
+    "doc": "swg21381100",
+    "title": "IBM ITCAM for SOA 7.1.x with a corrupted SDMS database - United States",
+    "products": "Tivoli Composite Application Manager for SOA",
+    "opening": "soa; datapower; sdms; database; corruption; CAMSOAALL CAMSOADB TECHNOTE (FAQ) QUESTION How to regenerate the SDMS database after a data corruption or installation problem? ANSWER In this situation, th"
+   },
+   {
+    "doc": "swg21681048",
+    "title": "IBM Pruning ITCAM for SOA - SDMS Relationship Metrics Tables - United States",
+    "products": "Tivoli Composite Application Manager for SOA",
+    "opening": "CAMSOAALL CAMSOAPERF CAMSOADB CAMSOAAgent Prune DB Database SDMS Metric Table Tables TECHNOTE (FAQ) QUESTION ITCAM for SOA database appears to be full. Is there a way to prune it ? CAUSE The relations"
+   }
+  ]
+ },
+ {
+  "group": "control",
+  "task_id": "M-tune-067",
+  "layer": "correct",
+  "tags": [],
+  "question": "How to find details of Corrupted Object from the entries in db2diag.log? We have corruption in DB2 Database and got entries for corrupted Object in db2diag.log ,Need to find details of the Object using information dumped in db2diag.log",
+  "rewritten_query": "How to find details of Corrupted Object from the entries in db2diag.log? We have corruption in DB2 Database and got entries for corrupted Object in db2diag.log, Need to find details of the Object using information dumped in db2diag.log",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 1,
+   "sparse": 1,
+   "fusion": 1,
+   "rerank": 1
+  },
+  "gold": {
+   "doc": "swg21983129",
+   "title": "IBM How to find details of Corrupted Object from the entries in db2diag.log? - United States",
+   "products": "DB2 for Linux, UNIX and Windows",
+   "opening": "TECHNOTE (FAQ) QUESTION How to find details of Corrupted Object from the entries in db2diag.log? ANSWER When we have corruption in the database we may received following kind of entries in db2diag.log These also notify object where we t where we have detected corruption in the Database. Sample db2di"
+  },
+  "top3": [
+   {
+    "doc": "swg21983129",
+    "title": "IBM How to find details of Corrupted Object from the entries in db2diag.log? - United States",
+    "products": "DB2 for Linux, UNIX and Windows",
+    "opening": "TECHNOTE (FAQ) QUESTION How to find details of Corrupted Object from the entries in db2diag.log? ANSWER When we have corruption in the database we may received following kind of entries in db2diag.log"
+   },
+   {
+    "doc": "swg21322155",
+    "title": "IBM Collecting data: DB2 data corruption - United States",
+    "products": "DB2 for Linux, UNIX and Windows",
+    "opening": "MustGather; MustGather; MustGather; MustGatherDocument; CollectTroubleshootingData; bad page; CBIT; data corruption TECHNOTE (FAQ) QUESTION Collecting data for troubleshooting corruption problems such"
+   },
+   {
+    "doc": "swg1IY92909",
+    "title": "IBM IY92909: INCORRECT MESSAGE DISK FULL WAS REPORTED (DIA8312C) IN DB2DIAG  AND SQL0968C TO THE PROMPT WHEN SMS TEMP PAGE IS MISSING/CORRUPT - United States",
+    "products": "DB2 for Linux, UNIX and Windows",
+    "opening": "AIX SUBSCRIBE You can track all active APARs for this component. APAR STATUS * CLOSED AS FIXED IF NEXT. ERROR DESCRIPTION * When db2 is missing a SMS temporary page during sort/reorg, it reports misle"
+   }
+  ]
+ },
+ {
+  "group": "control",
+  "task_id": "M-tune-073",
+  "layer": "correct",
+  "tags": [],
+  "question": "Help with Security Bulletin: IBM WebSphere MQ MQXR insecure passwords (CVE-2015-2012) I need to understand details regarding Security Bulletin: IBM WebSphere MQ MQXR insecure passwords (CVE-2015-2012). Where can I find this information?",
+  "rewritten_query": "Help with Security Bulletin: IBM WebSphere MQ MQXR insecure passwords (CVE-2015-2012) I need to understand details regarding Security Bulletin: IBM WebSphere MQ MQXR insecure passwords (CVE-2015-2012). Where can I find this information?",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 2,
+   "sparse": 1,
+   "fusion": 1,
+   "rerank": 1
+  },
+  "gold": {
+   "doc": "swg21968399",
+   "title": "IBM Security Bulletin: IBM WebSphere MQ MQXR insecure passwords (CVE-2015-2012) - United States",
+   "products": "WebSphere MQ",
+   "opening": "SECURITY BULLETIN SUMMARY The Telemetry (MQXR) service can be configured to use SSL/TLS connections - the passphrase used to access the keystore is written to the file system in clear text in a properties file that is world readable. VULNERABILITY DETAILS CVEID: CVE-2015-2012 [http://cve.mitre.org/c"
+  },
+  "top3": [
+   {
+    "doc": "swg21968399",
+    "title": "IBM Security Bulletin: IBM WebSphere MQ MQXR insecure passwords (CVE-2015-2012) - United States",
+    "products": "WebSphere MQ",
+    "opening": "SECURITY BULLETIN SUMMARY The Telemetry (MQXR) service can be configured to use SSL/TLS connections - the passphrase used to access the keystore is written to the file system in clear text in a proper"
+   },
+   {
+    "doc": "swg21977183",
+    "title": "IBM 【セキュリティ情報】IBM MQ Telemetry (遠隔測定) (MQXR) 安全でないパスワード  (CVE-2015-2012) - United States",
+    "products": "WebSphere MQ",
+    "opening": "SECURITY BULLETIN SUMMARY IBM MQ Telemetry (遠隔測定) (MQXR)サービスは、SSL/ TLS接続を使用するように設定することができます。 キーストアにアクセスするために使用するパスフレーズは、プロパティファイルにテキストとして書き込まれているため、読み込み可能です。 VULNERABILITY DETAILS 脆弱性の詳細： CVEID: CVE-2"
+   },
+   {
+    "doc": "swg21972019",
+    "title": "IBM Security Bulletin: IBM MQ Light is vulnerable to a remote attack on the MQXR service (CVE-2015-4941) - United States",
+    "products": "IBM MQ Light",
+    "opening": "SECURITY BULLETIN SUMMARY IBM MQ Light could allow a remote attacker to crash the MQXR service due to incorrect handling of abbreviated TLS handshake. VULNERABILITY DETAILS CVEID: CVE-2015-4941 [http:"
+   }
+  ]
+ },
+ {
+  "group": "control",
+  "task_id": "M-tune-097",
+  "layer": "correct",
+  "tags": [],
+  "question": "Why is an error seen while running run-svrssl-config? Following error is seen while running run-svrssl-config ConfigEngine task: action-run-pdjrte-config-zos-wp.ac.impl: [validateHost] Validating hostname(s) in the following argument: tam001:7136:1,tam002:7136:2 [echo] Command to run is: java com.tivoli.pd.jcfg.SvrSslCfg -action config -admin_id sec_master -admin_pwd ****** -appsvr_id myAppSvr -port 7223 -mode remote -policysvr tam001:7135:1,tam002:7135:2 -authzsvr tam001:7136:1,tam002:7136:2 -c",
+  "rewritten_query": "Why is an error seen while running run-svrssl-config? Following error is seen while running run-svrssl-config ConfigEngine task: action-run-pdjrte-config-zos-wp.ac.impl: [validateHost] Validating hostname(s) in the following argument: tam001:7136:1,tam002:7136:2 [echo] Command to run is: java com.ti",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 1,
+   "sparse": 1,
+   "fusion": 1,
+   "rerank": 1
+  },
+  "gold": {
+   "doc": "swg21319595",
+   "title": "IBM HPDMG0759W error when creating the AMJRTE properties file - United States",
+   "products": "WebSphere Portal",
+   "opening": "TAM; run-svrssl-config; svrssl; HPDMG0759W; AMJRTE TECHNOTE (TROUBLESHOOTING) PROBLEM When executing the \"run-svrssl-config\" task via the ConfigEngine to create the AMJRTE properties file, you receive the following error: Command to run is: java com.tivoli.pd.jcfg.SvrSslCfg -action config -admin_id "
+  },
+  "top3": [
+   {
+    "doc": "swg21319595",
+    "title": "IBM HPDMG0759W error when creating the AMJRTE properties file - United States",
+    "products": "WebSphere Portal",
+    "opening": "TAM; run-svrssl-config; svrssl; HPDMG0759W; AMJRTE TECHNOTE (TROUBLESHOOTING) PROBLEM When executing the \"run-svrssl-config\" task via the ConfigEngine to create the AMJRTE properties file, you receive"
+   },
+   {
+    "doc": "swg1IY65917",
+    "title": "IBM IY65917: TAM JAVA CLASSES DON'T WORK WITH IDI 5.2 1.4.1 JVM. - United States",
+    "products": "IBM Security Access Manager for Web",
+    "opening": "SUBSCRIBE You can track all active APARs for this component. APAR STATUS * CLOSED AS PERMANENT RESTRICTION. ERROR DESCRIPTION * Customer is running TAM 5.1 on Windows and Linux. They have configured t"
+   },
+   {
+    "doc": "swg21222010",
+    "title": "IBM HPDJA0116E Cannot contact server. (0x307a8074) - United States",
+    "products": "IBM Security Access Manager for Web",
+    "opening": "HPDJA0116E (0x307a8074) TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) We can't login to pdadmin webpage, but via command line we can log in. Comes up with following message HPDJA0116E Cannot contact se"
+   }
+  ]
+ },
+ {
+  "group": "control",
+  "task_id": "M-tune-110",
+  "layer": "correct",
+  "tags": [],
+  "question": "Help with Security Bulletin: Vulnerability in Diffie-Hellman ciphers affects IBM WebSphere MQ Internet Passthru (CVE-2015-4000) I need to understand details regarding Security Bulletin: Vulnerability in Diffie-Hellman ciphers affects IBM WebSphere MQ Internet Passthru (CVE-2015-4000). Where can I find this information?",
+  "rewritten_query": "Help with Security Bulletin: Vulnerability in Diffie-Hellman ciphers affects IBM WebSphere MQ Internet Passthru (CVE-2015-4000) I need to understand details regarding Security Bulletin: Vulnerability in Diffie-Hellman ciphers affects IBM WebSphere MQ Internet Passthru (CVE-2015-4000). Where can I fi",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 13,
+   "sparse": 1,
+   "fusion": 1,
+   "rerank": 1
+  },
+  "gold": {
+   "doc": "swg21959745",
+   "title": "IBM Security Bulletin: Vulnerability in Diffie-Hellman ciphers affects IBM WebSphere MQ Internet Passthru (CVE-2015-4000) - United States",
+   "products": "WebSphere MQ",
+   "opening": "SECURITY BULLETIN SUMMARY The Logjam Attack on TLS connections using the Diffie-Hellman (DH) key exchange protocol affects IBM WebSphere MQ Internet Pass-thru (MQIPT). VULNERABILITY DETAILS CVEID: CVE-2015-4000 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000] DESCRIPTION: The TLS protoc"
+  },
+  "top3": [
+   {
+    "doc": "swg21959745",
+    "title": "IBM Security Bulletin: Vulnerability in Diffie-Hellman ciphers affects IBM WebSphere MQ Internet Passthru (CVE-2015-4000) - United States",
+    "products": "WebSphere MQ",
+    "opening": "SECURITY BULLETIN SUMMARY The Logjam Attack on TLS connections using the Diffie-Hellman (DH) key exchange protocol affects IBM WebSphere MQ Internet Pass-thru (MQIPT). VULNERABILITY DETAILS CVEID: CVE"
+   },
+   {
+    "doc": "swg21962347",
+    "title": "IBM 【セキュリティ情報】 IBM WebSphere MQ Internet PassthruのDiffie-Hellman (DH) 暗号の脆弱性 (CVE-2015-4000) - United States",
+    "products": "WebSphere MQ",
+    "opening": "SECURITY BULLETIN SUMMARY Diffie-Hellman (DH) 暗号を使用した TLSプロトコルに脆弱性が発見されました。(通称 Logjam) TLS接続を行うIBM WebSphere MQ Internet Pass-Thru (MQIPT) に影響があります。 TLS 接続を使用する場合、中間者攻撃により TLS 接続が暗号強度の低い輸出グレードの 512 ビッ"
+   },
+   {
+    "doc": "swg21961072",
+    "title": "IBM Security Bulletin: A security vulnerability has been identified in muiltiple products shipped with Predictive Customer Intelligence (CVE-2015-4000) - United States",
+    "products": "Predictive Customer Intelligence",
+    "opening": "SECURITY BULLETIN SUMMARY WebSphere Application Server, Cognos Business Intelligence, Integration Bus, and WebSphere MQ are shipped as components of Predictive Customer Intelligence. Information about"
+   }
+  ]
+ },
+ {
+  "group": "control",
+  "task_id": "M-tune-117",
+  "layer": "correct",
+  "tags": [],
+  "question": "Why dbheap memory keeps increasing when I am running select count(*) for each table in my BLU database? I am running DB2 V11.1. It is a BLU database size of about 70T, most of the tables are column organized. I run select count(*) for each table, and finally got out of memory for dbheap. My question is: How to release the data in dbheap.",
+  "rewritten_query": "Why dbheap memory keeps increasing when I am running select count(*) for each table in my BLU database? I am running DB2 V11.1. It is a BLU database size of about 70T, most of the tables are column organized. I run select count(*) for each table, and finally got out of memory for dbheap. My question",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 6,
+   "sparse": 2,
+   "fusion": 1,
+   "rerank": 1
+  },
+  "gold": {
+   "doc": "swg21986534",
+   "title": "IBM Newly accessed tables result in increasing of dbheap - United States",
+   "products": "DB2 for Linux, UNIX and Windows",
+   "opening": "TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) Newly accessed tables result in increasing of dbheap SYMPTOM From output of command \"db2pd -db <db name> -mempools\" you can find LogSz/PhySz of the memory pool named \"dbh\" keeps on increasing. CAUSE This is expected result. Every newly accessed table load"
+  },
+  "top3": [
+   {
+    "doc": "swg21986534",
+    "title": "IBM Newly accessed tables result in increasing of dbheap - United States",
+    "products": "DB2 for Linux, UNIX and Windows",
+    "opening": "TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) Newly accessed tables result in increasing of dbheap SYMPTOM From output of command \"db2pd -db <db name> -mempools\" you can find LogSz/PhySz of the memory "
+   },
+   {
+    "doc": "swg21697436",
+    "title": "IBM Missing Rows on Select With UR When Concurrent Update is Executed on Column-Organized Table - United States",
+    "products": "DB2 for Linux, UNIX and Windows",
+    "opening": "Missing rows; BLU; column-organized TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) Rows may appear to be missing when SELECT with UR statements are executed on a column-organized table simultaneously wi"
+   },
+   {
+    "doc": "swg1IT07256",
+    "title": "IBM IT07256: DB2SUPPORT FAILED TO COLLECT DATA FOR SYNOPSIS TABLES IF THE TABLES INVOLVED CONTAIN '/' IN THE TABLE NAME - United States",
+    "products": "DB2 for Linux, UNIX and Windows",
+    "opening": "z/os A FIX IS AVAILABLE DB2 Version 10.5 Fix Pack 9 for Linux, UNIX, and Windows [http://www-01.ibm.com/support/docview.wss?uid=swg24044110] SUBSCRIBE You can track all active APARs for this component"
+   }
+  ]
+ },
+ {
+  "group": "control",
+  "task_id": "M-tune-128",
+  "layer": "correct",
+  "tags": [],
+  "question": "User environment variables no longer getting picked up after upgrade to 4.1.1.1 or 4.1.1.2? Have you found that after upgrade to Streams 4.1.1.1 or 4.1.1.2, that environment variables set in your .bashrc are no longer being set? For example ODBCINI is not set for the database toolkit and you get An SQL operation failed. The SQL state is 08003, the SQL code is 0 and the SQL message is [unixODBC][Driver Manager]Connnection does not exist.",
+  "rewritten_query": "User environment variables no longer getting picked up after upgrade to 4.1.1.1 or 4.1.1.2? Have you found that after upgrade to Streams 4.1.1.1 or 4.1.1.2, that environment variables set in your .bashrc are no longer being set? For example ODBCINI is not set for the database toolkit and you get An ",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": 1,
+   "sparse": 1,
+   "fusion": 1,
+   "rerank": 1
+  },
+  "gold": {
+   "doc": "swg21996508",
+   "title": "IBM STREAMS 4.1.1.1 and 4.1.1.2  JOBS DO NOT INHERIT THE ENVIRONMENT VARIABLES SET IN .BASHRC, WHEN STREAMS IS RUN AS A SYSTEM SERVICE - United States",
+   "products": "IBM Streams",
+   "opening": "FLASH (ALERT) ABSTRACT In Streams 4.1.1.1 and 4.1.1.2 Streams jobs may not pick up the user enviroment from the streams user's .bashrc. This behavior is different from earlier releases. With these versions, when Streams is run as a system service, application environment variables must be set with s"
+  },
+  "top3": [
+   {
+    "doc": "swg21996508",
+    "title": "IBM STREAMS 4.1.1.1 and 4.1.1.2  JOBS DO NOT INHERIT THE ENVIRONMENT VARIABLES SET IN .BASHRC, WHEN STREAMS IS RUN AS A SYSTEM SERVICE - United States",
+    "products": "IBM Streams",
+    "opening": "FLASH (ALERT) ABSTRACT In Streams 4.1.1.1 and 4.1.1.2 Streams jobs may not pick up the user enviroment from the streams user's .bashrc. This behavior is different from earlier releases. With these ver"
+   },
+   {
+    "doc": "swg1IT18432",
+    "title": "IBM IT18432: STREAMS JOBS DO NOT INHERIT THE ENVIRONMENT VARIABLES SET IN .BASHRC, WHEN RUN AS A SYSTEM SERVICE. - United States",
+    "products": "IBM Streams",
+    "opening": "FIXES ARE AVAILABLE IBM Streams Version 4.1.1 Fix Pack 4 [http://www-01.ibm.com/support/docview.wss?uid=swg24043581] IBM Streams Version 4.1.1 Fix Pack 5 [http://www-01.ibm.com/support/docview.wss?uid"
+   },
+   {
+    "doc": "swg1PM68165",
+    "title": "IBM PM68165: THE ODBC INTERFACE OF TM1 10.1.0 AND TM1 10.1.0 FP1 SERVER FOR IBM AIX IS BROKEN - United States",
+    "products": "Cognos TM1",
+    "opening": "SUBSCRIBE You can track all active APARs for this component. APAR STATUS * CLOSED AS PROGRAM ERROR. ERROR DESCRIPTION * The ODBC interface of both TM1 10.1.0 and TM1 10.1.0.1 aka TM1 10.1.0 FP1 Server"
+   }
+  ]
+ },
+ {
+  "group": "control",
+  "task_id": "M-tune-132",
+  "layer": "correct",
+  "tags": [
+   "sparse_only"
+  ],
+  "question": "WAS 8.5.x - Writing a JMS message to a remote queue takes a long time. How to write the message faster? We are writing a jms message from a websphere cell (cellA) to a queue hosted by another websphere cell (cellB). Sometimes we noticed that writing a message is very slow. Usually when a local queue will be used the time to write this messages is about 8 ms, but if the queue is located on a other cell is took significant longer (about 3000ms+ ). Our findings: After enabling following trace \"=inf",
+  "rewritten_query": "WAS 8.5.x - Writing a JMS message to a remote queue takes a long time. How to write the message faster? We are writing a jms message from a websphere cell (cellA) to a queue hosted by another websphere cell (cellB). Sometimes we noticed that writing a message is very slow. Usually when a local queue",
+  "rewrite_missing_ids": [],
+  "gold_rank": {
+   "dense": null,
+   "sparse": 1,
+   "fusion": 4,
+   "rerank": 1
+  },
+  "gold": {
+   "doc": "swg21624731",
+   "title": "IBM JMSExceptions CWSIT0006E and CWSIA0241E on bus connect - United States",
+   "products": "IBM Business Process Manager Standard, WebSphere Application Server, WebSphere Enterprise Service Bus, WebSphere MQ, WebSphere Partner Gateway Advanced Edition, WebSphere Process Server, WebSphere Service Registry and Repository",
+   "opening": "TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) Your application throws JMS exceptions CWSIT0006E and CWSIA0241E when trying to connect to a WebSphere Application Server (WAS) Service Integration Bus (SIBus). SYMPTOM Application throws the following JMS exceptions in the stack trace while trying to con"
+  },
+  "top3": [
+   {
+    "doc": "swg21624731",
+    "title": "IBM JMSExceptions CWSIT0006E and CWSIA0241E on bus connect - United States",
+    "products": "IBM Business Process Manager Standard, WebSphere Application Server, WebSphere Enterprise Service Bus, WebSphere MQ, WebSphere Partner Gateway Advanced Edition, WebSphere Process Server, WebSphere Service Registry and Repository",
+    "opening": "TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) Your application throws JMS exceptions CWSIT0006E and CWSIA0241E when trying to connect to a WebSphere Application Server (WAS) Service Integration Bus (SI"
+   },
+   {
+    "doc": "swg21624736",
+    "title": "IBM SIMPLimitExceededException occurred while sending messages to a queue - United States",
+    "products": "IBM Business Monitor, SSDKJ8, WebSphere Application Server, WebSphere Enterprise Service Bus, WebSphere MQ, WebSphere Partner Gateway Advanced Edition, WebSphere Process Server, WebSphere Service Registry and Repository",
+    "opening": "TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) When using the WebSphere Application Server (WAS) Message Engine, at either the client or applicaiton side you see this exception: SIMPLimitExceededExcepti"
+   },
+   {
+    "doc": "swg21293752",
+    "title": "IBM A J2CA0138E and CWSIT0010E message is issued for WebSphere Process Server (WPS) when a user is not authorized to connect to a CEI bus - United States",
+    "products": "WebSphere Enterprise Service Bus, WebSphere Process Server",
+    "opening": "v61rnotes; J2CA0138E; CWSIV0961E; CWSIT0020E; CWSIP0302E TECHNOTE (TROUBLESHOOTING) PROBLEM(ABSTRACT) Messaging operations cannot be performed on the Common Event Infrastructure bus (CommonEventInfras"
+   }
+  ]
+ }
+]
