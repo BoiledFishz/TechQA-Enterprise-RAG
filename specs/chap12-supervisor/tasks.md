@@ -451,3 +451,9 @@
 - 测试：`tests/chap12/test_e2_recall.py`（4 个：c1200 切块与 Project 1 `legacy_chunks` 完全一致、head 切块、按最佳块排文档、RRF 与 k85）。VM 上 `pytest tests/chap12 -q` → `205 passed`（在 VM 本地副本里跑：挂载文件夹当前没有删除权限，SQLite 无法删除日志文件，测试的临时库会报 disk I/O error；代码无关）；ruff 通过。
 - VM 冒烟（CPU，只跑 BM25 与 MiniLM/c1200 已存向量，输出到 VM 临时目录、不提交）：BM25 3:1 与 Project 1 `TechQAIndex.search` 前 100 完全一致 112/112；MiniLM/c1200 稠密排序与 r9 trace 的 dense 阶段完全一致 112/112。改写后查询：MiniLM/c1200 R@8 0.598、R@30 0.786；hybrid_proxy R@1/5/8/10/20/30 = 0.339/0.598/0.688/0.723/0.848/0.857，k85 = 23；trace 里线上融合为 0.375/0.598/0.723/0.768/0.848/—，即代理在 @1/@8/@10 略低、@5/@20 相同。正式数字以电脑上的运行为准。
 - 运行器：`.chap12_run/run_e2.cmd`（不提交）：探测 GPU 与 Ollama → 推送待推提交 → 下载 bge/e5 → 运行 → 提交 `evaluation/results/chap12/e2_recall/` 并推送。Ollama 不可达时 nomic 记为“未执行”，其余照跑。
+
+### E2 运行记录（Windows，用户双击 `.chap12_run/run_e2.cmd`，2026-10-26 12:54–13:57 PT）
+- 探测：RTX 3060 Laptop GPU（cuda），Ollama 0.40.9。下载 bge-base-en-v1.5、e5-base-v2（解析到的 commit 记在 `.rag_data/models/e2_*/e2_manifest.json`，不在 git 中）。16 个稠密配置全部完成，无“未执行”项；nomic/c1200 用时 2421 秒，其余每个 ≤ 96 秒。结果提交 `b49a966` 并推送。
+- 检查：BM25 3:1 与 Project 1 一致 112/112。MiniLM/c1200 稠密排序与 r9 trace 完全一致 **91/112**（VM 上 CPU 冒烟为 112/112）：电脑上查询用 GPU 半精度编码，相近分数的文档次序有差别；该配置的 R@k 与 VM 冒烟逐项相同。
+- 按事先登记的规则（改写后查询、hybrid_proxy；当前 R@30 0.857 = 96/112、R@8 0.688）：需要 R@30 ≥ 101/112 且 R@8 ≥ 0.688。最好的是 MiniLM/c600+bm25（R@30 0.893 = 100/112，+4；R@8 0.705），bge/c600+bm25、e5/head+bm25 为 0.884（+3）。**没有配置满足 → 结论：换 embedding / 切块不是主要瓶颈**，不进入 E6。
+- 描述（不用于选择）：更强的 embedding 单独看时 R@1 从 0.32 升到 0.43–0.47、R@8 从 0.60 升到 0.65–0.69，但与 BM25 融合后差距基本消失；小块（c600）略好，大块（c2400）与“标题+开头”对 MiniLM 更差；覆盖 85% 需要的 k 最好为 21（当前 23）。E1 类别：B 类前 30 命中在各配置都只有 3–6/9；D 类稠密单独看 5–8/8 进前 8，融合后只剩 0–2/8，说明 D 类是融合与重排的问题，与 embedding 无关。
