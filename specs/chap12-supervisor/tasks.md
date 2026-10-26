@@ -468,3 +468,5 @@
 - **使用规则（事先登记）**：某变体成为 E6 端到端候选的条件：R@5 ≥ 当前 + 5 题，且 R@1 不低于当前（第十轮教训：排在 5–8 名的文档常被上下文挤掉，所以看 R@5 而非 R@8）。多个满足时取 R@5 最高，并列取 R@1 高，再并列取更便宜（fusion < nomic < bge = e5 = ce_minilm < ce_bge）。没有满足就记“重排换法收益不足”。只是离线名次；是否真正采用仍要 E6 的端到端事先登记规则决定。
 - 测试：`tests/chap12/test_e3_rerank.py`（3 个）。VM 本地副本 `pytest tests/chap12 -q` → `208 passed`；ruff 通过。
 - 运行：在 VM 上直接读你电脑的数据（只读：样本索引、稠密向量、nomic 重排缓存、本地模型），CPU；输出 `evaluation/results/chap12/e3_rerank/{summary.json,summary.md,per_task.jsonl,scores.json}`。
+- 运行地点更改（规则与变体不变）：VM 上第一次后台运行在打分前被系统结束（无报错输出）；分段前台试跑 2 道题，每题约 80 秒（2 核 CPU、通过挂载读取 770 MB 缓存），全部要约 2.5 小时，所以改为在你电脑上运行（GPU，本地磁盘）。脚本增加：每完成一题追加写入 `scores.partial.jsonl`，中断后可续跑；`--max-seconds`；`--device auto`。VM 上那 2 道题的输出只在 VM 临时目录，不使用。`pytest tests/chap12 -q` → `208 passed`；ruff 通过。
+- 运行器：`.chap12_run/run_e3.cmd`（不提交）：探测 → 推送待推提交 → 运行（不需要 Ollama）→ 提交 `evaluation/results/chap12/e3_rerank/` 并推送。

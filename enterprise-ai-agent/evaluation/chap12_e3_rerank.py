@@ -95,7 +95,7 @@ def pick(rows: list[dict[str, Any]], base: dict[str, Any]) -> dict[str, Any] | N
     return ok[0] if ok else None
 
 
-async def build(args: argparse.Namespace) -> dict[str, Any]:
+async def build(args: argparse.Namespace) -> dict[str, Any] | None:
     from rag.techqa.semantic import MiniLMEncoder
 
     import agents.chap12.cross_encoder as ce
@@ -106,6 +106,11 @@ async def build(args: argparse.Namespace) -> dict[str, Any]:
     from tools.sample_retriever import SampleRetrieverTool
 
     root = args.root
+    if args.device == "auto":
+        import torch
+
+        args.device = "cuda" if torch.cuda.is_available() else "cpu"
+    print(f"device={args.device}", flush=True)
     data = root / ".rag_data"
     ce.model_dir = lambda choice: data / "models" / ce.MODELS[choice]  # local folders under root
     dense = SampleDenseRetriever(data / "chap12_tune.dense.sqlite",
@@ -131,10 +136,19 @@ async def build(args: argparse.Namespace) -> dict[str, Any]:
             crosses[name] = ce.CrossEncoderReranker(name)
         except Exception as exc:
             print(f"SKIP {name}: {exc}", flush=True)
-    checks = {"fusion_identical": 0, "rerank_identical": 0}
-    tasks = []
+    # Resumable: one line per finished question in <scores>.partial.jsonl.
+    partial = args.scores.with_suffix(".partial.jsonl")
+    partial.parent.mkdir(parents=True, exist_ok=True)
+    done = {json.loads(x)["task_id"]: json.loads(x) for x in partial.read_text("utf-8")
+            .splitlines() if x.strip()} if partial.is_file() else {}
     started = time.time()
-    for n, t in enumerate(traces, 1):
+    for t in traces:
+        if t["task_id"] in done:
+            continue
+        if args.max_seconds and time.time() - started > args.max_seconds:
+            print(f"stopping after {time.time() - started:.0f}s; {len(done)}/{len(traces)} done",
+                  flush=True)
+            return None
         r = t["layers"]["retrieval"]
         query = r["query"]
         stages: dict[str, Any] = {}
@@ -143,7 +157,7 @@ async def build(args: argparse.Namespace) -> dict[str, Any]:
         cands_sr = list(stages["fusion"])
         docs = [doc_id(str(c.metadata.get("parent_id", ""))) for c in cands_sr]
         firsts = list(dict.fromkeys(docs))
-        checks["fusion_identical"] += firsts == [x["doc"] for x in r["stages"]["fusion"]]
+        fusion_ok = firsts == [x["doc"] for x in r["stages"]["fusion"]]
         comps: dict[str, dict[str, float]] = {}
         await nomic.inner.rerank(query, cands_sr, limit=len(cands_sr), components=comps)
         cands = [{"doc": d, "fused_rank": i, "nomic": comps[c.chunk_id]["semantic_score"],
@@ -163,12 +177,19 @@ async def build(args: argparse.Namespace) -> dict[str, Any]:
         current = order_docs(cands, lambda c: 0.5 * c["nomic"] + 0.3 * c["lexical"]
                              + 0.2 * prior(c["bm25_rank"]))
         traced = [x["doc"] for x in r["stages"]["rerank"]]
-        checks["rerank_identical"] += current[:len(traced)] == traced
-        tasks.append({"task_id": t["task_id"], "gold": gold[t["task_id"]]["document"],
-                      "candidates": cands})
-        if n % 10 == 0:
-            print(f"{n}/{len(traces)} questions, {time.time() - started:.0f}s", flush=True)
-    return {"checks": checks, "semantic": ["nomic", *encoders, *crosses], "tasks": tasks}
+        row = {"task_id": t["task_id"], "gold": gold[t["task_id"]]["document"],
+               "fusion_identical": fusion_ok, "rerank_identical": current[:len(traced)] == traced,
+               "semantic": ["nomic", *encoders, *crosses], "candidates": cands}
+        with partial.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(row) + "\n")
+        done[t["task_id"]] = row
+        print(f"{len(done)}/{len(traces)} questions, {time.time() - started:.0f}s", flush=True)
+    tasks = [done[t["task_id"]] for t in traces]
+    semantic = tasks[0]["semantic"]
+    if any(t["semantic"] != semantic for t in tasks):
+        raise ValueError("semantic terms differ between resumed parts")
+    checks = {k: sum(t[k] for t in tasks) for k in ("fusion_identical", "rerank_identical")}
+    return {"checks": checks, "semantic": semantic, "tasks": tasks}
 
 
 def report(data: dict[str, Any], out: Path) -> None:
@@ -220,15 +241,19 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, required=True, help="folder holding .rag_data")
     parser.add_argument("--cache", type=Path, required=True)
-    parser.add_argument("--device", default="cpu")
+    parser.add_argument("--device", default="auto")
     parser.add_argument("--scores", type=Path, default=OUT / "scores.json",
                         help="per-candidate scores; reused if present")
     parser.add_argument("--out", type=Path, default=OUT)
+    parser.add_argument("--max-seconds", type=float, default=0,
+                        help="stop starting new questions after this long (resume later)")
     args = parser.parse_args()
     if args.scores.is_file():
         data = json.loads(args.scores.read_text("utf-8"))
     else:
         data = asyncio.run(build(args))
+        if data is None:
+            return
         args.scores.parent.mkdir(parents=True, exist_ok=True)
         args.scores.write_text(json.dumps(data), encoding="utf-8")
     report(data, args.out)
