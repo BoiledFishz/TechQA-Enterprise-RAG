@@ -434,3 +434,20 @@
 ## 2026-10-26 E1：召回结果与目标文档的差异分析（用户同意实验计划，11:00 PT）
 - `evaluation/chap12_gap_analysis.py`（诊断，不调用模型）：当前配置调参集 trace（`tune_real_r9_judged14`），答案文档不在重排前 8 的 38 道可回答题（L1 召回 16、L2 重排 22）+ 15 道答案文档排第一的对照题；逐题列出问题、改写后查询、答案文档与重排前 3 篇（标题、产品、开头）及各阶段名次，并按简单规则打标签。运行：VM 上直接读你电脑的样本索引（只读），几秒钟。输出 `evaluation/results/chap12/e1_gap_analysis/{cases.json,cases.md,summary.md}`。
 - 结果与人工初读见 `summary.md`：A 类（重排第 1 名看起来也能回答）9 道、B 类（答案在跨产品文档里）9 道、C 类（答案是泛泛文档）6 道、D 类（稠密检索已排在前 5、被 BM25 名次分压下去）8 道（可重叠）。人工初读由 Claude 完成，需人工确认。
+
+## 2026-10-26 E2：换 embedding / 切块能否提高召回（用户：“下一步做 E2”，11:14 PT）
+
+### 事先登记（在正式运行之前提交）
+- 目的（诊断，不调用 LLM，只用调参集）：E1 显示 16 道可回答题的答案文档在召回阶段就丢了，85% 覆盖要取到前 20–30。E2 回答：换 embedding 模型或切块大小，答案文档能否进得更靠前？
+- 脚本 `evaluation/chap12_e2_recall.py`（不改 Project 1，只 import 它的分词、MiniLM 编码器和切块规则）：
+  - 题目：调参集 112 道可回答题；查询用当前配置 trace（`tune_real_r9_judged14`）里的改写后查询，另报原问题。
+  - 文档级 recall@1/3/5/8/10/20/30/50/100（唯一标准文档），覆盖 85% / 90% 需要的 k，E1 人工类别 A–D 的命中数。
+  - embedding：MiniLM（当前，c1200 直接用 Project 1 已存向量）、bge-base-en-v1.5、e5-base-v2、nomic-embed-text（Ollama；较慢，只跑 c1200 与 head）。bge/e5 超过 512 token 的文本按窗口平均，不截断。
+  - 切块：c600 / c1200（当前，1200 字符、重叠 160）/ c2400 / head（每篇一个块：标题 + 正文前 1000 字符）。文档得分 = 最佳块的余弦。
+  - BM25：Project 1 的查询构造，标题:正文权重 1:1、3:1（当前）、6:1。
+  - hybrid_proxy：该稠密排名与 BM25(3:1) 的 RRF(k=60)，是线上融合的近似（线上融合的 R@k 见下方 VM 冒烟的对照）。
+  - 新向量缓存在 `.rag_data/e2/`，模型下载到 `.rag_data/models/e2_*`（记录解析到的 Hugging Face commit），都不碰 Project 1 的文件。
+- **使用规则（事先登记）**：E2 只做诊断，不直接改配置。某个配置成为 E6 端到端候选的条件：改写后查询、hybrid_proxy 下 R@30 ≥ 当前（MiniLM/c1200+bm25）+ 5 题，且 R@8 不低于当前；多个满足时取 R@30 最高者，并列取 R@8 高者，再并列取更便宜者（MiniLM < bge = e5 < nomic）。没有配置满足就记“换 embedding / 切块不是主要瓶颈”，把精力转到 B/C 类（查询扩展、产品关系）。原问题查询和纯稠密结果只报告。
+- 测试：`tests/chap12/test_e2_recall.py`（4 个：c1200 切块与 Project 1 `legacy_chunks` 完全一致、head 切块、按最佳块排文档、RRF 与 k85）。VM 上 `pytest tests/chap12 -q` → `205 passed`（在 VM 本地副本里跑：挂载文件夹当前没有删除权限，SQLite 无法删除日志文件，测试的临时库会报 disk I/O error；代码无关）；ruff 通过。
+- VM 冒烟（CPU，只跑 BM25 与 MiniLM/c1200 已存向量，输出到 VM 临时目录、不提交）：BM25 3:1 与 Project 1 `TechQAIndex.search` 前 100 完全一致 112/112；MiniLM/c1200 稠密排序与 r9 trace 的 dense 阶段完全一致 112/112。改写后查询：MiniLM/c1200 R@8 0.598、R@30 0.786；hybrid_proxy R@1/5/8/10/20/30 = 0.339/0.598/0.688/0.723/0.848/0.857，k85 = 23；trace 里线上融合为 0.375/0.598/0.723/0.768/0.848/—，即代理在 @1/@8/@10 略低、@5/@20 相同。正式数字以电脑上的运行为准。
+- 运行器：`.chap12_run/run_e2.cmd`（不提交）：探测 GPU 与 Ollama → 推送待推提交 → 下载 bge/e5 → 运行 → 提交 `evaluation/results/chap12/e2_recall/` 并推送。Ollama 不可达时 nomic 记为“未执行”，其余照跑。
