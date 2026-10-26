@@ -68,7 +68,8 @@
   "selector": "judged",
   "judge_model": "qwen2.5:14b",
   "rerank_prior": "bm25",
-  "candidate_k": 30
+  "candidate_k": 30,
+  "selector_model": null
  },
  "round3": {
   "current": {
@@ -923,5 +924,96 @@
   },
   "adopted": null,
   "rule": "and committed before the run:\n  adopt  only if, against the base: correct answerable answers lost <= 3, net paired wins >= 5,\n         failure rate not higher, and mean token F1 on answerable tasks answered by both runs\n         not lower by more than 0.05. Latency is reported, not gated."
+ },
+ "round12": {
+  "base_run": "tune_real_r9_judged14",
+  "base": {
+   "correct_all": 0.44,
+   "failure_rate": 0.0,
+   "y_accept": 0.6607,
+   "n_refuse": 0.5,
+   "y_gold_cited": 0.4464,
+   "latency_mean_ms": 40573.0,
+   "retrieval_y": {
+    "R@1": 0.4732,
+    "R@3": 0.5893,
+    "R@5": 0.6161,
+    "R@8": 0.6607,
+    "MRR": 0.5392,
+    "observations": 112
+   }
+  },
+  "variants": {
+   "s14": {
+    "rerank_prior": "bm25",
+    "summary": {
+     "correct_all": 0.4667,
+     "failure_rate": 0.0,
+     "y_accept": 0.6429,
+     "n_refuse": 0.5263,
+     "y_gold_cited": 0.4732,
+     "latency_mean_ms": 59239.5,
+     "retrieval_y": {
+      "R@1": 0.4732,
+      "R@3": 0.5893,
+      "R@5": 0.6161,
+      "R@8": 0.6607,
+      "MRR": 0.5392,
+      "observations": 112
+     }
+    },
+    "correct_answerable_lost": 4,
+    "eligible": false,
+    "paired": {
+     "base_correct": 66,
+     "variant_correct": 70,
+     "wins": 11,
+     "losses": 7,
+     "net": 4,
+     "mcnemar_p_one_sided": 0.2403,
+     "y_token_f1_both_answered": {
+      "base": 0.3859,
+      "variant": 0.3724,
+      "tasks": 62
+     }
+    }
+   },
+   "s14max": {
+    "rerank_prior": "max",
+    "summary": {
+     "correct_all": 0.4933,
+     "failure_rate": 0.0,
+     "y_accept": 0.6518,
+     "n_refuse": 0.5789,
+     "y_gold_cited": 0.5,
+     "latency_mean_ms": 63408.3,
+     "retrieval_y": {
+      "R@1": 0.4821,
+      "R@3": 0.6071,
+      "R@5": 0.6339,
+      "R@8": 0.6964,
+      "MRR": 0.552,
+      "observations": 112
+     }
+    },
+    "correct_answerable_lost": 5,
+    "eligible": false,
+    "paired": {
+     "base_correct": 66,
+     "variant_correct": 74,
+     "wins": 16,
+     "losses": 8,
+     "net": 8,
+     "mcnemar_p_one_sided": 0.0758,
+     "y_token_f1_both_answered": {
+      "base": 0.3737,
+      "variant": 0.3886,
+      "tasks": 62
+     }
+    }
+   }
+  },
+  "adopted": null,
+  "rule": "and committed before the runs:\n  adopt  a variant is eligible only if, against the base: correct answerable answers lost <= 3,\n         net paired wins >= 5, failure rate not higher, and mean token F1 on answerable tasks\n         answered by both runs not lower by more than 0.05. Adopt the eligible variant with the\n         larger net (ties: s14, the smaller change). Latency is reported, not gated."
  }
 }
