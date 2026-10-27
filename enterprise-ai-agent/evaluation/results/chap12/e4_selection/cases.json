@@ -1,0 +1,1326 @@
+{
+  "cases": [
+    {
+      "task_id": "M-tune-002",
+      "layer": "L4 refusal: answered unanswerable",
+      "returned_n": 8,
+      "evidence_n": 6,
+      "context_tokens": 2374,
+      "gold_returned_pos": null,
+      "gold_source": null,
+      "selected": [
+        "swg1PK01512"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg1PK01512"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": 0.0079,
+      "reason": "answered_unanswerable",
+      "question": "How do I correct a BIP3701E: INVALID_CHARACTER_ERR I'm getting on deploy? Receiving a BIP3701E: A Java exception was thrown whilst calling the Java JNI method ''AdminAgentThread_getDeployMessage''. The Java exception was ''org.w3c.dom.DOMException: INVALID_CHARACTER_ERR: An invalid or illegal XML character is specified. '' on deploy. What is wrong? The knowledge center just states I need to correc",
+      "gold": null,
+      "gold_title": "",
+      "selected_titles": [
+        "IBM PK01512: A COMMENT IN SOAPELEMENT GENERATES ORG.W3C.DOM.DOMEXCEPTION: INV ALID_CHARACTER_ERR - United States"
+      ],
+      "cited_titles": [
+        "IBM PK01512: A COMMENT IN SOAPELEMENT GENERATES ORG.W3C.DOM.DOMEXCEPTION: INV ALID_CHARACTER_ERR - United States"
+      ],
+      "answer": "IBM PK01512: A COMMENT IN SOAPELEMENT GENERATES ORG.W3C.DOM.DOMEXCEPTION: INV ALID_CHARACTER_ERR - United States SUBSCRIBE You can track all active APARs for this component. APAR STATUS * CLOSED AS PROGRAM ERROR. ERROR DESCRIPTION * A comment in SOAPElement generates this exception: org.w3c.dom.DOME"
+    },
+    {
+      "task_id": "M-tune-003",
+      "layer": "L4 refusal: answered unanswerable",
+      "returned_n": 8,
+      "evidence_n": 7,
+      "context_tokens": 2276,
+      "gold_returned_pos": null,
+      "gold_source": null,
+      "selected": [
+        "swg21295634",
+        "swg21662595"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg21295634",
+        "swg21662595"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": 0.1588,
+      "reason": "answered_unanswerable",
+      "question": "DataPower upgrade Loading firmware failed: Insufficient flash space available. I am trying to upgrade my M/T 9235 DataPower Gateway Appliance and am receiving the message(s) similar to: Error performing that action! Could not install firmware image. Loading firmware failed: Preserve user modified data failed: Insufficient flash space available System will NOT reboot. OR \"Loading firmware failed: I",
+      "gold": null,
+      "gold_title": "",
+      "selected_titles": [
+        "IBM Loading firmware failed: Preserve user modified data failed: Insufficient flash space available for WebSphere DataPower SOA appliances. - United States",
+        "IBM Preparing to upgrade an IBM WebSphere DataPower SOA 9235 appliance to the 6.0.0 firmware - United States"
+      ],
+      "cited_titles": [
+        "IBM Loading firmware failed: Preserve user modified data failed: Insufficient flash space available for WebSphere DataPower SOA appliances. - United States",
+        "IBM Preparing to upgrade an IBM WebSphere DataPower SOA 9235 appliance to the 6.0.0 firmware - United States"
+      ],
+      "answer": "If you see this error message, review the Upgrade and Rollback Guide, Generation 2 Firmware sections on removing extraneous files. There are separate sections for this process depending on whether you are using the WebGUI or the CLI to perform the upgrade, so be sure to reference the correct section"
+    },
+    {
+      "task_id": "M-tune-008",
+      "layer": "L4 refusal: answered unanswerable",
+      "returned_n": 8,
+      "evidence_n": 4,
+      "context_tokens": 2251,
+      "gold_returned_pos": null,
+      "gold_source": null,
+      "selected": [
+        "swg21992894"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg21992894"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": 0.1879,
+      "reason": "answered_unanswerable",
+      "question": "Help with Security Bulletin: Multiple vulnerabilities in OpenSSL affect WMB and IIB I need to understand details regarding Security Bulletin: Multiple vulnerabilities in OpenSSL affect WebSphere Message Broker and IBM Integration Bus. Where can I find this information?",
+      "gold": null,
+      "gold_title": "",
+      "selected_titles": [
+        "IBM Security Bulletin: Multiple vulnerabilities in OpenSSL affect WebSphere Message Broker and IBM Integration Bus ( CVE-2016-2107,CVE-2016-2176) - United States"
+      ],
+      "cited_titles": [
+        "IBM Security Bulletin: Multiple vulnerabilities in OpenSSL affect WebSphere Message Broker and IBM Integration Bus ( CVE-2016-2107,CVE-2016-2176) - United States"
+      ],
+      "answer": "VULNERABILITY DETAILS CVEID: CVE-2016-2107 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2107] DESCRIPTION: OpenSSL could allow a remote attacker to obtain sensitive information, caused by an error when the connection uses an AES CBC cipher and the server support AES-NI. A remote user with"
+    },
+    {
+      "task_id": "M-tune-011",
+      "layer": "L4 refusal: answered unanswerable",
+      "returned_n": 8,
+      "evidence_n": 7,
+      "context_tokens": 2248,
+      "gold_returned_pos": null,
+      "gold_source": null,
+      "selected": [
+        "swg22009455",
+        "swg22011754"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg22009455",
+        "swg22011754"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": 0.177,
+      "reason": "answered_unanswerable",
+      "question": "Help with Action required for Hypervisor Editions of IIB V9 & WMB V8 for security vulnerabilities in Red Hat Linux I need to understand details regarding Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux. Where can I find this information?",
+      "gold": null,
+      "gold_title": "",
+      "selected_titles": [
+        "IBM Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux - United States",
+        "IBM Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux - United States"
+      ],
+      "cited_titles": [
+        "IBM Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux - United States",
+        "IBM Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux - United States"
+      ],
+      "answer": "CONTENT IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 ship with versions of Red Hat Enterprise Linux (RHEL) Server that are vulnerable to CVE-2014-8716 CVE-2017-14224 CVE-2017-14324 CVE-2017-14325 CVE-2017-14326 CVE-2017-14341 CVE-2017-14342 CVE-201"
+    },
+    {
+      "task_id": "M-tune-016",
+      "layer": "L4 refusal: answered unanswerable",
+      "returned_n": 8,
+      "evidence_n": 7,
+      "context_tokens": 2206,
+      "gold_returned_pos": null,
+      "gold_source": null,
+      "selected": [
+        "swg21624731"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg21624731"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": -0.0734,
+      "reason": "answered_unanswerable",
+      "question": "WAS 8.5.x - Writing a JMS message to a remote queue takes a long time. How to write the message faster? We are writing a jms message from a websphere cell (cellA) to a queue hosted by another websphere cell (cellB).Sometimes we noticed that writing a message is very slow. Usually when a local queue will be used the time to write this messages is about 8 ms, but if the queue is located on a other c",
+      "gold": null,
+      "gold_title": "",
+      "selected_titles": [
+        "IBM JMSExceptions CWSIT0006E and CWSIA0241E on bus connect - United States"
+      ],
+      "cited_titles": [
+        "IBM JMSExceptions CWSIT0006E and CWSIA0241E on bus connect - United States"
+      ],
+      "answer": "Default messaging provider queue connection factory [Settings] : [https://www.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.nd.doc/ae/SIBJMSQueueConnectionFactory_DetailForm.html] Default messaging provider topic connection factory [Settings]: [https://www.ibm.com/support/knowledgec"
+    },
+    {
+      "task_id": "M-tune-020",
+      "layer": "L4 generation: refused",
+      "returned_n": 8,
+      "evidence_n": 7,
+      "context_tokens": 2202,
+      "gold_returned_pos": 3,
+      "gold_source": "S3",
+      "selected": [],
+      "selection_decision": null,
+      "judge_decision": null,
+      "judge_rejected": {},
+      "cited": [],
+      "rag_status": "unanswerable",
+      "top_score_margin": -0.0415,
+      "reason": "selector_selected_nothing",
+      "question": "Updating SCA applications & internal SCA module queues When updating an existing SCA module using the ISC, I noticed that internal SCA queues (sca/<module>/...) on the SCA.SYSTEM bus) are deleted and recreated. One can potentially loose messages on these queues. Is there a fix to the problem?",
+      "gold": "swg21639375",
+      "gold_title": "IBM SCA destinations for IBM Business Process Manager (BPM), WebSphere Process Server (WPS) and WebSphere Enterprise Service Bus (WESB) are not preserved when uninstalling and reinstalling a service module - United States",
+      "selected_titles": [],
+      "cited_titles": [],
+      "answer": ""
+    },
+    {
+      "task_id": "M-tune-023",
+      "layer": "L4 refusal: answered unanswerable",
+      "returned_n": 8,
+      "evidence_n": 5,
+      "context_tokens": 2330,
+      "gold_returned_pos": null,
+      "gold_source": null,
+      "selected": [
+        "swg1IV72083"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg1IV72083"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": 0.0914,
+      "reason": "answered_unanswerable",
+      "question": "Help with Security Bulletin: Vulnerabilities in IBM SDK for Node.js affect IBM Business Process Manager Configuration Editor I need to understand details regarding Security Bulletin: Vulnerabilities in IBM SDK for Node.js affect IBM Business Process Manager Configuration Editor (CVE-2014-3569, CVE-2014-3570, CVE-2014-3571, CVE-2014-3572, CVE-2014-8275, CVE-2015-0204, CVE-2015-0205, CVE-2015-0206).",
+      "gold": null,
+      "gold_title": "",
+      "selected_titles": [
+        "IBM IV72083: MULTIPLE SECURITY VULNERABILITIES IN OPENSSL - United States"
+      ],
+      "cited_titles": [
+        "IBM IV72083: MULTIPLE SECURITY VULNERABILITIES IN OPENSSL - United States"
+      ],
+      "answer": "* Node.js has been updated to fix CVEs disclosed by the OpenSSL project on January 8 2015: CVE-2014-3569 CVE-2014-3570 CVE-2014-3571 CVE-2014-3572 CVE-2014-8275 CVE-2015-0204 CVE-2015-0205 CVE-2015-0206 http://www-01.ibm.com/support/docview.wss?uid=swg21695476 [http://www-01.ibm.com/support/docview."
+    },
+    {
+      "task_id": "M-tune-031",
+      "layer": "L4 refusal: answered unanswerable",
+      "returned_n": 8,
+      "evidence_n": 8,
+      "context_tokens": 2262,
+      "gold_returned_pos": null,
+      "gold_source": null,
+      "selected": [
+        "swg21662577"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg21662577"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": -0.0281,
+      "reason": "answered_unanswerable",
+      "question": "KD4SoapHeaderV2 in WebServices messages The following header appears in the WebServices messages after configuring ITCAM for SOA DC: <soapenv:Header> <KD4NS:KD4SoapHeaderV2 xmlns:KD4NS=\"www.ibm.com/KD4Soap\" >AFIAAgAkYzViZmRmOTUtYmY3Mi0zNGY1LWExNDItNTNlMGI3MzUxNmRmACRjYTdmZTQwYi1 mNDFlLTMxNzUtYjExYi04MzY1MmMyMTliNjUABA==</KD4NS:KD4SoapHeaderV2> </soapenv:Header> Is it possible to remove the KD4Soap",
+      "gold": null,
+      "gold_title": "",
+      "selected_titles": [
+        "IBM ITCAM for SOA v7.1.1 FP3 WMB Data Collector - SOA Header - United States"
+      ],
+      "cited_titles": [
+        "IBM ITCAM for SOA v7.1.1 FP3 WMB Data Collector - SOA Header - United States"
+      ],
+      "answer": "1. Drop the entire WMB flow. Install a new fresh flow. Confirm SOA Agent is not installed at all in their system. 2. Checked original SOA v7.2 FP1 install and configuration directories make sure no remaining files present. 3. Enabled all KK3 UserExits on WMB Flows and Restarted WMB. Navigate to /opt"
+    },
+    {
+      "task_id": "M-tune-036",
+      "layer": "L4 generation: cited other",
+      "returned_n": 8,
+      "evidence_n": 8,
+      "context_tokens": 1818,
+      "gold_returned_pos": 2,
+      "gold_source": "S3",
+      "selected": [
+        "swg1JR51714",
+        "swg1JR51714"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg1JR51714",
+        "swg1JR51714"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": 0.1867,
+      "cited_title_jaccard": 0.17,
+      "reason": "gold_not_selected",
+      "question": "Error when using profilePath parameter with BPMConfig to create a profile When creating a profile using the BPMConfig command and the -profilePath parameter to define a custom directory to store the profile data, the creation fails with the following error message if the directory already exists (even if it is empty): com.ibm.bpm.config.BPMConfig.main(): The profile path <profile_path> must not ex",
+      "gold": "swg21649807",
+      "gold_title": "IBM Specifying the profile path in the BPMConfig properties file for IBM Business Process Manager (BPM) - United States",
+      "selected_titles": [
+        "IBM JR51714: YOU RECEIVE 'THE PROFILE PATH MUST NOT EXIST' ERROR MESSAGE WHEN YOU TRY TO CREATE A PROFILE BY USING BPMCONFIG AND THE - United States",
+        "IBM JR51714: YOU RECEIVE 'THE PROFILE PATH MUST NOT EXIST' ERROR MESSAGE WHEN YOU TRY TO CREATE A PROFILE BY USING BPMCONFIG AND THE - United States"
+      ],
+      "cited_titles": [
+        "IBM JR51714: YOU RECEIVE 'THE PROFILE PATH MUST NOT EXIST' ERROR MESSAGE WHEN YOU TRY TO CREATE A PROFILE BY USING BPMCONFIG AND THE - United States",
+        "IBM JR51714: YOU RECEIVE 'THE PROFILE PATH MUST NOT EXIST' ERROR MESSAGE WHEN YOU TRY TO CREATE A PROFILE BY USING BPMCONFIG AND THE - United States"
+      ],
+      "answer": "* Use a non-existing profile path with the BPMConfig command if you want to set a custom directory for the profile data. For instance, specify a profile path to the parent directory which will then contain the subdirectories of the profiles. [S1] * A fix is available for IBM BPM V8.5.5.0 that allows"
+    },
+    {
+      "task_id": "M-tune-039",
+      "layer": "L4 refusal: answered unanswerable",
+      "returned_n": 8,
+      "evidence_n": 7,
+      "context_tokens": 2240,
+      "gold_returned_pos": null,
+      "gold_source": null,
+      "selected": [
+        "swg22010311",
+        "swg22011754"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg22010311",
+        "swg22011754"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": 0.2075,
+      "reason": "answered_unanswerable",
+      "question": "Help with Action required for Hypervisor Edition of IIB V9.0 and WMB V8.0 for security vulnerabilities in Red Hat Linux I need to understand details regarding Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux. Where can I find this information?",
+      "gold": null,
+      "gold_title": "",
+      "selected_titles": [
+        "IBM Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux - United States",
+        "IBM Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux - United States"
+      ],
+      "cited_titles": [
+        "IBM Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux - United States",
+        "IBM Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux - United States"
+      ],
+      "answer": "IBM Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux - United States FLASH (ALERT) ABSTRACT IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8"
+    },
+    {
+      "task_id": "M-tune-040",
+      "layer": "L4 generation: refused",
+      "returned_n": 8,
+      "evidence_n": 8,
+      "context_tokens": 2067,
+      "gold_returned_pos": 1,
+      "gold_source": "S1",
+      "selected": [],
+      "selection_decision": null,
+      "judge_decision": null,
+      "judge_rejected": {},
+      "cited": [],
+      "rag_status": "unanswerable",
+      "top_score_margin": 0.0198,
+      "reason": "selector_selected_nothing",
+      "question": "ICC Configuration Store Service is hung? ICC Configuration Store Service is hung and is not responding to start or stop commands. This was observed due to a potential issue with server running out of disk space. What is causing this?",
+      "gold": "swg21680391",
+      "gold_title": "IBM Content Collector Configuration Store is corrupted - United States",
+      "selected_titles": [],
+      "cited_titles": [],
+      "answer": ""
+    },
+    {
+      "task_id": "M-tune-043",
+      "layer": "L4 refusal: answered unanswerable",
+      "returned_n": 8,
+      "evidence_n": 5,
+      "context_tokens": 2260,
+      "gold_returned_pos": null,
+      "gold_source": null,
+      "selected": [
+        "swg21699940"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg21699940"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": 0.0996,
+      "reason": "answered_unanswerable",
+      "question": "Help with Security Bulletin: A security vulnerability has been identified in WebSphere Application Server shipped with WebSphere Remote Server (CVE-2014-8917) I need to understand details regarding Security Bulletin: A security vulnerability has been identified in WebSphere Application Server shipped with WebSphere Remote Server (CVE-2014-8917). Where can I find this information?",
+      "gold": null,
+      "gold_title": "",
+      "selected_titles": [
+        "IBM Security Bulletin: Security vulnerabilities have been identified in IBM WebSphere Application Server shipped with IBM WebSphere Portal - United States"
+      ],
+      "cited_titles": [
+        "IBM Security Bulletin: Security vulnerabilities have been identified in IBM WebSphere Application Server shipped with IBM WebSphere Portal - United States"
+      ],
+      "answer": "VULNERABILITY DETAILS Please consult the security bulletins for IBM WebSphere Application Server published at * Security Bulletin: Vulnerability with RSA Export Keys may affect IBM WebSphere Application Server (CVE-2015-0138) [http://www-01.ibm.com/support/docview.wss?uid=swg21698613] [http://www-01"
+    },
+    {
+      "task_id": "M-tune-048",
+      "layer": "L4 generation: cited other",
+      "returned_n": 8,
+      "evidence_n": 8,
+      "context_tokens": 2394,
+      "gold_returned_pos": 1,
+      "gold_source": "S1",
+      "selected": [
+        "swg21688476"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg21688476"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": -0.0484,
+      "cited_title_jaccard": 0.23,
+      "reason": "gold_not_selected",
+      "question": "SPSS free trial not working on MAC - gets stuck in when it should be launching and goes nowhere I downloaded the SPSS software on my mac running Yosemite 10.10.5. The trial was activated by IBM, they sent me several emails stating this. So I tried to launch the app and get stuck here alt text There is no progress after an hour; and I tried to launch several times, it never gets out of this screen.",
+      "gold": "swg21507587",
+      "gold_title": "IBM What are the supported Apple Macintosh Operating System Versions for IBM SPSS Statistics? - United States",
+      "selected_titles": [
+        "IBM Will IBM SPSS Statistics 22 run on Apple OS Mac OS X, 10.10 Yosemite? - United States"
+      ],
+      "cited_titles": [
+        "IBM Will IBM SPSS Statistics 22 run on Apple OS Mac OS X, 10.10 Yosemite? - United States"
+      ],
+      "answer": "IBM SPSS Statistics (any version) has two issues to resolve before it will run on OS X 10.10: 1. Download and re-install Apple Java 6 - After the OS upgrade is finished, Apple Java 6 no longer exists on their system. - The first time the user runs an application that relies on Java 6, the OS pops up"
+    },
+    {
+      "task_id": "M-tune-050",
+      "layer": "L4 generation: refused",
+      "returned_n": 8,
+      "evidence_n": 7,
+      "context_tokens": 2259,
+      "gold_returned_pos": 1,
+      "gold_source": "S1",
+      "selected": [
+        "swg21237078"
+      ],
+      "selection_decision": "ABSTAIN",
+      "judge_decision": "ABSTAIN",
+      "judge_rejected": {
+        "swg21237078": "J4"
+      },
+      "cited": [],
+      "rag_status": "unanswerable",
+      "top_score_margin": 0.05,
+      "reason": "judge_J4",
+      "question": "Does DB2 DBMS implement NIST FIPS 140-2 validated cryptographic modules to provision digital signatures? V-58159 - SV-72589r1_rule says \"The DBMS must implement NIST FIPS 140-2 validated cryptographic modules to provision digital signatures.\" Does DB2 UDB version 8 implement NIST FIPS 140-2 validated cryptographic modules to provision digital signatures?",
+      "gold": "swg21237078",
+      "gold_title": "IBM DB2 UDB Version 8, v10.5 compliance with FIPS 140-2 standard - United States",
+      "selected_titles": [
+        "IBM DB2 UDB Version 8, v10.5 compliance with FIPS 140-2 standard - United States"
+      ],
+      "cited_titles": [],
+      "answer": ""
+    },
+    {
+      "task_id": "M-tune-052",
+      "layer": "L4 generation: cited other",
+      "returned_n": 8,
+      "evidence_n": 7,
+      "context_tokens": 2197,
+      "gold_returned_pos": 1,
+      "gold_source": "S1",
+      "selected": [
+        "swg21485643"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg21485643"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": 0.1155,
+      "cited_title_jaccard": 0.18,
+      "reason": "gold_not_selected",
+      "question": "How does Session timeout work in WebSphere Portal? and How do I change the timeout behavior? How does Session timeout work in WebSphere Portal V6.1.0.1?",
+      "gold": "swg21419230",
+      "gold_title": "IBM WebSphere Portal inactive session time out and redirect - United States",
+      "selected_titles": [
+        "IBM How can we change the session timeout for Deployment Portal users? - United States"
+      ],
+      "cited_titles": [
+        "IBM How can we change the session timeout for Deployment Portal users? - United States"
+      ],
+      "answer": "For WebSphere, edit this file.... /qibm/UserData/WebSphere/AppServer/V61/Express/profiles/<CADS SERVER>/config/cells/<CADS CELL NAME>/applications/peb.ear/deployments/peb/peb.war/WEB-INF/web.xml Modify this value.... <session-config> <session-timeout>30</session-timeout> </session-config> The value "
+    },
+    {
+      "task_id": "M-tune-054",
+      "layer": "L4 generation: refused",
+      "returned_n": 8,
+      "evidence_n": 8,
+      "context_tokens": 1969,
+      "gold_returned_pos": 5,
+      "gold_source": "S5",
+      "selected": [
+        "swg21681745"
+      ],
+      "selection_decision": "ABSTAIN",
+      "judge_decision": "ABSTAIN",
+      "judge_rejected": {
+        "swg21681745": "J2"
+      },
+      "cited": [],
+      "rag_status": "unanswerable",
+      "top_score_margin": 0.0189,
+      "reason": "selector_picked_other+judge_rejected_it",
+      "question": "Why does my upgrade to Portal 8001 CF14 fail with the following errors, ADMA5008E, ADMA0063E, ADMA5069E, WASX7017E?",
+      "gold": "swg21426787",
+      "gold_title": "IBM Portal upgrades fail during ejbdeploy with 'Error is Platform not running' message - United States",
+      "selected_titles": [
+        "IBM Upgrade to Portal CF12 fails with errors ADMA5069E and CWLAA1031E and IWAE0037E - United States"
+      ],
+      "cited_titles": [],
+      "answer": ""
+    },
+    {
+      "task_id": "M-tune-055",
+      "layer": "L4 refusal: answered unanswerable",
+      "returned_n": 8,
+      "evidence_n": 6,
+      "context_tokens": 2211,
+      "gold_returned_pos": null,
+      "gold_source": null,
+      "selected": [
+        "swg21138961"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg21138961"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": 0.2144,
+      "reason": "answered_unanswerable",
+      "question": "Why is my MQ Java / JMS application getting 2035 NOT_AUTHORIZED error after upgrade of MQ?",
+      "gold": null,
+      "gold_title": "",
+      "selected_titles": [
+        "IBM MQJMS2013 (V6) JMSWMQ2013 (V7 and later) invalid security authentication (RC 2035) - United States"
+      ],
+      "cited_titles": [
+        "IBM MQJMS2013 (V6) JMSWMQ2013 (V7 and later) invalid security authentication (RC 2035) - United States"
+      ],
+      "answer": "Consult the following technote: WMQ 7.1 or later queue manager - RC 2035 MQRC_NOT_AUTHORIZED when using client connection as an MQ Administrator [http://www.ibm.com/support/docview.wss?uid=swg21577137] +++ Specifically when using MQ 8.0 or later queue managers: MQ 8.0: errors AMQ5540 and AMQ5541, ap"
+    },
+    {
+      "task_id": "M-tune-057",
+      "layer": "L4 generation: refused",
+      "returned_n": 8,
+      "evidence_n": 7,
+      "context_tokens": 2307,
+      "gold_returned_pos": 1,
+      "gold_source": "S1",
+      "selected": [],
+      "selection_decision": null,
+      "judge_decision": null,
+      "judge_rejected": {},
+      "cited": [],
+      "rag_status": "unanswerable",
+      "top_score_margin": 0.0501,
+      "reason": "selector_selected_nothing",
+      "question": "Can I run different levels of the Rational Developer for z Systems host and client? I'd like to know if I can run different versions of the RDz client and host and if so what compatible or supported versions and releases?",
+      "gold": "swg21568844",
+      "gold_title": "IBM Developer for z Systems and Rational Developer for z Systems Backward/Forward compatibility - United States",
+      "selected_titles": [],
+      "cited_titles": [],
+      "answer": ""
+    },
+    {
+      "task_id": "M-tune-059",
+      "layer": "L4 generation: refused",
+      "returned_n": 8,
+      "evidence_n": 8,
+      "context_tokens": 2231,
+      "gold_returned_pos": 2,
+      "gold_source": "S2",
+      "selected": [],
+      "selection_decision": null,
+      "judge_decision": null,
+      "judge_rejected": {},
+      "cited": [],
+      "rag_status": "unanswerable",
+      "top_score_margin": 0.03,
+      "reason": "selector_selected_nothing",
+      "question": "On 30th June, could the Leap Second cause Linux to freeze and impact my MQ?",
+      "gold": "swg21602521",
+      "gold_title": "IBM Leap Second bug in older Linux kernels may affect IBM MQ and WebSphere MQ - United States",
+      "selected_titles": [],
+      "cited_titles": [],
+      "answer": ""
+    },
+    {
+      "task_id": "M-tune-062",
+      "layer": "L4 generation: refused",
+      "returned_n": 8,
+      "evidence_n": 7,
+      "context_tokens": 2203,
+      "gold_returned_pos": 3,
+      "gold_source": "S3",
+      "selected": [
+        "swg21989792"
+      ],
+      "selection_decision": "ABSTAIN",
+      "judge_decision": "ABSTAIN",
+      "judge_rejected": {
+        "swg21989792": "J2"
+      },
+      "cited": [],
+      "rag_status": "unanswerable",
+      "top_score_margin": -0.0217,
+      "reason": "selector_picked_other+judge_rejected_it",
+      "question": "Need help accessing my SPSS access code? I downloaded SPSS GradPack (Standard) 25 6 Months for my Mac. The IBM SPSS Statistics 24 licensing page pops up for me to enter the code. I enter the code provided and then hit next, and it tells me the code is too short to be valid? What code do I use then? I need this resolved fast, my first assignment is due soon. I was only given a 16-digit access code,",
+      "gold": "swg21592093",
+      "gold_title": "IBM SPSS Student Version and Graduate Pack Resources - United States",
+      "selected_titles": [
+        "IBM License Activation Wizard for SPSS Statistics 24 crashes on MAC OS X 10.11.6 (El Capitan) preventing users to license the product - United States"
+      ],
+      "cited_titles": [],
+      "answer": ""
+    },
+    {
+      "task_id": "M-tune-063",
+      "layer": "L4 generation: refused",
+      "returned_n": 8,
+      "evidence_n": 7,
+      "context_tokens": 2257,
+      "gold_returned_pos": 5,
+      "gold_source": "S6",
+      "selected": [
+        "swg21977774"
+      ],
+      "selection_decision": "ABSTAIN",
+      "judge_decision": "ABSTAIN",
+      "judge_rejected": {
+        "swg21977774": "J3"
+      },
+      "cited": [],
+      "rag_status": "unanswerable",
+      "top_score_margin": 0.0533,
+      "reason": "selector_picked_other+judge_rejected_it",
+      "question": "Unable to locate the More tab of Document class - Property definition tab - property template configuration to update Is Required setting. Unable to locate the More tab of Document class - Property definition tab - property template configuration to update Is Required setting. Environment is running on Content Engine 5.2.0.3.",
+      "gold": "swg21696083",
+      "gold_title": "IBM How to overwrite property definition properties in a class via IBM Administration Console for Content Platform Engine (ACCE)? - United States",
+      "selected_titles": [
+        "IBM 'Audit As' property missing in Property Definition object in Administration Console for Content Platform Engine (ACCE). - United States"
+      ],
+      "cited_titles": [],
+      "answer": ""
+    },
+    {
+      "task_id": "M-tune-068",
+      "layer": "L4 generation: cited other",
+      "returned_n": 8,
+      "evidence_n": 8,
+      "context_tokens": 2149,
+      "gold_returned_pos": 5,
+      "gold_source": "S7",
+      "selected": [
+        "swg21655828"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg21655828"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": 0.094,
+      "cited_title_jaccard": 0.05,
+      "reason": "gold_not_selected",
+      "question": "DB2 Non Reclaimable Storage . We have tablespaces defined under DB2 9.5 that apparently are not able to reclaim storage back to the OS, but does that mean DB2 cannot reuse this space as well?",
+      "gold": "swg21438047",
+      "gold_title": "IBM SQL1763N error with Reason Code 11 while running \"Alter Tablespace\" command to reclaim unused storage space against DMS or automatic storage tablespaces. - United States",
+      "selected_titles": [
+        "IBM Reducing the size of the Tivoli Storage Manager database - United States"
+      ],
+      "cited_titles": [
+        "IBM Reducing the size of the Tivoli Storage Manager database - United States"
+      ],
+      "answer": "For DB2 9.7 tablespaces, the values in the RECLAIMABLE_SPACE_ENABLED column are 1. For DB2 9.5 tablespaces, the values are 0. Important: Databases that were formatted with Tivoli Storage Manager servers V6.2 and later have DB2 9.7 tablespaces. In the following example, the value in each row of the R"
+    },
+    {
+      "task_id": "M-tune-071",
+      "layer": "L4 generation: cited other",
+      "returned_n": 8,
+      "evidence_n": 8,
+      "context_tokens": 2221,
+      "gold_returned_pos": 2,
+      "gold_source": "S2",
+      "selected": [
+        "swg21982141"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg21982141"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": 0.0528,
+      "cited_title_jaccard": 0.29,
+      "reason": "gold_not_selected",
+      "question": "'Access is denied' install errors with ICC Installing ICC 4.0.1 and then FP2 gives the 'Access is denied' error on WASSERVICE.exe. How to resolve this?",
+      "gold": "swg24042387",
+      "gold_title": "IBM Content Collector V4.0.1 Fix Pack 3 - United States",
+      "selected_titles": [
+        "IBM Content Collector install fails - United States"
+      ],
+      "cited_titles": [
+        "IBM Content Collector install fails - United States"
+      ],
+      "answer": "1. Reboot the server and stop the ICC services from Windows Services. 2. Unintall ICC from Start --> Programs -->IBM Content Collector by following below knowledge center link.http://www.ibm.com/support/knowledgecenter/SSAE9L_4.0.0/com.ibm.content.collector.doc/installing/t_afu_uninstalling_icc.htm "
+    },
+    {
+      "task_id": "M-tune-074",
+      "layer": "L4 refusal: answered unanswerable",
+      "returned_n": 8,
+      "evidence_n": 7,
+      "context_tokens": 2223,
+      "gold_returned_pos": null,
+      "gold_source": null,
+      "selected": [
+        "swg1PI40215"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg1PI40215"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": 0.0383,
+      "reason": "answered_unanswerable",
+      "question": "We specify the sslProtocol for an Execution Group via \"-n sslProtocol -v TLS\" as per following: mqsichangeproperties \"-o HTTPSConnector\" \"-n sslProtocol -v TLS\" Does WMB support TLS v1.1 protocol or TLS v1.2?",
+      "gold": null,
+      "gold_title": "",
+      "selected_titles": [
+        "IBM PI40215: NOT ABLE TO ENABLE TLSV1.1 AND TLSV1.2 PROTOCOLS FOR HTTPSCONNECTOR IN 8.0.0.4 - United States"
+      ],
+      "cited_titles": [
+        "IBM PI40215: NOT ABLE TO ENABLE TLSV1.1 AND TLSV1.2 PROTOCOLS FOR HTTPSCONNECTOR IN 8.0.0.4 - United States"
+      ],
+      "answer": "* All available protocols can now be enabled on the HTTPSConnector. --------------------------------------------------------------- The fix is targeted for delivery in the following PTFs: Version Maintenance Level v8.0 8.0.0.5 v10.0 10.0.0.2 The latest available maintenance can be obtained from: htt"
+    },
+    {
+      "task_id": "M-tune-083",
+      "layer": "L3 context",
+      "returned_n": 8,
+      "evidence_n": 5,
+      "context_tokens": 2211,
+      "gold_returned_pos": 6,
+      "gold_source": null,
+      "selected": [
+        "swg21648259"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg21648259"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": -0.0486,
+      "evidence_docs": 5,
+      "reason": "budget_cut",
+      "question": "Cannot create syndication pair between Virtual Portals with a different user repository than Base Portal Steps: I have two different user repositories one to manage my base portal and Virtual Portals. (p.e: For Base Portal I use ITDS, and for VPs I use AD) with differents admin users each. Then I created two VPs using the AD repository, and my VPs admin user on the credential vault. Tried to creat",
+      "gold": "swg21681464",
+      "gold_title": "IBM Syndicating to VP with exclusive realms does not work. - United States",
+      "selected_titles": [
+        "IBM New syndication pair created on 8001 CF06 or CF07 fails to syndicate if the subscriber is a virtual portal with a different hostname. - United States"
+      ],
+      "cited_titles": [
+        "IBM New syndication pair created on 8001 CF06 or CF07 fails to syndicate if the subscriber is a virtual portal with a different hostname. - United States"
+      ],
+      "answer": "The following errors will be seen in the SystemOut log on the syndicator server: UpdateSyndica E Could not update syndicator with name sample_syndicator com.aptrix.deployment.DeploymentException: Message: IWKWC0004I: Code #300, phrase: Generic payload error, detail: Response code was not OK: 500, Ca"
+    },
+    {
+      "task_id": "M-tune-084",
+      "layer": "L4 generation: cited other",
+      "returned_n": 8,
+      "evidence_n": 8,
+      "context_tokens": 2361,
+      "gold_returned_pos": 2,
+      "gold_source": "S3",
+      "selected": [
+        "swg21673208"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg21673208"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": -0.0754,
+      "cited_title_jaccard": 0.0,
+      "reason": "gold_not_selected",
+      "question": "How precise is DataPower's backside persistent timeout value related to intermittent \"Failed to Process Response Headers\" error messages? I have a service on DataPower with a backside persistent timeout value set to 28 seconds. The actual backend device has a persistent timeout setting of 30 seconds. Since my service is configured with a lower persistent timeout value than 30 seconds, why am I sti",
+      "gold": "swg21292808",
+      "gold_title": "IBM How to troubleshoot the error \"Failed to process response headers\" - United States",
+      "selected_titles": [
+        "IBM Why does DataPower report that WebSphere Application Server terminated the connection? - United States"
+      ],
+      "cited_titles": [
+        "IBM Why does DataPower report that WebSphere Application Server terminated the connection? - United States"
+      ],
+      "answer": "This can be due to two possible configuration values, 1) If the HTTP transport of the WAS App server is set to a lower value than the DataPower service. For example the DataPower Back Persistent timeout is at the default value of 180 seconds and the WAS HTTP transport is set to 120 seconds. This wil"
+    },
+    {
+      "task_id": "M-tune-089",
+      "layer": "L3 context",
+      "returned_n": 8,
+      "evidence_n": 8,
+      "context_tokens": 2367,
+      "gold_returned_pos": 6,
+      "gold_source": null,
+      "selected": [
+        "swg21405138",
+        "swg21405138"
+      ],
+      "selection_decision": "ABSTAIN",
+      "judge_decision": "ABSTAIN",
+      "judge_rejected": {
+        "swg21405138": "J4"
+      },
+      "cited": [],
+      "rag_status": "unanswerable",
+      "top_score_margin": -0.0803,
+      "evidence_docs": 5,
+      "reason": "budget_cut",
+      "question": "Updating SCA applications & internal SCA module queues When updating an existing SCA module using the ISC, I noticed that internal SCA queues (sca/<module>/...) on the SCA.SYSTEM bus) are deleted and recreated. Does this mean that any messages that may still reside on these internal queues would be deleted on a module update? If so, when updating SCA modules in a production environment, should the",
+      "gold": "swg21639375",
+      "gold_title": "IBM SCA destinations for IBM Business Process Manager (BPM), WebSphere Process Server (WPS) and WebSphere Enterprise Service Bus (WESB) are not preserved when uninstalling and reinstalling a service module - United States",
+      "selected_titles": [
+        "IBM Stuck stored messages on SCA module destination - United States",
+        "IBM Stuck stored messages on SCA module destination - United States"
+      ],
+      "cited_titles": [],
+      "answer": ""
+    },
+    {
+      "task_id": "M-tune-091",
+      "layer": "L4 refusal: answered unanswerable",
+      "returned_n": 8,
+      "evidence_n": 7,
+      "context_tokens": 2284,
+      "gold_returned_pos": null,
+      "gold_source": null,
+      "selected": [
+        "swg22012477"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg22012477"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": 0.194,
+      "reason": "answered_unanswerable",
+      "question": "Help with Action required for IIB H.E. V9 and WMB H.E. V8 for security vulnerabilities in Red Hat Linux I need to understand details regarding Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux. This is related to CVE-IDs: CVE-2017-5715 CVE-2017-5753 CVE-2017-5754 Where can I find this i",
+      "gold": null,
+      "gold_title": "",
+      "selected_titles": [
+        "IBM Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere     Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux - United States"
+      ],
+      "cited_titles": [
+        "IBM Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere     Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux - United States"
+      ],
+      "answer": "IBM Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux - United States IIB WMB FLASH (ALERT) ABSTRACT IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Ed"
+    },
+    {
+      "task_id": "M-tune-094",
+      "layer": "L4 refusal: answered unanswerable",
+      "returned_n": 8,
+      "evidence_n": 7,
+      "context_tokens": 2292,
+      "gold_returned_pos": null,
+      "gold_source": null,
+      "selected": [
+        "swg22011745"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg22011745"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": 0.1889,
+      "reason": "answered_unanswerable",
+      "question": "Help with Action required for IIB H.E. V9 & WMB H.E. V8 for security vulnerabilities in Red Hat Linux I need to understand details regarding Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux. This is related to CVEID: CVE-2017-15277 CVE-2017-15281 Where can I find this information?",
+      "gold": null,
+      "gold_title": "",
+      "selected_titles": [
+        "IBM Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux - United States"
+      ],
+      "cited_titles": [
+        "IBM Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux - United States"
+      ],
+      "answer": "IBM Action required for IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Edition V8.0 for security vulnerabilities in Red Hat Linux - United States IIB WMB FLASH (ALERT) ABSTRACT IBM Integration Bus Hypervisor Edition V9.0 and WebSphere Message Broker Hypervisor Ed"
+    },
+    {
+      "task_id": "M-tune-100",
+      "layer": "L4 generation: cited other",
+      "returned_n": 8,
+      "evidence_n": 7,
+      "context_tokens": 2352,
+      "gold_returned_pos": 1,
+      "gold_source": "S1",
+      "selected": [
+        "swg1IV46157"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg1IV46157"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": 0.0511,
+      "cited_title_jaccard": 0.0,
+      "reason": "gold_not_selected",
+      "question": "How to remove the default -Xcompressedrefs from my WebSphere Application Server My understanding is that for performance reasons, the WebSphere Application server on 64bit JVMs is, by default, using compressed references (-Xcompressedrefs). Due to native OutOfMemory error, I would like to remove that default, so there is no such limitation imposed on my native memory size.",
+      "gold": "swg21660890",
+      "gold_title": "IBM Using -Xgc:preferredHeapBase with -Xcompressedrefs - United States",
+      "selected_titles": [
+        "IBM IV46157: NATIVE OOM ON AIX 64BIT PLATFORM WHEN COMPRESSED REFERENCES ENAB LED - United States"
+      ],
+      "cited_titles": [
+        "IBM IV46157: NATIVE OOM ON AIX 64BIT PLATFORM WHEN COMPRESSED REFERENCES ENAB LED - United States"
+      ],
+      "answer": "* This issue can be worked around by disabling the compressed references by removing -Xcompressedrefs from the command line options or specifying -Xnocompressedrefs option at the end of the JVM options on the command line. [S7]"
+    },
+    {
+      "task_id": "M-tune-102",
+      "layer": "L4 generation: refused",
+      "returned_n": 8,
+      "evidence_n": 8,
+      "context_tokens": 2028,
+      "gold_returned_pos": 1,
+      "gold_source": "S1",
+      "selected": [
+        "swg21664629"
+      ],
+      "selection_decision": "ABSTAIN",
+      "judge_decision": "ABSTAIN",
+      "judge_rejected": {
+        "swg21664629": "J4"
+      },
+      "cited": [],
+      "rag_status": "unanswerable",
+      "top_score_margin": 0.0023,
+      "reason": "judge_J4",
+      "question": "Non-admin users cannot access webDAV filestore. What is the likely reason? A non-admin user trying to access the webDAV filestore is unable to do so and they see the below exception in the portal logs: Caused by: com.ibm.icm.da.DBAccessException: User id can not be null at com.ibm.icm.da.portable.connection.Logon.logon(Logon.java:159) at com.ibm.icm.da.portable.connection.ConnectionManager.logon(C",
+      "gold": "swg21664629",
+      "gold_title": "IBM Policy (EJQAB0067E) and JCR Login (WSP0005E) exceptions in System*.logs - United States",
+      "selected_titles": [
+        "IBM Policy (EJQAB0067E) and JCR Login (WSP0005E) exceptions in System*.logs - United States"
+      ],
+      "cited_titles": [],
+      "answer": ""
+    },
+    {
+      "task_id": "M-tune-107",
+      "layer": "L3 context",
+      "returned_n": 8,
+      "evidence_n": 7,
+      "context_tokens": 2230,
+      "gold_returned_pos": 6,
+      "gold_source": null,
+      "selected": [],
+      "selection_decision": null,
+      "judge_decision": null,
+      "judge_rejected": {},
+      "cited": [],
+      "rag_status": "unanswerable",
+      "top_score_margin": 0.0024,
+      "evidence_docs": 4,
+      "reason": "other_context",
+      "question": "What is the equivalent of the .LG0 file for the OS agent - A4 - on i5 systems?",
+      "gold": "swg21657023",
+      "gold_title": "IBM Pdcollect tool for ITM IBM i OS agent - United States",
+      "selected_titles": [],
+      "cited_titles": [],
+      "answer": ""
+    },
+    {
+      "task_id": "M-tune-108",
+      "layer": "L4 refusal: answered unanswerable",
+      "returned_n": 8,
+      "evidence_n": 8,
+      "context_tokens": 2373,
+      "gold_returned_pos": null,
+      "gold_source": null,
+      "selected": [
+        "swg1PK75187"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg1PK75187"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": 0.182,
+      "reason": "answered_unanswerable",
+      "question": "Where to find the recommended fixes for WebSphere and Portal ?",
+      "gold": null,
+      "gold_title": "",
+      "selected_titles": [
+        "IBM PK75187: UTILITY TO FIND LARGE RESOURCE FILES (IMAGES AND OTHER FILES) STORED IN WCM - United States"
+      ],
+      "cited_titles": [
+        "IBM PK75187: UTILITY TO FIND LARGE RESOURCE FILES (IMAGES AND OTHER FILES) STORED IN WCM - United States"
+      ],
+      "answer": "* A new module is created called FindLargeResourcesModule. This will find all Image File and Rich Text Component's resources that are greater then a specified minimum size. If no size is specified, it will look by default for resources greater then 1 Megabyte. For Rich Text Components, it will not f"
+    },
+    {
+      "task_id": "M-tune-109",
+      "layer": "L4 refusal: answered unanswerable",
+      "returned_n": 8,
+      "evidence_n": 7,
+      "context_tokens": 2223,
+      "gold_returned_pos": null,
+      "gold_source": null,
+      "selected": [
+        "swg21987920"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg21987920"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": 0.1232,
+      "reason": "answered_unanswerable",
+      "question": "Why cant I load and AEL when using IE 11 JRE 8 Application Blocked by Java Security",
+      "gold": null,
+      "gold_title": "",
+      "selected_titles": [
+        "IBM Unable to open AEL from TIP console - United States"
+      ],
+      "cited_titles": [
+        "IBM Unable to open AEL from TIP console - United States"
+      ],
+      "answer": "The following steps will help to issue to be resolved, 1. Start->Control Panel->System 2. Click the Advanced Tab 3. Click the Environment Variables button 4. Click the New button 5. For Variable name:_JAVA_OPTIONS 6. For Variable value:-Dsun.java2d.d3d=false 7. Reboot 8.Clear the Java cache using th"
+    },
+    {
+      "task_id": "M-tune-122",
+      "layer": "L4 refusal: answered unanswerable",
+      "returned_n": 8,
+      "evidence_n": 8,
+      "context_tokens": 2183,
+      "gold_returned_pos": null,
+      "gold_source": null,
+      "selected": [
+        "swg21648497",
+        "swg21648497"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg21648497",
+        "swg21648497"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": 0.0459,
+      "reason": "answered_unanswerable",
+      "question": "Why am I seeing native out of memory issues on a 64-bit system? I have a 64-bit Java installed on my Portal server. On occasion I'm seeing the Portal server processID disappear across any one of my servers running in the clusters. Portal restarts no problem and runs fine, but the processID disappears. Logs aren't showing any errors. Did see the following in a javacore or two that was generated: \"s",
+      "gold": null,
+      "gold_title": "",
+      "selected_titles": [
+        "IBM Insufficient ulimit Value Causes Native OutOfMemory - United States",
+        "IBM Insufficient ulimit Value Causes Native OutOfMemory - United States"
+      ],
+      "cited_titles": [
+        "IBM Insufficient ulimit Value Causes Native OutOfMemory - United States",
+        "IBM Insufficient ulimit Value Causes Native OutOfMemory - United States"
+      ],
+      "answer": "SYMPTOM An out of memory Dump Event such as: \"systhrow\" (00040000) Detail \"java/lang/OutOfMemoryError\" \"Failed to create a thread: retVal -1073741830, errno 11\" received Note: This detailed message will appear only in javacores. [S6] IBM Insufficient ulimit Value Causes Native OutOfMemory - United S"
+    },
+    {
+      "task_id": "M-tune-126",
+      "layer": "L4 generation: refused",
+      "returned_n": 8,
+      "evidence_n": 7,
+      "context_tokens": 2206,
+      "gold_returned_pos": 1,
+      "gold_source": "S1",
+      "selected": [],
+      "selection_decision": null,
+      "judge_decision": null,
+      "judge_rejected": {},
+      "cited": [],
+      "rag_status": "unanswerable",
+      "top_score_margin": 0.0871,
+      "reason": "selector_selected_nothing",
+      "question": "Does Linux KVM monitoring agent support CANDLEDATA function? Does Linux KVM monitoring agent in ITM support CANDLEDATA function?",
+      "gold": "swg21695194",
+      "gold_title": "IBM IV67523 Move local data from CANDLEHOME to another file system - United States",
+      "selected_titles": [],
+      "cited_titles": [],
+      "answer": ""
+    },
+    {
+      "task_id": "M-tune-131",
+      "layer": "L3 context",
+      "returned_n": 8,
+      "evidence_n": 6,
+      "context_tokens": 2392,
+      "gold_returned_pos": 7,
+      "gold_source": null,
+      "selected": [
+        "swg21683210",
+        "swg21683210"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg21683210",
+        "swg21683210"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": 0.0703,
+      "evidence_docs": 4,
+      "reason": "other_context",
+      "question": "Is it possible to monitor Memory/LPAR metrics using ITM HMC agent? I understand the ITM AIX Premium agent captures these metrics but like to know if it is possible to monitor Memory/LPAR metrics using ITM HMC agent?",
+      "gold": "swg24042283",
+      "gold_title": "IBM Tivoli Monitoring: HMC Base Agent 6.2.2.3-TIV-ITM_HMC_BASE-IF0004 - United States",
+      "selected_titles": [
+        "IBM SystemP agents on AIX 7.1 TL3 - United States",
+        "IBM SystemP agents on AIX 7.1 TL3 - United States"
+      ],
+      "cited_titles": [
+        "IBM SystemP agents on AIX 7.1 TL3 - United States",
+        "IBM SystemP agents on AIX 7.1 TL3 - United States"
+      ],
+      "answer": "Also, in this wiki you can find the following best practices that the customers should know about: --- Install and run the following agents to monitor your System P environment (see General Considerations above for details): 1) HMC Base agent v6.2.2.3 on any AIX LPAR to monitoring the HMC and the Se"
+    },
+    {
+      "task_id": "M-tune-134",
+      "layer": "L4 generation: refused",
+      "returned_n": 8,
+      "evidence_n": 7,
+      "context_tokens": 2297,
+      "gold_returned_pos": 1,
+      "gold_source": "S1",
+      "selected": [
+        "swg27021737"
+      ],
+      "selection_decision": "ABSTAIN",
+      "judge_decision": "ABSTAIN",
+      "judge_rejected": {
+        "swg27021737": "J4"
+      },
+      "cited": [],
+      "rag_status": "unanswerable",
+      "top_score_margin": -0.0432,
+      "reason": "selector_picked_other+judge_rejected_it",
+      "question": "What are the known issues with WILY software and WAS or BPM?",
+      "gold": "swg21966881",
+      "gold_title": "IBM Business Process Manager users receive errors that session has expired - United States",
+      "selected_titles": [
+        "IBM Release Notes - IBM Business Process Manager Healthcare Pack version 7.5 - United States"
+      ],
+      "cited_titles": [],
+      "answer": ""
+    },
+    {
+      "task_id": "M-tune-136",
+      "layer": "L4 refusal: answered unanswerable",
+      "returned_n": 8,
+      "evidence_n": 8,
+      "context_tokens": 2131,
+      "gold_returned_pos": null,
+      "gold_source": null,
+      "selected": [
+        "swg21358484"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg21358484"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": 0.0608,
+      "reason": "answered_unanswerable",
+      "question": "I can't find the JDBC driver for my DB2. I am running BPM 8.0.1 with DB2 10.1.0. Reading this technote: http://www-01.ibm.com/support/docview.wss \"Use the JDBC driver of your database product instead of the JDBC delivered with IBM Business Process Manager (BPM)\"I am trying to download the latest JDBC driver from the following technote: http://www-01.ibm.com/support/docview.wss It looks like the li",
+      "gold": null,
+      "gold_title": "",
+      "selected_titles": [
+        "IBM Knowledge Collection:  DB2 JDBC driver issues - United States"
+      ],
+      "cited_titles": [
+        "IBM Knowledge Collection:  DB2 JDBC driver issues - United States"
+      ],
+      "answer": "Download latest DB2 JDBC driver for v9.1 [http://www.ibm.com/eserver/support/fixes/fixcentral/swg/quickorder?brandid=1&productid=IBM+Data+Server+Client+Packages&vrmf=9.1.*&searchtype=fix&fixes=*jdbc*], v9.5 [http://www.ibm.com/eserver/support/fixes/fixcentral/swg/quickorder?brandid=1&productid=IBM+D"
+    },
+    {
+      "task_id": "M-tune-137",
+      "layer": "L4 refusal: answered unanswerable",
+      "returned_n": 8,
+      "evidence_n": 7,
+      "context_tokens": 2388,
+      "gold_returned_pos": null,
+      "gold_source": null,
+      "selected": [
+        "swg27008725"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg27008725"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": 0.2237,
+      "reason": "answered_unanswerable",
+      "question": "When will WebSphere Application Server v7.0 and v8.0 be end of support (EOS)? Has an End of Support (EOS) date been announced for WebSphere Application Server v7.0 and 8.0?",
+      "gold": null,
+      "gold_title": "",
+      "selected_titles": [
+        "IBM WebSphere Migration Knowledge Collection: Migrating from V8.0, V7.0 or V6.1 - United States"
+      ],
+      "cited_titles": [
+        "IBM WebSphere Migration Knowledge Collection: Migrating from V8.0, V7.0 or V6.1 - United States"
+      ],
+      "answer": "* IBM WebSphere Application Server V7 and V8 ( Announcement Letter: 916-143 [http://www-01.ibm.com/common/ssi/ShowDoc.wss?docURL=/common/ssi/rep_ca/3/897/ENUS916-143/index.html]) * End of Support Announcement Letter: * Software Withdrawal and service discontinuance: * WebSphere Application Server fo"
+    },
+    {
+      "task_id": "M-tune-141",
+      "layer": "L3 context",
+      "returned_n": 8,
+      "evidence_n": 8,
+      "context_tokens": 2161,
+      "gold_returned_pos": 7,
+      "gold_source": null,
+      "selected": [
+        "swg1PK22134",
+        "swg1PK22134"
+      ],
+      "selection_decision": "ABSTAIN",
+      "judge_decision": "ABSTAIN",
+      "judge_rejected": {
+        "swg1PK22134": "J1"
+      },
+      "cited": [],
+      "rag_status": "unanswerable",
+      "top_score_margin": 0.0161,
+      "evidence_docs": 4,
+      "reason": "other_context",
+      "question": "java.lang.IllegalStateException when I'm trying to stop a service in BPM Process Admin Console In the Process Admin Console, under Monitoring > Process Monitor, when I try to stop a service, I get the following exception: java.lang.IllegalStateException: SRVE0199E: OutputStream already obtained What is causing this?",
+      "gold": "swg21282614",
+      "gold_title": "IBM TroubleShooting: JavaServer Pages (JSP) problems - United States",
+      "selected_titles": [
+        "IBM PK22134: JAVA.LANG.ILLEGALSTATEEXCEPTION-SRVE0199E-OUTPUTSTREAM ALREADY O BTAINED, WHEN PRINT/EXPORT (AS PDF) IS DONE IN JSP WITH CR - United States",
+        "IBM PK22134: JAVA.LANG.ILLEGALSTATEEXCEPTION-SRVE0199E-OUTPUTSTREAM ALREADY O BTAINED, WHEN PRINT/EXPORT (AS PDF) IS DONE IN JSP WITH CR - United States"
+      ],
+      "cited_titles": [],
+      "answer": ""
+    },
+    {
+      "task_id": "M-tune-144",
+      "layer": "L4 refusal: answered unanswerable",
+      "returned_n": 8,
+      "evidence_n": 8,
+      "context_tokens": 2205,
+      "gold_returned_pos": null,
+      "gold_source": null,
+      "selected": [
+        "swg21624179",
+        "swg21624179"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg21624179",
+        "swg21624179"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": 0.1243,
+      "reason": "answered_unanswerable",
+      "question": "What are the recommended configuration settings (best practices) for a TSAMP controlled DB2 HA / HADR cluster? When using TSAMP to control a DB2 shared disk or HADR cluster, what are the best practices that would allow for greatest reliability & stability?",
+      "gold": null,
+      "gold_title": "",
+      "selected_titles": [
+        "IBM Recommendations for a TSAMP controlled DB2 HA/HADR environment - United States",
+        "IBM Recommendations for a TSAMP controlled DB2 HA/HADR environment - United States"
+      ],
+      "cited_titles": [
+        "IBM Recommendations for a TSAMP controlled DB2 HA/HADR environment - United States",
+        "IBM Recommendations for a TSAMP controlled DB2 HA/HADR environment - United States"
+      ],
+      "answer": "The purpose of this technote is to provide common recommendations for configuring environments with DB2 HADR or DB2 HA Shared Disk when managed by TSAMP (the 'cluster manager'). This technote applies to all DB2 versions that use TSAMP as a high availability manager from 9.5 and above. Unless otherwi"
+    },
+    {
+      "task_id": "M-tune-145",
+      "layer": "L4 generation: cited other",
+      "returned_n": 8,
+      "evidence_n": 6,
+      "context_tokens": 2140,
+      "gold_returned_pos": 1,
+      "gold_source": "S1",
+      "selected": [
+        "swg21688502"
+      ],
+      "selection_decision": "ANSWER",
+      "judge_decision": "ANSWER",
+      "judge_rejected": {},
+      "cited": [
+        "swg21688502"
+      ],
+      "rag_status": "answered",
+      "top_score_margin": 0.2127,
+      "cited_title_jaccard": 0.57,
+      "reason": "gold_not_selected+near_duplicate",
+      "question": "Cannot start the IBM Content Collector Configuration Store Service How to resolve when the IBM Content Collector Configuration Store Service cannot be started?",
+      "gold": "swg21680391",
+      "gold_title": "IBM Content Collector Configuration Store is corrupted - United States",
+      "selected_titles": [
+        "IBM Reset the Configuration Store in IBM Content Collector 4.0 - United States"
+      ],
+      "cited_titles": [
+        "IBM Reset the Configuration Store in IBM Content Collector 4.0 - United States"
+      ],
+      "answer": "Perform the following steps to reset the configuration store in IBM Content Collector 4.0: 1. Shut down all IBM Content Collector services. 2. In a command window, navigate to the ContentCollector\\ctms directory and execute the following command: start /wait SolidDBInstallHelp.exe uninstall \"C:\\Prog"
+    }
+  ],
+  "gate": {
+    "answerable_correct": 47,
+    "unanswerable": 38,
+    "auc": 0.704,
+    "best_cut_margin": 0.1466,
+    "kept_correct_at_best_cut": 30,
+    "kept_unanswerable_at_best_cut": 9
+  }
+}
