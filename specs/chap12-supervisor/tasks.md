@@ -503,3 +503,5 @@
 - 完成两份后：`disagree` 列出总体判断不一致的题交给用户；再提交答案键并运行 `chap12_e5_review analyze` 解盲。
 - 测试：`tests/chap12/test_e5_model_review.py`（2 个）；VM 本地副本 `pytest tests/chap12 -q` → `214 passed`；ruff 通过。
 - 模型 B 结果（2026-10-28 12:31 PT）：用户在 ChatGPT 网页中粘贴 3 个包，回复原文由用户贴回，存为 `e5_review/chatgpt_raw.txt`（原样，未改动），解析 30/30 有效 → `reviews_chatgpt.json`。所用 ChatGPT 模型名：用户未告知（未记录）。答案键仍未打开。
+- 模型 A 结果（Windows，用户双击 `.chap12_run/run_e5.cmd`，2026-10-28 12:29–12:45 PT，Ollama 0.40.12）：30/30 有效，提交 `397a197`。
+- 两模型比较（`disagree`，答案键仍未打开）：总体判断一致 17/30；qwen2.5:14b 判可接受 13 道，ChatGPT 判可接受 18 道（两者都可接受 9，都不可接受 8），Cohen's κ = 0.16（一致性差）。不一致 13 道（R01 R03 R07 R09 R11 R12 R14 R15 R18 R20 R24 R28 R29），列于 `e5_review/disagreements.md`，交给用户决定是否逐题改判。
