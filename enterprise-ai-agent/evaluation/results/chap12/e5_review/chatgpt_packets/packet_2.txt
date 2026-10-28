@@ -1,0 +1,728 @@
+You are reviewing a technical support answer, blind. You see a customer's question,
+the answer a system published, and the full text of the documents the answer cites. Judge only
+from what is shown; do not use outside knowledge to fill gaps.
+
+Answer four questions:
+1. answers: does the answer address what the customer asked? yes / partial / no
+2. supported: is the answer's content supported by the cited documents (nothing invented)?
+   yes / partial / no
+3. product: do the cited documents' product and version match the question?
+   match / mismatch / unclear
+4. overall: would this be an acceptable reply from a support engineer? acceptable / unacceptable
+   (acceptable = it addresses the question, is supported by the documents, and is for the right
+   product; a reply about a different product, a different error, or that does not answer the
+   question is unacceptable)
+Give a one-sentence reason.
+
+There are 10 items below; judge each one separately. Reply with ONE JSON array only, one object per item, in order: [{"id": "R01", "answers": "...", "supported": "...", "product": "...", "overall": "...", "reason": "..."}, ...]
+
+=== Item R11
+--- Question
+How does Session timeout work in WebSphere Portal? and How do I change the timeout behavior?
+How does Session timeout work in WebSphere Portal V6.1.0.1?
+
+--- Published answer
+For WebSphere, edit this file....
+
+/qibm/UserData/WebSphere/AppServer/V61/Express/profiles/<CADS SERVER>/config/cells/<CADS CELL NAME>/applications/peb.ear/deployments/peb/peb.war/WEB-INF/web.xml 
+
+Modify this value....
+
+<session-config>
+<session-timeout>30</session-timeout>
+</session-config>
+
+The value is in minutes, and the default is 30. 
+
+Restart your WebSphere instanceure. [S7]
+
+--- Cited document 1: IBM How can we change the session timeout for Deployment Portal users? - United States (swg21485643)
+TECHNOTE (FAQ)
+
+QUESTION
+ How can we change the session timeout for Deployment Portal (or PEM) users? 
+
+ANSWER
+For WebSphere, edit this file....
+
+/qibm/UserData/WebSphere/AppServer/V61/Express/profiles/<CADS SERVER>/config/cells/<CADS CELL NAME>/applications/peb.ear/deployments/peb/peb.war/WEB-INF/web.xml 
+
+Modify this value....
+
+<session-config>
+<session-timeout>30</session-timeout>
+</session-config>
+
+The value is in minutes, and the default is 30. 
+
+Restart your WebSphere instanceure.
+
+RELATED INFORMATION
+ Need more help? Our C&DS forum is Live! [https://developer.ibm.com/answers/topics/collaboration.html?smartspace=predictive-analytics]
+
+
+ 
+
+HISTORICAL NUMBER
+ 92702
+
+=== Item R12
+--- Question
+Why is my MQ Java / JMS application getting 2035 NOT_AUTHORIZED error after upgrade of MQ?
+
+--- Published answer
+Consult the following technote:
+
+WMQ 7.1 or later queue manager - RC 2035 MQRC_NOT_AUTHORIZED when using client connection as an MQ Administrator [http://www.ibm.com/support/docview.wss?uid=swg21577137]
+
++++ Specifically when using MQ 8.0 or later queue managers:
+
+MQ 8.0: errors AMQ5540 and AMQ5541, application did not supply a user ID and password, 2035 MQRC_NOT_AUTHORIZED [http://www.ibm.com/support/docview.wss?uid=swg21680930] 
+
+
++++ General 
+
+Determine the user ID the application is being run under, and then ensure that the user ID is in a group that has sufficient authority on the server where the MQ queue manager is running. 
+
+After adding the userid into the group that has sufficient authority, issue the runmqsc command: 
+
+REFRESH SECURITY(*) [S4]
+
+--- Cited document 1: IBM MQJMS2013 (V6) JMSWMQ2013 (V7 and later) invalid security authentication (RC 2035) - United States (swg21138961)
+mqminfo permissions sec auth TECHNOTE (TROUBLESHOOTING)
+
+PROBLEM(ABSTRACT)
+ You are running WebSphere MQ and your MQ JMS application fails with security authentication errors. 
+
+SYMPTOM
+MQRC 2035 MQRC_NOT_AUTHORIZED 
+
+MQRC 2063 MQRC_SECURITY_ERROR 
+
+MQ V6:
+MQJMS2013: invalid security authentication supplied for MQQueueManager. 
+
+MQ V7 and later:
+JMSWMQ2013: The security authentication was not valid that was supplied for QueueManager 'x' with connection mode 'Client' (or 'Bindings') and host name 'y.com'. Please check if the supplied username and password are correct on the QueueManager you are connecting to.
+
+
+CAUSE
+The MQJMS2013 exception shown in the WebSphere Application Server logs is generated due to a return code 2035 from the MQ queue manager: MQRC_NOT_AUTHORIZED
+
+This return code is generated because of these possible conditions:
+
+a) The userid that is used to start the JVM (WebSphere Application Server) has not been defined in the host where the MQ queue manager is located.
+... or ...
+
+b) The userid is defined, but it does not have the proper authority to work with the queue manager.
+... or ...
+
+c) MQ 7.1 or later: Channel authentication records: the user has been defined and:
+c.1) is a member of the MQ Administration group, but the default channel authentication records do not allow an MQ Administrator to do a remote login.
+c.2) There are no channel authentication records that allow the non-administrator user to access the queue manager.
+... or ...
+
+d) MQ V8: user did not specify password, and queue manager error log shows 
+AMQ5540: Application 'Sphere MQ\bin64\amqsputc.exe' did not supply a user ID
+and password
+AMQ5541: The failed authentication check was caused by the queue manager
+CONNAUTH CHCKCLNT(REQDADM) configuration.
+
+
+
+
+RESOLVING THE PROBLEM
++++ If you notice this problem when migrating from WAS 7.0 or 8.0, to WAS 8.5: 
+
+
+The following technote explains a change of behavior regarding security that affects WAS 8.5 (which includes MQ JMS 7.1) with respect to WAS 7.0 and 8.0 (which include MQ JMS 7.0).
+.
+Changes in the default user identifier between WebSphere MQ V7.0.1 classes for JMS and WebSphere MQ V7.1 classes for JMS [http://www.ibm.com/support/docview.wss?uid=swg21662193] 
+. 
++ begin quote 
+. 
+- When using WebSphere Application Server v7.0 and v8.0, no user identifier value (blank) is passed to the queue manager. 
+. 
+- When using WebSphere Application Server V8.5, a non-blank user identifier value is passed to the queue manager. 
+.
++ end quote 
+
+
+ 
+
++++ Specifically when using MQ 7.1 or later queue managers: 
+
+Consult the following technote:
+
+WMQ 7.1 or later queue manager - RC 2035 MQRC_NOT_AUTHORIZED when using client connection as an MQ Administrator [http://www.ibm.com/support/docview.wss?uid=swg21577137]
+
++++ Specifically when using MQ 8.0 or later queue managers:
+
+MQ 8.0: errors AMQ5540 and AMQ5541, application did not supply a user ID and password, 2035 MQRC_NOT_AUTHORIZED [http://www.ibm.com/support/docview.wss?uid=swg21680930] 
+
+
++++ General 
+
+Determine the user ID the application is being run under, and then ensure that the user ID is in a group that has sufficient authority on the server where the MQ queue manager is running. 
+
+After adding the userid into the group that has sufficient authority, issue the runmqsc command: 
+
+REFRESH SECURITY(*) 
+
+
+WebSphere Application Server JMS Trace (trace.log)
+Some possible return codes in the WebSphere Application Server stack trace could include the following MQ return codes:
+
+MQJE001: An MQException occurred: Completion Code 2, Reason 2035
+The return code 2035 means "MQRC_NOT_AUTHORIZED"
+
+MQJE001: An MQException occurred: Completion Code 2, Reason 2063
+The return code 2063 means "MQRC_SECURITY_ERROR"
+
+If it is not obvious which user ID is being used to authenticate with the Queue Manager, then you will need to enable the tracing both for the JMS client (and WebSphere Application Server, if you are using it) and the MQ server. See section 'Related URLs'.
+
+For example, the trace.log for the JMS client could have strings such as these:
+com.ibm.mq.jms.MQQueueConnectionFactory connecting as user: JohnDoe
+com.ibm.mq.jms.MQQueueConnection Setting username = JohnDoe
+com.ibm.mq.MQv6InternalCommunications userID = 'JohnDoe '
+com.ibm.mq.MQv6InternalCommunications UID :JOHNDOE
+
+MQ server trace:
+It is very likely that one of the MQ trace files (*.FMT) will have the following string indicating that the value (username) is not a user ID in the system.
+
+UnknownPrincipal(johndoe)
+
+Also, in case that the userid does exist, another possible cause is that the user does not have all the proper authorizations, thus, check for the following phrase in the trace:
+
+The following requested permissions are unauthorized: xxx
+
+Related technotes for problem determination:
+
+By default, the userid that causes this reason code 2035 (MQRC_NOT_AUTHORIZED) is not shown in the MQ Queue Manager error logs or in the FDC files. The reason is that a rogue application could try to connect thousands of times, and there would be thousands of entries in the logs and thousands of FDC files.
+
+There are 2 environment variables that can be used with the MQ queue manager in order to show in the MQ Queue Manager error logs and in the FDCs the userid that is causing the reason code 2035. You will need to setup one or both environment variables and then restart the queue managers (these variables are only read during a startup).
+
+For additional information see the following technotes and APAR:
+MQS_REPORT_NOAUTH environment variable can be used to better diagnose return code 2035 (MQRC_NOT_AUTHORIZED) [http://www.ibm.com/support/docview.wss?uid=swg21299319]
+
+Using MQSAUTHERRORS to generate FDC files related to RC 2035 (MQRC_NOT_AUTHORIZED) [http://www.ibm.com/support/docview.wss?uid=swg21377578]
+
+IZ49302: THE WEBSPHERE MQ JAVA MESSAGE SERVICE CLIENT MUST TREAT "" FOR A USERID THE SAME AS NULL WHEN CREATING CONNECTIONS [http://www.ibm.com/support/docview.wss?uid=swg1IZ
+[document truncated]
+
+=== Item R13
+--- Question
+How precise is DataPower's backside persistent timeout value related to intermittent "Failed to Process Response Headers" error messages?
+I have a service on DataPower with a backside persistent timeout value set to 28 seconds. The actual backend device has a persistent timeout setting of 30 seconds.
+
+Since my service is configured with a lower persistent timeout value than 30 seconds, why am I still seeing the following error intermittently?
+
+Wed June 25 2009 09:20:02 [0x80000001][xsltmsg][error] mpgw (MyGateway): tid(8675309)[error][9.x.x.x]: Failed to process response headers
+
+--- Published answer
+This can be due to two possible configuration values,
+1) If the HTTP transport of the WAS App server is set to a lower value than the DataPower service. For example the DataPower Back Persistent timeout is at the default value of 180 seconds and the WAS HTTP transport is set to 120 seconds. This will open the opportunity for WAS to close what DataPower believes to be an open reusable connection.
+This is also described in technote http://www-01.ibm.com/support/docview.wss?uid=swg21417934 [http://www-01.ibm.com/support/docview.wss?uid=swg21417934]
+
+2) The other possible source of this error is when the WAS HTTP transport option "Maximum persistent requests per connection" is configured. This again allows for the server side of the connection to close a connection when the client, DataPower, believes the connection is reusable. [S7]
+
+--- Cited document 1: IBM Why does DataPower report that WebSphere Application Server terminated the connection? - United States (swg21673208)
+TECHNOTE (TROUBLESHOOTING)
+
+PROBLEM(ABSTRACT)
+ When using a DataPower appliance in front of WebSphere Application server(s) the DataPower appliance may throw an error such as:
+"Connection terminated and no response headers read because of the server 
+terminated the connection, URL: "
+
+
+
+RESOLVING THE PROBLEM
+This can be due to two possible configuration values,
+1) If the HTTP transport of the WAS App server is set to a lower value than the DataPower service. For example the DataPower Back Persistent timeout is at the default value of 180 seconds and the WAS HTTP transport is set to 120 seconds. This will open the opportunity for WAS to close what DataPower believes to be an open reusable connection.
+This is also described in technote http://www-01.ibm.com/support/docview.wss?uid=swg21417934 [http://www-01.ibm.com/support/docview.wss?uid=swg21417934]
+
+2) The other possible source of this error is when the WAS HTTP transport option "Maximum persistent requests per connection" is configured. This again allows for the server side of the connection to close a connection when the client, DataPower, believes the connection is reusable.
+
+The client side of the connection should be in controll of the reuse and timeout to prevent these type of failures.
+
+If these two are eliminated and the problem persists then a packet trace along with the error running from the same time would be needed to find the root cause and resolve.
+
+=== Item R14
+--- Question
+SPSS free trial not working on MAC - gets stuck in when it should be launching and goes nowhere
+I downloaded the SPSS software on my mac running Yosemite 10.10.5. The trial was activated by IBM, they sent me several emails stating this.
+
+So I tried to launch the app and get stuck here alt text There is no progress after an hour; and I tried to launch several times, it never gets out of this screen.
+
+--- Published answer
+IBM SPSS Statistics (any version) has two issues to resolve before it will run on OS X 10.10: 
+
+1. Download and re-install Apple Java 6
+
+- After the OS upgrade is finished, Apple Java 6 no longer exists on their system. 
+- The first time the user runs an application that relies on Java 6, the OS pops up a dialog box stating they've requested Java 6, but none is present.
+- The Java dialog has a "More Info" button, which when clicked opens a browser to an Apple Tech Support page for Apple Java 2014-001. A download link is provided (http://support.apple.com/kb/dl1572 [http://support.apple.com/kb/dl1572]).
+- User must click on the download link and a DMG containing the Java 6 installer is downloaded.
+- User must open the Java DMG, then double click on the Java installer, follow the prompts and complete the installation.
+
+2. Re-license Statistics
+
+- We use Safenet Sentinel technology for licensing. Safenet writes hidden data somewhere on-disc for keeping track of licensing data.
+- The OS X 10.10 upgrade process erases that hidden data. Attempting to run Statistics produces a licensing error and Stats does not start/run properly.
+- Solution: Re-run the SPSS License Authorization Wizard, enter auth code again and complete licensing procedure.
+- Statistics will now run normally. [S5]
+
+--- Cited document 1: IBM Will IBM SPSS Statistics 22 run on Apple OS Mac OS X, 10.10 Yosemite? - United States (swg21688476)
+TECHNOTE (FAQ)
+
+QUESTION
+ I am plannig to update to the new Apple Mac OS X, 10.10 Yosemite and would like to know if IBM SPSS Statistics will run successfully on this OS. 
+
+CAUSE
+OS Update
+
+ANSWER
+IBM SPSS Statistics (any version) has two issues to resolve before it will run on OS X 10.10: 
+
+1. Download and re-install Apple Java 6
+
+- After the OS upgrade is finished, Apple Java 6 no longer exists on their system. 
+- The first time the user runs an application that relies on Java 6, the OS pops up a dialog box stating they've requested Java 6, but none is present.
+- The Java dialog has a "More Info" button, which when clicked opens a browser to an Apple Tech Support page for Apple Java 2014-001. A download link is provided (http://support.apple.com/kb/dl1572 [http://support.apple.com/kb/dl1572]).
+- User must click on the download link and a DMG containing the Java 6 installer is downloaded.
+- User must open the Java DMG, then double click on the Java installer, follow the prompts and complete the installation.
+
+2. Re-license Statistics
+
+- We use Safenet Sentinel technology for licensing. Safenet writes hidden data somewhere on-disc for keeping track of licensing data.
+- The OS X 10.10 upgrade process erases that hidden data. Attempting to run Statistics produces a licensing error and Stats does not start/run properly.
+- Solution: Re-run the SPSS License Authorization Wizard, enter auth code again and complete licensing procedure.
+- Statistics will now run normally.
+
+
+RELATED INFORMATION
+ Need more help? Our Statistics forum is Live! [https://developer.ibm.com/answers/topics/statistics.html?smartspace=predictive-analytics]
+
+
+ 
+
+
+Cross reference information Segment Product Component Platform Version Edition Business Analytics SPSS Statistics
+
+=== Item R15
+--- Question
+I can't find the JDBC driver for my DB2.
+I am running BPM 8.0.1 with DB2 10.1.0.
+
+ 
+
+Reading this technote:
+http://www-01.ibm.com/support/docview.wss
+
+"Use the JDBC driver of your database product instead of the JDBC delivered with IBM Business Process Manager (BPM)"I am trying to download the latest JDBC driver from the following technote:
+
+http://www-01.ibm.com/support/docview.wss
+
+It looks like the link for the JDBC driver download for DB2 10.1.0 is greyed out. Where can I download this driver?
+
+--- Published answer
+Download latest DB2 JDBC driver for v9.1 [http://www.ibm.com/eserver/support/fixes/fixcentral/swg/quickorder?brandid=1&productid=IBM+Data+Server+Client+Packages&vrmf=9.1.*&searchtype=fix&fixes=*jdbc*], v9.5 [http://www.ibm.com/eserver/support/fixes/fixcentral/swg/quickorder?brandid=1&productid=IBM+Data+Server+Client+Packages&vrmf=9.5.*&searchtype=fix&fixes=*jdbc*], v9.7 [http://www.ibm.com/eserver/support/fixes/fixcentral/swg/quickorder?brandid=1&productid=IBM+Data+Server+Client+Packages&vrmf=9.7.*&searchtype=fix&fixes=*jdbc*], v10.1 [http://www-933.ibm.com/support/fixcentral/swg/selectFixes?parent=ibm/Information+Management&product=ibm/Information+Management/IBM+Data+Server+Client+Packages&release=10.1.*&platform=All&function=fixId&fixids=*jdbc*&includeSupersedes=0], v10.5 [S8]
+
+--- Cited document 1: IBM Knowledge Collection:  DB2 JDBC driver issues - United States (swg21358484)
+KnowledgeCollection; knowledgecollection; Knowledge Collection TECHNOTE (FAQ)
+
+QUESTION
+ This Knowledge Collection is a focused compilation of links to documents for DB2 JDBC driver issues. 
+
+ANSWER
+IBM DB2 JDBC Driver Issues
+The following document links contain information concerning DB2 JDBC driver issues.
+
+
+
+1363866 [http://www.ibm.com/support/docview.wss?uid=swg21363866] DB2 Universal JDBC driver Versions tables. 1388639 [http://www.ibm.com/support/docview.wss?uid=swg21388639] Collecting Data: Read First for DB2 JDBC Issues 1388460 [http://www.ibm.com/support/docview.wss?uid=swg21388460] Collecting Data: Tracing for the DB2 JDBC Type 2 Driver 1196160 [https://www-304.ibm.com/support/docview.wss?uid=swg21196160] Collecting Data: Tracing with the IBM Data Server driver for JDBC and SQLJ 1419978 [http://www.ibm.com/support/docview.wss?rs=71&uid=swg21419978] UnsatisfiedLinkError: db2jcct2 no such file or directory. 1295583 [http://www.ibm.com/support/docview.wss?rs=71&uid=swg21295583] Reporting client with DB2 v9.1 FP0 cannot communicate through JDBC with an IMS Audit Management Expert server 1403703 [http://www-01.ibm.com/support/docview.wss?rs=71&uid=swg21403703] JCC Universal driver is not supported for databases using GB18030 code set 1238954 [http://www.ibm.com/support/docview.wss?rs=71&uid=swg21238954] Unsupported encoding Cp037 when using DB2© Universal JDBC Driver to connect to DB2 UDB for z/OS© 1386486 [http://www-01.ibm.com/support/docview.wss?rs=71&q1=1386486&uid=swg21386486] XA Connection Error: SQL OPEN for a held cursor was issued on a XA connection ERRORCODE=-4496, SQLSTATE=null 1432559 [https://www-304.ibm.com/support/docview.wss?uid=swg21432559] My java application is failing with the exception, "No Suitable Driver". 1461670 [https://www-304.ibm.com/support/docview.wss?uid=swg21461670] "Invalid operation: result set is closed" error with Data Server Driver for JDBC 1460406 [https://www-304.ibm.com/support/docview.wss?uid=swg21460406] Unexpected results returned with subsequent executions of the same prepared statement using IBM Data Server Driver for JDBC and SQLJ. 1412975 [https://www-304.ibm.com/support/docview.wss?uid=swg21412975] General questions for setting maxTransportObjects 1469908 [https://www-304.ibm.com/support/docview.wss?uid=swg21469908] "Error 500. Access denied" on file /tmp/jccdiag.log when running Java applications using the IBM Data Server Driver for JDBC 1443723 [https://www-304.ibm.com/support/docview.wss?uid=swg21443723] ERRORCODE=-4499, The application server rejected establishment of the connection. 1432891 [https://www-304.ibm.com/support/docview.wss?uid=swg21432891] Supported use of JCC Sysplex, Client Reroute and Connection Concentrator Features with DB2 Connect. 
+APAR Fix List 
+DB2 JDBC APARs v9.1 [http://www.ibm.com/support/docview.wss?rs=71&uid=swg21414941], v9.5 [http://www.ibm.com/support/docview.wss?rs=71&uid=swg21414955], v9.7 [http://www.ibm.com/support/docview.wss?rs=71&uid=swg21415236], v10.1 [http://www-01.ibm.com/support/docview.wss?uid=swg21613493], v10.5 [http://www-01.ibm.com/support/docview.wss?uid=swg21662460] 
+
+Download 
+Download latest DB2 JDBC driver for v9.1 [http://www.ibm.com/eserver/support/fixes/fixcentral/swg/quickorder?brandid=1&productid=IBM+Data+Server+Client+Packages&vrmf=9.1.*&searchtype=fix&fixes=*jdbc*], v9.5 [http://www.ibm.com/eserver/support/fixes/fixcentral/swg/quickorder?brandid=1&productid=IBM+Data+Server+Client+Packages&vrmf=9.5.*&searchtype=fix&fixes=*jdbc*], v9.7 [http://www.ibm.com/eserver/support/fixes/fixcentral/swg/quickorder?brandid=1&productid=IBM+Data+Server+Client+Packages&vrmf=9.7.*&searchtype=fix&fixes=*jdbc*], v10.1 [http://www-933.ibm.com/support/fixcentral/swg/selectFixes?parent=ibm/Information+Management&product=ibm/Information+Management/IBM+Data+Server+Client+Packages&release=10.1.*&platform=All&function=fixId&fixids=*jdbc*&includeSupersedes=0], v10.5 [http://www-933.ibm.com/support/fixcentral/swg/selectFixes?parent=ibm/Information+Management&product=ibm/Information+Management/IBM+Data+Server+Client+Packages&release=10.5.*&platform=All&function=fixId&fixids=*jdbc*&includeSupersedes=0] 
+
+The DB2 V8.2 JDBC driver is not delivered in a fix pack by itself. It is part of the DB2 Runtime Client. Download DB2 V8 [http://www.ibm.com/eserver/support/fixes/fixcentral/swg/quickorder?brandid=1&productid=DB2&vrmf=8.*&platform=Windows+32-bit,+x86&searchtype=fix&fixes=*RTCL*] 
+
+Definition of a Knowledge Collection
+A Knowledge Collection is a focused compilation of links to documents that share a common theme. Knowledge Collections are navigation aids that organize content to help users quickly find relevant information. Knowledge Collections are not designed to be an all-inclusive list of all documents dealing with the specific theme.
+
+ 
+
+PRODUCT ALIAS/SYNONYM
+ IBM Data Server Driver for JDBC and SQLJ
+
+=== Item R16
+--- Question
+Help with Security Bulletin: Multiple vulnerabilities in OpenSSL affect WMB and IIB
+I need to understand details regarding Security Bulletin: Multiple vulnerabilities in OpenSSL affect WebSphere Message Broker and IBM Integration Bus. Where can I find this information?
+
+--- Published answer
+VULNERABILITY DETAILS
+CVEID: CVE-2016-2107 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2107]
+DESCRIPTION: OpenSSL could allow a remote attacker to obtain sensitive information, caused by an error when the connection uses an AES CBC cipher and the server support AES-NI. A remote user with the ability to conduct a man-in-the-middle attack could exploit this vulnerability via the POODLE (Padding Oracle On Downgraded Legacy Encryption) attack to decrypt traffic.
+CVSS Base Score: 4.3
+CVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/112854 [https://exchange.xforce.ibmcloud.com/vulnerabilities/112854] for the current score
+CVSS Environmental Score*: Undefined
+CVSS Vector: (CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N) 
+
+CVEID: CVE-2016-2176 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2176]
+DESCRIPTION: OpenSSL could allow a remote attacker to obtain sensitive information, by sending an overly long ASN.1 string to the X509_NAME_oneline() function; an attacker could exploit this vulnerability to return arbitrary stack data in the buffer.
+CVSS Base Score: 5.3
+CVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/112858 [https://exchange.xforce.ibmcloud.com/vulnerabilities/112858] for the current score
+CVSS Environmental Score*: Undefined
+CVSS Vector: (CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N)
+
+AFFECTED PRODUCTS AND VERSIONS
+ IBM Integration Bus V10.0, V9.0 
+
+WebSphere Message Broker V8.0
+
+REMEDIATION/FIXES
+
+For users of ODBC SSL using the DataDirect drivers:
+
+
+
+Product VRMF APAR Remediation/Fix IBM Integration Bus
+
+
+V10
+
+IT16038 The APAR is available in fix pack 10.0.0.6
+
+https://www-304.ibm.com/support/docview.wss?uid=swg24042654 [https://www-304.ibm.com/support/docview.wss?uid=swg24042654] IBM Integration Bus
+
+
+V9
+
+IT10511, IT16038 The APAR is available in fix pack 9.0.0.6
+[https://www-304.ibm.com/support/docview.wss?uid=swg24042598]
+https://www-304.ibm.com/support/docview.wss?uid=swg24042598 [https://www-304.ibm.com/support/docview.wss?uid=swg24042598] WebSphere Message Broker V8 IT14826, IT16038, IT15532 The APAR is available in fix pack 8.0.0.8
+[https://www-304.ibm.com/support/docview.wss?uid=swg24042925]
+https://www-304.ibm.com/support/docview.wss?uid=swg24042925 [https://www-304.ibm.com/support/docview.wss?uid=swg24042925] 
+
+For unsupported versions of the product, IBM recommends upgrading to a fixed, supported version/release/platform of the product. 
+The planned maintenance release dates for WebSphere Message Broker and IBM Integration Bus are available at : 
+http://www.ibm.com/support/docview.wss?uid=swg27006308 [http://www.ibm.com/support/docview.wss?uid=swg27006308]
+
+WORKAROUNDS AND MITIGATIONS
+None [S1]
+
+--- Cited document 1: IBM Security Bulletin: Multiple vulnerabilities in OpenSSL affect WebSphere Message Broker and IBM Integration Bus ( CVE-2016-2107,CVE-2016-2176) - United States (swg21992894)
+WMB IIB SECURITY BULLETIN
+
+SUMMARY
+ OpenSSL vulnerabilities were disclosed on May 3, 2016 by the OpenSSL Project. The DataDirect ODBC Drivers used by WebSphere Message Broker and IBM Integration Bus have addressed the applicable CVEs. 
+
+VULNERABILITY DETAILS
+CVEID: CVE-2016-2107 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2107]
+DESCRIPTION: OpenSSL could allow a remote attacker to obtain sensitive information, caused by an error when the connection uses an AES CBC cipher and the server support AES-NI. A remote user with the ability to conduct a man-in-the-middle attack could exploit this vulnerability via the POODLE (Padding Oracle On Downgraded Legacy Encryption) attack to decrypt traffic.
+CVSS Base Score: 4.3
+CVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/112854 [https://exchange.xforce.ibmcloud.com/vulnerabilities/112854] for the current score
+CVSS Environmental Score*: Undefined
+CVSS Vector: (CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N) 
+
+CVEID: CVE-2016-2176 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2176]
+DESCRIPTION: OpenSSL could allow a remote attacker to obtain sensitive information, by sending an overly long ASN.1 string to the X509_NAME_oneline() function; an attacker could exploit this vulnerability to return arbitrary stack data in the buffer.
+CVSS Base Score: 5.3
+CVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/112858 [https://exchange.xforce.ibmcloud.com/vulnerabilities/112858] for the current score
+CVSS Environmental Score*: Undefined
+CVSS Vector: (CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N)
+
+AFFECTED PRODUCTS AND VERSIONS
+ IBM Integration Bus V10.0, V9.0 
+
+WebSphere Message Broker V8.0
+
+REMEDIATION/FIXES
+
+For users of ODBC SSL using the DataDirect drivers:
+
+
+
+Product VRMF APAR Remediation/Fix IBM Integration Bus
+
+
+V10
+
+IT16038 The APAR is available in fix pack 10.0.0.6
+
+https://www-304.ibm.com/support/docview.wss?uid=swg24042654 [https://www-304.ibm.com/support/docview.wss?uid=swg24042654] IBM Integration Bus
+
+
+V9
+
+IT10511, IT16038 The APAR is available in fix pack 9.0.0.6
+[https://www-304.ibm.com/support/docview.wss?uid=swg24042598]
+https://www-304.ibm.com/support/docview.wss?uid=swg24042598 [https://www-304.ibm.com/support/docview.wss?uid=swg24042598] WebSphere Message Broker V8 IT14826, IT16038, IT15532 The APAR is available in fix pack 8.0.0.8
+[https://www-304.ibm.com/support/docview.wss?uid=swg24042925]
+https://www-304.ibm.com/support/docview.wss?uid=swg24042925 [https://www-304.ibm.com/support/docview.wss?uid=swg24042925] 
+
+For unsupported versions of the product, IBM recommends upgrading to a fixed, supported version/release/platform of the product. 
+The planned maintenance release dates for WebSphere Message Broker and IBM Integration Bus are available at : 
+http://www.ibm.com/support/docview.wss?uid=swg27006308 [http://www.ibm.com/support/docview.wss?uid=swg27006308]
+
+WORKAROUNDS AND MITIGATIONS
+None
+
+GET NOTIFIED ABOUT FUTURE SECURITY BULLETINS
+ Subscribe to My Notifications [ http://www-01.ibm.com/software/support/einfo.html] to be notified of important product support alerts like this. 
+
+IMPORTANT NOTE
+ IBM strongly suggests that all System z customers be subscribed to the System z Security Portal to receive the latest critical System z security and integrity service. If you are not subscribed, see the instructions on the System z Security web site [http://www.ibm.com/systems/z/solutions/security_subintegrity.html]. Security and integrity APARs and associated fixes will be posted to this portal. IBM suggests reviewing the CVSS scores and applying all security or integrity fixes as soon as possible to minimize any potential risk. 
+
+REFERENCES
+Complete CVSS v3 Guide [http://www.first.org/cvss/user-guide] 
+On-line Calculator v3 [http://www.first.org/cvss/calculator/3.0] 
+
+RELATED INFORMATION
+IBM Secure Engineering Web Portal [http://www.ibm.com/security/secure-engineering/bulletins.html] 
+IBM Product Security Incident Response Blog [http://www.ibm.com/blogs/psirt] 
+
+CHANGE HISTORY
+ xx- Nov-2016 - Original version published 
+
+*The CVSS Environment Score is customer environment specific and will ultimately impact the Overall CVSS Score. Customers can evaluate the impact of this vulnerability in their environments by accessing the links in the Reference section of this Security Bulletin. 
+
+DISCLAIMER
+According to the Forum of Incident Response and Security Teams (FIRST), the Common Vulnerability Scoring System (CVSS) is an "industry open standard designed to convey vulnerability severity and help to determine urgency and priority of response." IBM PROVIDES THE CVSS SCORES "AS IS" WITHOUT WARRANTY OF ANY KIND, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. CUSTOMERS ARE RESPONSIBLE FOR ASSESSING THE IMPACT OF ANY ACTUAL OR POTENTIAL SECURITY VULNERABILITY.
+
+ 
+
+
+
+Cross reference information Segment Product Component Platform Version Edition Business Integration WebSphere Message Broker 8.0 
+PRODUCT ALIAS/SYNONYM
+ WMB IIB
+
+=== Item R17
+--- Question
+Why cant I load and AEL when using IE 11 JRE 8
+Application Blocked by Java Security
+
+--- Published answer
+The following steps will help to issue to be resolved, 
+
+
+1. Start->Control Panel->System 
+2. Click the Advanced Tab 
+3. Click the Environment Variables button 
+4. Click the New button 
+5. For Variable name:_JAVA_OPTIONS 
+6. For Variable value:-Dsun.java2d.d3d=false 
+7. Reboot 
+8.Clear the Java cache using the Java control panel found in
+the system control panel. 
+9.Open an IE browser. 
+10.Clear all the browser caches. 
+11.Set Control Panel > Java > Security = Medium.
+12.Then login and check. [S1]
+
+--- Cited document 1: IBM Unable to open AEL from TIP console - United States (swg21987920)
+TECHNOTE (FAQ)
+
+QUESTION
+ Why we are unable to open AEL from TIP console, it shows 
+Name:Topoviz_applet 
+RuntimeException: java.lang.ExceptionInInitializerError
+Caused by: java.lang.ExceptionInInitializerError 
+
+CAUSE
+Application Server Liberty profile is pre-configured with minimal settings defined,we have 
+to define custom generic JVM arguments such as heap settings for a Liberty server and if the java security setting as high was used, the AEL will be faild to load.
+
+
+ANSWER
+The following steps will help to issue to be resolved, 
+
+
+1. Start->Control Panel->System 
+2. Click the Advanced Tab 
+3. Click the Environment Variables button 
+4. Click the New button 
+5. For Variable name:_JAVA_OPTIONS 
+6. For Variable value:-Dsun.java2d.d3d=false 
+7. Reboot 
+8.Clear the Java cache using the Java control panel found in
+the system control panel. 
+9.Open an IE browser. 
+10.Clear all the browser caches. 
+11.Set Control Panel > Java > Security = Medium.
+12.Then login and check.
+
+Also make sure that the memory has been increased to the available JVM for the JRE plugin. 
+Go to Java Control Panel > Java tab > Java Applet Runtime Settings section > view ... > Java Runtime Parameters:-Xmx256M -Xms64M
+
+ 
+
+HISTORICAL NUMBER
+ 83217
+000
+744
+
+=== Item R18
+--- Question
+Why am I seeing native out of memory issues on a 64-bit system?
+I have a 64-bit Java installed on my Portal server. On occasion I'm seeing the Portal server processID disappear across any one of my servers running in the clusters. Portal restarts no problem and runs fine, but the processID disappears. 
+Logs aren't showing any errors. Did see the following in a javacore or two that was generated: "systhrow" (00040000) Detail "java/lang/OutOfMemoryError" Failed to create a thread: retVal -1073741830, errno 11. reporting
+Why is this happening?
+
+--- Published answer
+SYMPTOM
+An out of memory Dump Event such as: 
+
+"systhrow" (00040000) Detail "java/lang/OutOfMemoryError"
+"Failed to create a thread: retVal -1073741830, errno 11" received
+
+Note: This detailed message will appear only in javacores. [S6]
+IBM Insufficient ulimit Value Causes Native OutOfMemory - United States
+
+TECHNOTE (TROUBLESHOOTING)
+
+PROBLEM(ABSTRACT)
+ An out of memory may be observed on a system running WebSphere Application Server on Linux or AIX that is due to ulimit restrictions on number of process/threads per user. Further investigation may reveal a "Failed to create a thread:" message within the generated javacore which would indicate a native out of memory issue has been encountered. The cause of the problem may be an insufficient ulimit setting. While this type of issue can occur on any level of Linux, or AIX, the issue is most likely to be seen in systems running multiple instances of WebSphere Application Server using one userid. The following will outline how to identify if a process ulimit is the culprit and what WebSphere Application Server Support recommends to fix the case. [S7]
+
+--- Cited document 1: IBM Insufficient ulimit Value Causes Native OutOfMemory - United States (swg21648497)
+TECHNOTE (TROUBLESHOOTING)
+
+PROBLEM(ABSTRACT)
+ An out of memory may be observed on a system running WebSphere Application Server on Linux or AIX that is due to ulimit restrictions on number of process/threads per user. Further investigation may reveal a "Failed to create a thread:" message within the generated javacore which would indicate a native out of memory issue has been encountered. The cause of the problem may be an insufficient ulimit setting. While this type of issue can occur on any level of Linux, or AIX, the issue is most likely to be seen in systems running multiple instances of WebSphere Application Server using one userid. The following will outline how to identify if a process ulimit is the culprit and what WebSphere Application Server Support recommends to fix the case. 
+
+SYMPTOM
+An out of memory Dump Event such as: 
+
+"systhrow" (00040000) Detail "java/lang/OutOfMemoryError"
+"Failed to create a thread: retVal -1073741830, errno 11" received
+
+Note: This detailed message will appear only in javacores.
+
+
+DIAGNOSING THE PROBLEM
+When using WebSphere Application Server, ulimits can be set to fix or tune around a number of problems. For more on how to set a ulimit refer to the "Guidelines for setting ulimits [http://www-01.ibm.com/support/docview.wss?uid=swg21469413]" Technote which goes into detail on setting different ulimits on various operating systems and the difference between the soft and hard limit. This article is concerned particularly with the "-u" ulimit or "nproc" limit on Linux, the ulimit - r on AIX which affects the number of threads allowed for a single user process running WebSphere Application Server. 
+
+The AIX issue is less commonly seen as it limits then number of threads for a process but is seen in application servers with very large thread pools, This is becoming more common in 64bit addressing JVMs running complex applications. WebSphere Application support recommends setting the ulimit -r ulimited on AIX.
+
+The nproc limit usually only counts processes on a server towards determining this number. Linux systems running WebSphere Application Server are a particular case. The nproc limit on Linux counts the number of threads within all processes that can exist for a given user. To determine the ulimit settings of a WebSphere Application Server process running on Linux refer to "How to determine the ulimit settings of a running WebSphere Application Server process on Linux [http://www-01.ibm.com/support/docview.wss?uid=swg21407889]".
+
+User Limits (in bytes except for NOFILE and NPROC) 
+
+type soft limit hard limit RLIMIT_AS unlimited unlimited RLIMIT_CORE unlimited unlimited RLIMIT_CPU unlimited unlimited RLIMIT_DATA unlimited unlimited RLIMIT_FSIZE unlimited unlimited RLIMIT_LOCKS unlimited unlimited RLIMIT_MEMLOCK 65536 65536 RLIMIT_NOFILE 65536 65536 RLIMIT_NPROC 131072 131072 
+
+For most cases of older versions of Linux this value will be defaulted to around 2048. For out of the box Red Hat Enterprise Linux (RHEL) 6 the default value for nproc will be set to 1024. This low default setting for larger systems will not allow for enough threads in all processes. 
+
+WebSphere Application Server Support recommends setting the ulimit -u or nproc to a value of 131072 when running on Linux to safely account for all the forked threads within processes that could be created. 
+
+By using this recommended value a sufficient number of threads in all processes will be allowed and will not be a limiting factor for the environment. Increasing the limit to the suggested value should have no negative impact. When the number of threads in all processes reaches the -u ulimit, an out of memory error message will be thrown. This issue can be avoided by increasing this limit. Be aware that if the number of threads/processes reaches the recommended number of 131072 or close, the issue may be deeper and continuing to increase the -u ulimit will only prove to be a temporary fix. 
+
+Once the ulimit is increased, the WebSphere Application Server will need to be restarted to use the 
+new setting. In the case of WebSphere Application Server ND, the nodeagent and the servers on the nodes will need to be restarted.
+
+=== Item R19
+--- Question
+Help with Security Bulletin: A security vulnerability has been identified in WebSphere Application Server shipped with WebSphere Remote Server (CVE-2014-8917)
+I need to understand details regarding Security Bulletin: A security vulnerability has been identified in WebSphere Application Server shipped with WebSphere Remote Server (CVE-2014-8917). Where can I find this information?
+
+--- Published answer
+VULNERABILITY DETAILS
+Please consult the security bulletins for IBM WebSphere Application Server published at 
+
+ * Security Bulletin: Vulnerability with RSA Export Keys may affect IBM WebSphere Application Server (CVE-2015-0138) [http://www-01.ibm.com/support/docview.wss?uid=swg21698613] [http://www-01.ibm.com/support/docview.wss?uid=swg21697284] 
+ * Security Bulletin: Vulnerability in Dojo Toolkit affect WebSphere Application Server (CVE-2014-8917) [http://www-01.ibm.com/support/docview.wss?uid=swg21697284] 
+ * Security Bulletin: Potential Security Vulnerabilities fixed in IBM WebSphere Application Server 8.5.5.5 [http://www-01.ibm.com/support/docview.wss?uid=swg21697368] 
+ * Security Bulletin: Potential Security Vulnerabilities fixed in IBM WebSphere Application Server Version 7.0.0.37 [http://www-01.ibm.com/support/docview.wss?uid=swg21697369] 
+ * Security Bulletin: Potential Security Vulnerabilities fixed in IBM WebSphere Application Server 8.5.5.4 [http://www-01.ibm.com/support/docview.wss?uid=swg21690185] 
+ * Security Bulletin: Potential Security Vulnerabilities fixed in IBM WebSphere Application Server 8.0.0.10 [http://www-01.ibm.com/support/docview.wss?uid=swg21695392] 
+ * Security Bulletin: Potential Security Vulnerabilities fixed in IBM WebSphere Application Server 7.0.0.35 [http://www-01.ibm.com/support/docview.wss?uid=swg21684612] 
+ * Security Bulletin: Multiple vulnerabilities in IBM Java SDK affect WebSphere Application Server January 2015 CPU [http://www-01.ibm.com/support/docview.wss?uid=swg21695362] 
+ * Security Bulletin: Multiple vulnerabilities in IBM Java SDK affect WebSphere Application Server October 2014 CPU [http://www-01.ibm.com/support/docview.wss?uid=swg21687740] 
+ * Security Bulletin: Potential Security exposures with WebSphere Application Server (CVE-2014-4770 and CVE-2014-4816) [http://www-01.ibm.com/support/docview.wss?uid=swg21682767] 
+ * Security Bulletin: Vulnerability in SSLv3 affects IBM WebSphere Application Server (CVE-2014-3566) [http://www-01.ibm.com/support/docview.wss?uid=swg21687173]
+
+
+for vulnerability details. AFFECTED PRODUCTS AND VERSIONS
+ 
+
+Principal Product and Version(s) Affected Supporting Product and Version IBM WebSphere Portal version 6.1, 7.0, 8.0, and 8.5 IBM WebSphere Application Server version 6.1, 7.0, 8.0, 8.5 [S4]
+
+--- Cited document 1: IBM Security Bulletin: Security vulnerabilities have been identified in IBM WebSphere Application Server shipped with IBM WebSphere Portal - United States (swg21699940)
+SECURITY BULLETIN
+
+SUMMARY
+ IBM WebSphere Application Server is shipped as a component of IBM WebSphere Portal. Information about security vulnerabilities affecting IBM WebSphere Application Server has been published in security bulletins. 
+
+VULNERABILITY DETAILS
+Please consult the security bulletins for IBM WebSphere Application Server published at 
+
+ * Security Bulletin: Vulnerability with RSA Export Keys may affect IBM WebSphere Application Server (CVE-2015-0138) [http://www-01.ibm.com/support/docview.wss?uid=swg21698613] [http://www-01.ibm.com/support/docview.wss?uid=swg21697284] 
+ * Security Bulletin: Vulnerability in Dojo Toolkit affect WebSphere Application Server (CVE-2014-8917) [http://www-01.ibm.com/support/docview.wss?uid=swg21697284] 
+ * Security Bulletin: Potential Security Vulnerabilities fixed in IBM WebSphere Application Server 8.5.5.5 [http://www-01.ibm.com/support/docview.wss?uid=swg21697368] 
+ * Security Bulletin: Potential Security Vulnerabilities fixed in IBM WebSphere Application Server Version 7.0.0.37 [http://www-01.ibm.com/support/docview.wss?uid=swg21697369] 
+ * Security Bulletin: Potential Security Vulnerabilities fixed in IBM WebSphere Application Server 8.5.5.4 [http://www-01.ibm.com/support/docview.wss?uid=swg21690185] 
+ * Security Bulletin: Potential Security Vulnerabilities fixed in IBM WebSphere Application Server 8.0.0.10 [http://www-01.ibm.com/support/docview.wss?uid=swg21695392] 
+ * Security Bulletin: Potential Security Vulnerabilities fixed in IBM WebSphere Application Server 7.0.0.35 [http://www-01.ibm.com/support/docview.wss?uid=swg21684612] 
+ * Security Bulletin: Multiple vulnerabilities in IBM Java SDK affect WebSphere Application Server January 2015 CPU [http://www-01.ibm.com/support/docview.wss?uid=swg21695362] 
+ * Security Bulletin: Multiple vulnerabilities in IBM Java SDK affect WebSphere Application Server October 2014 CPU [http://www-01.ibm.com/support/docview.wss?uid=swg21687740] 
+ * Security Bulletin: Potential Security exposures with WebSphere Application Server (CVE-2014-4770 and CVE-2014-4816) [http://www-01.ibm.com/support/docview.wss?uid=swg21682767] 
+ * Security Bulletin: Vulnerability in SSLv3 affects IBM WebSphere Application Server (CVE-2014-3566) [http://www-01.ibm.com/support/docview.wss?uid=swg21687173]
+
+
+for vulnerability details. AFFECTED PRODUCTS AND VERSIONS
+ 
+
+Principal Product and Version(s) Affected Supporting Product and Version IBM WebSphere Portal version 6.1, 7.0, 8.0, and 8.5 IBM WebSphere Application Server version 6.1, 7.0, 8.0, 8.5 GET NOTIFIED ABOUT FUTURE SECURITY BULLETINS
+ Subscribe to My Notifications [ http://www-01.ibm.com/software/support/einfo.html] to be notified of important product support alerts like this. 
+
+IMPORTANT NOTE
+ IBM strongly suggests that all System z customers be subscribed to the System z Security Portal to receive the latest critical System z security and integrity service. If you are not subscribed, see the instructions on the System z Security web site [http://www-03.ibm.com/systems/z/solutions/security_subintegrity.html]. Security and integrity APARs and associated fixes will be posted to this portal. IBM suggests reviewing the CVSS scores and applying all security or integrity fixes as soon as possible to minimize any potential risk. 
+
+REFERENCES
+Complete CVSS v2 Guide [http://www.first.org/cvss/v2/guide] 
+On-line Calculator v2 [http://nvd.nist.gov/CVSS-v2-Calculator] RELATED INFORMATION
+IBM Secure Engineering Web Portal [http://www.ibm.com/security/secure-engineering/bulletins.html] 
+IBM Product Security Incident Response Blog [http://www.ibm.com/blogs/PSIRT] CHANGE HISTORY
+ 27 May 2015: Original Version Published 
+
+*The CVSS Environment Score is customer environment specific and will ultimately impact the Overall CVSS Score. Customers can evaluate the impact of this vulnerability in their environments by accessing the links in the Reference section of this Security Bulletin. 
+
+DISCLAIMER
+According to the Forum of Incident Response and Security Teams (FIRST), the Common Vulnerability Scoring System (CVSS) is an "industry open standard designed to convey vulnerability severity and help to determine urgency and priority of response." IBM PROVIDES THE CVSS SCORES "AS IS" WITHOUT WARRANTY OF ANY KIND, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. CUSTOMERS ARE RESPONSIBLE FOR ASSESSING THE IMPACT OF ANY ACTUAL OR POTENTIAL SECURITY VULNERABILITY.
+
+=== Item R20
+--- Question
+Command Line and Silent configuration for ITCAM J2EE 7.1.1 agent
+I am seeing unexpected behaviors when using Command Line (interactive or silent) configuration for J2EE DC when trying to enable MS or TT features. These do not seem to work. Are these configuration methods supported?
+
+--- Published answer
+Supported methods are GUI and silent configuration. 
+
+Also, silent configuration fully works both on UNIX and Windows platforms only at level 7.1.1.0.4.
+Before this maintenance level there were issues and limitations with Managing Server and Transaction Tracking integration. 
+
+ 
+
+Support Command Line configuration for J2EE DC will possibly be added in some future patch via Request For Enhancement. [S1]
+
+--- Cited document 1: IBM Command Line configuration for J2EE Data Collector - United States (swg21902438)
+ITCAM; J2EE; CLI; configurator; CAMJ2ALL; CAMJ2INST TECHNOTE (FAQ)
+
+QUESTION
+ Command Line configuration for J2EE DC is not working as expected when trying to enable MS or TT features. 
+
+CAUSE
+Interactive CLI configuration is not supported with ITCAM J2EE 7.1.1, including last available level 7.1.1.0.4.
+
+ANSWER
+Supported methods are GUI and silent configuration. 
+
+Also, silent configuration fully works both on UNIX and Windows platforms only at level 7.1.1.0.4.
+Before this maintenance level there were issues and limitations with Managing Server and Transaction Tracking integration. 
+
+ 
+
+Support Command Line configuration for J2EE DC will possibly be added in some future patch via Request For Enhancement.

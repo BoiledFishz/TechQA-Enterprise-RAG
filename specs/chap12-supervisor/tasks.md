@@ -494,3 +494,11 @@
 - 报告（事先登记，`analyze`）：每组“可接受”题数；有两位审阅者时报告一致率。解读：引用别的文档组可接受 ≥ 4/8 → 记为“单一标准文档评分明显低估”，在 comparison.md 增加“人工可接受率”作为**辅助**指标（主指标不变）；不可回答组中可接受的题列为“标注待复核”，不改动数据集；对照组可接受 ≤ 4/6 → 记为“自动评分与人工判断不一致”，先查原因再解读前两组。E5 不改任何配置，不用于选择参数。
 - 打分界面：一个私有网页（claude.ai artifact），审阅结果按人分别存在该页面的数据库里（每人只能读写自己的，页面拥有者可读全部）；不在组织内的审阅者（如老师）不能写入，可用页面上的“复制结果 / 下载 JSON”交回。
 - 测试：`tests/chap12/test_e5_review.py`（1 个）；VM 本地副本 `pytest tests/chap12 -q` → `212 passed`；ruff 通过。
+
+### E5 修订登记（2026-10-28 09:10 PT，用户不打算亲自打分；在任何模型打分之前提交）
+- 审阅者由“人”改为**两个模型**，结论一律称“模型评审”，不称人工盲审。题目、四问、抽样、答案键（SHA-256 不变，仍未提交、未打开）与事先登记的解读规则都不变；“可接受”按两个模型都判“可接受”计（两者不一致的题单列为“未定”，由用户看过后可改判，改判逐题记录）。
+- 模型 A：本地 qwen2.5:14b（Ollama，temperature 0，JSON schema，num_ctx 16384），`.chap12_run/run_e5.cmd` 运行，结果 `e5_review/reviews_qwen14b.json`。注意：14B 也是系统里的判断模型，有“自己评自己”的偏向，所以只作两者之一。
+- 模型 B：ChatGPT（网页版，用户粘贴 `e5_review/chatgpt_packets/packet_{1,2,3}.txt`，每包 10 题，并记录所用模型名），回复原文存为 `e5_review/chatgpt_raw.txt`，解析为 `reviews_chatgpt.json`。
+- 提示词：`evaluation/chap12_e5_model_review.py` 的 `PROMPT`（与人工页面的四问一致）。不选 Claude 作评审：Claude 在 E4 中逐题读过这些题，无法做到盲审。
+- 完成两份后：`disagree` 列出总体判断不一致的题交给用户；再提交答案键并运行 `chap12_e5_review analyze` 解盲。
+- 测试：`tests/chap12/test_e5_model_review.py`（2 个）；VM 本地副本 `pytest tests/chap12 -q` → `214 passed`；ruff 通过。

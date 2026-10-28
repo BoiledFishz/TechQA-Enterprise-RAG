@@ -1,0 +1,1361 @@
+You are reviewing a technical support answer, blind. You see a customer's question,
+the answer a system published, and the full text of the documents the answer cites. Judge only
+from what is shown; do not use outside knowledge to fill gaps.
+
+Answer four questions:
+1. answers: does the answer address what the customer asked? yes / partial / no
+2. supported: is the answer's content supported by the cited documents (nothing invented)?
+   yes / partial / no
+3. product: do the cited documents' product and version match the question?
+   match / mismatch / unclear
+4. overall: would this be an acceptable reply from a support engineer? acceptable / unacceptable
+   (acceptable = it addresses the question, is supported by the documents, and is for the right
+   product; a reply about a different product, a different error, or that does not answer the
+   question is unacceptable)
+Give a one-sentence reason.
+
+There are 10 items below; judge each one separately. Reply with ONE JSON array only, one object per item, in order: [{"id": "R01", "answers": "...", "supported": "...", "product": "...", "overall": "...", "reason": "..."}, ...]
+
+=== Item R01
+--- Question
+Error when using profilePath parameter with BPMConfig to create a profile
+When creating a profile using the BPMConfig command and the -profilePath parameter to define a custom directory to store the profile data, the creation fails with the following error message if the directory already exists (even if it is empty):
+com.ibm.bpm.config.BPMConfig.main(): The profile path <profile_path> must not exist.....
+
+--- Published answer
+*  Use a non-existing profile path with the BPMConfig command if
+   you want to set a custom directory for the profile data. For
+   instance, specify a profile path to the parent directory which
+   will then contain the subdirectories of the profiles. [S1]
+*  A fix is available for IBM BPM V8.5.5.0 that allows you to
+   create profiles under an existing directory that is empty. [S2]
+
+--- Cited document 1: IBM JR51714: YOU RECEIVE 'THE PROFILE PATH MUST NOT EXIST' ERROR MESSAGE WHEN YOU TRY TO CREATE A PROFILE BY USING BPMCONFIG AND THE - United States (swg1JR51714)
+DIRECT LINKS TO FIXES
+8.5.5.0-WS-BPM-IFJR51714 [http://www.ibm.com/support/fixcentral/quickorder?product=ibm%2FWebSphere%2FIBM+Business+Process+Manager+Standard&fixids=8.5.5.0-WS-BPM-IFJR51714&source=SAR]
+Version 8.5 Refresh Pack 6 for the IBM Business Process Manager products [http://www-01.ibm.com/support/docview.wss?uid=swg24039185]
+
+
+SUBSCRIBE
+You can track all active APARs for this component.
+
+
+
+APAR STATUS
+ * CLOSED AS PROGRAM ERROR.
+    
+   
+   
+
+ERROR DESCRIPTION
+ *  When you create a profile by using the BPMConfig command and
+   the profile path already exists, the validation fails with the
+   following error message even if the directory is empty:
+   
+   com.ibm.bpm.config.BPMConfig.main(): The profile path
+   <profilePath> must not exist.
+   com.ibm.bpm.config.util.ConfigException: The profile path
+   <profilePath> must not exist.
+    at
+   com.ibm.bpm.config.BPMConfig.createDmgrProfile(BPMConfig.java:18
+   33)
+    at
+   com.ibm.bpm.config.BPMConfig.configureDeploymentEnvironment(BPMC
+   onfig.java:660)
+    at
+   com.ibm.bpm.config.BPMConfig$Actions.createDe(BPMConfig.java:397
+   8)
+    at
+   com.ibm.bpm.config.cli.CreateAction.runInner(CreateAction.java:1
+   37)
+    at
+   com.ibm.bpm.config.cli.AbstractConfigAction.run(AbstractConfigAc
+   tion.java:127)
+    at
+   com.ibm.bpm.config.cli.CreateAction.run(CreateAction.java:33)
+    at com.ibm.bpm.config.BPMConfig.main(BPMConfig.java:272)
+    ...
+   
+   
+    
+   
+   
+
+LOCAL FIX
+ *  Use a non-existing profile path with the BPMConfig command if
+   you want to set a custom directory for the profile data. For
+   instance, specify a profile path to the parent directory which
+   will then contain the subdirectories of the profiles.
+   
+   
+    
+   
+   
+
+PROBLEM SUMMARY
+ *  ****************************************************************
+   * USERS AFFECTED:  IBM Business Process Manager (BPM)          *
+   *                  Advanced                                    *
+   ****************************************************************
+   * PROBLEM DESCRIPTION: When you create a profile by using      *
+   *                      the BPMConfig command and the profile   *
+   *                      path already exists, the validation     *
+   *                      fails with the following error          *
+   *                      message even if the directory is        *
+   *                      empty:                                  *
+   *                      com.ibm.bpm.config.BPMConfig.main():    *
+   *                      The profile path <profilePath> must     *
+   *                      not exist.                              *
+   *                      com.ibm.bpm.config.util.ConfigException *
+   *                      : The profile path <profilePath> must   *
+   *                      not exist.                              *
+   *                      at                                      *
+   *                      com.ibm.bpm.config.BPMConfig.createDmgr *
+   *                      Profile(BPMConfig.java:1833)            *
+   *                      at                                      *
+   *                      com.ibm.bpm.config.BPMConfig.configureD *
+   *                      eploymentEnvironment(BPMConfig.java:660 *
+   *                      )                                       *
+   *                      at                                      *
+   *                      com.ibm.bpm.config.BPMConfig$Actions.cr *
+   *                      eateDe(BPMConfig.java:3978)             *
+   *                      at                                      *
+   *                      com.ibm.bpm.config.cli.CreateAction.run *
+   *                      Inner(CreateAction.java:137)            *
+   *                      at                                      *
+   *                      com.ibm.bpm.config.cli.AbstractConfigAc *
+   *                      tion.run(AbstractConfigAction.java:127) *
+   *                      at                                      *
+   *                      com.ibm.bpm.config.cli.CreateAction.run *
+   *                      (CreateAction.java:33)                  *
+   *                      at                                      *
+   *                      com.ibm.bpm.config.BPMConfig.main(BPMCo *
+   *                      nfig.java:272)                          *
+   *                      ...                                     *
+   ****************************************************************
+   * RECOMMENDATION:                                              *
+   ****************************************************************
+   You can create a profile only when the profileHome folder does
+   not exist.
+   
+   
+    
+   
+   
+
+PROBLEM CONCLUSION
+ *  A fix is available for IBM BPM V8.5.5.0 that allows you to
+   create profiles under an existing directory that is empty.
+   
+   On Fix Central (http://www.ibm.com/support/fixcentral), search
+   for JR51714:
+   
+   1. Select IBM Business Process Manager with your edition from
+   the product selector, the installed version to the fix pack
+   level, and your platform, and then click Continue.
+   2. Select APAR or SPR, enter JR51714 , and click Continue.
+   
+   When you download fix packages, ensure that you also download
+   the readme file for each fix. Review each readme file for
+   additional installation instructions and information about the
+   fix.
+   
+   
+    
+   
+   
+
+TEMPORARY FIX
+
+COMMENTS
+
+APAR INFORMATION
+ * APAR NUMBER
+   JR51714
+   
+   
+ * REPORTED COMPONENT NAME
+   BPM ADVANCED
+   
+   
+ * REPORTED COMPONENT ID
+   5725C9400
+   
+   
+ * REPORTED RELEASE
+   855
+   
+   
+ * STATUS
+   CLOSED PER
+   
+   
+ * PE
+   NoPE
+   
+   
+ * HIPER
+   NoHIPER
+   
+   
+ * SPECIAL ATTENTION
+   NoSpecatt
+   
+   
+ * SUBMITTED DATE
+   2014-11-06
+   
+   
+ * CLOSED DATE
+   2014-12-11
+   
+   
+ * LAST MODIFIED DATE
+   2014-12-11
+   
+   
+
+ * APAR IS SYSROUTED FROM ONE OR MORE OF THE FOLLOWING:
+   
+   
+   
+ * APAR IS SYSROUTED TO ONE OR MORE OF THE FOLLOWING:
+   
+   
+   
+[document truncated]
+
+=== Item R02
+--- Question
+Where to find the recommended fixes for WebSphere and Portal ?
+
+--- Published answer
+*  A new module is created called FindLargeResourcesModule. This
+   will find all Image File and Rich Text Component's resources
+   that are greater then a specified minimum size. If no size is
+   specified, it will look by default for resources greater then 1
+   Megabyte. For Rich Text Components, it will not find resources <
+   2 Megabytes. The url parameter for the minimum size to check is
+   "min_size" and the value is a number in bytes. [S3]
+
+--- Cited document 1: IBM PK75187: UTILITY TO FIND LARGE RESOURCE FILES (IMAGES AND OTHER FILES) STORED IN WCM - United States (swg1PK75187)
+FIXES ARE AVAILABLE
+6.1.0.4 Download: WebSphere Portal and WCM V6.1.0 fix pack 4 & 6.1.5 fix pack 1 [http://www-01.ibm.com/support/docview.wss?uid=swg24026394]
+Recommended Updates for WebSphere Portal and Web Content Management V6.1 [http://www-01.ibm.com/support/docview.wss?uid=swg24023835]
+6.1.0.5 Download: WebSphere Portal and WCM V6.1.0 fix pack 5 [http://www-01.ibm.com/support/docview.wss?uid=swg24027475]
+Fixes integrated in WebSphere Portal V7.0 Combined Cumulative Fix [http://www-01.ibm.com/support/docview.wss?uid=swg24027254]
+6.1.0.6 Download: WebSphere Portal and WCM V6.1.0 fix pack 6 [http://www-01.ibm.com/support/docview.wss?uid=swg24030970]
+7.0.0.2 Download: WebSphere Portal and WCM V7.0 fix pack 2 [http://www-01.ibm.com/support/docview.wss?uid=swg24031676]
+
+
+
+APAR STATUS
+ * CLOSED AS PROGRAM ERROR.
+    
+   
+   
+
+ERROR DESCRIPTION
+ *  Content Authors can upload large resources into Image, File and
+   Rich Text Components which creates a performance problem as it
+   is slow for viewers to download the items.
+     There is no fast tool to determine where the large resources
+   exist on the system
+   The API could be used to determine the size of images for Image
+   and File Components however this would be quite slow as it will
+   need to retrieve each item separately. There is no API tool to
+   find the size of embedded images in Rich Text fields.
+   
+   
+    
+   
+   
+
+LOCAL FIX
+ *  A new module is created called FindLargeResourcesModule. This
+   will find all Image File and Rich Text Component's resources
+   that are greater then a specified minimum size. If no size is
+   specified, it will look by default for resources greater then 1
+   Megabyte. For Rich Text Components, it will not find resources <
+   2 Megabytes. The url parameter for the minimum size to check is
+   "min_size" and the value is a number in bytes.
+   
+   The result will output each resource items name, path, type and
+   resource size.
+   
+   The following lines should be added to the
+   WCMConfigService.properties file in [Portal
+   directory]/wcm/shared/app/config/wcmservices
+   
+   connect.businesslogic.module.findlargeresources.class=com.ibm.wo
+   rkplace.wcm.services.statistics.FindLargeResourcesModule
+   connect.businesslogic.module.findlargeresources.remoteaccess=tru
+   e
+   connect.businesslogic.module.findlargeresources.autoload=false
+   
+   and append findlargeresources to this key:
+   'connect.businesslogic.module'
+   i.e.
+   connect.businesslogic.module=template,multi_template,web,mail,fo
+   rm,aggregator,default,ajpe,federatedproxy,ajpecatselect,memberfi
+   xer,versioningenablement,workflowenablement,itemdispatcher,pluto
+   uploadfile,plutodownloadfile,ensureusermanagement,pdmproxy,synd,
+   subs,syndication,refreshallitems,unlocklibrary,findlargeresource
+   s,custom
+   
+   
+    
+   
+   
+
+PROBLEM SUMMARY
+ *  Content Authors can upload large resources into Image, File and
+   Rich Text Components which creates a performance problem as it
+   is slow for viewers to download the items.
+     There is no fast tool to determine where the large resources
+   exist on the system.
+   The API could be used to determine the size of images for Image
+   and File Components however this would be quite slow as it will
+   need to retrieve each item separately. There is no API tool to
+   find the size of embedded images in Rich Text fields.
+   
+   
+    
+   
+   
+
+PROBLEM CONCLUSION
+ *  A new module is created called FindLargeResourcesModule. This
+   will find all Image File and Rich Text Component's resources
+   that are greater then a specified minimum size. If no size is
+   specified, it will look by default for resources greater then 1
+   Megabyte. For Rich Text Components, it will not find resources <
+   2 Megabytes. The url parameter for the minimum size to check is
+   "min_size" and the value is a number in bytes.
+   
+   The result will output each resource items name, path, type and
+   resource size.
+   
+   The following lines should be added to the
+   WCMConfigService.properties file in [Portal
+   directory]/wcm/shared/app/config/wcmservices
+   
+   connect.businesslogic.module.findlargeresources.class=com.ibm.wo
+   rkplace.wcm.services.statistics.FindLargeResourcesModule
+   connect.businesslogic.module.findlargeresources.remoteaccess=tru
+   e
+   connect.businesslogic.module.findlargeresources.autoload=false
+   
+   and append findlargeresources to this key:
+   'connect.businesslogic.module'
+   i.e.
+   connect.businesslogic.module=template,multi_template,web,mail,fo
+   rm,aggregator,default,ajpe,federatedproxy,ajpecatselect,memberfi
+   xer,versioningenablement,workflowenablement,itemdispatcher,pluto
+   uploadfile,plutodownloadfile,ensureusermanagement,pdmproxy,synd,
+   subs,syndication,refreshallitems,unlocklibrary,findlargeresource
+   s,custom
+   
+   
+    
+   
+   
+
+TEMPORARY FIX
+
+COMMENTS
+
+APAR INFORMATION
+ * APAR NUMBER
+   PK75187
+   
+   
+ * REPORTED COMPONENT NAME
+   LOTUS WEB CONT
+   
+   
+ * REPORTED COMPONENT ID
+   5724I2900
+   
+   
+ * REPORTED RELEASE
+   60G
+   
+   
+ * STATUS
+   CLOSED PER
+   
+   
+ * PE
+   NoPE
+   
+   
+ * HIPER
+   NoHIPER
+   
+   
+ * SPECIAL ATTENTION
+   NoSpecatt
+   
+   
+ * SUBMITTED DATE
+   2008-11-07
+   
+   
+ * CLOSED DATE
+   2008-11-07
+   
+   
+ * LAST MODIFIED DATE
+   2008-12-02
+   
+   
+
+ * APAR IS SYSROUTED FROM ONE OR MORE OF THE FOLLOWING:
+   
+   
+   
+ * APAR IS SYSROUTED TO ONE OR MORE OF THE FOLLOWING:
+   
+   
+   
+
+FIX INFORMATION
+ * FIXED COMPONENT NAME
+   LOTUS WEB CONT
+   
+   
+ * FIXED COMPONENT ID
+   5724I2900
+   
+   
+
+APPLICABLE COMPONENT LEVELS
+ * R60H PSY
+   UP
+
+=== Item R03
+--- Question
+We specify the sslProtocol for an Execution Group via "-n sslProtocol -v TLS" as per following: mqsichangeproperties "-o HTTPSConnector" "-n sslProtocol -v TLS"
+Does WMB support TLS v1.1 protocol or TLS v1.2?
+
+--- Published answer
+*  All available protocols can now be enabled on the
+   HTTPSConnector.
+   
+   ---------------------------------------------------------------
+   The fix is targeted for delivery in the following PTFs:
+   
+   Version    Maintenance Level
+   v8.0       8.0.0.5
+   v10.0      10.0.0.2
+   
+   The latest available maintenance can be obtained from:
+   http://www-01.ibm.com/support/docview.wss?rs=849&uid=swg27006041 [http://www-01.ibm.com/support/docview.wss?rs=849&uid=swg27006041]
+   
+   If the maintenance level is not yet available,information on
+   its planned availability can be found on:
+   http://www-1.ibm.com/support/docview.wss?rs=849&uid=swg27006308 [http://www-1.ibm.com/support/docview.wss?rs=849&uid=swg27006308]
+   ---------------------------------------------------------------
+   
+   
+    
+   
+   
+
+TEMPORARY FIX
+
+COMMENTS [S1]
+
+--- Cited document 1: IBM PI40215: NOT ABLE TO ENABLE TLSV1.1 AND TLSV1.2 PROTOCOLS FOR HTTPSCONNECTOR IN 8.0.0.4 - United States (swg1PI40215)
+z/os SUBSCRIBE TO THIS APAR
+By subscribing, you receive periodic emails alerting you to the status of the APAR, along with a link to the fix after it becomes available. You can track this item individually or track all items by product.
+
+Notify me when this APAR changes.
+
+Notify me when an APAR for this component changes.
+
+
+
+APAR STATUS
+ * CLOSED AS PROGRAM ERROR.
+    
+   
+   
+
+ERROR DESCRIPTION
+ *  A user is unable to successfully enable TLSv1.1 or TLSv1.2
+   protocols for the HTTPSConnetor in 8.0.0.4. The property can be
+   set using mqsichangeproperties eg:
+   
+   mqsichangeproperties <broker> -e <eg> -o HTTPSConnector
+   -n sslProtocol -v TLSv1.2
+   
+   The property can be successfully set but inspection of a JSSE
+   trace shows TLS being used instead. If the connecting client is
+   unable to support TLS then the client may see the following
+   exception:
+   
+   SSLHandshakeException: Server chose TLSv1, but that protocol
+   version is not enabled or not supported by the client.
+   
+   At V10.0 a user is also unable to enable SSLv3 on the
+   HTTPSConnector.
+   
+   
+   Additional Symptom(s) Search Keyword(s): TLSV1.1, TSLv1.2,
+   HTTPSConnector, SSLHandshakeException
+   
+   
+    
+   
+   
+
+LOCAL FIX
+ *  <html>None
+   </html>
+   
+   
+    
+   
+   
+
+PROBLEM SUMMARY
+ *  ****************************************************************
+   USERS AFFECTED:
+   All users of WebSphere Message Broker V8.0.0.4 & IBM Integration
+   Bus V10 who use HTTPS inbound connections.
+   
+   
+   Platforms affected:
+   z/OS, MultiPlatform
+   
+   ****************************************************************
+   PROBLEM DESCRIPTION:
+   A user is unable to successfully enable TLSv1.1 or TLSv1.2
+   protocols for the HTTPSConnetor in 8.0.0.4. The property can be
+   set using mqsichangeproperties eg:
+   
+   mqsichangeproperties <broker> -e <eg> -o HTTPSConnector
+   -n sslProtocol -v TLSv1.2
+   
+   The property can be successfully set but inspection of a JSSE
+   trace shows TLS being used instead. If the connecting client is
+   unable to support TLS then the client may see the following
+   exception:
+   
+   SSLHandshakeException: Server chose TLSv1, but that protocol
+   version is not enabled or not supported by the client.
+   
+   At V10.0 a user is also unable to enable SSLv3 on the
+   HTTPSConnector.
+   
+   
+   <i>There are a number of resource name changes between WebSphere
+   Message Broker and IBM Integration Bus Version 9.0. For details
+   visit
+   http://pic.dhe.ibm.com/infocenter/wmbhelp/v9r0m0/topic/com.ibm.e [http://pic.dhe.ibm.com/infocenter/wmbhelp/v9r0m0/topic/com.ibm.e]
+   tools.mft.doc/bb23814_.htm</i>
+   
+   
+    
+   
+   
+
+PROBLEM CONCLUSION
+ *  All available protocols can now be enabled on the
+   HTTPSConnector.
+   
+   ---------------------------------------------------------------
+   The fix is targeted for delivery in the following PTFs:
+   
+   Version    Maintenance Level
+   v8.0       8.0.0.5
+   v10.0      10.0.0.2
+   
+   The latest available maintenance can be obtained from:
+   http://www-01.ibm.com/support/docview.wss?rs=849&uid=swg27006041 [http://www-01.ibm.com/support/docview.wss?rs=849&uid=swg27006041]
+   
+   If the maintenance level is not yet available,information on
+   its planned availability can be found on:
+   http://www-1.ibm.com/support/docview.wss?rs=849&uid=swg27006308 [http://www-1.ibm.com/support/docview.wss?rs=849&uid=swg27006308]
+   ---------------------------------------------------------------
+   
+   
+    
+   
+   
+
+TEMPORARY FIX
+
+COMMENTS
+
+APAR INFORMATION
+ * APAR NUMBER
+   PI40215
+   
+   
+ * REPORTED COMPONENT NAME
+   WEB MB Z/OS
+   
+   
+ * REPORTED COMPONENT ID
+   5697P4400
+   
+   
+ * REPORTED RELEASE
+   800
+   
+   
+ * STATUS
+   CLOSED PER
+   
+   
+ * PE
+   NoPE
+   
+   
+ * HIPER
+   YesHIPER
+   
+   
+ * SPECIAL ATTENTION
+   NoSpecatt / Xsystem
+   
+   
+ * SUBMITTED DATE
+   2015-04-30
+   
+   
+ * CLOSED DATE
+   2016-03-22
+   
+   
+ * LAST MODIFIED DATE
+   2016-04-14
+   
+   
+
+ * APAR IS SYSROUTED FROM ONE OR MORE OF THE FOLLOWING:
+   
+   
+   
+ * APAR IS SYSROUTED TO ONE OR MORE OF THE FOLLOWING:
+   
+   
+   
+
+FIX INFORMATION
+ * FIXED COMPONENT NAME
+   WEB MB Z/OS
+   
+   
+ * FIXED COMPONENT ID
+   5697P4400
+   
+   
+
+APPLICABLE COMPONENT LEVELS
+ * R800 PSY
+   UP
+
+=== Item R04
+--- Question
+How to find if Table was Created as NOT LOGGED INITIALLY?
+
+--- Published answer
+We can use either of the following methods to Check if Table was created as 'Not Logged Initially'
+1)Using db2cat,
+
+db2cat -db <dbname> -n <TableName> -s <Schema> -t | grep "Table not logged"
+Which can confirm if given table was created as NLI or not.
+
+Sample Output 
+----------------------
+Connecting to the Database.
+Connect to Database Successful.
+Table not logged : 0
+----------------------
+Table not Logged showing '0' represent Table was not created as NLI, if it returns '1' then that is table was created as NLI.
+
+2)Using db2look 
+Using db2look command to get DDL information on the table which would show you if 
+the table was created as "NOT LOGGED INITIALLY" 
+
+Example: 
+db2look -d <database_name> -t <table_name> -e -o <output_file_name.out> [S2]
+In DB2 V8.1 the LOG_ATTRIBUTE column in the SYSCAT.TABLES table was used to check if a table was created as NOT LOGGED INITIALLY. In DB2 V9.x this column is no longer being used and will always have a value of 0. Instead, you can use the db2look command to get DDL information on the table which would show you if the table was created as "NOT LOGGED INITIALLY" [S3]
+
+--- Cited document 1: IBM Finding if Table created as NOT LOGGED INITIALLY - United States (swg21984463)
+TECHNOTE (FAQ)
+
+QUESTION
+ How to find if Table was Created as NOT LOGGED INITIALLY? 
+
+ANSWER
+We can use either of the following methods to Check if Table was created as 'Not Logged Initially'
+1)Using db2cat,
+
+db2cat -db <dbname> -n <TableName> -s <Schema> -t | grep "Table not logged"
+Which can confirm if given table was created as NLI or not.
+
+Sample Output 
+----------------------
+Connecting to the Database.
+Connect to Database Successful.
+Table not logged : 0
+----------------------
+Table not Logged showing '0' represent Table was not created as NLI, if it returns '1' then that is table was created as NLI.
+
+2)Using db2look 
+Using db2look command to get DDL information on the table which would show you if 
+the table was created as "NOT LOGGED INITIALLY" 
+
+Example: 
+db2look -d <database_name> -t <table_name> -e -o <output_file_name.out> 
+
+NOTE: Table Alter with ACTIVATE NOT LOGGED INITIALLY will not be listed in these above commands as it will activate NLI only for current Unit of work.
+
+NOTE:In DB2 V8 the LOG_ATTRIBUTE column in the SYSCAT.TABLES table was used to 
+check if a table was created as NOT LOGGED INITIALLY.
+But Starting from DB2 V9 this column is no longer being used and will always have a value of 0.
+
+RELATED INFORMATION
+ NOT LOGGED INITIALLY [http://www.ibm.com/support/knowledgecenter/SSAE4W_7.1.0/com.ibm.etools.iseries.langref2.doc/rbafzmst484.htm]
+
+--- Cited document 2: IBM Checking whether a DB2 LUW table was first created as NOT LOGGED INITIALLY - United States (swg21397932)
+db2look; not logged initially; syscat.tables; log_attribute TECHNOTE (FAQ)
+
+QUESTION
+ How can I find out if a table was initially created using the "NOT LOGGED INITIALLY" option?
+
+
+ANSWER
+In DB2 V8.1 the LOG_ATTRIBUTE column in the SYSCAT.TABLES table was used to check if a table was created as NOT LOGGED INITIALLY. In DB2 V9.x this column is no longer being used and will always have a value of 0. Instead, you can use the db2look command to get DDL information on the table which would show you if the table was created as "NOT LOGGED INITIALLY"
+
+
+Example:
+db2look -d <database_name> -t <table_name> -e -o <output_file_name.out>
+
+RELATED INFORMATION
+ DB2 V9.5 SYSCAT.TABLES catalog view [http://publib.boulder.ibm.com/infocenter/db2luw/v9r5/index.jsp?topic=/com.ibm.db2.luw.sql.ref.doc/doc/r0001063.html]
+DB2 statistics and DDL extraction tool command [http://publib.boulder.ibm.com/infocenter/db2luw/v9r5/index.jsp?topic=/com.ibm.db2.luw.admin.cmd.doc/doc/r0002051.html]
+
+=== Item R05
+--- Question
+DB2 Non Reclaimable Storage .
+We have tablespaces defined under DB2 9.5 that apparently are not able
+to reclaim storage back to the OS, but does that mean DB2 cannot reuse
+this space as well?
+
+--- Published answer
+For DB2 9.7 tablespaces, the values in the RECLAIMABLE_SPACE_ENABLED column are 1. For DB2 9.5 tablespaces, the values are 0. 
+Important: Databases that were formatted with Tivoli Storage Manager servers V6.2 and later have DB2 9.7 tablespaces. 
+
+In the following example, the value in each row of the RECLAIMABLE_SPACE_ENABLED column is 1. This value indicates that the server is using DB2 9.7 tablespaces. 
+
+RECLAIMABLE_SPACE_ENABLED
+-------------------------
+1
+1
+1
+1
+
+4 record(s) selected. 
+
+Important: If you have DB2 9.5 tablespaces, you cannot release storage to the operation system. [S8]
+
+--- Cited document 1: IBM Reducing the size of the Tivoli Storage Manager database - United States (swg21655828)
+reduce space database size alter tablespace TECHNOTE (FAQ)
+
+QUESTION
+ How do you reduce the size of the Tivoli Storage Manager database? 
+
+ANSWER
+If a significant amount of data has been deleted from the database, consider reducing the database size. Generally, you have to complete offline reorganization of the large tables in the database before you can reduce the database size. For more information, see Technote 1452146 at: http://www.ibm.com/support/docview.wss?uid=swg21452146 [http://www.ibm.com/support/docview.wss?uid=swg21452146]. 
+Databases that are created with Tivoli Storage Manager V6.2 or later have DB2 9.7 tablespaces with reclaimable space enabled. If you created a database with V6.1, you have DB2 9.5 tablespaces even if you upgraded your Tivoli Storage Manager server to 6.2 or later.
+
+Procedure
+To reduce the size of the database and release space to the operating system for DB2 9.7 tablespaces, complete the following steps. If you formatted a server with Tivoli Storage Manager V7.1 or later, complete the instructions in step 3. Otherwise, complete the instructions in steps 1 and 2:
+
+1. To determine whether the database table space is DB2 9.7, issue the following commands from a DB2 command-line window:
+
+
+
+
+db2 connect to tsmdb1 
+db2 set schema tsmdb1
+db2 "select cast(TBSP_NAME as char(30)), reclaimable_space_enabled from
+table(mon_get_tablespace('',-1)) where TBSP_NAME in
+('USERSPACE1','IDXSPACE1','LARGESPACE1','LARGEIDXSPACE1')" 
+
+For DB2 9.7 tablespaces, the values in the RECLAIMABLE_SPACE_ENABLED column are 1. For DB2 9.5 tablespaces, the values are 0. 
+Important: Databases that were formatted with Tivoli Storage Manager servers V6.2 and later have DB2 9.7 tablespaces. 
+
+In the following example, the value in each row of the RECLAIMABLE_SPACE_ENABLED column is 1. This value indicates that the server is using DB2 9.7 tablespaces. 
+
+RECLAIMABLE_SPACE_ENABLED
+-------------------------
+1
+1
+1
+1
+
+4 record(s) selected. 
+
+Important: If you have DB2 9.5 tablespaces, you cannot release storage to the operation system. 
+
+2. To reduce the size of the database with DB2 9.7 tablespaces, issue the following commands from a DB2 command-line window: 
+
+db2 connect to tsmdb1
+db2 set schema tsmdb1
+db2 ALTER TABLESPACE USERSPACE1 REDUCE MAX
+db2 ALTER TABLESPACE IDXSPACE1 REDUCE MAX
+db2 ALTER TABLESPACE LARGESPACE1 REDUCE MAX 
+db2 ALTER TABLESPACE LARGEIDXSPACE1 REDUCE MAX 
+Restriction: These commands start separate processes in DB2 that release space. The commands can increase I/O activity, and might affect server performance. To minimize the impact, issue the next ALTER TABLESPACE command after the previous command is completed. 
+
+3. If you installed the Tivoli Storage Manager server V7.1 or later, complete the following task: 
+
+There is a new table and tablespace implementation in DB2 10.5. The tablespaces are still DB2 9.7, but each of the large tables are placed into a distinct tablespace for the data and a distinct tablespace for the indices for that table. The following table indicates the assignments: 
+
+Table Name DB2 Tablespace for Data DB2 Tablespace for Indices ARCHIVE_OBJECTS ARCHOBJDATASPACE ARCHOBJIDXSPACE BACKUP_OBJECTS BACKOBJDATASPACE BACKOBJIDXSPACE BF_AGGREGATED_BITFILES BFABFDATASPACE BFABFIDXSPACE BF_BITFILE_EXTENTS BFBFEXTDATASPACE BFBFEXTIDXSPACE 
+If you perform offline reorganization for any of these four tables, issue the DB2 ALTER TABLESPACE REDUCE MAX command on the two associated tablespaces for that table. For example, if you did an offline reorganization on BF_AGGREGATED_BITFILES, issue the following commands: 
+
+db2 connect to tsmdb1
+db2 set schema tsmdb1
+db2 ALTER TABLESPACE BFABFDATASPACE REDUCE MAX
+db2 ALTER TABLESPACE BFABFIDXSPACE REDUCE MAX 
+
+What to do next 
+If you did not perform offline reorganization and if the process does not reduce the size of your database, consider running offline table reorganization on the large tables in the DB2 database and complete steps 1 - 3 again. 
+See the Offline Table Reorganization section of Technote 1452146 at: http://www-01.ibm.com/support/docview.wss?uid=swg21452146 [http://www-01.ibm.com/support/docview.wss?uid=swg21452146].
+
+=== Item R06
+--- Question
+How do I correct a BIP3701E: INVALID_CHARACTER_ERR I'm getting on deploy?
+Receiving a
+BIP3701E: A Java exception was thrown whilst calling the Java JNI method ''AdminAgentThread_getDeployMessage''. The Java exception was ''org.w3c.dom.DOMException: INVALID_CHARACTER_ERR: An invalid or illegal XML character is specified. ''
+on deploy. What is wrong? The knowledge center just states I need to correct the error. What is the invalid character?
+
+--- Published answer
+IBM PK01512: A COMMENT IN SOAPELEMENT GENERATES ORG.W3C.DOM.DOMEXCEPTION: INV ALID_CHARACTER_ERR - United States
+
+SUBSCRIBE
+You can track all active APARs for this component.
+
+
+
+APAR STATUS
+ * CLOSED AS PROGRAM ERROR.
+    
+   
+   
+
+ERROR DESCRIPTION
+ *  A comment in SOAPElement generates this exception:
+   
+   
+   org.w3c.dom.DOMException: INVALID_CHARACTER_ERR: An invalid or
+   illegal
+   XML character is specified.
+   
+   
+    
+   
+   
+
+LOCAL FIX
+ *  Remove comment.
+   
+   
+    
+   
+   
+
+PROBLEM SUMMARY
+ *  ****************************************************************
+   * USERS AFFECTED: WebSphere Application Server users of web    *
+   *                 services.                                    *
+   ****************************************************************
+   * PROBLEM DESCRIPTION: A comment in SOAPElement generates      *
+   *                      org.w3c.dom.DOMException:               *
+   *                      INVALID_CHARACTER_ERR.                  *
+   ****************************************************************
+   * RECOMMENDATION:                                              *
+   ****************************************************************
+   A comment in SOAPElement generates org.w3c.dom.DOMException:
+   INVALID_CHARACTER_ERR.
+   
+   
+    
+   
+   
+
+PROBLEM CONCLUSION
+ *  Created new Text, Comment, WebServicesParser and
+   WebServicesParserFactory classes. There were various other
+   changes to existing SAAJ, serializer, and deserializer classes.
+   
+   The fix for this APAR is currently targeted for inclusion
+   in fixpack 6.0.0.3.
+   Please refer to the recommended updates page for delivery
+   information:
+   http://www.ibm.com/support/docview.wss?rs=180&uid=swg27004980 [http://www.ibm.com/support/docview.wss?rs=180&uid=swg27004980] [S5]
+
+--- Cited document 1: IBM PK01512: A COMMENT IN SOAPELEMENT GENERATES ORG.W3C.DOM.DOMEXCEPTION: INV ALID_CHARACTER_ERR - United States (swg1PK01512)
+SUBSCRIBE
+You can track all active APARs for this component.
+
+
+
+APAR STATUS
+ * CLOSED AS PROGRAM ERROR.
+    
+   
+   
+
+ERROR DESCRIPTION
+ *  A comment in SOAPElement generates this exception:
+   
+   
+   org.w3c.dom.DOMException: INVALID_CHARACTER_ERR: An invalid or
+   illegal
+   XML character is specified.
+   
+   
+    
+   
+   
+
+LOCAL FIX
+ *  Remove comment.
+   
+   
+    
+   
+   
+
+PROBLEM SUMMARY
+ *  ****************************************************************
+   * USERS AFFECTED: WebSphere Application Server users of web    *
+   *                 services.                                    *
+   ****************************************************************
+   * PROBLEM DESCRIPTION: A comment in SOAPElement generates      *
+   *                      org.w3c.dom.DOMException:               *
+   *                      INVALID_CHARACTER_ERR.                  *
+   ****************************************************************
+   * RECOMMENDATION:                                              *
+   ****************************************************************
+   A comment in SOAPElement generates org.w3c.dom.DOMException:
+   INVALID_CHARACTER_ERR.
+   
+   
+    
+   
+   
+
+PROBLEM CONCLUSION
+ *  Created new Text, Comment, WebServicesParser and
+   WebServicesParserFactory classes. There were various other
+   changes to existing SAAJ, serializer, and deserializer classes.
+   
+   The fix for this APAR is currently targeted for inclusion
+   in fixpack 6.0.0.3.
+   Please refer to the recommended updates page for delivery
+   information:
+   http://www.ibm.com/support/docview.wss?rs=180&uid=swg27004980 [http://www.ibm.com/support/docview.wss?rs=180&uid=swg27004980]
+   
+   
+    
+   
+   
+
+TEMPORARY FIX
+
+COMMENTS
+
+APAR INFORMATION
+ * APAR NUMBER
+   PK01512
+   
+   
+ * REPORTED COMPONENT NAME
+   WEBSPH APP SERV
+   
+   
+ * REPORTED COMPONENT ID
+   5724J0800
+   
+   
+ * REPORTED RELEASE
+   60W
+   
+   
+ * STATUS
+   CLOSED PER
+   
+   
+ * PE
+   NoPE
+   
+   
+ * HIPER
+   NoHIPER
+   
+   
+ * SPECIAL ATTENTION
+   NoSpecatt
+   
+   
+ * SUBMITTED DATE
+   2005-02-22
+   
+   
+ * CLOSED DATE
+   2005-03-24
+   
+   
+ * LAST MODIFIED DATE
+   2005-03-24
+   
+   
+
+ * APAR IS SYSROUTED FROM ONE OR MORE OF THE FOLLOWING:
+   
+   
+   
+ * APAR IS SYSROUTED TO ONE OR MORE OF THE FOLLOWING:
+   
+   
+   
+
+MODULES/MACROS
+ *  WEBSRVCE
+   
+   
+    
+   
+   
+
+FIX INFORMATION
+ * FIXED COMPONENT NAME
+   WEBSPH APP SERV
+   
+   
+ * FIXED COMPONENT ID
+   5724J0800
+   
+   
+
+APPLICABLE COMPONENT LEVELS
+ * R60A PSY
+   UP
+   
+   
+ * R60H PSY
+   UP
+   
+   
+ * R60I PSY
+   UP
+   
+   
+ * R60P PSY
+   UP
+   
+   
+ * R60S PSY
+   UP
+   
+   
+ * R60W PSY
+   UP
+   
+   
+ * R60Z PSY
+   UP
+
+=== Item R07
+--- Question
+Cannot start the IBM Content Collector Configuration Store Service
+How to resolve when the IBM Content Collector Configuration Store Service cannot be started?
+
+--- Published answer
+Perform the following steps to reset the configuration store in IBM Content Collector 4.0: 
+
+ 1. Shut down all IBM Content Collector services. 
+ 2. In a command window, navigate to the ContentCollector\ctms directory and execute the following command:
+    start /wait SolidDBInstallHelp.exe uninstall "C:\ProgramData\IBM\ContentCollector\ConfigurationStore" 
+ 3. Navigate to the following folder:
+    C:\ProgramData\IBM\ContentCollector\ConfigurationStore. 
+    This is a hidden folder. If you do not see this folder, modify the folder view options to display hidden files. 
+ 4. Rename C:\ProgramData\IBM\ContentCollector\ConfigurationStore\solid.db to solid.db.old 
+ 5. Delete all files under this folder but do not delete the folder:  * C:\ProgramData\IBM\ContentCollector\ConfigurationStore\logs
+    
+    
+ 6. Other log files in the C:\ProgramData\IBM\ContentCollector\ConfigurationStore directory may also be deleted. But do not delete the following files:  * C:\ProgramData\IBM\ContentCollector\ConfigurationStore\solid.ini 
+     * C:\ProgramData\IBM\ContentCollector\ConfigurationStore\solid.lic
+       
+    
+    
+ 7. In the command window, navigate to the ContentCollector\ctms directory and execute the following command: 
+    start /wait SolidDBInstallHelp.exe install "C:\ProgramData\IBM\ContentCollector\ConfigurationStore" 
+ 8. Start the IBM Content Collector Configuration Access service which will in turn start the following services: 
+    IBM Content Collector Configuration Store 
+    IBM Content Collector Configuration Store Manager 
+ 9. Start Configuration Manager and you will now have an empty configuration store to work with. If you have previously exported your catalog, you may import it here. [S5]
+
+--- Cited document 1: IBM Reset the Configuration Store in IBM Content Collector 4.0 - United States (swg21688502)
+TECHNOTE (FAQ)
+
+QUESTION
+ How to reset the Configuration Store in IBM Content Collector 4.0 
+
+CAUSE
+Sometimes the configuration store needs to be reset due to database corruption. 
+
+ANSWER
+Important: resetting the configuration store will purge all configuration data from the store including active and inactive catalogs. Reset the configuration store only if you have a configuration store backup (XML) or are willing to start configuration from scratch. 
+
+Perform the following steps to reset the configuration store in IBM Content Collector 4.0: 
+
+ 1. Shut down all IBM Content Collector services. 
+ 2. In a command window, navigate to the ContentCollector\ctms directory and execute the following command:
+    start /wait SolidDBInstallHelp.exe uninstall "C:\ProgramData\IBM\ContentCollector\ConfigurationStore" 
+ 3. Navigate to the following folder:
+    C:\ProgramData\IBM\ContentCollector\ConfigurationStore. 
+    This is a hidden folder. If you do not see this folder, modify the folder view options to display hidden files. 
+ 4. Rename C:\ProgramData\IBM\ContentCollector\ConfigurationStore\solid.db to solid.db.old 
+ 5. Delete all files under this folder but do not delete the folder:  * C:\ProgramData\IBM\ContentCollector\ConfigurationStore\logs
+    
+    
+ 6. Other log files in the C:\ProgramData\IBM\ContentCollector\ConfigurationStore directory may also be deleted. But do not delete the following files:  * C:\ProgramData\IBM\ContentCollector\ConfigurationStore\solid.ini 
+     * C:\ProgramData\IBM\ContentCollector\ConfigurationStore\solid.lic
+       
+    
+    
+ 7. In the command window, navigate to the ContentCollector\ctms directory and execute the following command: 
+    start /wait SolidDBInstallHelp.exe install "C:\ProgramData\IBM\ContentCollector\ConfigurationStore" 
+ 8. Start the IBM Content Collector Configuration Access service which will in turn start the following services: 
+    IBM Content Collector Configuration Store 
+    IBM Content Collector Configuration Store Manager 
+ 9. Start Configuration Manager and you will now have an empty configuration store to work with. If you have previously exported your catalog, you may import it here. 
+
+RELATED INFORMATION
+ IBM Content Collector 4.0 Product Documentation [http://pic.dhe.ibm.com/infocenter/email/v4r0m0/index.jsp]
+
+=== Item R08
+--- Question
+KD4SoapHeaderV2 in WebServices messages
+The following header appears in the WebServices messages after configuring ITCAM for SOA DC:
+
+<soapenv:Header> <KD4NS:KD4SoapHeaderV2 xmlns:KD4NS="www.ibm.com/KD4Soap" >AFIAAgAkYzViZmRmOTUtYmY3Mi0zNGY1LWExNDItNTNlMGI3MzUxNmRmACRjYTdmZTQwYi1 mNDFlLTMxNzUtYjExYi04MzY1MmMyMTliNjUABA==</KD4NS:KD4SoapHeaderV2> </soapenv:Header>
+Is it possible to remove the KD4SoapHeaderV2 header appearing in the WebServices messages after that ITCAM for SOA monitoring has been enabled?
+
+--- Published answer
+1. Drop the entire WMB flow. Install a new fresh flow. Confirm SOA Agent is not installed at all in their system.
+
+2. Checked original SOA v7.2 FP1 install and configuration directories make sure no remaining files present.
+
+3. Enabled all KK3 UserExits on WMB Flows and Restarted WMB.
+Navigate to /opt/IBM/ITM_TT directory showing in WMB environment variables
+KKD3.dc.properties file there shows KD4 integration set to false
+‘default.kd4.enabled=false’ 
+
+4. Check for active SOA logs in /opt/IBM/ITM_TT KD4 log directories
+
+5. From /var/mqsi/common/profiles/KK3UserExitProfile.sh, 
+MQSI Exit Path set to /opt/IBM/IBM_TT
+
+6. Stop/Start WMB. 
+
+7. Result should be, No SOA in the header in the message flow.
+
+
+ 
+
+PRODUCT ALIAS/SYNONYM
+ ITCAM for SOA [S3]
+
+--- Cited document 1: IBM ITCAM for SOA v7.1.1 FP3 WMB Data Collector - SOA Header - United States (swg21662577)
+CAMSOAMBDC CAMSOAALL TECHNOTE (TROUBLESHOOTING)
+
+PROBLEM(ABSTRACT)
+ How are the SOA message headers removed completely from the WMB Message flows? 
+
+SYMPTOM
+After disabling, recreating the message flows, and un-installing the SOA D4 agent, running with TT Data Collector, the SOA headers are still present in the WMB Message flows.
+
+
+RESOLVING THE PROBLEM
+1. Drop the entire WMB flow. Install a new fresh flow. Confirm SOA Agent is not installed at all in their system.
+
+2. Checked original SOA v7.2 FP1 install and configuration directories make sure no remaining files present.
+
+3. Enabled all KK3 UserExits on WMB Flows and Restarted WMB.
+Navigate to /opt/IBM/ITM_TT directory showing in WMB environment variables
+KKD3.dc.properties file there shows KD4 integration set to false
+‘default.kd4.enabled=false’ 
+
+4. Check for active SOA logs in /opt/IBM/ITM_TT KD4 log directories
+
+5. From /var/mqsi/common/profiles/KK3UserExitProfile.sh, 
+MQSI Exit Path set to /opt/IBM/IBM_TT
+
+6. Stop/Start WMB. 
+
+7. Result should be, No SOA in the header in the message flow.
+
+
+ 
+
+PRODUCT ALIAS/SYNONYM
+ ITCAM for SOA
+
+=== Item R09
+--- Question
+SAP Agent user authorizations
+Hello, I cannot use the default SAP user IBMMON_AGENT provided by the SAP Agent transport. Internal rules requires to create a new user respecting specific naming convention. I know how to do it but I don't know the authorization I need to assign to the new user. Where can I find them ?
+
+Thanks
+
+--- Published answer
+By default, the MySAP agent uses the userid IBMMON_AGENT, that is created when ITM transport are imported in the SAP system, together with /IBMMON/AUTH role and profile.
+If you don't want to use the default userid and profile, you need to create your own userid and provide it with a set of minimum required authorization settings.
+Depending on the transport level, the required authorization may vary, but you can always refer to the values specified for the /IBMMON/AUTH profile available in the transport.
+By looking at this profile, you can obtain the needed authorization information.
+In example, for MySAP agent 6.2 IF16, those are the authorization defined for the /IBMMON/AUTH profile: 
+
+
+[/support/docview.wss?uid=swg21657458&aid=1] [/support/docview.wss?uid=swg21657458&aid=1] [S1]
+
+--- Cited document 1: IBM Minimum authorization required for SAP agent logon userid - United States (swg21657458)
+authorization minimum IBMMON_AGENT profile settings agent userid SAP MySAP /IBMMON/AUTH TECHNOTE (FAQ)
+
+QUESTION
+ What are the minimum authorizations required for the userid used by the ITM MySAP agent to logon a SAP system? 
+
+ANSWER
+By default, the MySAP agent uses the userid IBMMON_AGENT, that is created when ITM transport are imported in the SAP system, together with /IBMMON/AUTH role and profile.
+If you don't want to use the default userid and profile, you need to create your own userid and provide it with a set of minimum required authorization settings.
+Depending on the transport level, the required authorization may vary, but you can always refer to the values specified for the /IBMMON/AUTH profile available in the transport.
+By looking at this profile, you can obtain the needed authorization information.
+In example, for MySAP agent 6.2 IF16, those are the authorization defined for the /IBMMON/AUTH profile: 
+
+
+[/support/docview.wss?uid=swg21657458&aid=1] [/support/docview.wss?uid=swg21657458&aid=1]
+
+You need to define your own userid providing the same set of authorization showed for the /IBMMON/AUTH profile to have mySAP agent performing successful data collection even using a non-default userid.
+
+ 
+
+PRODUCT ALIAS/SYNONYM
+ IBM Tivoli Monitoring MySAP Agent 6.2
+
+=== Item R10
+--- Question
+Help with Security Bulletin: Integration server HTTP listener exposes stack trace in WMB & IIB (CVE-2016-2961)
+I need to understand details regarding Security Bulletin: Integration server HTTP listener exposes stack trace in WebSphere Message Broker and IBM Integration Bus. Where can I find this information?
+
+--- Published answer
+VULNERABILITY DETAILS
+CVEID: CVE-2016-2961 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2961]
+DESCRIPTION: IBM Integration Bus uses the Apache Tomcat server for serving HTTP requests for the HTTPInput and SOAPInput nodes. A vulnerability exists where an unauthenticated, remote attacker can send a malformed HTTP POST request to the integration server HTTP listener. The attacker could use the information in the Java stack trace to identify the version of Apache Tomcat in use.
+CVSS Base Score: 5.3
+CVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/113806 [https://exchange.xforce.ibmcloud.com/vulnerabilities/113806] for the current score
+CVSS Environmental Score*: Undefined
+CVSS Vector: (CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N) 
+
+AFFECTED PRODUCTS AND VERSIONS
+ IBM Integration Bus V10.0, V9.0 
+
+WebSphere Message Broker V8.0
+
+REMEDIATION/FIXES
+ 
+
+Product VRMF APAR Remediation/Fix IBM Integration Bus V10 IT15188 The APAR is available in fix pack 10.0.0.5 IBM Integration Bus
+
+
+V9
+
+IT15188 An interim fix is available from IBM Fix Central for all platforms
+http://www.ibm.com/support/fixcentral/swg/selectFixes?parent=ibm~WebSphere&product=ibm/WebSphere/Integration+Bus&release=All&platform=All&function=aparId&apars=IT15188 [http://www.ibm.com/support/fixcentral/swg/selectFixes?parent=ibm~WebSphere&product=ibm/WebSphere/Integration+Bus&release=All&platform=All&function=aparId&apars=IT15188]
+
+The APAR is targeted to be available in fix pack 9.0.0.6 WebSphere Message Broker V8 IT15188 An interim fix is available from IBM Fix Central for all platforms
+http://www.ibm.com/support/fixcentral/swg/selectFixes?parent=ibm~WebSphere&product=ibm/WebSphere/WebSphere+Message+Broker&release=All&platform=All&function=aparId&apars=IT15188 [http://www.ibm.com/support/fixcentral/swg/selectFixes?parent=ibm~WebSphere&product=ibm/WebSphere/WebSphere+Message+Broker&release=All&platform=All&function=aparId&apars=IT15188]
+
+The APAR is targeted to be available in fix pack 8.0.0.8 
+For unsupported versions of the product, IBM recommends upgrading to a fixed, supported version/release/platform of the product. 
+The planned maintenance release dates for WebSphere Message Broker and IBM Integration Bus are available at : 
+http://www.ibm.com/support/docview.wss?uid=swg27006308 [http://www.ibm.com/support/docview.wss?uid=swg27006308] [S1]
+
+--- Cited document 1: IBM Security Bulletin: Integration server  HTTP listener exposes stack trace in WebSphere Message Broker and IBM Integration Bus - United States (swg21985017)
+WMB IIB SECURITY BULLETIN
+
+SUMMARY
+ Integration server HTTP listener exposes stack trace in WebSphere Message Broker and IBM Integration Bus 
+
+VULNERABILITY DETAILS
+CVEID: CVE-2016-2961 [http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2961]
+DESCRIPTION: IBM Integration Bus uses the Apache Tomcat server for serving HTTP requests for the HTTPInput and SOAPInput nodes. A vulnerability exists where an unauthenticated, remote attacker can send a malformed HTTP POST request to the integration server HTTP listener. The attacker could use the information in the Java stack trace to identify the version of Apache Tomcat in use.
+CVSS Base Score: 5.3
+CVSS Temporal Score: See https://exchange.xforce.ibmcloud.com/vulnerabilities/113806 [https://exchange.xforce.ibmcloud.com/vulnerabilities/113806] for the current score
+CVSS Environmental Score*: Undefined
+CVSS Vector: (CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N) 
+
+AFFECTED PRODUCTS AND VERSIONS
+ IBM Integration Bus V10.0, V9.0 
+
+WebSphere Message Broker V8.0
+
+REMEDIATION/FIXES
+ 
+
+Product VRMF APAR Remediation/Fix IBM Integration Bus V10 IT15188 The APAR is available in fix pack 10.0.0.5 IBM Integration Bus
+
+
+V9
+
+IT15188 An interim fix is available from IBM Fix Central for all platforms
+http://www.ibm.com/support/fixcentral/swg/selectFixes?parent=ibm~WebSphere&product=ibm/WebSphere/Integration+Bus&release=All&platform=All&function=aparId&apars=IT15188 [http://www.ibm.com/support/fixcentral/swg/selectFixes?parent=ibm~WebSphere&product=ibm/WebSphere/Integration+Bus&release=All&platform=All&function=aparId&apars=IT15188]
+
+The APAR is targeted to be available in fix pack 9.0.0.6 WebSphere Message Broker V8 IT15188 An interim fix is available from IBM Fix Central for all platforms
+http://www.ibm.com/support/fixcentral/swg/selectFixes?parent=ibm~WebSphere&product=ibm/WebSphere/WebSphere+Message+Broker&release=All&platform=All&function=aparId&apars=IT15188 [http://www.ibm.com/support/fixcentral/swg/selectFixes?parent=ibm~WebSphere&product=ibm/WebSphere/WebSphere+Message+Broker&release=All&platform=All&function=aparId&apars=IT15188]
+
+The APAR is targeted to be available in fix pack 8.0.0.8 
+For unsupported versions of the product, IBM recommends upgrading to a fixed, supported version/release/platform of the product. 
+The planned maintenance release dates for WebSphere Message Broker and IBM Integration Bus are available at : 
+http://www.ibm.com/support/docview.wss?uid=swg27006308 [http://www.ibm.com/support/docview.wss?uid=swg27006308]
+
+
+GET NOTIFIED ABOUT FUTURE SECURITY BULLETINS
+ Subscribe to My Notifications [ http://www-01.ibm.com/software/support/einfo.html] to be notified of important product support alerts like this. 
+
+IMPORTANT NOTE
+ IBM strongly suggests that all System z customers be subscribed to the System z Security Portal to receive the latest critical System z security and integrity service. If you are not subscribed, see the instructions on the System z Security web site [http://www.ibm.com/systems/z/solutions/security_subintegrity.html]. Security and integrity APARs and associated fixes will be posted to this portal. IBM suggests reviewing the CVSS scores and applying all security or integrity fixes as soon as possible to minimize any potential risk. 
+
+REFERENCES
+Complete CVSS v3 Guide [http://www.first.org/cvss/user-guide] 
+On-line Calculator v3 [http://www.first.org/cvss/calculator/3.0] RELATED INFORMATION
+IBM Secure Engineering Web Portal [http://www.ibm.com/security/secure-engineering/bulletins.html] 
+IBM Product Security Incident Response Blog [http://www.ibm.com/blogs/psirt] CHANGE HISTORY
+ 21-Jun-2016 - Original version Published 
+
+*The CVSS Environment Score is customer environment specific and will ultimately impact the Overall CVSS Score. Customers can evaluate the impact of this vulnerability in their environments by accessing the links in the Reference section of this Security Bulletin. 
+
+DISCLAIMER
+According to the Forum of Incident Response and Security Teams (FIRST), the Common Vulnerability Scoring System (CVSS) is an "industry open standard designed to convey vulnerability severity and help to determine urgency and priority of response." IBM PROVIDES THE CVSS SCORES "AS IS" WITHOUT WARRANTY OF ANY KIND, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. CUSTOMERS ARE RESPONSIBLE FOR ASSESSING THE IMPACT OF ANY ACTUAL OR POTENTIAL SECURITY VULNERABILITY.
+
+RELATED INFORMATION
+ A Japanese translation is available [http://www.ibm.com/support/docview.wss?uid=swg21986827]
+
+
+ 
+
+
+
+Cross reference information Segment Product Component Platform Version Edition Business Integration WebSphere Message Broker 8.0 
+PRODUCT ALIAS/SYNONYM
+ WMB IIB
