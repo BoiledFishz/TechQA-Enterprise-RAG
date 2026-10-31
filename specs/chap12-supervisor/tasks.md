@@ -534,3 +534,10 @@
 - 实现（不改 Project 1）：`agents/chap12/compression.py` 的 `BreadthFirstCompressor`：保留 Project 1 的分数过滤、三个冲突过滤、每篇最多 2 段、预算与 8 段上限，只改取段顺序（先每篇第 1 段，再第 2 段），选完按文档顺序重新编号。`CHAP12_EVIDENCE_ORDER=breadth`（或 `adopted.evidence_order`）；summary 记录该变量。测试 `tests/chap12/test_e7_compression.py`（3 个），VM 本地副本 `pytest tests/chap12 -q` → `220 passed`；ruff 通过。
 - 离线估计（`evaluation/chap12_e7_replay.py`，近似：trace 里没有引导段落选择的检索片段，重放与实际证据文档一致 110/150）：第 9 轮 trace，112 道可回答题中答案文档进入证据：现行 69；breadth/2400 72（+3）；现行/3200 70（+1）；breadth/3200 74（+5），但 3200 时重放与实际只一致 60/150，估计更不可靠；breadth 让 81/150 题的证据文档集合改变。
 - 判断：上限约 +3～+5 篇答案文档进证据；按 E6 的经验（重排多放进前 8 的 10 篇只多答对 2 道）转化率低，规则要求净胜 ≥ 5，预计难以通过。是否运行由用户决定；尚未登记运行规则，未运行。
+
+### E7 事先登记（2026-10-31 12:47 PT，用户选择“照跑”；在任何运行之前提交）
+- 运行（调参集 150 题，trace 开）：`tune_real_e7_b2400`（`CHAP12_EVIDENCE_ORDER=breadth`）、`tune_real_e7_b3200`（同上 + `AGENT_MAX_CONTEXT_TOKENS=3200`）。其余为当前配置（第 9 轮）。
+- 基线：`tune_real_e6_base`（当前配置，Ollama 0.40.13，E6 已跑）。运行器在 Ollama 不是 0.40.13 时直接停止，不重跑基线。
+- 规则（`evaluation/chap12_e7.py`，与前几轮相同）：丢失 ≤ 3、净胜 ≥ 5、失败率不升、两边都作答的可回答题 token F1 下降 ≤ 0.05 才合格；两者都合格取净胜大者，并列取 b2400。延迟只报告。采用后才运行评测集 `ollama_e7` 一次，与 `ollama_run9` 配对比较（版本不同，照实标注）。
+- 事先写下的预期（离线估计，见上）：答案文档进证据最多 +3～+5，预计不合格。
+- 运行器：`.chap12_run/run_e7.cmd`（不提交）。
