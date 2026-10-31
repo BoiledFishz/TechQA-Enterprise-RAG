@@ -406,7 +406,8 @@ async def main_async(args: argparse.Namespace) -> None:
         "critic": os.getenv("CHAP12_CRITIC", "off"),
         "env": {k: os.getenv(k) for k in (  # E6: record every Chap12 override in force
             "CHAP12_RERANKER", "CHAP12_RERANK_PRIOR", "CHAP12_CANDIDATE_K",
-            "CHAP12_SELECTOR_MODEL", "CHAP12_JUDGE_MODEL", "CHAP12_SELECT_FALLBACK")},
+            "CHAP12_SELECTOR_MODEL", "CHAP12_JUDGE_MODEL", "CHAP12_SELECT_FALLBACK",
+            "CHAP12_EVIDENCE_ORDER")},
         "budget": budget_limits().model_dump(),
         "git_commit": git_commit(), "run_metadata": meta,
         "tasks_file_sha256": __import__("hashlib").sha256(

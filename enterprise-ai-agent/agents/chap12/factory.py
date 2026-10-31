@@ -9,6 +9,7 @@ from typing import Any
 from rag.techqa.data import ROOT
 
 from agents.chap12.budget import BudgetedModel, BudgetLimits
+from agents.chap12.compression import BreadthFirstCompressor
 from agents.chap12.db_worker import DatabaseQueryWorker
 from agents.chap12.judged_selector import JudgedSelector
 from agents.chap12.ollama_tokens import TokenMeteredOllamaModel
@@ -29,6 +30,12 @@ DEFAULT_INDEX = ROOT / ".rag_data/chap12_sample.sqlite"
 TUNED = Path(__file__).resolve().parents[2] / "evaluation/chap12/tune/real_config.json"
 ENV_KEYS = {"top_k": "AGENT_TOP_K", "max_context_tokens": "AGENT_MAX_CONTEXT_TOKENS",
             "model": "AGENT_MODEL"}  # model: round 5 (adopted only if 14b passes its rule)
+
+
+def evidence_order(tuned: bool) -> str:
+    """E7: "breadth" (one passage per document first) or "depth" (Project 1, default)."""
+    return os.getenv("CHAP12_EVIDENCE_ORDER") or (
+        str(tuned_config().get("evidence_order") or "depth") if tuned else "depth")
 
 
 def tuned_config() -> dict[str, Any]:
@@ -127,7 +134,8 @@ def build_rag_agent(settings: Settings, path: Path, override: Any | None = None,
             candidate_k=tuned_config().get("candidate_k") if tuned else None)
     return RAGAgent(
         rewriter=rewriter, selector=selector, retriever=retriever,
-        compressor=ContextCompressor(settings.max_context_tokens, settings.max_sources,
+        compressor=(BreadthFirstCompressor if evidence_order(tuned) == "breadth"
+                    else ContextCompressor)(settings.max_context_tokens, settings.max_sources,
                                      settings.min_relevance,
                                      model_selects_evidence=settings.profile == "ollama"),
         top_k=settings.top_k,
