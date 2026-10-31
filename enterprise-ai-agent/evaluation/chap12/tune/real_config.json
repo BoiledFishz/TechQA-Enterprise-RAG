@@ -1112,5 +1112,96 @@
   },
   "adopted": null,
   "rule": "and committed before the runs:\n  adopt  a variant is eligible only if, against the base: correct answerable answers lost <= 3,\n         net paired wins >= 5, failure rate not higher, and mean token F1 on answerable tasks\n         answered by both runs not lower by more than 0.05. Adopt the eligible variant with the\n         larger net (ties: e5, the smaller change). Latency is reported, not gated."
+ },
+ "e7": {
+  "base_run": "tune_real_e6_base",
+  "base": {
+   "correct_all": 0.4333,
+   "failure_rate": 0.0,
+   "y_accept": 0.6607,
+   "n_refuse": 0.4737,
+   "y_gold_cited": 0.4464,
+   "latency_mean_ms": 44104.9,
+   "retrieval_y": {
+    "R@1": 0.4732,
+    "R@3": 0.5893,
+    "R@5": 0.6161,
+    "R@8": 0.6607,
+    "MRR": 0.5392,
+    "observations": 112
+   }
+  },
+  "variants": {
+   "b2400": {
+    "max_context_tokens": 2400,
+    "summary": {
+     "correct_all": 0.4267,
+     "failure_rate": 0.0,
+     "y_accept": 0.6518,
+     "n_refuse": 0.5,
+     "y_gold_cited": 0.4375,
+     "latency_mean_ms": 40801.6,
+     "retrieval_y": {
+      "R@1": 0.4732,
+      "R@3": 0.5893,
+      "R@5": 0.6161,
+      "R@8": 0.6607,
+      "MRR": 0.5392,
+      "observations": 112
+     }
+    },
+    "correct_answerable_lost": 3,
+    "eligible": false,
+    "paired": {
+     "base_correct": 65,
+     "variant_correct": 64,
+     "wins": 3,
+     "losses": 4,
+     "net": -1,
+     "mcnemar_p_one_sided": 0.7734,
+     "y_token_f1_both_answered": {
+      "base": 0.3702,
+      "variant": 0.3716,
+      "tasks": 70
+     }
+    }
+   },
+   "b3200": {
+    "max_context_tokens": 3200,
+    "summary": {
+     "correct_all": 0.4467,
+     "failure_rate": 0.0,
+     "y_accept": 0.6518,
+     "n_refuse": 0.4737,
+     "y_gold_cited": 0.4643,
+     "latency_mean_ms": 42119.0,
+     "retrieval_y": {
+      "R@1": 0.4732,
+      "R@3": 0.5893,
+      "R@5": 0.6161,
+      "R@8": 0.6607,
+      "MRR": 0.5392,
+      "observations": 112
+     }
+    },
+    "correct_answerable_lost": 4,
+    "eligible": false,
+    "paired": {
+     "base_correct": 65,
+     "variant_correct": 67,
+     "wins": 7,
+     "losses": 5,
+     "net": 2,
+     "mcnemar_p_one_sided": 0.3872,
+     "y_token_f1_both_answered": {
+      "base": 0.369,
+      "variant": 0.3857,
+      "tasks": 69
+     }
+    }
+   }
+  },
+  "adopted": null,
+  "rule": "and committed before the runs:\n  adopt  a variant is eligible only if, against the base: correct answerable answers lost <= 3,\n         net paired wins >= 5, failure rate not higher, and mean token F1 on answerable tasks\n         answered by both runs not lower by more than 0.05. Adopt the eligible variant with the\n         larger net (ties: b2400, the smaller change). Latency is reported, not gated."
  }
 }
