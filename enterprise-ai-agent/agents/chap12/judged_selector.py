@@ -79,17 +79,30 @@ def schema_for(ids: list[str]) -> dict[str, Any]:
 
 class JudgedSelector(LLMSelector):
     def __init__(self, model: Any, *, judge_model: Any | None = None, judge_name: str = "",
+                 fallback_model: Any | None = None, fallback_name: str = "",
                  **kwargs: Any) -> None:
         super().__init__(model, **kwargs)
         # Round 9: the judge call may use a different (stronger) model than the selector.
         self.judge_model = judge_model or model
         self.judge_name = judge_name
+        # E6 (2026-10-30): when the selection picks no source, run the same Project 1
+        # selection once more with another model (E4: 5 answerable questions lost this way).
+        # A separate selector instance, so concurrent questions never share a swapped model.
+        self.fallback = LLMSelector(fallback_model, **kwargs) if fallback_model else None
+        self.fallback_name = fallback_name
 
     async def select_group(self, query: str, evidence: list[Evidence],
                            correction: str = "") -> SelectionDraft:
         draft = await super().select_group(query, evidence, correction)
+        fallback_used = False
+        if not draft.quotes and not self.controlled and self.fallback is not None:
+            draft = await self.fallback.select_group(query, evidence, correction)
+            fallback_used = True
+            LOGGER.info("Selection fallback (%s): %d quotes", self.fallback_name,
+                        len(draft.quotes))
         if not draft.quotes or self.controlled:
-            tracing.record("selector", {"selected": [], "judge": None})
+            tracing.record("selector", {"selected": [], "judge": None,
+                                        "fallback": fallback_used})
             return draft
         by_id = {e.source_id: e for e in evidence}
         chosen = [by_id[q.source_id] for q in draft.quotes]
@@ -103,6 +116,7 @@ class JudgedSelector(LLMSelector):
         # The verdict must agree with the per-source rejections it lists.
         decision = "ABSTAIN" if rejected >= set(ids) else "ANSWER"
         tracing.record("selector", {"selected": ids, "judge_model": self.judge_name,
+                                    "fallback": fallback_used,
                                     "judge": json.loads(
             verdict.model_dump_json()), "decision": decision})
         LOGGER.info("Judge: selected=%s rejected=%s decision=%s", ids, sorted(rejected),

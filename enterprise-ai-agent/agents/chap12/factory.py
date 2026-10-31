@@ -104,7 +104,15 @@ def build_rag_agent(settings: Settings, path: Path, override: Any | None = None,
             chooser = model if select_name == settings.model else (
                 judge if select_name == judge_name else BudgetedModel(TokenMeteredOllamaModel(
                     settings.ollama_url, select_name, settings.llm_timeout)))
+            # E6: when the selection picks nothing, retry it once with this model.
+            fallback_name = os.getenv("CHAP12_SELECT_FALLBACK") or str(
+                tuned_config().get("select_fallback") or "")
+            fallback = None if not fallback_name else (
+                judge if fallback_name == judge_name else model if fallback_name ==
+                settings.model else BudgetedModel(TokenMeteredOllamaModel(
+                    settings.ollama_url, fallback_name, settings.llm_timeout)))
             selector = JudgedSelector(chooser, judge_model=judge, judge_name=judge_name,
+                                      fallback_model=fallback, fallback_name=fallback_name,
                                       controlled=controlled)
             selector.select_name = select_name  # type: ignore[attr-defined]
         else:

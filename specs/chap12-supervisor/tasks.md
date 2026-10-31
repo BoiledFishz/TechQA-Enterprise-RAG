@@ -507,3 +507,17 @@
 - 两模型比较（`disagree`，答案键仍未打开）：总体判断一致 17/30；qwen2.5:14b 判可接受 13 道，ChatGPT 判可接受 18 道（两者都可接受 9，都不可接受 8），Cohen's κ = 0.16（一致性差）。不一致 13 道（R01 R03 R07 R09 R11 R12 R14 R15 R18 R20 R24 R28 R29），列于 `e5_review/disagreements.md`，交给用户决定是否逐题改判。
 - 解盲（2026-10-30 18:13 PT，用户问“接下来怎么做”，未对分歧题改判，按登记记为“未定”）：提交答案键 `e5_review/key.json`（SHA-256 `d6aaf76d…0f44`，与 2026-10-26 登记一致）；`reviews_all.json`（两模型 + 共识）、`analysis.json`（`chap12_e5_review analyze`）、`summary.md`。
 - 结果（两者都判可接受）：引用别的文档 1/8；不可回答被作答 4/16（M-tune-003、008、031、094，列为标注待复核）；对照 4/6。按登记规则：不认定“单一标准文档明显低估”，不加辅助指标；对照 ≤ 4/6 触发“自动评分与模型判断不一致”，加上 κ 0.16，两条结论都只作弱证据。E4 中 Claude 对“引用别的文档”约 5/8 可用的初读未得到支持。
+
+
+## 2026-10-30 E6：一次事先登记的端到端运行（用户：“按这个方案做 E6”，18:15 PT）
+
+### 事先登记（在任何运行之前提交）
+- 依据：E3（同一批候选上 e5-base-v2 单独排序 R@5 69 → 76、R@1 53 → 54，规则合格但 R@5 配对 p = 0.115）与 E4（检索到答案文档后，7B 选证据一篇不选 5 道）。E2、E5 不引出配置变化。J4 不改（E4 中被作答的不可回答题 19 道全由判断放行，放宽 J4 风险大）。
+- 实现（不改 Project 1）：
+  - `agents/chap12/bi_encoder.py` 的 `E5Reranker`：与 E3 相同的打分（"query: " + 改写后查询；"passage: " + 标题 + 块文本；512 token 窗口、步长 64、均值；余弦），模型只从 `.rag_data/models/e2_e5/` 加载。`CHAP12_RERANKER=e5_order` 时经第 4 轮的 `OrderOnlyReranker` 使用：**只换顺序**，接受仍用 nomic 分数（当前 BM25 名次分公式）与已标定的 nomic 门槛。
+  - `JudgedSelector` 增加 `fallback_model`：Project 1 选证据（7B）一篇都没选时，用另一个模型（独立的 Project 1 `LLMSelector` 实例，同一 prompt）再选一次，之后照常交给 14B 判断；trace 记录 `fallback`。`CHAP12_SELECT_FALLBACK`（或 `adopted.select_fallback`）。未设置时行为与第 9 轮完全相同。
+  - `chap12_eval` 的 summary 记录全部 Chap12 环境变量覆盖（`env`）。
+- 运行（调参集 150 题，trace 开）：`tune_real_e6_e5`（e5 排序）、`tune_real_e6_e5fb`（e5 排序 + 14B 选证据回退）；基线 `tune_real_r9_judged14`（Ollama 0.40.9），Ollama 版本不同时先重跑为 `tune_real_e6_base`（当前电脑上是 0.40.12，所以会重跑）。
+- 规则（`evaluation/chap12_e6.py`，与前几轮相同）：丢失 ≤ 3、净胜 ≥ 5、失败率不升、两边都作答的可回答题 token F1 下降 ≤ 0.05 才合格；两者都合格取净胜大者，并列取 e5（改动小）。延迟只报告。采用后才运行评测集 `ollama_e6`（单/多系统，每类 30，1 次，trace），与 `ollama_run9` 配对比较（版本不同，照实标注）；评测集只报告，不再调参。不新建确认集。
+- 测试：`tests/chap12/test_e6.py`（3 个：e5 排序 + nomic 分数保留；回退只在一篇不选时触发；未设回退时行为不变）；VM 本地副本 `pytest tests/chap12 -q` → `217 passed`；ruff 通过。E5Reranker 的真实模型打分未在 VM 上运行（VM 读不到模型目录的 junction），首次使用在电脑上的运行里。
+- 运行器：`.chap12_run/run_e6.cmd`（不提交）。

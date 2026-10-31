@@ -91,7 +91,8 @@ class SampleRetrieverTool(TechQARetrieverTool):
                     if semantic_rerank is None else semantic_rerank)
         # rerank: "nomic" (Ollama embeddings), "lexical" (no model), "minilm" (stored vectors)
         # or a local cross-encoder ("ce_minilm", "ce_bge"; agents/chap12/cross_encoder.py),
-        # or cross-encoder order with nomic acceptance ("ce_minilm_order", "ce_bge_order").
+        # or cross-encoder order with nomic acceptance ("ce_minilm_order", "ce_bge_order"),
+        # or e5-base-v2 order with nomic acceptance ("e5_order", E6).
         choice = rerank or os.getenv("CHAP12_RERANKER") or ("nomic" if semantic else "lexical")
         reranker: Any
         self.minilm = False
@@ -114,6 +115,22 @@ class SampleRetrieverTool(TechQARetrieverTool):
             nomic = CountingReranker(True)
             nomic.embedder = BudgetedEmbedder(nomic.embedder)
             reranker = OrderOnlyReranker(nomic, CrossEncoderReranker(ORDER_ONLY[choice]))
+            self.choice = "nomic" if use_calibration else "project1"
+        elif choice == "e5_order":
+            # E6 (2026-10-30): e5-base-v2 order, nomic score (with the configured prior) and
+            # nomic threshold for acceptance, through the round 4 OrderOnlyReranker.
+            from agents.chap12.bi_encoder import E5Reranker
+            from agents.chap12.cross_encoder import OrderOnlyReranker
+
+            prior = os.getenv("CHAP12_RERANK_PRIOR") or rerank_prior or "bm25"
+            if prior in {"fused", "max"}:
+                from agents.chap12.fused_prior import FusedPriorReranker, MaxPriorReranker
+
+                nomic = (FusedPriorReranker if prior == "fused" else MaxPriorReranker)(True)
+            else:
+                nomic = CountingReranker(True)
+            nomic.embedder = BudgetedEmbedder(nomic.embedder)
+            reranker = OrderOnlyReranker(nomic, E5Reranker())
             self.choice = "nomic" if use_calibration else "project1"
         elif choice in {"ce_minilm", "ce_bge"}:
             from agents.chap12.cross_encoder import CrossEncoderReranker

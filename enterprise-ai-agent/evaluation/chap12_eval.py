@@ -404,6 +404,9 @@ async def main_async(args: argparse.Namespace) -> None:
         "gap_gate_env": os.getenv("CHAP12_GAP_GATE"), "repeats": args.repeats,
         "limit_per_type": args.limit_per_type, "types": args.types or "all",
         "critic": os.getenv("CHAP12_CRITIC", "off"),
+        "env": {k: os.getenv(k) for k in (  # E6: record every Chap12 override in force
+            "CHAP12_RERANKER", "CHAP12_RERANK_PRIOR", "CHAP12_CANDIDATE_K",
+            "CHAP12_SELECTOR_MODEL", "CHAP12_JUDGE_MODEL", "CHAP12_SELECT_FALLBACK")},
         "budget": budget_limits().model_dump(),
         "git_commit": git_commit(), "run_metadata": meta,
         "tasks_file_sha256": __import__("hashlib").sha256(
