@@ -1,0 +1,49 @@
+{
+ "reviewers": 3,
+ "per_reviewer": {
+  "qwen2.5:14b": {
+   "cited_other": {
+    "unacceptable": 4,
+    "acceptable": 4
+   },
+   "unanswerable": {
+    "unacceptable": 11,
+    "acceptable": 5
+   },
+   "control": {
+    "acceptable": 4,
+    "unacceptable": 2
+   }
+  },
+  "chatgpt": {
+   "unanswerable": {
+    "acceptable": 9,
+    "unacceptable": 7
+   },
+   "cited_other": {
+    "unacceptable": 5,
+    "acceptable": 3
+   },
+   "control": {
+    "acceptable": 6
+   }
+  },
+  "consensus": {
+   "cited_other": {
+    "undecided": 5,
+    "unacceptable": 2,
+    "acceptable": 1
+   },
+   "unanswerable": {
+    "unacceptable": 6,
+    "undecided": 6,
+    "acceptable": 4
+   },
+   "control": {
+    "acceptable": 4,
+    "undecided": 2
+   }
+  }
+ },
+ "agreement_overall": "17/30"
+}

@@ -1,0 +1,276 @@
+[
+ {
+  "id": "R01",
+  "task_id": "M-tune-036",
+  "stratum": "cited_other",
+  "gold": "swg21649807",
+  "cited": [
+   "swg1JR51714"
+  ]
+ },
+ {
+  "id": "R02",
+  "task_id": "M-tune-108",
+  "stratum": "unanswerable",
+  "gold": "-",
+  "cited": [
+   "swg1PK75187"
+  ]
+ },
+ {
+  "id": "R03",
+  "task_id": "M-tune-074",
+  "stratum": "unanswerable",
+  "gold": "-",
+  "cited": [
+   "swg1PI40215"
+  ]
+ },
+ {
+  "id": "R04",
+  "task_id": "M-tune-010",
+  "stratum": "control",
+  "gold": "swg21984463",
+  "cited": [
+   "swg21984463",
+   "swg21397932"
+  ]
+ },
+ {
+  "id": "R05",
+  "task_id": "M-tune-068",
+  "stratum": "cited_other",
+  "gold": "swg21438047",
+  "cited": [
+   "swg21655828"
+  ]
+ },
+ {
+  "id": "R06",
+  "task_id": "M-tune-002",
+  "stratum": "unanswerable",
+  "gold": "-",
+  "cited": [
+   "swg1PK01512"
+  ]
+ },
+ {
+  "id": "R07",
+  "task_id": "M-tune-145",
+  "stratum": "cited_other",
+  "gold": "swg21680391",
+  "cited": [
+   "swg21688502"
+  ]
+ },
+ {
+  "id": "R08",
+  "task_id": "M-tune-031",
+  "stratum": "unanswerable",
+  "gold": "-",
+  "cited": [
+   "swg21662577"
+  ]
+ },
+ {
+  "id": "R09",
+  "task_id": "M-tune-143",
+  "stratum": "control",
+  "gold": "swg21657458",
+  "cited": [
+   "swg21657458"
+  ]
+ },
+ {
+  "id": "R10",
+  "task_id": "M-tune-069",
+  "stratum": "control",
+  "gold": "swg21985017",
+  "cited": [
+   "swg21985017"
+  ]
+ },
+ {
+  "id": "R11",
+  "task_id": "M-tune-052",
+  "stratum": "cited_other",
+  "gold": "swg21419230",
+  "cited": [
+   "swg21485643"
+  ]
+ },
+ {
+  "id": "R12",
+  "task_id": "M-tune-055",
+  "stratum": "unanswerable",
+  "gold": "-",
+  "cited": [
+   "swg21138961"
+  ]
+ },
+ {
+  "id": "R13",
+  "task_id": "M-tune-084",
+  "stratum": "cited_other",
+  "gold": "swg21292808",
+  "cited": [
+   "swg21673208"
+  ]
+ },
+ {
+  "id": "R14",
+  "task_id": "M-tune-048",
+  "stratum": "cited_other",
+  "gold": "swg21507587",
+  "cited": [
+   "swg21688476"
+  ]
+ },
+ {
+  "id": "R15",
+  "task_id": "M-tune-136",
+  "stratum": "unanswerable",
+  "gold": "-",
+  "cited": [
+   "swg21358484"
+  ]
+ },
+ {
+  "id": "R16",
+  "task_id": "M-tune-008",
+  "stratum": "unanswerable",
+  "gold": "-",
+  "cited": [
+   "swg21992894"
+  ]
+ },
+ {
+  "id": "R17",
+  "task_id": "M-tune-109",
+  "stratum": "unanswerable",
+  "gold": "-",
+  "cited": [
+   "swg21987920"
+  ]
+ },
+ {
+  "id": "R18",
+  "task_id": "M-tune-122",
+  "stratum": "unanswerable",
+  "gold": "-",
+  "cited": [
+   "swg21648497"
+  ]
+ },
+ {
+  "id": "R19",
+  "task_id": "M-tune-043",
+  "stratum": "unanswerable",
+  "gold": "-",
+  "cited": [
+   "swg21699940"
+  ]
+ },
+ {
+  "id": "R20",
+  "task_id": "M-tune-064",
+  "stratum": "control",
+  "gold": "swg21902438",
+  "cited": [
+   "swg21902438"
+  ]
+ },
+ {
+  "id": "R21",
+  "task_id": "M-tune-003",
+  "stratum": "unanswerable",
+  "gold": "-",
+  "cited": [
+   "swg21295634",
+   "swg21662595"
+  ]
+ },
+ {
+  "id": "R22",
+  "task_id": "M-tune-023",
+  "stratum": "unanswerable",
+  "gold": "-",
+  "cited": [
+   "swg1IV72083"
+  ]
+ },
+ {
+  "id": "R23",
+  "task_id": "M-tune-016",
+  "stratum": "unanswerable",
+  "gold": "-",
+  "cited": [
+   "swg21624731"
+  ]
+ },
+ {
+  "id": "R24",
+  "task_id": "M-tune-071",
+  "stratum": "cited_other",
+  "gold": "swg24042387",
+  "cited": [
+   "swg21982141"
+  ]
+ },
+ {
+  "id": "R25",
+  "task_id": "M-tune-097",
+  "stratum": "control",
+  "gold": "swg21319595",
+  "cited": [
+   "swg21319595"
+  ]
+ },
+ {
+  "id": "R26",
+  "task_id": "M-tune-146",
+  "stratum": "control",
+  "gold": "swg21666402",
+  "cited": [
+   "swg21666402"
+  ]
+ },
+ {
+  "id": "R27",
+  "task_id": "M-tune-094",
+  "stratum": "unanswerable",
+  "gold": "-",
+  "cited": [
+   "swg22011745"
+  ]
+ },
+ {
+  "id": "R28",
+  "task_id": "M-tune-039",
+  "stratum": "unanswerable",
+  "gold": "-",
+  "cited": [
+   "swg22010311",
+   "swg22011754"
+  ]
+ },
+ {
+  "id": "R29",
+  "task_id": "M-tune-011",
+  "stratum": "unanswerable",
+  "gold": "-",
+  "cited": [
+   "swg22009455",
+   "swg22011754"
+  ]
+ },
+ {
+  "id": "R30",
+  "task_id": "M-tune-100",
+  "stratum": "cited_other",
+  "gold": "swg21660890",
+  "cited": [
+   "swg1IV46157"
+  ]
+ }
+]
