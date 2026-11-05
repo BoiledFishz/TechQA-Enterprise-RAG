@@ -1203,5 +1203,74 @@
   },
   "adopted": null,
   "rule": "and committed before the runs:\n  adopt  a variant is eligible only if, against the base: correct answerable answers lost <= 3,\n         net paired wins >= 5, failure rate not higher, and mean token F1 on answerable tasks\n         answered by both runs not lower by more than 0.05. Adopt the eligible variant with the\n         larger net (ties: b2400, the smaller change). Latency is reported, not gated."
+ },
+ "e8": {
+  "base_run": "tune_real_e8_base",
+  "base": {
+   "correct_all": 0.4333,
+   "failure_rate": 0.0,
+   "y_accept": 0.6607,
+   "n_refuse": 0.4737,
+   "y_gold_cited": 0.4464,
+   "latency_mean_ms": 43748.7,
+   "retrieval_y": {
+    "R@1": 0.4732,
+    "R@3": 0.5893,
+    "R@5": 0.6161,
+    "R@8": 0.6607,
+    "MRR": 0.5392,
+    "observations": 112
+   }
+  },
+  "variants": {
+   "v2": {
+    "model": "local qwen2.5:7b + 14b, judge v2",
+    "summary": {
+     "correct_all": 0.44,
+     "failure_rate": 0.0,
+     "y_accept": 0.5714,
+     "n_refuse": 0.6316,
+     "y_gold_cited": 0.4018,
+     "latency_mean_ms": 48466.3,
+     "retrieval_y": {
+      "R@1": 0.4732,
+      "R@3": 0.5893,
+      "R@5": 0.6161,
+      "R@8": 0.6607,
+      "MRR": 0.5392,
+      "observations": 112
+     }
+    },
+    "correct_answerable_lost": 5,
+    "passes_rule": false,
+    "paired": {
+     "base_correct": 65,
+     "variant_correct": 66,
+     "wins": 6,
+     "losses": 5,
+     "net": 1,
+     "mcnemar_p_one_sided": 0.5,
+     "y_token_f1_both_answered": {
+      "base": 0.3903,
+      "variant": 0.391,
+      "tasks": 63
+     }
+    }
+   },
+   "q72": {
+    "model": "openrouter:qwen/qwen-2.5-72b-instruct",
+    "not_run": true
+   },
+   "l70": {
+    "model": "openrouter:meta-llama/llama-3.3-70b-instruct",
+    "not_run": true
+   },
+   "gpt": {
+    "model": "openrouter:openai/gpt-5.6-luna",
+    "not_run": true
+   }
+  },
+  "adopted": null,
+  "rule": "and committed before the runs:\n  adopt  only v2 can be adopted (the hosted models are outside the self-deployed system and are\n         run to measure the effect of model size): eligible if, against the base, correct\n         answerable answers lost <= 3, net paired wins >= 5, failure rate not higher, and mean\n         token F1 on answerable tasks answered by both runs not lower by more than 0.05.\n  report the same paired numbers for every hosted variant (\"would pass\" is reported, not\n         adopted); and the reasons the judge and the refusal diagnostic gave."
  }
 }
