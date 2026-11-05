@@ -28,7 +28,8 @@ def output_budget(prompt: str) -> int:
     if prompt.startswith("KIND: ANSWERABILITY_SELECT\n"):
         return 700  # round 7: reasons (asked, rejected) precede the verdict
     if prompt.startswith("KIND: ANSWER_JUDGE\n"):
-        return 300  # round 8 judge
+        # E8 judge v2 writes a reason per veto; v1 keeps its round 8 budget.
+        return 600 if "ANSWERABLE cases" in prompt else 300
     return 300
 
 

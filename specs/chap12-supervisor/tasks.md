@@ -545,3 +545,23 @@
 ### E7 运行记录（Windows，用户双击 `.chap12_run/run_e7.cmd`，2026-10-31 12:51–16:19 PT，Ollama 0.40.13）
 - 150/150 × 2，失败 0。`chap12_e7` → **两者都不合格，不采用**：b2400 64 vs 65（赢 3 输 4，净 −1，丢失 3）；b3200 67 vs 65（赢 7 输 5，净 +2，丢失 4，单侧 p = 0.387）。评测集未运行。结果提交 `ae52279` 并推送。与事先写下的预期（不合格）一致。
 - 补做基线的逐层归因（VM 上运行 `chap12_trace_report tune_real_e6_base`，只读 trace，不调用模型），同一 Ollama 版本下比较：L3 5 → 2（b2400）/ 0（b3200），目标达到；但 L4“证据里有答案文档却拒答” 11 → 15 / 15；可回答答对 47 → 46 / 49；不可回答答对 18 → 18 / 18。即进入证据的答案文档多了，模型拒答也多了，与 E6 相同。
+
+
+## 2026-11-05 E8：老师的建议（用户转述老师 11-04 的回复，08:20 PT；用户注册 OpenRouter 并给出模型 ID，08:52 PT）
+
+### 事先登记（在任何运行之前提交）
+- 老师的问题与已有事实：判断步骤 = 7B 选证据（Project 1 提示词，只输出 sufficient 与 source_ids，无理由）+ 14B 判断（四条否决规则，只输出规则编号，无理由），两者都没有“可以回答”的正例。E6 基线 trace：7B 一篇不选 20 题（可回答 17）；14B 否决规则 J4 24 次（可回答 14、不可回答 10），J1 11、J2 8、J3 1。
+- 实现（不改 Project 1）：
+  - 判断提示词 v2（`judged_selector.PROMPT_V2`）：四条规则不变，增加“可以回答”的情形 A1–A5，并要求每条否决写一句理由（schema 加 `reason`），无法说出具体不匹配就不否决。`CHAP12_JUDGE_PROMPT=v2`；Ollama 输出上限 v2 为 600（v1 仍 300）。
+  - 拒答理由诊断：7B 一篇不选时，用同一模型问一句“为什么”（`CHAP12_EXPLAIN_REFUSAL=1`），只写入 trace，不计入请求的 LLM 调用次数，不改变任何结果。
+  - OpenRouter 模型接口（`agents/chap12/openrouter.py`）：OpenAI 兼容接口，JSON schema 输出，`require_parameters`，temperature 0（openai/gpt-5* 不支持 temperature，不传）；key 只从环境变量 OPENROUTER_API_KEY 读取，不写入任何文件或日志。模型名加前缀 `openrouter:`。
+  - bge-reranker-v2-m3：交叉编码器表加 `ce_bge_m3`（可选 GPU：`CHAP12_CE_DEVICE`，默认 CPU 不变）；E3 脚本增加 `--bi/--cross/--merge/--download-ce`，在 E3 同一批候选上补打分并与 E3 合并报告。
+  - summary 记录 `CHAP12_JUDGE_PROMPT`、`CHAP12_EXPLAIN_REFUSAL`。
+- 运行（调参集 150 题，trace 开，均设 `CHAP12_EXPLAIN_REFUSAL=1`）：
+  - `tune_real_e8_v2`：本地 7B/14B，判断提示词 v2。
+  - `tune_real_e8_q72` / `_l70` / `_gpt`：选证据与判断改用 `openrouter:qwen/qwen-2.5-72b-instruct` / `meta-llama/llama-3.3-70b-instruct` / `openai/gpt-5.6-luna`，判断提示词 v1，查询改写仍为本地 7B——只变模型大小/家族。托管模型的请求时限放宽为 300 秒（本地 150 秒；网络与推理模型较慢，时限导致的失败不代表判断能力），照实报告失败率与延迟。
+  - 基线 `tune_real_e6_base`（Ollama 0.40.13）；版本不同时先重跑为 `tune_real_e8_base`。
+- 规则（`evaluation/chap12_e8.py`）：**只有 v2 可被采用**（托管模型不属于自部署系统，用来测量模型大小的影响），条件与前几轮相同：丢失 ≤ 3、净胜 ≥ 5、失败率不升、token F1 下降 ≤ 0.05。托管变体报告同样的配对数字和“是否满足规则”，不采用。bge-reranker-v2-m3 只报告离线名次（与 E3 各变体同表），不触发运行。
+- 跑完后：抽取判断 v2 的否决理由与拒答诊断理由，逐条整理供人工看是否靠谱。
+- 测试：`tests/chap12/test_e8.py`（5 个）+ `test_e3_rerank.py` 增 1 个；VM 本地副本 `pytest tests/chap12 -q` → `226 passed`；ruff 通过。OpenRouter 接口只用模拟请求测试过，真实调用首次在电脑上的运行中。
+- 运行器：`.chap12_run/run_e8.cmd`（不提交）：先离线 v2-m3（下载 + GPU 打分），再按 v2 → q72 → l70 → gpt 顺序跑，每个跑完立即提交推送；未设 key 时跳过托管变体。

@@ -37,7 +37,7 @@ HERE = Path(__file__).resolve().parent
 RUN = HERE / "results/chap12/tune_real_r9_judged14"
 OUT = HERE / "results/chap12/e3_rerank"
 SEMANTIC = ("nomic", "bge", "e5", "ce_minilm", "ce_bge")
-COST = {"fusion": 0, "nomic": 1, "bge": 2, "e5": 2, "ce_minilm": 2, "ce_bge": 3}
+COST = {"fusion": 0, "nomic": 1, "bge": 2, "e5": 2, "ce_minilm": 2, "ce_bge": 3, "ce_bge_m3": 4}
 WEIGHTS = (0.5, 0.3, 0.2)
 E1_CATEGORIES = {
     "A": (17, 25, 49, 56, 76, 85, 99, 119, 135),
@@ -124,13 +124,13 @@ async def build(args: argparse.Namespace) -> dict[str, Any] | None:
               if x.strip()]
     traces = [t for t in traces if gold[t["task_id"]].get("answerable") == "Y"]
     encoders: dict[str, Any] = {}
-    for name in ("bge", "e5"):
+    for name in [x for x in args.bi.split(",") if x and x != "none"]:
         try:
             encoders[name] = HFEncoder(model_dir(root, name), HF[name]["pool"], args.device)
         except Exception as exc:
             print(f"SKIP {name}: {exc}", flush=True)
     crosses = {}
-    for name in ("ce_minilm", "ce_bge"):
+    for name in [x for x in args.cross.split(",") if x and x != "none"]:
         try:
             ce.manifest(name)
             crosses[name] = ce.CrossEncoderReranker(name)
@@ -245,9 +245,20 @@ def main() -> None:
     parser.add_argument("--scores", type=Path, default=OUT / "scores.json",
                         help="per-candidate scores; reused if present")
     parser.add_argument("--out", type=Path, default=OUT)
+    parser.add_argument("--bi", default="bge,e5", help="bi-encoders to score (E8: none)")
+    parser.add_argument("--cross", default="ce_minilm,ce_bge",
+                        help="cross-encoders to score (E8: ce_bge_m3)")
+    parser.add_argument("--merge", type=Path, default=None,
+                        help="E8: add the new scores to this earlier scores.json (same "
+                             "candidates required) and report all of them together")
     parser.add_argument("--max-seconds", type=float, default=0,
                         help="stop starting new questions after this long (resume later)")
+    parser.add_argument("--download-ce", action="store_true",
+                        help="E8: download BAAI/bge-reranker-v2-m3 and exit")
     args = parser.parse_args()
+    if args.download_ce:
+        print(json.dumps(download_ce(args.root), indent=2))
+        return
     if args.scores.is_file():
         data = json.loads(args.scores.read_text("utf-8"))
     else:
@@ -256,7 +267,39 @@ def main() -> None:
             return
         args.scores.parent.mkdir(parents=True, exist_ok=True)
         args.scores.write_text(json.dumps(data), encoding="utf-8")
+    if args.merge:
+        data = merge(json.loads(args.merge.read_text("utf-8")), data)
     report(data, args.out)
+
+
+def download_ce(root: Path, choice: str = "ce_bge_m3",
+                repo: str = "BAAI/bge-reranker-v2-m3") -> dict[str, str]:
+    """E8: fetch a cross-encoder once into .rag_data/models/<dir>/ with its resolved commit."""
+    from huggingface_hub import HfApi, snapshot_download
+
+    import agents.chap12.cross_encoder as ce
+
+    path = root / ".rag_data/models" / ce.MODELS[choice]
+    commit = str(HfApi().model_info(repo).sha)
+    snapshot_download(repo, revision=commit, local_dir=path,
+                      allow_patterns=["*.json", "*.model", "model.safetensors"])
+    info = {"repo": repo, "revision": commit, "downloaded": time.strftime("%F")}
+    (path / "ce_manifest.json").write_text(json.dumps(info, indent=2), encoding="utf-8")
+    return info
+
+
+def merge(base: dict[str, Any], extra: dict[str, Any]) -> dict[str, Any]:
+    """E8: add extra's new semantic terms to base; the candidates must be identical."""
+    new = [s for s in extra["semantic"] if s not in base["semantic"]]
+    by_id = {t["task_id"]: t for t in extra["tasks"]}
+    for t in base["tasks"]:
+        other = by_id[t["task_id"]]["candidates"]
+        if [c["doc"] for c in other] != [c["doc"] for c in t["candidates"]]:
+            raise ValueError(f"candidates differ for {t['task_id']}")
+        for c, o in zip(t["candidates"], other, strict=True):
+            c.update({s: o[s] for s in new})
+    base["semantic"] = [*base["semantic"], *new]
+    return base
 
 
 if __name__ == "__main__":

@@ -29,3 +29,22 @@ def test_pick_needs_five_more_at_r5_and_no_r1_loss() -> None:
             {"variant": "e5+bm25", "R@1": 52, "R@5": 75}]
     assert pick(rows, base)["variant"] == "e5+bm25"
     assert pick([{"variant": "e5_only", "R@1": 60, "R@5": 74}], base) is None
+
+
+def test_merge_adds_new_terms_only_for_identical_candidates() -> None:
+    import pytest
+
+    from evaluation.chap12_e3_rerank import merge
+
+    base = {"semantic": ["nomic"], "tasks": [{"task_id": "t", "candidates": [
+        {"doc": "a", "nomic": 0.1}, {"doc": "b", "nomic": 0.2}]}]}
+    extra = {"semantic": ["nomic", "ce_bge_m3"], "tasks": [{"task_id": "t", "candidates": [
+        {"doc": "a", "nomic": 9, "ce_bge_m3": 0.7}, {"doc": "b", "nomic": 9, "ce_bge_m3": 0.3}]}]}
+    out = merge(base, extra)
+    assert out["semantic"] == ["nomic", "ce_bge_m3"]
+    assert out["tasks"][0]["candidates"][0] == {"doc": "a", "nomic": 0.1, "ce_bge_m3": 0.7}
+    bad = {"semantic": ["ce_bge_m3"], "tasks": [{"task_id": "t", "candidates": [
+        {"doc": "b", "ce_bge_m3": 1}, {"doc": "a", "ce_bge_m3": 1}]}]}
+    with pytest.raises(ValueError):
+        merge({"semantic": ["nomic"], "tasks": [{"task_id": "t", "candidates": [
+            {"doc": "a"}, {"doc": "b"}]}]}, bad)

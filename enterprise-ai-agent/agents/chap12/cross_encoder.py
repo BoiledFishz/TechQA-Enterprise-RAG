@@ -16,6 +16,7 @@ from __future__ import annotations
 import asyncio
 import json
 import math
+import os
 from dataclasses import replace
 from pathlib import Path
 from typing import Any
@@ -26,6 +27,7 @@ from rag.techqa.data import ROOT
 MODELS = {
     "ce_minilm": "ce_ms_marco_minilm_l6",   # cross-encoder/ms-marco-MiniLM-L-6-v2
     "ce_bge": "ce_bge_reranker_base",       # BAAI/bge-reranker-base
+    "ce_bge_m3": "ce_bge_reranker_v2_m3",   # BAAI/bge-reranker-v2-m3 (E8, offline only)
 }
 ORDER_ONLY = {"ce_minilm_order": "ce_minilm", "ce_bge_order": "ce_bge"}  # round 4
 MAX_LENGTH = 512
@@ -61,6 +63,10 @@ class CrossEncoderReranker:
         self._model = AutoModelForSequenceClassification.from_pretrained(
             path, local_files_only=True)
         self._model.eval()
+        # E8: CHAP12_CE_DEVICE=cuda for the larger v2-m3 model; default CPU as in rounds 3-4.
+        self._device = os.getenv("CHAP12_CE_DEVICE", "cpu")
+        if self._device != "cpu":
+            self._model = self._model.to(self._device).half()
 
     def score(self, query: str, passages: list[str]) -> list[float]:
         if self._scorer is not None:
@@ -75,6 +81,7 @@ class CrossEncoderReranker:
             encoded = self._tokenizer([query] * len(batch), batch, padding=True,
                                       truncation="only_second", max_length=MAX_LENGTH,
                                       return_tensors="pt")
+            encoded = {k: v.to(getattr(self, "_device", "cpu")) for k, v in encoded.items()}
             with torch.no_grad():
                 logits = self._model(**encoded).logits
             values = logits[:, 0] if logits.shape[-1] == 1 else logits[:, -1]

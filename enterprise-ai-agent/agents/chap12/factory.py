@@ -13,6 +13,7 @@ from agents.chap12.compression import BreadthFirstCompressor
 from agents.chap12.db_worker import DatabaseQueryWorker
 from agents.chap12.judged_selector import JudgedSelector
 from agents.chap12.ollama_tokens import TokenMeteredOllamaModel
+from agents.chap12.openrouter import OpenRouterModel, is_openrouter
 from agents.chap12.product_pick import ProductPicker, pick_mode
 from agents.chap12.rag_worker import RagWorker
 from agents.chap12.strict_selector import StrictSelector, selector_mode
@@ -30,6 +31,23 @@ DEFAULT_INDEX = ROOT / ".rag_data/chap12_sample.sqlite"
 TUNED = Path(__file__).resolve().parents[2] / "evaluation/chap12/tune/real_config.json"
 ENV_KEYS = {"top_k": "AGENT_TOP_K", "max_context_tokens": "AGENT_MAX_CONTEXT_TOKENS",
             "model": "AGENT_MODEL"}  # model: round 5 (adopted only if 14b passes its rule)
+
+
+def chat_model(settings: Settings, name: str) -> Any:
+    """E8: an "openrouter:<id>" name runs on OpenRouter, anything else on local Ollama."""
+    if is_openrouter(name):
+        return OpenRouterModel(name)
+    return TokenMeteredOllamaModel(settings.ollama_url, name, settings.llm_timeout)
+
+
+def judge_prompt_version() -> str:
+    """E8: "v1" (round 8 judge, default) or "v2" (answerable examples, a reason per veto)."""
+    return os.getenv("CHAP12_JUDGE_PROMPT") or str(tuned_config().get("judge_prompt") or "v1")
+
+
+def explain_refusal() -> bool:
+    """E8 diagnostic: when the selection picks nothing, ask the same model why (trace only)."""
+    return os.getenv("CHAP12_EXPLAIN_REFUSAL", "") == "1"
 
 
 def evidence_order(tuned: bool) -> str:
@@ -103,23 +121,24 @@ def build_rag_agent(settings: Settings, path: Path, override: Any | None = None,
             judge_name = os.getenv("CHAP12_JUDGE_MODEL") or str(
                 tuned_config().get("judge_model") or settings.model)
             judge = model if judge_name == settings.model else BudgetedModel(
-                TokenMeteredOllamaModel(settings.ollama_url, judge_name, settings.llm_timeout))
+                chat_model(settings, judge_name))
             # Round 12: the selection call (Project 1 prompt + its conflict review) may also use
             # another model; the query rewrite keeps the agent model.
             select_name = os.getenv("CHAP12_SELECTOR_MODEL") or str(
                 tuned_config().get("selector_model") or settings.model)
             chooser = model if select_name == settings.model else (
-                judge if select_name == judge_name else BudgetedModel(TokenMeteredOllamaModel(
-                    settings.ollama_url, select_name, settings.llm_timeout)))
+                judge if select_name == judge_name
+                else BudgetedModel(chat_model(settings, select_name)))
             # E6: when the selection picks nothing, retry it once with this model.
             fallback_name = os.getenv("CHAP12_SELECT_FALLBACK") or str(
                 tuned_config().get("select_fallback") or "")
             fallback = None if not fallback_name else (
                 judge if fallback_name == judge_name else model if fallback_name ==
-                settings.model else BudgetedModel(TokenMeteredOllamaModel(
-                    settings.ollama_url, fallback_name, settings.llm_timeout)))
+                settings.model else BudgetedModel(chat_model(settings, fallback_name)))
             selector = JudgedSelector(chooser, judge_model=judge, judge_name=judge_name,
                                       fallback_model=fallback, fallback_name=fallback_name,
+                                      prompt_version=judge_prompt_version(),
+                                      explain_refusal=explain_refusal(),
                                       controlled=controlled)
             selector.select_name = select_name  # type: ignore[attr-defined]
         else:
