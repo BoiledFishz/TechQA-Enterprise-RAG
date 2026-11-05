@@ -31,7 +31,7 @@
   "max_sql_statements": 400,
   "max_local_compute": 16
  },
- "git_commit": "18f4aa58a85fa5b997786f9db0d36d3732cde765",
+ "git_commit": "0ba9c299393e681b607df3db5ac58848c92c6d91",
  "run_metadata": {
   "started_at": "2026-11-05T09:04:34.2369360-08:00",
   "host": "SZY",
