@@ -1,0 +1,244 @@
+{
+ "qwen2.5:14b": {
+  "R01": {
+   "answers": "partial",
+   "supported": "yes",
+   "product": "match",
+   "overall": "unacceptable",
+   "reason": "The answer partially addresses the customer's issue but does not provide a complete solution or workaround for the current situation, and it does not clearly indicate how to proceed without the fix.",
+   "prompt_tokens": 1788
+  },
+  "R02": {
+   "answers": "no",
+   "supported": "no",
+   "product": "match",
+   "overall": "unacceptable",
+   "reason": "The answer does not address the customer's question about finding recommended fixes for WebSphere and Portal, instead it provides details about a module to find large resources, which is unrelated to the question.",
+   "prompt_tokens": 1912
+  },
+  "R03": {
+   "answers": "partial",
+   "supported": "yes",
+   "product": "match",
+   "overall": "unacceptable",
+   "reason": "The answer partially addresses the customer's question by mentioning that all protocols can now be enabled, but it does not explicitly confirm support for TLS v1.1 and TLS v1.2 in the current version, and lacks specific guidance on the customer's current setup.",
+   "prompt_tokens": 1811
+  },
+  "R04": {
+   "answers": "yes",
+   "supported": "yes",
+   "product": "match",
+   "overall": "acceptable",
+   "reason": "The answer directly addresses the customer's question, is supported by the cited documents, and is relevant to the correct product version.",
+   "prompt_tokens": 1277
+  },
+  "R05": {
+   "answers": "partial",
+   "supported": "partial",
+   "product": "mismatch",
+   "overall": "unacceptable",
+   "reason": "The answer partially addresses the customer's question about reclaimable storage in DB2 9.5 but introduces information about DB2 9.7 and Tivoli Storage Manager, which is not relevant to the customer's DB2 9.5 environment.",
+   "prompt_tokens": 1588
+  },
+  "R06": {
+   "answers": "partial",
+   "supported": "yes",
+   "product": "mismatch",
+   "overall": "unacceptable",
+   "reason": "The answer addresses the issue of an invalid character error but does not specify which character is invalid or how to identify it, and it cites a document related to WebSphere Application Server rather than the product mentioned in the customer's question.",
+   "prompt_tokens": 1469
+  },
+  "R07": {
+   "answers": "yes",
+   "supported": "yes",
+   "product": "match",
+   "overall": "acceptable",
+   "reason": "The answer directly addresses the customer's issue by providing a step-by-step guide to reset the configuration store, which is fully supported by the cited document for IBM Content Collector 4.0.",
+   "prompt_tokens": 1166
+  },
+  "R08": {
+   "answers": "yes",
+   "supported": "yes",
+   "product": "match",
+   "overall": "acceptable",
+   "reason": "The answer directly addresses the customer's question about removing the KD4SoapHeaderV2 header and provides steps supported by the cited document for the same product version.",
+   "prompt_tokens": 1004
+  },
+  "R09": {
+   "answers": "partial",
+   "supported": "yes",
+   "product": "match",
+   "overall": "unacceptable",
+   "reason": "The answer partially addresses the customer's question by mentioning the /IBMMON/AUTH profile but does not provide specific authorization details, and it repeats the question as part of the answer text.",
+   "prompt_tokens": 872
+  },
+  "R10": {
+   "answers": "yes",
+   "supported": "yes",
+   "product": "match",
+   "overall": "acceptable",
+   "reason": "The answer provides detailed information about the security bulletin, including the CVE ID, description, affected products and versions, and remediation steps, all of which are directly supported by the cited document.",
+   "prompt_tokens": 2271
+  },
+  "R11": {
+   "answers": "yes",
+   "supported": "yes",
+   "product": "match",
+   "overall": "acceptable",
+   "reason": "The answer directly addresses the customer's question about session timeout in WebSphere Portal V6.1.0.1, is supported by the cited document, and is specific to the correct product version.",
+   "prompt_tokens": 610
+  },
+  "R12": {
+   "answers": "partial",
+   "supported": "yes",
+   "product": "match",
+   "overall": "unacceptable",
+   "reason": "The answer partially addresses the customer's question by providing relevant technote links but lacks specific steps or explanations for resolving the issue, and does not fully utilize the detailed information provided in the cited documents.",
+   "prompt_tokens": 2083
+  },
+  "R13": {
+   "answers": "partial",
+   "supported": "yes",
+   "product": "match",
+   "overall": "unacceptable",
+   "reason": "The answer partially addresses the customer's question by mentioning possible configuration issues but does not directly explain the discrepancy between the DataPower and backend device timeout settings or why the error occurs intermittently despite the DataPower timeout being higher than the backend device's.",
+   "prompt_tokens": 964
+  },
+  "R14": {
+   "answers": "partial",
+   "supported": "yes",
+   "product": "match",
+   "overall": "unacceptable",
+   "reason": "The answer addresses some aspects of the customer's issue but does not fully explain why the SPSS trial is getting stuck during launch, and it does not provide a clear solution to the specific problem described.",
+   "prompt_tokens": 1103
+  },
+  "R15": {
+   "answers": "partial",
+   "supported": "yes",
+   "product": "match",
+   "overall": "unacceptable",
+   "reason": "The answer partially addresses the customer's question by providing download links for the JDBC driver but does not specifically address why the link for DB2 10.1.0 is greyed out or provide a direct solution for downloading the driver for that specific version.",
+   "prompt_tokens": 2364
+  },
+  "R16": {
+   "answers": "yes",
+   "supported": "yes",
+   "product": "match",
+   "overall": "acceptable",
+   "reason": "The answer provides detailed information about the vulnerabilities, affected products, and remediation steps, directly addressing the customer's request and supported by the cited document.",
+   "prompt_tokens": 2661
+  },
+  "R17": {
+   "answers": "partial",
+   "supported": "partial",
+   "product": "unclear",
+   "overall": "unacceptable",
+   "reason": "The answer addresses part of the customer's issue but introduces steps not directly supported by the cited document and does not fully address the Java Security block issue mentioned.",
+   "prompt_tokens": 741
+  },
+  "R18": {
+   "answers": "yes",
+   "supported": "yes",
+   "product": "match",
+   "overall": "acceptable",
+   "reason": "The answer correctly identifies the issue as related to insufficient ulimit values and provides relevant troubleshooting steps, directly supported by the cited document.",
+   "prompt_tokens": 1653
+  },
+  "R19": {
+   "answers": "partial",
+   "supported": "yes",
+   "product": "match",
+   "overall": "unacceptable",
+   "reason": "The answer partially addresses the customer's question by providing links to security bulletins, but it does not specifically highlight the relevant CVE-2014-8917 bulletin as requested.",
+   "prompt_tokens": 2276
+  },
+  "R20": {
+   "answers": "yes",
+   "supported": "yes",
+   "product": "mismatch",
+   "overall": "unacceptable",
+   "reason": "The answer correctly addresses the customer's question about command line configuration support but cites an IBM document instead of the correct ITCAM document, leading to a product mismatch.",
+   "prompt_tokens": 583
+  },
+  "R21": {
+   "answers": "yes",
+   "supported": "yes",
+   "product": "match",
+   "overall": "acceptable",
+   "reason": "The answer addresses the customer's issue, is supported by the cited documents, and is relevant to the correct product.",
+   "prompt_tokens": 2898
+  },
+  "R22": {
+   "answers": "partial",
+   "supported": "yes",
+   "product": "match",
+   "overall": "unacceptable",
+   "reason": "The answer addresses some of the customer's query but does not provide specific details about the impact on IBM Business Process Manager Configuration Editor, focusing instead on general Node.js updates and maintenance.",
+   "prompt_tokens": 1387
+  },
+  "R23": {
+   "answers": "partial",
+   "supported": "partial",
+   "product": "match",
+   "overall": "unacceptable",
+   "reason": "The answer partially addresses the customer's issue by suggesting to check for hung threads and adjust the sib.trm.linger property, but it does not directly address the specific trace findings or provide a clear solution to prevent the 3-second sleep time. Additionally, the cited document does not fully support the answer as it focuses on different JMS exceptions and does not mention the specific trace findings related to the customer's issue.",
+   "prompt_tokens": 1748
+  },
+  "R24": {
+   "answers": "yes",
+   "supported": "yes",
+   "product": "match",
+   "overall": "acceptable",
+   "reason": "The answer directly addresses the customer's issue with the 'Access is denied' error during installation of ICC 4.0.1, provides a step-by-step resolution that matches the cited document, and is relevant to the correct product version.",
+   "prompt_tokens": 1125
+  },
+  "R25": {
+   "answers": "yes",
+   "supported": "yes",
+   "product": "match",
+   "overall": "acceptable",
+   "reason": "The answer directly addresses the customer's error by providing two valid solutions from the cited document, and the document is relevant to the product and version mentioned.",
+   "prompt_tokens": 1344
+  },
+  "R26": {
+   "answers": "yes",
+   "supported": "yes",
+   "product": "match",
+   "overall": "acceptable",
+   "reason": "The answer directly addresses the customer's issue with IBM Datacap 8.1 hanging, provides a solution from the cited document, and matches the product version.",
+   "prompt_tokens": 1244
+  },
+  "R27": {
+   "answers": "yes",
+   "supported": "yes",
+   "product": "match",
+   "overall": "acceptable",
+   "reason": "The answer directly addresses the customer's question by providing the necessary information about security vulnerabilities and remediation steps for the specified IBM products and versions, and it is supported by the cited document.",
+   "prompt_tokens": 767
+  },
+  "R28": {
+   "answers": "partial",
+   "supported": "partial",
+   "product": "match",
+   "overall": "unacceptable",
+   "reason": "The answer partially addresses the customer's question by providing information on security vulnerabilities but contains conflicting CVE details and does not clearly direct the customer to the correct remediation steps.",
+   "prompt_tokens": 1160
+  },
+  "R29": {
+   "answers": "partial",
+   "supported": "partial",
+   "product": "match",
+   "overall": "unacceptable",
+   "reason": "The answer provides some relevant information but mixes up CVE details and mentions RHEL 6.2 inconsistently, not fully addressing the customer's need for detailed remediation steps.",
+   "prompt_tokens": 1562
+  },
+  "R30": {
+   "answers": "yes",
+   "supported": "yes",
+   "product": "match",
+   "overall": "acceptable",
+   "reason": "The answer directly addresses the customer's question by providing a solution to disable compressed references, which is supported by the cited document.",
+   "prompt_tokens": 1667
+  }
+ }
+}
