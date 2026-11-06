@@ -23,12 +23,17 @@ import json
 from pathlib import Path
 from typing import Any
 
-from evaluation.chap12_paired import compare, load
+from evaluation.chap12_paired import RESULTS, compare, load
 from evaluation.chap12_round6 import lost_answerable
 from evaluation.chap12_round12 import summary
 
 HERE = Path(__file__).resolve().parent / "chap12/tune"
 RUN = "tune_real_e9_e5q72"
+# Amendment 2026-11-06 12:50 (before the run): Ollama auto-updated to 0.40.15, so the current
+# configuration is re-run as tune_real_e9_base on the same version and used as the base; the
+# comparison with tune_real_e8_q72 (0.40.14) is then across versions and labelled so.
+BASE = "tune_real_e9_base" if (RESULTS / "tune_real_e9_base/summary.json").is_file() \
+    else "tune_real_e8_base"
 
 
 def against(base: str) -> dict[str, Any]:
@@ -47,7 +52,7 @@ def against(base: str) -> dict[str, Any]:
 
 def main() -> None:
     result = {"run": RUN, "summary": summary(RUN),
-              "vs_base": against("tune_real_e8_base"), "vs_q72": against("tune_real_e8_q72")}
+              "vs_base": against(BASE), "vs_q72_other_ollama_version": against("tune_real_e8_q72")}
     path = HERE / "real_config.json"
     config = json.loads(path.read_text("utf-8-sig"))
     config["e9"] = result | {"rule": __doc__.split("Rules, fixed")[1].split("Writes")[0].strip()}
