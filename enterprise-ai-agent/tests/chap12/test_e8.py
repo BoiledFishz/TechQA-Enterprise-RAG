@@ -79,3 +79,36 @@ def test_refusal_reason_is_recorded_and_changes_nothing() -> None:
         draft = asyncio.run(JudgedSelector(model, explain_refusal=True).select("Q?", EVIDENCE))
     assert draft.quotes == [] and "explain" in model.kinds
     assert data["selector"]["refusal_reason"] == "sources cover product B, not A"
+
+
+def test_openrouter_retries_transient_errors_only(monkeypatch: pytest.MonkeyPatch) -> None:
+    import agents.chap12.openrouter as orm
+
+    async def no_sleep(_: float) -> None:
+        return None
+
+    monkeypatch.setattr(orm.asyncio, "sleep", no_sleep)
+    calls: list[int] = []
+
+    def flaky(request: httpx.Request) -> httpx.Response:
+        calls.append(1)
+        if len(calls) < 3:
+            return httpx.Response(503, json={"error": "busy"})
+        return httpx.Response(200, json={"choices": [{"message": {"content": "{}"},
+                                                      "finish_reason": "stop"}]})
+
+    m = OpenRouterModel("openrouter:x/y", api_key="k", retries=2,
+                        transport=httpx.MockTransport(flaky))
+    assert asyncio.run(m.generate("p", {})) == "{}" and len(calls) == 3
+
+    calls.clear()
+
+    def bad_request(request: httpx.Request) -> httpx.Response:
+        calls.append(1)
+        return httpx.Response(400, json={"error": "bad"})
+
+    m = OpenRouterModel("openrouter:x/y", api_key="k", retries=2,
+                        transport=httpx.MockTransport(bad_request))
+    with pytest.raises(DependencyUnavailable):
+        asyncio.run(m.generate("p", {}))
+    assert len(calls) == 1

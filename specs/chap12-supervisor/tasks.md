@@ -596,3 +596,13 @@
 - `tune_real_e9_e5q72`：65；**失败 10 题（failed 5、timeout 5），部分失败 46 题；共 26 次 OpenRouter 调用失败（dependency_unavailable）、17 次触及 300 秒时限**；平均延迟 85.2 s（E8 中单独 Qwen-72B 为 22.6 s；中位数 38.5 s 对 20.9 s）。逐层：“运行失败或超时”占 31 道可回答题。
 - 按登记的配对数字：对 `tune_real_e9_base` 65 vs 66（赢 21 输 22，净 −1，丢失 19）；对 `tune_real_e8_q72`（跨版本）65 vs 70（净 −5）。均“不会通过”。
 - **结论：本次 E9 不可解读**——失败几乎全来自托管 API 调用（当天 OpenRouter 响应明显变慢、报错增多），而不是组合本身；不能据此说“e5 + 72B 无效”。未失败的题里可见 e5 排序仍在起作用（L2 22 → 9），但样本已被失败破坏，不做进一步推断。若要重做，需重新登记（例如固定 OpenRouter 的单一服务商、放宽时限，或换时段），作为新的一次运行。
+
+
+## 2026-11-07 E9b：重做 E9（用户选择重跑，12:37 PT）
+
+### 事先登记（在运行之前提交）
+- 变体与 E9 完全相同（e5 排序 + nomic 接受，选证据与判断用 `openrouter:qwen/qwen-2.5-72b-instruct`，判断提示词 v1，查询改写本地 7B，`CHAP12_EXPLAIN_REFUSAL=1`），只改调用方式：OpenRouter 调用遇到超时、连接错误、HTTP 429 或 5xx 时最多再试 2 次（退避 2 s、5 s），每次尝试 120 秒（`CHAP12_OPENROUTER_RETRIES=2`、`CHAP12_OPENROUTER_TIMEOUT=120`）；请求时限 600 秒。一次计费的 LLM 调用包含其重试。每次成功调用在日志里记录 OpenRouter 实际使用的服务商。
+- 运行 `tune_real_e9b_e5q72`；基线 `tune_real_e9_base`（Ollama 0.40.15），版本不同则先重跑为 `tune_real_e9b_base`。
+- 规则（`evaluation/chap12_e9b.py`）：**有效性**——带错误的任务（失败、超时或部分失败）≤ 8/150（约 5%）才可解读，否则记为“不可解读”。只报告：对基线及对 `tune_real_e8_q72`（跨版本）的配对数字与“会/不会通过”常规规则。
+- 实现：`agents/chap12/openrouter.py` 加重试（默认 0 次，行为与 E8/E9 相同）；summary 记录 `CHAP12_DEADLINE_SECONDS`、`CHAP12_OPENROUTER_RETRIES`、`CHAP12_OPENROUTER_TIMEOUT`。测试 `test_e8.py` 增 1 个（只重试暂时性错误）；VM 本地副本 `pytest tests/chap12 -q` → `227 passed`；ruff 通过。
+- 运行器：`.chap12_run/run_e9b.cmd`（不提交）。
