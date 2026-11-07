@@ -1,0 +1,431 @@
+{
+ "split": "tune",
+ "profile": "ollama",
+ "model": "qwen2.5:7b",
+ "reranker": {
+  "p1_single": "nomic",
+  "single/multi": "e5_order"
+ },
+ "gap_gate_env": null,
+ "repeats": 1,
+ "limit_per_type": 0,
+ "types": "explain,explain_and_data",
+ "critic": "off",
+ "env": {
+  "CHAP12_RERANKER": "e5_order",
+  "CHAP12_RERANK_PRIOR": null,
+  "CHAP12_CANDIDATE_K": null,
+  "CHAP12_SELECTOR_MODEL": "openrouter:qwen/qwen-2.5-72b-instruct",
+  "CHAP12_JUDGE_MODEL": "openrouter:qwen/qwen-2.5-72b-instruct",
+  "CHAP12_SELECT_FALLBACK": null,
+  "CHAP12_EVIDENCE_ORDER": null,
+  "CHAP12_JUDGE_PROMPT": null,
+  "CHAP12_EXPLAIN_REFUSAL": "1"
+ },
+ "budget": {
+  "deadline_seconds": 300.0,
+  "max_llm_calls": 8,
+  "max_embedding_calls": 4,
+  "max_db_queries": 4,
+  "max_tool_calls": 4,
+  "max_sql_statements": 400,
+  "max_local_compute": 16
+ },
+ "git_commit": "f4d5ee7a83e2f424dd6a2e69e6376b905c82b082",
+ "run_metadata": {
+  "started_at": "2026-11-06T12:49:54.3602278-08:00",
+  "host": "SZY",
+  "git_commit": "b67256cbcae6b6987e3e27fd322b727f97294bec",
+  "python": "Python 3.12.10",
+  "ollama_version": "0.40.15",
+  "models": [
+   "gemma3:1b=97558784bdc9175075a72655bf360b15da17df6b3b9e5182af9f8c0c8e58ba7c",
+   "phi4-mini:latest=78fad5d182a7c33065e153a5f8ba210754207ba9d91973f57dffa7f487363753",
+   "qwen2.5:14b=7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+   "qwen2.5:7b=845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+   "qwen2.5:3b=357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+   "all-minilm:22m=1b226e2802dbb772b5fc32a58f103ca1804ef7501331012de126ab22f67475ef",
+   "nomic-embed-text:latest=0a109f422b47e3a30ba2b10eca18548e944e8a23073ee3f3e947efcf3c45e59f",
+   "llama3.2:3b=a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72"
+  ]
+ },
+ "tasks_file_sha256": "c06f415d495dc4537428dd68f9caee4a93d3d566cfb87bbc64fed03db529692e",
+ "ci_method": "task-level percentile bootstrap (2000 draws) of per-task means over repeats",
+ "system_order": "rotated per task and repeat (cache warm-up is not system-specific)",
+ "systems": {
+  "multi": {
+   "explain": {
+    "records": 75,
+    "tasks": 75,
+    "status_counts": {
+     "timeout": 5,
+     "completed": 41,
+     "no_data": 28,
+     "failed": 1
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 75,
+     "mean": 0.5467,
+     "ci95": [
+      0.44,
+      0.6533
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 75,
+     "mean": 0.5067,
+     "ci95": [
+      0.3867,
+      0.6133
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 75,
+     "mean": 0.08,
+     "ci95": [
+      0.0267,
+      0.1467
+     ]
+    },
+    "latency_ms": {
+     "mean": 67593.1,
+     "p50": 38125.0,
+     "p95": 295000.0
+    },
+    "llm_calls_mean": 3.56,
+    "embedding_calls_mean": 0.0,
+    "embedding_cache_hits_mean": 31.0,
+    "sql_mean": 38.84,
+    "local_mean": 2.0,
+    "db_queries_mean": 0.0,
+    "prompt_tokens_mean": 6008.0667,
+    "completion_tokens_mean": 220.6533,
+    "rag_correct": {
+     "n_tasks": 75,
+     "mean": 0.5067,
+     "ci95": [
+      0.3867,
+      0.6133
+     ]
+    },
+    "y_accept": {
+     "n_tasks": 56,
+     "mean": 0.6071,
+     "ci95": [
+      0.4821,
+      0.7321
+     ]
+    },
+    "n_refuse": {
+     "n_tasks": 19,
+     "mean": 0.6316,
+     "ci95": [
+      0.4211,
+      0.8421
+     ]
+    },
+    "balanced_accuracy": {
+     "mean": 0.6194,
+     "ci95": [
+      0.4873,
+      0.743
+     ],
+     "y_tasks": 56,
+     "n_tasks": 19
+    },
+    "y_gold_cited": {
+     "n_tasks": 56,
+     "mean": 0.4643,
+     "ci95": [
+      0.3393,
+      0.5893
+     ]
+    },
+    "y_token_f1": {
+     "n_tasks": 56,
+     "mean": 0.1821,
+     "ci95": [
+      0.1279,
+      0.2396
+     ]
+    },
+    "retrieval_y": {
+     "R@1": 0.4643,
+     "R@3": 0.5357,
+     "R@5": 0.625,
+     "R@8": 0.7321,
+     "MRR": 0.5329,
+     "observations": 56
+    }
+   },
+   "explain_and_data": {
+    "records": 75,
+    "tasks": 75,
+    "status_counts": {
+     "partial": 46,
+     "completed": 24,
+     "failed": 4,
+     "no_data": 1
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 75,
+     "mean": 0.32,
+     "ci95": [
+      0.2133,
+      0.4267
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 75,
+     "mean": 0.36,
+     "ci95": [
+      0.2533,
+      0.4667
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 75,
+     "mean": 0.0533,
+     "ci95": [
+      0.0133,
+      0.1067
+     ]
+    },
+    "latency_ms": {
+     "mean": 102794.2,
+     "p50": 47485.0,
+     "p95": 295125.0
+    },
+    "llm_calls_mean": 3.0533,
+    "embedding_calls_mean": 0.0,
+    "embedding_cache_hits_mean": 30.5867,
+    "sql_mean": 82.0,
+    "local_mean": 1.9733,
+    "db_queries_mean": 1.5867,
+    "prompt_tokens_mean": 3314.9467,
+    "completion_tokens_mean": 159.4533,
+    "rag_correct": {
+     "n_tasks": 75,
+     "mean": 0.3867,
+     "ci95": [
+      0.28,
+      0.4933
+     ]
+    },
+    "y_accept": {
+     "n_tasks": 56,
+     "mean": 0.3929,
+     "ci95": [
+      0.2679,
+      0.5179
+     ]
+    },
+    "n_refuse": {
+     "n_tasks": 19,
+     "mean": 0.7895,
+     "ci95": [
+      0.5789,
+      0.9474
+     ]
+    },
+    "balanced_accuracy": {
+     "mean": 0.5912,
+     "ci95": [
+      0.4854,
+      0.6974
+     ],
+     "y_tasks": 56,
+     "n_tasks": 19
+    },
+    "y_gold_cited": {
+     "n_tasks": 56,
+     "mean": 0.25,
+     "ci95": [
+      0.1429,
+      0.375
+     ]
+    },
+    "y_token_f1": {
+     "n_tasks": 56,
+     "mean": 0.1143,
+     "ci95": [
+      0.0643,
+      0.1735
+     ]
+    },
+    "retrieval_y": {
+     "R@1": 0.2321,
+     "R@3": 0.2857,
+     "R@5": 0.3036,
+     "R@8": 0.3214,
+     "MRR": 0.2618,
+     "observations": 56
+    },
+    "data_correct": {
+     "n_tasks": 75,
+     "mean": 0.96,
+     "ci95": [
+      0.9067,
+      1.0
+     ]
+    },
+    "data_status_counts": {
+     "completed": 68,
+     "no_data": 7
+    },
+    "replan_rate": 0.0533,
+    "product_matches_gold_doc": {
+     "n_tasks": 54,
+     "mean": 0.7037,
+     "ci95": [
+      0.5741,
+      0.8148
+     ]
+    },
+    "related_docs_contain_gold": {
+     "n_tasks": 54,
+     "mean": 0.5,
+     "ci95": [
+      0.3704,
+      0.6296
+     ]
+    }
+   },
+   "all": {
+    "records": 150,
+    "tasks": 150,
+    "status_counts": {
+     "timeout": 5,
+     "completed": 65,
+     "no_data": 29,
+     "failed": 5,
+     "partial": 46
+    },
+    "complete_rate (status=completed; includes wrong N publications)": {
+     "n_tasks": 150,
+     "mean": 0.4333,
+     "ci95": [
+      0.3533,
+      0.5133
+     ]
+    },
+    "correct_completion": {
+     "n_tasks": 150,
+     "mean": 0.4333,
+     "ci95": [
+      0.3533,
+      0.5067
+     ]
+    },
+    "failure_rate (failed+timeout)": {
+     "n_tasks": 150,
+     "mean": 0.0667,
+     "ci95": [
+      0.0267,
+      0.1133
+     ]
+    },
+    "latency_ms": {
+     "mean": 85193.7,
+     "p50": 38500.0,
+     "p95": 295109.0
+    },
+    "llm_calls_mean": 3.3067,
+    "embedding_calls_mean": 0.0,
+    "embedding_cache_hits_mean": 30.7933,
+    "sql_mean": 60.42,
+    "local_mean": 1.9867,
+    "db_queries_mean": 0.7933,
+    "prompt_tokens_mean": 4661.5067,
+    "completion_tokens_mean": 190.0533,
+    "rag_correct": {
+     "n_tasks": 150,
+     "mean": 0.4467,
+     "ci95": [
+      0.3667,
+      0.5267
+     ]
+    },
+    "y_accept": {
+     "n_tasks": 112,
+     "mean": 0.5,
+     "ci95": [
+      0.4107,
+      0.5893
+     ]
+    },
+    "n_refuse": {
+     "n_tasks": 38,
+     "mean": 0.7105,
+     "ci95": [
+      0.5526,
+      0.8421
+     ]
+    },
+    "balanced_accuracy": {
+     "mean": 0.6053,
+     "ci95": [
+      0.5132,
+      0.6894
+     ],
+     "y_tasks": 112,
+     "n_tasks": 38
+    },
+    "y_gold_cited": {
+     "n_tasks": 112,
+     "mean": 0.3571,
+     "ci95": [
+      0.2679,
+      0.4464
+     ]
+    },
+    "y_token_f1": {
+     "n_tasks": 112,
+     "mean": 0.1482,
+     "ci95": [
+      0.1103,
+      0.1899
+     ]
+    },
+    "retrieval_y": {
+     "R@1": 0.3482,
+     "R@3": 0.4107,
+     "R@5": 0.4643,
+     "R@8": 0.5268,
+     "MRR": 0.3973,
+     "observations": 112
+    },
+    "data_correct": {
+     "n_tasks": 75,
+     "mean": 0.96,
+     "ci95": [
+      0.9067,
+      1.0
+     ]
+    },
+    "data_status_counts": {
+     "None": 75,
+     "completed": 68,
+     "no_data": 7
+    },
+    "replan_rate": 0.0267,
+    "product_matches_gold_doc": {
+     "n_tasks": 54,
+     "mean": 0.7037,
+     "ci95": [
+      0.5741,
+      0.8148
+     ]
+    },
+    "related_docs_contain_gold": {
+     "n_tasks": 54,
+     "mean": 0.5,
+     "ci95": [
+      0.3704,
+      0.6296
+     ]
+    }
+   }
+  }
+ }
+}

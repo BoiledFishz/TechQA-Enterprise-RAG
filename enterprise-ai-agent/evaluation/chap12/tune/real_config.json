@@ -1362,5 +1362,61 @@
   },
   "adopted": null,
   "rule": "and committed before the runs:\n  adopt  only v2 can be adopted (the hosted models are outside the self-deployed system and are\n         run to measure the effect of model size): eligible if, against the base, correct\n         answerable answers lost <= 3, net paired wins >= 5, failure rate not higher, and mean\n         token F1 on answerable tasks answered by both runs not lower by more than 0.05.\n  report the same paired numbers for every hosted variant (\"would pass\" is reported, not\n         adopted); and the reasons the judge and the refusal diagnostic gave."
+ },
+ "e9": {
+  "run": "tune_real_e9_e5q72",
+  "summary": {
+   "correct_all": 0.4333,
+   "failure_rate": 0.0667,
+   "y_accept": 0.5,
+   "n_refuse": 0.7105,
+   "y_gold_cited": 0.3571,
+   "latency_mean_ms": 85193.7,
+   "retrieval_y": {
+    "R@1": 0.3482,
+    "R@3": 0.4107,
+    "R@5": 0.4643,
+    "R@8": 0.5268,
+    "MRR": 0.3973,
+    "observations": 112
+   }
+  },
+  "vs_base": {
+   "base": "tune_real_e9_base",
+   "correct_answerable_lost": 19,
+   "would_pass": false,
+   "paired": {
+    "base_correct": 66,
+    "variant_correct": 65,
+    "wins": 21,
+    "losses": 22,
+    "net": -1,
+    "mcnemar_p_one_sided": 0.6196,
+    "y_token_f1_both_answered": {
+     "base": 0.3439,
+     "variant": 0.3249,
+     "tasks": 40
+    }
+   }
+  },
+  "vs_q72_other_ollama_version": {
+   "base": "tune_real_e8_q72",
+   "correct_answerable_lost": 19,
+   "would_pass": false,
+   "paired": {
+    "base_correct": 70,
+    "variant_correct": 65,
+    "wins": 17,
+    "losses": 22,
+    "net": -5,
+    "mcnemar_p_one_sided": 0.8316,
+    "y_token_f1_both_answered": {
+     "base": 0.2822,
+     "variant": 0.3001,
+     "tasks": 49
+    }
+   }
+  },
+  "rule": "and committed before the run:\n  report only: the hosted model is outside the self-deployed system, so nothing is adopted.\n  The usual rule (lost <= 3, net >= 5, failure rate not higher, token F1 drop <= 0.05) is\n  evaluated against tune_real_e8_base and reported as \"would pass\" / \"would not pass\"."
  }
 }
