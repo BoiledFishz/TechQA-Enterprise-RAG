@@ -1418,5 +1418,63 @@
    }
   },
   "rule": "and committed before the run:\n  report only: the hosted model is outside the self-deployed system, so nothing is adopted.\n  The usual rule (lost <= 3, net >= 5, failure rate not higher, token F1 drop <= 0.05) is\n  evaluated against tune_real_e8_base and reported as \"would pass\" / \"would not pass\"."
+ },
+ "e9b": {
+  "run": "tune_real_e9b_e5q72",
+  "summary": {
+   "correct_all": 0.4867,
+   "failure_rate": 0.0067,
+   "y_accept": 0.6875,
+   "n_refuse": 0.5526,
+   "y_gold_cited": 0.4911,
+   "latency_mean_ms": 23634.3,
+   "retrieval_y": {
+    "R@1": 0.4732,
+    "R@3": 0.5804,
+    "R@5": 0.6696,
+    "R@8": 0.7411,
+    "MRR": 0.5523,
+    "observations": 112
+   }
+  },
+  "tasks_with_error": 1,
+  "valid": true,
+  "vs_base": {
+   "base": "tune_real_e9_base",
+   "correct_answerable_lost": 9,
+   "would_pass": false,
+   "paired": {
+    "base_correct": 66,
+    "variant_correct": 73,
+    "wins": 20,
+    "losses": 13,
+    "net": 7,
+    "mcnemar_p_one_sided": 0.1481,
+    "y_token_f1_both_answered": {
+     "base": 0.3929,
+     "variant": 0.3634,
+     "tasks": 55
+    }
+   }
+  },
+  "vs_q72_other_ollama_version": {
+   "base": "tune_real_e8_q72",
+   "correct_answerable_lost": 9,
+   "would_pass": false,
+   "paired": {
+    "base_correct": 70,
+    "variant_correct": 73,
+    "wins": 18,
+    "losses": 15,
+    "net": 3,
+    "mcnemar_p_one_sided": 0.3642,
+    "y_token_f1_both_answered": {
+     "base": 0.3206,
+     "variant": 0.3349,
+     "tasks": 66
+    }
+   }
+  },
+  "rule": "and committed before the run:\n  valid   the run is interpretable only if at most 8 of the 150 tasks (about 5%) carry any error\n          (failed, timeout or partial with an error); otherwise it is reported as inconclusive.\n  report  only (hosted model): paired numbers against the base, and against tune_real_e8_q72\n          (72B alone, Ollama 0.40.14: across versions, labelled so); the usual rule (lost <= 3,\n          net >= 5, failure rate not higher, token F1 drop <= 0.05) as \"would pass\"."
  }
 }
