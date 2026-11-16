@@ -109,7 +109,7 @@ def build_rag_agent(settings: Settings, path: Path, override: Any | None = None,
             path, rerank=os.getenv("CHAP12_RERANKER", offline))
     else:
         model = BudgetedModel(
-            TokenMeteredOllamaModel(settings.ollama_url, settings.model, settings.llm_timeout))
+            chat_model(settings, settings.model))
         rewriter = LLMRewriter(model)
         controlled = os.getenv("TECHQA_GENERATION", "extractive") == "controlled"
         # Round 7: strict answerability selector (Project 2 subclass), only when chosen on
@@ -146,6 +146,10 @@ def build_rag_agent(settings: Settings, path: Path, override: Any | None = None,
         # Reranker chosen on the tune split (round 3); CHAP12_RERANKER always wins.
         chosen = tuned_config().get("reranker") if tuned and \
             os.getenv("CHAP12_RERANKER") is None else None
+        if override is None and os.getenv("CHAP12_ORACLE") == "1":  # E10: evaluation only
+            from agents.chap12.oracle import OracleRetrieverTool
+
+            override = OracleRetrieverTool(path, rerank="lexical")
         retriever = override or SampleRetrieverTool(
             path, rerank=None if chosen in (None, "nomic") else str(chosen),
             # Round 10 settings chosen on the tune split; env vars win inside the tool.
@@ -170,7 +174,7 @@ def build_supervisor(settings: Settings | None = None, path: Path | None = None)
     if settings.profile != "offline" and mode != "off":
         # Same model as the RAG Worker, metered against the same request budget.
         picker = ProductPicker(BudgetedModel(
-            TokenMeteredOllamaModel(settings.ollama_url, settings.model, settings.llm_timeout)))
+            chat_model(settings, settings.model)))
     database = DatabaseQueryWorker(path, statement_timeout=float(
         os.getenv("CHAP12_DB_STATEMENT_TIMEOUT", "10")), picker=picker, pick_mode=mode)
     rag = RagWorker(build_rag_agent(settings, path), timeout=limits.deadline_seconds - 5)
@@ -179,7 +183,7 @@ def build_supervisor(settings: Settings | None = None, path: Path | None = None)
     if settings.profile != "offline":
         # Same model as the RAG Worker, metered against the same request budget (round 5).
         verifier = AnswerVerifier(BudgetedModel(
-            TokenMeteredOllamaModel(settings.ollama_url, settings.model, settings.llm_timeout)))
+            chat_model(settings, settings.model)))
         verify = tuned_config().get("verifier")
         verify_min = tuned_config().get("verifier_min_score")  # graded (round 6)
     return Supervisor({"rag": rag, "database": database}, database.catalog, limits,

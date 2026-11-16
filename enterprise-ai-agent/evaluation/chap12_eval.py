@@ -376,9 +376,19 @@ async def main_async(args: argparse.Namespace) -> None:
                 for system in systems[shift:] + systems[:shift]:
                     if (system, task["task_id"], repeat) in done:
                         continue
+                    # E10: oracle retrieval hands the agent the task's gold document.
+                    oracle_token = None
+                    if os.getenv("CHAP12_ORACLE") == "1":
+                        from agents.chap12.oracle import ORACLE_DOC
+
+                        g = gold[task["task_id"]]
+                        oracle_token = ORACLE_DOC.set(
+                            g.get("document") if g.get("answerable") == "Y" else None)
                     with tracing.recording() as layers:
                         record = await (run_multi(supervisor, task) if system == "multi"
                                         else run_single(agents[system], task))
+                    if oracle_token is not None:
+                        ORACLE_DOC.reset(oracle_token)
                     record |= {"system": system, "task_id": task["task_id"],
                                "type": task["type"], "repeat": repeat}
                     record["score"] = scorer.score(task, record)
@@ -408,7 +418,8 @@ async def main_async(args: argparse.Namespace) -> None:
             "CHAP12_RERANKER", "CHAP12_RERANK_PRIOR", "CHAP12_CANDIDATE_K",
             "CHAP12_SELECTOR_MODEL", "CHAP12_JUDGE_MODEL", "CHAP12_SELECT_FALLBACK",
             "CHAP12_EVIDENCE_ORDER", "CHAP12_JUDGE_PROMPT", "CHAP12_EXPLAIN_REFUSAL",
-            "CHAP12_DEADLINE_SECONDS", "CHAP12_OPENROUTER_RETRIES", "CHAP12_OPENROUTER_TIMEOUT")},
+            "CHAP12_DEADLINE_SECONDS", "CHAP12_OPENROUTER_RETRIES", "CHAP12_OPENROUTER_TIMEOUT",
+            "CHAP12_ORACLE")},
         "budget": budget_limits().model_dump(),
         "git_commit": git_commit(), "run_metadata": meta,
         "tasks_file_sha256": __import__("hashlib").sha256(
